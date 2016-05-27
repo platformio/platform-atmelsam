@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus", 
+    "f_cpu": "48000000L", 
+    "mcu": "atsamd21j18a"
+  }, 
+  "frameworks": [
+    "mbed"
+  ], 
+  "name": "Atmel SAMD21-XPRO", 
+  "upload": {
+    "maximum_ram_size": 32768, 
+    "maximum_size": 262144
+  }, 
+  "url": "https://developer.mbed.org/platforms/SAMD21-XPRO/", 
+  "vendor": "Atmel"
+}
