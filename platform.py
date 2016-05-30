@@ -22,8 +22,8 @@ class AtmelsamPlatform(BasePlatform):
             disable_tool = "tool-openocd"
             if variables.get("board") == "zero":
                 disable_tool = "tool-bossac"
-            if disable_tool in self.get_packages():
-                del self.get_packages()[disable_tool]
+            if disable_tool in self.packages:
+                del self.packages[disable_tool]
 
         return BasePlatform.configure_default_packages(
             self, variables, targets)
