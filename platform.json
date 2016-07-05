@@ -44,7 +44,7 @@
     "framework-arduinosam": {
       "type": "framework",
       "optional": true,
-      "version": "~1.10607.0"
+      "version": "~1.10608.0"
     },
     "framework-mbed": {
       "type": "framework",
@@ -59,7 +59,7 @@
     "tool-bossac": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.10500.0"
+      "version": "~1.10601.0"
     },
     "tool-openocd": {
       "type": "uploader",
