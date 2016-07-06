@@ -25,14 +25,6 @@ from platformio.util import get_serialports
 
 
 def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
-    board_type = env.subst("$BOARD")
-    if "zero" not in board_type:
-        env.Append(
-            UPLOADERFLAGS=[
-                "-U",
-                "true" if ("usb" in board_type.lower(
-                ) or board_type == "digix") else "false"
-            ])
 
     upload_options = {}
     if "BOARD" in env:
@@ -50,11 +42,13 @@ def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
         env.Replace(UPLOAD_PORT=env.WaitForNewSerialPort(before_ports))
 
     # use only port name for BOSSA
-    if "/" in env.subst("$UPLOAD_PORT"):
+    if ("/" in env.subst("$UPLOAD_PORT") and
+            env.subst("$UPLOAD_PROTOCOL") == "sam-ba"):
         env.Replace(UPLOAD_PORT=basename(env.subst("$UPLOAD_PORT")))
 
 
 env = DefaultEnvironment()
+platform = env.DevPlatform()
 
 env.Replace(
     AR="arm-none-eabi-ar",
@@ -80,6 +74,7 @@ env.Replace(
         "-fdata-sections",
         "-Wall",
         "-mthumb",
+        "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
         "-nostdlib",
         "--param", "max-inline-insns-single=500"
     ],
@@ -100,6 +95,7 @@ env.Replace(
         "-Os",
         "-Wl,--gc-sections,--relax",
         "-mthumb",
+        "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
         "-Wl,--check-sections",
         "-Wl,--unresolved-symbols=report-all",
         "-Wl,--warn-common",
@@ -113,16 +109,6 @@ env.Replace(
     PROGNAME="firmware",
     PROGSUFFIX=".elf"
 )
-
-if "BOARD" in env:
-    env.Append(
-        CCFLAGS=[
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
-        ],
-        LINKFLAGS=[
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
-        ]
-    )
 
 env.Append(
     ASFLAGS=env.get("CCFLAGS", [])[:],
@@ -151,29 +137,68 @@ env.Append(
     )
 )
 
-if env.subst("$BOARD") == "zero":
+build_mcu = env.BoardConfig().get("build.mcu", "")
+upload_protocol = env.BoardConfig().get("upload.protocol", "")
+user_code_section = env.BoardConfig().get("upload.section_start", "")
+
+if user_code_section:
+    env.Append(
+        CPPDEFINES=[
+            "printf=iprintf"
+        ],
+
+        LINKFLAGS=[
+            "-Wl,--entry=Reset_Handler",
+            "-Wl,--section-start=.text=%s" % user_code_section
+        ]
+    )
+
+if "sam3x8e" in build_mcu:
+    env.Append(
+        CPPDEFINES=[
+            "printf=iprintf"
+        ],
+
+        LINKFLAGS=[
+            "-Wl,--entry=Reset_Handler",
+            "-Wl,--start-group"
+        ]
+
+    )
+elif "samd" in build_mcu:
+    env.Append(
+        LINKFLAGS=[
+            "--specs=nosys.specs",
+            "--specs=nano.specs"
+        ]
+    )
+
+if upload_protocol == "openocd":
     env.Replace(
         UPLOADER="openocd",
         UPLOADERFLAGS=[
             "-d2",
             "-s",
-            join(env.DevPlatform().get_package_dir("tool-openocd") or "",
+            join(platform.get_package_dir("tool-openocd") or "",
                  "share", "openocd", "scripts"),
             "-f",
             join(
-                env.DevPlatform().get_package_dir(
-                    "framework-arduinosam") or "",
+                platform.get_package_dir("framework-arduinosam") or "",
                 "variants", env.BoardConfig().get("build.variant"),
                 "openocd_scripts",
                 "%s.cfg" % env.BoardConfig().get("build.variant")
             ),
             "-c", "\"telnet_port", "disabled;",
             "program", "{{$SOURCES}}",
-            "verify", "reset", "0x00002000;", "shutdown\""
+            "verify", "reset",
+            "%s;" % user_code_section if user_code_section else "0x2000",
+            "shutdown\""
         ],
+
         UPLOADCMD='$UPLOADER $UPLOADERFLAGS'
     )
-else:
+
+elif upload_protocol == "sam-ba":
     env.Replace(
         UPLOADER="bossac",
         UPLOADERFLAGS=[
@@ -183,33 +208,34 @@ else:
             "--write",
             "--verify",
             "--reset",
-            "--debug"
+            "--debug",
+            "-U",
+            "true" if ("usb" in env.subst("$BOARD").lower(
+            ) or env.subst("$BOARD") == "digix") else "false"
         ],
-        UPLOADCMD='$UPLOADER $UPLOADERFLAGS $SOURCES'
+
+        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS $SOURCES'
     )
 
-if "BOARD" in env and "sam3x8e" in env.BoardConfig().get("build.mcu", ""):
-    env.Append(
-        CPPDEFINES=[
-            "printf=iprintf"
-        ],
+    if "sam3x8e" in build_mcu:
+        env.Append(UPLOADERFLAGS=["--boot"])
 
-        LINKFLAGS=[
-            "-Wl,--entry=Reset_Handler",
-            "-Wl,--start-group"
-        ],
-
+elif upload_protocol == "stk500v2":
+    env.Replace(
+        UPLOADER="avrdude",
         UPLOADERFLAGS=[
-            "--boot",
-        ]
+            "-v",
+            "-p", "atmega2560",  # Arduino M0/Tian upload hook
+            "-C",
+            '"%s"' % join(
+                platform.get_package_dir("tool-avrdude") or "",
+                "avrdude.conf"),
+            "-c", "$UPLOAD_PROTOCOL",
+            "-P", '"$UPLOAD_PORT"',
+            "-b", "$UPLOAD_SPEED"
+        ],
 
-    )
-elif "zero" in env.subst("$BOARD"):
-    env.Append(
-        LINKFLAGS=[
-            "--specs=nosys.specs",
-            "--specs=nano.specs"
-        ]
+        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS -U flash:w:$SOURCES:i'
     )
 
 #
@@ -224,6 +250,8 @@ target_elf = env.BuildProgram()
 
 if "uploadlazy" in COMMAND_LINE_TARGETS:
     target_firm = join("$BUILD_DIR", "firmware.bin")
+elif upload_protocol == "stk500v2":
+    target_firm = env.ElfToHex(join("$BUILD_DIR", "firmware"), target_elf)
 else:
     target_firm = env.ElfToBin(join("$BUILD_DIR", "firmware"), target_elf)
 
@@ -238,7 +266,7 @@ AlwaysBuild(target_size)
 # Target: Upload by default .bin file
 #
 
-if env.subst("$BOARD") == "zero":
+if upload_protocol == "openocd":
     upload = env.Alias(["upload", "uploadlazy"], target_firm, "$UPLOADCMD")
 else:
     upload = env.Alias(

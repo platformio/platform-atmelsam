@@ -56,6 +56,11 @@
       "optional": true,
       "version": "~1.500.0"
     },
+    "tool-avrdude": {
+      "type": "uploader",
+      "optional": true,
+      "version": "~1.60001.0"
+    },
     "tool-bossac": {
       "type": "uploader",
       "optional": true,

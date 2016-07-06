@@ -6,32 +6,32 @@
     "f_cpu": "48000000L", 
     "hwids": [
       [
-        "0x2341", 
-        "0x804D"
+        "0x1B4F", 
+        "0x8D21"
       ], 
       [
-        "0x03EB", 
-        "0x2157"
+        "0x1B4F", 
+        "0x0D21"
       ]
     ], 
     "ldscript": "flash_with_bootloader.ld", 
     "mcu": "samd21g18a", 
-    "usb_product": "Arduino Zero", 
-    "variant": "arduino_zero"
+    "usb_product": "SparkFun SAMD21", 
+    "variant": "SparkFun_SAMD_Mini"
   }, 
   "frameworks": [
     "arduino"
   ], 
-  "name": "Arduino Zero (Programming Port)", 
+  "name": "SparkFun SAMD21 Mini Breakout", 
   "upload": {
     "disable_flushing": true, 
     "maximum_ram_size": 32768, 
     "maximum_size": 262144, 
-    "protocol": "openocd", 
-    "require_upload_port": false, 
-    "use_1200bps_touch": false, 
-    "wait_for_upload_port": false
+    "protocol": "sam-ba", 
+    "require_upload_port": true, 
+    "use_1200bps_touch": true, 
+    "wait_for_upload_port": true
   }, 
-  "url": "https://www.arduino.cc/en/Main/ArduinoBoardZero", 
-  "vendor": "Arduino"
+  "url": "https://www.sparkfun.com/products/13664", 
+  "vendor": "SparkFun"
 }

@@ -1,0 +1,47 @@
+{
+  "build": {
+    "core": "arduino_zero", 
+    "cpu": "cortex-m0plus", 
+    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__", 
+    "f_cpu": "48000000L", 
+    "hwids": [
+      [
+        "0x2A03", 
+        "0x004D"
+      ], 
+      [
+        "0x2A03", 
+        "0x804D"
+      ], 
+      [
+        "0x2A03", 
+        "0x004F"
+      ], 
+      [
+        "0x2A03", 
+        "0x804F"
+      ]
+    ], 
+    "ldscript": "samd21g18a_bootloader_org.ld", 
+    "mcu": "samd21g18a", 
+    "usb_product": "Arduino M0 Pro", 
+    "variant": "arduino_zero"
+  }, 
+  "frameworks": [
+    "arduino"
+  ], 
+  "name": "Arduino M0 Pro (Native USB Port)", 
+  "upload": {
+    "disable_flushing": true, 
+    "maximum_ram_size": 32768, 
+    "maximum_size": 262144, 
+    "protocol": "stk500v2", 
+    "require_upload_port": true, 
+    "section_start": "0x4000", 
+    "speed": 57600, 
+    "use_1200bps_touch": true, 
+    "wait_for_upload_port": true
+  }, 
+  "url": "http://www.arduino.org/products/boards/arduino-m0-pro", 
+  "vendor": "Arduino"
+}
