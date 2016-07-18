@@ -1,31 +1,23 @@
 {
   "build": {
-    "core": "arduino_zero", 
+    "core": "arduino_zero_org", 
     "cpu": "cortex-m0plus", 
     "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__", 
     "f_cpu": "48000000L", 
     "hwids": [
       [
         "0x2A03", 
-        "0x004D"
-      ], 
-      [
-        "0x2A03", 
-        "0x804D"
+        "0x804E"
       ], 
       [
         "0x2A03", 
         "0x004E"
-      ], 
-      [
-        "0x2A03", 
-        "0x804E"
       ]
     ], 
     "ldscript": "samd21g18a_bootloader_org.ld", 
     "mcu": "samd21g18a", 
     "usb_product": "Arduino M0", 
-    "variant": "arduino_zero"
+    "variant": "arduino_zero_org"
   }, 
   "frameworks": [
     "arduino"
