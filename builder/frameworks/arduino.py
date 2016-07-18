@@ -70,11 +70,21 @@ env.Append(
 
 env.VariantDirWrap(
     join("$BUILD_DIR", "FrameworkCMSISInc"),
-    join(FRAMEWORK_DIR, "system", "CMSIS", "CMSIS", "Include")
+    join(
+        FRAMEWORK_DIR, "system",
+        "CMSIS%s" % ("_ORG" if env.BoardConfig().get(
+            "build.core", "").endswith("_org") else ""),
+        "CMSIS", "Include"
+    )
 )
 env.VariantDirWrap(
     join("$BUILD_DIR", "FrameworkDeviceInc"),
-    join(FRAMEWORK_DIR, "system", "CMSIS", "Device", "ATMEL")
+    join(
+        FRAMEWORK_DIR, "system",
+        "CMSIS%s" % ("_ORG" if env.BoardConfig().get(
+            "build.core", "").endswith("_org") else ""),
+        "Device", "ATMEL"
+    )
 )
 env.VariantDirWrap(
     join("$BUILD_DIR", "FrameworkLibSam"),
