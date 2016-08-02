@@ -19,6 +19,9 @@
     "usb_product": "Arduino M0 Pro", 
     "variant": "arduino_zero_org"
   }, 
+  "debug": {
+    "openocdcfg": "arduino_zero_org.cfg"
+  }, 
   "frameworks": [
     "arduino"
   ], 

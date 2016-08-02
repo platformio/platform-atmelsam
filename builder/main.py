@@ -178,24 +178,34 @@ if upload_protocol == "openocd":
         UPLOADER="openocd",
         UPLOADERFLAGS=[
             "-d2",
-            "-s",
-            join(platform.get_package_dir("tool-openocd") or "",
-                 "share", "openocd", "scripts"),
-            "-f",
-            join(
-                platform.get_package_dir("framework-arduinosam") or "",
-                "variants", env.BoardConfig().get("build.variant"),
-                "openocd_scripts",
-                "%s.cfg" % env.BoardConfig().get("build.variant")
-            ),
+            "-f", join(env.BoardConfig().get("debug.openocdcfg", "")),
+            "-s", join(platform.get_package_dir("tool-openocd") or "",
+                       "share", "openocd", "scripts"),
+            "-s", join(platform.get_package_dir("tool-openocd") or "",
+                       "share", "openocd", "scripts", "board")
+        ],
+
+        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'
+    )
+
+    if "zero" in env.subst("$BOARD"):
+        env.Append(
+            UPLOADERFLAGS=[
+                "-s", join(
+                    platform.get_package_dir("framework-arduinosam") or "",
+                    "variants", env.BoardConfig().get("build.variant"),
+                    "openocd_scripts")
+            ]
+        )
+
+    env.Append(
+        UPLOADERFLAGS=[
             "-c", "\"telnet_port", "disabled;",
             "program", "{{$SOURCES}}",
             "verify", "reset",
-            "%s;" % user_code_section if user_code_section else "0x2000",
+            "%s;" % user_code_section if user_code_section else "",
             "shutdown\""
-        ],
-
-        UPLOADCMD='$UPLOADER $UPLOADERFLAGS'
+        ]
     )
 
 elif upload_protocol == "sam-ba":

@@ -4,13 +4,17 @@
     "f_cpu": "48000000L", 
     "mcu": "atsamr21g18a"
   }, 
+  "debug": {
+    "openocdcfg": "atmel_samr21_xplained_pro.cfg"
+  }, 
   "frameworks": [
     "mbed"
   ], 
   "name": "Atmel ATSAMR21-XPRO", 
   "upload": {
     "maximum_ram_size": 32768, 
-    "maximum_size": 262144
+    "maximum_size": 262144, 
+    "protocol": "openocd"
   }, 
   "url": "https://developer.mbed.org/platforms/SAMR21-XPRO/", 
   "vendor": "Atmel"
