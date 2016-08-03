@@ -48,7 +48,7 @@ def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
 
 
 env = DefaultEnvironment()
-platform = env.DevPlatform()
+platform = env.PioPlatform()
 
 env.Replace(
     AR="arm-none-eabi-ar",
