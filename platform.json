@@ -54,7 +54,7 @@
     "framework-simba": {
       "type": "framework",
       "optional": true,
-      "version": "~1.500.0"
+      "version": "^1.500.0"
     },
     "tool-avrdude": {
       "type": "uploader",
