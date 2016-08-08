@@ -177,12 +177,13 @@ if upload_protocol == "openocd":
     env.Replace(
         UPLOADER="openocd",
         UPLOADERFLAGS=[
-            "-d2",
             "-f", join(env.BoardConfig().get("debug.openocdcfg", "")),
-            "-s", join(platform.get_package_dir("tool-openocd") or "",
-                       "share", "openocd", "scripts"),
-            "-s", join(platform.get_package_dir("tool-openocd") or "",
-                       "share", "openocd", "scripts", "board")
+            "-s", '"%s"' % join(
+                platform.get_package_dir("tool-openocd") or "",
+                "share", "openocd", "scripts"),
+            "-s", '"%s"' % join(
+                platform.get_package_dir("tool-openocd") or "",
+                "share", "openocd", "scripts", "board")
         ],
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'
@@ -191,7 +192,7 @@ if upload_protocol == "openocd":
     if "zero" in env.subst("$BOARD"):
         env.Append(
             UPLOADERFLAGS=[
-                "-s", join(
+                "-s", '"%s"' % join(
                     platform.get_package_dir("framework-arduinosam") or "",
                     "variants", env.BoardConfig().get("build.variant"),
                     "openocd_scripts")
@@ -200,11 +201,9 @@ if upload_protocol == "openocd":
 
     env.Append(
         UPLOADERFLAGS=[
-            "-c", "\"telnet_port", "disabled;",
-            "program", "{{$SOURCES}}",
-            "verify", "reset",
-            "%s;" % user_code_section if user_code_section else "",
-            "shutdown\""
+            "-c", ("telnet_port disabled; program {{$SOURCES}} "
+                   "verify reset %s; shutdown" % (
+                       user_code_section if user_code_section else ""))
         ]
     )
 
