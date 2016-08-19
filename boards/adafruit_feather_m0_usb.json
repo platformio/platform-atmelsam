@@ -1,6 +1,6 @@
 {
   "build": {
-    "core": "arduino_zero", 
+    "core": "adafruit_feather_m0", 
     "cpu": "cortex-m0plus", 
     "extra_flags": "-DARDUINO_SAMD_FEATHER_M0 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__", 
     "f_cpu": "48000000L", 
@@ -17,7 +17,7 @@
     "ldscript": "flash_with_bootloader.ld", 
     "mcu": "samd21g18a", 
     "usb_product": "Adafruit Feather M0", 
-    "variant": "arduino_zero"
+    "variant": "adafruit_feather_m0"
   }, 
   "frameworks": [
     "arduino"
