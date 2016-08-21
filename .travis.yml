@@ -1,19 +1,28 @@
 language: python
 python:
-    - "2.7"
+  - "2.7"
 
 env:
-    - PLATFORMIO_PROJECT_DIR=examples/arduino-blink
-    - PLATFORMIO_PROJECT_DIR=examples/arduino-external-libs
-    - PLATFORMIO_PROJECT_DIR=examples/arduino-internal-libs
-    - PLATFORMIO_PROJECT_DIR=examples/mbed-blink
-    - PLATFORMIO_PROJECT_DIR=examples/mbed-dsp
-    - PLATFORMIO_PROJECT_DIR=examples/mbed-serial
-    - PLATFORMIO_PROJECT_DIR=examples/simba-blink
+  - PLATFORMIO_PROJECT_DIR=examples/arduino-blink
+  - PLATFORMIO_PROJECT_DIR=examples/arduino-external-libs
+  - PLATFORMIO_PROJECT_DIR=examples/arduino-internal-libs
+  - PLATFORMIO_PROJECT_DIR=examples/mbed-blink
+  - PLATFORMIO_PROJECT_DIR=examples/mbed-dsp
+  - PLATFORMIO_PROJECT_DIR=examples/mbed-serial
+  - PLATFORMIO_PROJECT_DIR=examples/simba-blink
 
 install:
-    - pip install -U https://github.com/platformio/platformio/archive/develop.zip
-    - platformio platform install file://.
+  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - platformio platform install file://.
 
 script:
-    - platformio run -d $PLATFORMIO_PROJECT_DIR
+  - platformio run -d $PLATFORMIO_PROJECT_DIR
+
+notifications:
+  email: false
+
+  slack:
+    rooms:
+      secure: d3CSi7ouJqy7g6fVdKIWWIVFRwf/sTGEIOhnUaHfjO/zEX76Z1DXqKH36XjKo27um8l7D/98PFeZbV61pOIxjBeNZmcegihHhL5FDXVyCXcssx8Jx++eUBG139KI+vJA4Xxktlv+oh7qfCG05I8U5CrZNLF/Lsu33alKHqcQgLu16qXT5t8ZNgKjsSlMi8fpBSUoiadYDlNRoB9EoS8043Rfw+1CfCbcL4rcsmtVd4eQwAxr7oynnJfbnC3YDOzWIwkLa49gSCbVszx/XeMRLWFaj4HBYbcg6vDSwetq7UOrE7ZK7R/5JWlo96D76/BG4mm1lNiS2dK4g8RMS4BQoFwGw0kdv/j42+l4kJoESlX3W6aRL6E13BG4moTeA/rgXVwnmmAe04+rctyQgvNva7wJeh9j5QSnIzNT3e+54tj1gf6XUERCbRgFEQBGfOvRK+x4hFiACIsz4J+7b3ztqGZ2lUhLUM4Bq0+S+ZkYcBBizcgpT1HCnIiTJI5Lj79li2+aFkrX/VzLpi48odyMQoFsKqeqmM7lXhshCl0lFcDdJt4NOk4fMRJO9pNwHzIX6Fe6svHNQWp6dPD3X+ZM0SnkWJU1LcfRGKO3v1/+e85iLjC2qE0DXLrEOCenHb0dn/pQTnF0bmn88xwU0J4ClYJ4sjW662yHCIx8i7NmALw=
+    on_failure: always
+    on_success: change

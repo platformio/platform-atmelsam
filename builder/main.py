@@ -211,13 +211,11 @@ elif upload_protocol == "sam-ba":
     env.Replace(
         UPLOADER="bossac",
         UPLOADERFLAGS=[
-            "--info",
             "--port", '"$UPLOAD_PORT"',
             "--erase",
             "--write",
             "--verify",
             "--reset",
-            "--debug",
             "-U",
             "true" if ("usb" in env.subst("$BOARD").lower(
             ) or env.subst("$BOARD") == "digix") else "false"
@@ -225,6 +223,8 @@ elif upload_protocol == "sam-ba":
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS $SOURCES'
     )
+    if not env.GetOption("silent"):
+        env.Prepend(UPLOADERFLAGS=["--info", "--debug"])
 
     if "sam3x8e" in build_mcu:
         env.Append(UPLOADERFLAGS=["--boot"])
@@ -233,7 +233,6 @@ elif upload_protocol == "stk500v2":
     env.Replace(
         UPLOADER="avrdude",
         UPLOADERFLAGS=[
-            "-v",
             "-p", "atmega2560",  # Arduino M0/Tian upload hook
             "-C",
             '"%s"' % join(
@@ -246,6 +245,8 @@ elif upload_protocol == "stk500v2":
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS -U flash:w:$SOURCES:i'
     )
+    if not env.GetOption("silent"):
+        env.Prepend(UPLOADERFLAGS=["-v"])
 
 #
 # Target: Build executable and linkable firmware
