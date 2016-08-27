@@ -18,13 +18,14 @@
 
 from os.path import basename, join
 
-from SCons.Script import (COMMAND_LINE_TARGETS, AlwaysBuild, Builder, Default,
-                          DefaultEnvironment)
+from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
+                          Builder, Default, DefaultEnvironment)
 
 from platformio.util import get_serialports
 
 
 def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
+    env.AutodetectUploadPort()
 
     upload_options = {}
     if "BOARD" in env:
@@ -115,23 +116,25 @@ env.Append(
 
     BUILDERS=dict(
         ElfToBin=Builder(
-            action=" ".join([
+            action=env.VerboseAction(" ".join([
                 "$OBJCOPY",
                 "-O",
                 "binary",
                 "$SOURCES",
-                "$TARGET"]),
+                "$TARGET"
+            ]), "Building $TARGET"),
             suffix=".bin"
         ),
         ElfToHex=Builder(
-            action=" ".join([
+            action=env.VerboseAction(" ".join([
                 "$OBJCOPY",
                 "-O",
                 "ihex",
                 "-R",
                 ".eeprom",
                 "$SOURCES",
-                "$TARGET"]),
+                "$TARGET"
+            ]), "Building $TARGET"),
             suffix=".hex"
         )
     )
@@ -223,7 +226,7 @@ elif upload_protocol == "sam-ba":
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS $SOURCES'
     )
-    if not env.GetOption("silent"):
+    if int(ARGUMENTS.get("PIOVERBOSE", 0)):
         env.Prepend(UPLOADERFLAGS=["--info", "--debug"])
 
     if "sam3x8e" in build_mcu:
@@ -245,7 +248,7 @@ elif upload_protocol == "stk500v2":
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS -U flash:w:$SOURCES:i'
     )
-    if not env.GetOption("silent"):
+    if int(ARGUMENTS.get("PIOVERBOSE", 0)):
         env.Prepend(UPLOADERFLAGS=["-v"])
 
 #
@@ -269,7 +272,9 @@ else:
 # Target: Print binary size
 #
 
-target_size = env.Alias("size", target_elf, "$SIZEPRINTCMD")
+target_size = env.Alias(
+    "size", target_elf,
+    env.VerboseAction("$SIZEPRINTCMD", "Calculating size $SOURCE"))
 AlwaysBuild(target_size)
 
 #
@@ -277,11 +282,13 @@ AlwaysBuild(target_size)
 #
 
 if upload_protocol == "openocd":
-    upload = env.Alias(["upload", "uploadlazy"], target_firm, "$UPLOADCMD")
+    upload = env.Alias(["upload", "uploadlazy"], target_firm,
+                       env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
 else:
     upload = env.Alias(
         ["upload", "uploadlazy"], target_firm,
-        [env.AutodetectUploadPort, BeforeUpload, "$UPLOADCMD"])
+        [env.VerboseAction(BeforeUpload, "Looking for upload port..."),
+         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")])
 
 AlwaysBuild(upload)
 
