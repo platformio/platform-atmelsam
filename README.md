@@ -16,5 +16,5 @@ Atmel | SMART offers Flash- based ARM products based on the ARM Cortex-M0+, Cort
 > platformio platform install atmelsam
 
 # install development version
-> platformio platform install https://github.com/platformio/platform-atmelsam/archive/develop.zip
+> platformio platform install https://github.com/platformio/platform-atmelsam.git
 ```
