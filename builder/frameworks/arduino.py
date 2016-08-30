@@ -36,6 +36,8 @@ assert isdir(FRAMEWORK_DIR)
 
 ARDUINO_VERSION = int(
     open(join(FRAMEWORK_DIR, "version.txt")).read().replace(".", "").strip())
+CMSIS_DIRNAME = "CMSIS%s" % (
+    "_ORG" if env.BoardConfig().get("build.core", "").endswith("_org") else "")
 
 # USB flags
 ARDUINO_USBDEFINES = ["ARDUINO=%s" % FRAMEWORK_VERSION.split(".")[1]]
@@ -53,13 +55,13 @@ env.Append(
     CPPDEFINES=ARDUINO_USBDEFINES,
 
     CPPPATH=[
-        join("$BUILD_DIR", "FrameworkArduino"),
-        join("$BUILD_DIR", "FrameworkCMSISInc"),
-        join("$BUILD_DIR", "FrameworkLibSam"),
-        join("$BUILD_DIR", "FrameworkLibSam", "include"),
-        join("$BUILD_DIR", "FrameworkDeviceInc"),
-        join("$BUILD_DIR", "FrameworkDeviceInc",
-             env.BoardConfig().get("build.mcu", "")[3:], "include")
+        join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core")),
+        join(FRAMEWORK_DIR, "system", CMSIS_DIRNAME, "CMSIS", "Include"),
+        join(FRAMEWORK_DIR, "system", "libsam"),
+        join(FRAMEWORK_DIR, "system", "libsam", "include"),
+        join(FRAMEWORK_DIR, "system", CMSIS_DIRNAME, "Device", "ATMEL"),
+        join(FRAMEWORK_DIR, "system", CMSIS_DIRNAME, "Device", "ATMEL",
+             env.BoardConfig().get("build.mcu", "")[3:], "include"),
     ],
 
     LIBPATH=[
@@ -67,35 +69,6 @@ env.Append(
              env.BoardConfig().get("build.variant"), "linker_scripts", "gcc")
     ]
 )
-
-env.VariantDirWrap(
-    join("$BUILD_DIR", "FrameworkCMSISInc"),
-    join(
-        FRAMEWORK_DIR, "system",
-        "CMSIS%s" % ("_ORG" if env.BoardConfig().get(
-            "build.core", "").endswith("_org") else ""),
-        "CMSIS", "Include"
-    )
-)
-env.VariantDirWrap(
-    join("$BUILD_DIR", "FrameworkDeviceInc"),
-    join(
-        FRAMEWORK_DIR, "system",
-        "CMSIS%s" % ("_ORG" if env.BoardConfig().get(
-            "build.core", "").endswith("_org") else ""),
-        "Device", "ATMEL"
-    )
-)
-env.VariantDirWrap(
-    join("$BUILD_DIR", "FrameworkLibSam"),
-    join(FRAMEWORK_DIR, "system", "libsam")
-)
-
-env.VariantDirWrap(
-    join("$BUILD_DIR", "FrameworkArduinoInc"),
-    join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core"))
-)
-
 
 # search relative includes in lib SAM directories
 core_dir = join(FRAMEWORK_DIR, "system", "libsam")
@@ -139,7 +112,8 @@ libs = []
 if "build.variant" in env.BoardConfig():
     env.Append(
         CPPPATH=[
-            join("$BUILD_DIR", "FrameworkArduinoVariant")
+            join(FRAMEWORK_DIR, "variants",
+                 env.BoardConfig().get("build.variant"))
         ]
     )
     libs.append(env.BuildLibrary(
