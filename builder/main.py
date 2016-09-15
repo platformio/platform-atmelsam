@@ -181,10 +181,10 @@ if upload_protocol == "openocd":
         UPLOADER="openocd",
         UPLOADERFLAGS=[
             "-f", join(env.BoardConfig().get("debug.openocdcfg", "")),
-            "-s", '"%s"' % join(
+            "-s", join(
                 platform.get_package_dir("tool-openocd") or "",
                 "share", "openocd", "scripts"),
-            "-s", '"%s"' % join(
+            "-s", join(
                 platform.get_package_dir("tool-openocd") or "",
                 "share", "openocd", "scripts", "board")
         ],
@@ -195,7 +195,7 @@ if upload_protocol == "openocd":
     if "zero" in env.subst("$BOARD"):
         env.Append(
             UPLOADERFLAGS=[
-                "-s", '"%s"' % join(
+                "-s", join(
                     platform.get_package_dir("framework-arduinosam") or "",
                     "variants", env.BoardConfig().get("build.variant"),
                     "openocd_scripts")
@@ -237,8 +237,7 @@ elif upload_protocol == "stk500v2":
         UPLOADER="avrdude",
         UPLOADERFLAGS=[
             "-p", "atmega2560",  # Arduino M0/Tian upload hook
-            "-C",
-            '"%s"' % join(
+            "-C", join(
                 platform.get_package_dir("tool-avrdude") or "",
                 "avrdude.conf"),
             "-c", "$UPLOAD_PROTOCOL",
