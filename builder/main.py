@@ -262,7 +262,7 @@ else:
         target_firm = env.ElfToBin(join("$BUILD_DIR", "firmware"), target_elf)
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
-target_buildprog = env.Alias("buildprog", target_firm)
+target_buildprog = env.Alias("buildprog", target_firm, target_firm)
 
 #
 # Target: Print binary size
@@ -278,14 +278,14 @@ AlwaysBuild(target_size)
 #
 
 if upload_protocol == "openocd":
-    target_upload = env.Alias("upload", target_firm,
-                       env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
+    target_upload = env.Alias(
+        "upload", target_firm,
+        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
 else:
     target_upload = env.Alias(
         "upload", target_firm,
         [env.VerboseAction(BeforeUpload, "Looking for upload port..."),
          env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")])
-
 AlwaysBuild(target_upload)
 
 #

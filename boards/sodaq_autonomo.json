@@ -1,0 +1,37 @@
+{
+  "build": {
+    "core": "arduino_zero",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-D__SAMD21J18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_AUTONOMO",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2341",
+        "0x804d"
+      ],
+      [
+        "0x2341",
+        "0x004d"
+      ]
+    ],
+    "ldscript": "flash_with_bootloader.ld",
+    "mcu": "samd21j18a",
+    "usb_product": "SODAQ Autonomo",
+    "variant": "sodaq_autonomo"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "SODAQ Autonomo",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "protocol": "sam-ba",
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "http://support.sodaq.com/sodaq-one/autonomо/getting-started-autonomo/",
+  "vendor": "SODAQ"
+}
