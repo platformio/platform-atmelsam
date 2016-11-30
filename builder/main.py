@@ -84,7 +84,7 @@ env.Replace(
     ],
 
     CPPDEFINES=[
-        "F_CPU=$BOARD_F_CPU",
+        ("F_CPU", "$BOARD_F_CPU"),
         "USBCON"
     ],
 
@@ -143,7 +143,7 @@ user_code_section = env.BoardConfig().get("upload.section_start", "")
 if user_code_section:
     env.Append(
         CPPDEFINES=[
-            "printf=iprintf"
+            ("printf", "iprintf")
         ],
 
         LINKFLAGS=[
@@ -155,7 +155,7 @@ if user_code_section:
 if "sam3x8e" in build_mcu:
     env.Append(
         CPPDEFINES=[
-            "printf=iprintf"
+            ("printf", "iprintf")
         ],
 
         LINKFLAGS=[
