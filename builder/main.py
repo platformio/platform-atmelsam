@@ -136,8 +136,9 @@ env.Append(
     )
 )
 
-build_mcu = env.BoardConfig().get("build.mcu", "")
-upload_protocol = env.BoardConfig().get("upload.protocol", "")
+build_mcu = env.get("BOARD_MCU", env.BoardConfig().get("build.mcu", ""))
+upload_protocol = env.get("UPLOAD_PROTOCOL",
+                          env.BoardConfig().get("upload.protocol", ""))
 user_code_section = env.BoardConfig().get("upload.section_start", "")
 
 if user_code_section:
