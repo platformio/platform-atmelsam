@@ -19,8 +19,10 @@ class AtmelsamPlatform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         if variables.get("board"):
-            upload_protocol = self.board_config(variables.get("board")).get(
-                "upload.protocol", "")
+            upload_protocol = variables.get(
+                "upload_protocol",
+                self.board_config(variables.get("board")).get(
+                    "upload.protocol", ""))
             upload_tool = None
             if upload_protocol == "openocd":
                 upload_tool = "tool-openocd"
@@ -36,5 +38,5 @@ class AtmelsamPlatform(PlatformBase):
                     if name != upload_tool:
                         del self.packages[name]
 
-        return PlatformBase.configure_default_packages(
-            self, variables, targets)
+        return PlatformBase.configure_default_packages(self, variables,
+                                                       targets)
