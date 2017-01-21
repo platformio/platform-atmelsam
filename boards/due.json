@@ -1,38 +1,42 @@
 {
   "build": {
-    "core": "arduino", 
-    "cpu": "cortex-m3", 
-    "extra_flags": "-D__SAM3X8E__ -DARDUINO_SAM_DUE -DARDUINO_ARCH_SAM", 
-    "f_cpu": "84000000L", 
+    "core": "arduino_sam",
+    "cpu": "cortex-m3",
+    "extra_flags": "-D__SAM3X8E__ -DARDUINO_ARCH_SAM -DARDUINO_SAM_DUE",
+    "f_cpu": "84000000L",
     "hwids": [
       [
-        "0x2341", 
-        "0x003D"
-      ], 
+        "0x2341",
+        "0x003E"
+      ],
       [
-        "0x2A03", 
+        "0x2341",
+        "0x003D"
+      ],
+      [
+        "0x2A03",
         "0x003D"
       ]
-    ], 
-    "ldscript": "sam3x8e.ld", 
-    "mcu": "sam3x8e", 
-    "usb_product": "Arduino Due", 
+    ],
+    "ldscript": "flash.ld",
+    "mcu": "at91sam3x8e",
+    "usb_product": "Arduino Due",
     "variant": "arduino_due_x"
-  }, 
+  },
   "frameworks": [
-    "arduino", 
+    "arduino",
     "simba"
-  ], 
-  "name": "Arduino Due (Programming Port)", 
+  ],
+  "name": "Arduino Due (Programming Port)",
   "upload": {
-    "disable_flushing": true, 
-    "maximum_ram_size": 32768, 
-    "maximum_size": 524288, 
-    "protocol": "sam-ba", 
-    "require_upload_port": true, 
-    "use_1200bps_touch": true, 
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 524288,
+    "protocol": "sam-ba",
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
     "wait_for_upload_port": false
-  }, 
-  "url": "http://www.arduino.org/products/boards/4-arduino-boards/arduino-due", 
+  },
+  "url": "http://www.arduino.org/products/boards/4-arduino-boards/arduino-due",
   "vendor": "Arduino"
 }

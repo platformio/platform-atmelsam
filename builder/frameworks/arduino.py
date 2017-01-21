@@ -22,8 +22,7 @@ kinds of creative coding, interactive objects, spaces or physical experiences.
 http://arduino.cc/en/Reference/HomePage
 """
 
-from os import walk
-from os.path import isdir, isfile, join
+from os.path import isdir, join
 
 from SCons.Script import DefaultEnvironment
 
@@ -31,13 +30,10 @@ env = DefaultEnvironment()
 platform = env.PioPlatform()
 
 FRAMEWORK_DIR = platform.get_package_dir("framework-arduinosam")
-FRAMEWORK_VERSION = platform.get_package_version("framework-arduinosam")
 assert isdir(FRAMEWORK_DIR)
-
-ARDUINO_VERSION = int(
-    open(join(FRAMEWORK_DIR, "version.txt")).read().replace(".", "").strip())
-CMSIS_DIRNAME = "CMSIS%s" % (
-    "_ORG" if env.BoardConfig().get("build.core", "").endswith("_org") else "")
+FRAMEWORK_VERSION = platform.get_package_version("framework-arduinosam")
+BUILD_CORE = env.BoardConfig().get("build.core", "")
+SYSTEM_DIR = join(FRAMEWORK_DIR, "system", BUILD_CORE)
 
 # USB flags
 ARDUINO_USBDEFINES = [("ARDUINO", int(FRAMEWORK_VERSION.split(".")[1]))]
@@ -51,17 +47,12 @@ if "build.usb_product" in env.BoardConfig():
          env.BoardConfig().get("vendor", "").replace('"', ""))
     ]
 
+
 env.Append(
     CPPDEFINES=ARDUINO_USBDEFINES,
 
     CPPPATH=[
-        join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core")),
-        join(FRAMEWORK_DIR, "system", CMSIS_DIRNAME, "CMSIS", "Include"),
-        join(FRAMEWORK_DIR, "system", "libsam"),
-        join(FRAMEWORK_DIR, "system", "libsam", "include"),
-        join(FRAMEWORK_DIR, "system", CMSIS_DIRNAME, "Device", "ATMEL"),
-        join(FRAMEWORK_DIR, "system", CMSIS_DIRNAME, "Device", "ATMEL",
-             env.BoardConfig().get("build.mcu", "")[3:], "include"),
+        join(FRAMEWORK_DIR, "cores", BUILD_CORE)
     ],
 
     LIBPATH=[
@@ -70,35 +61,51 @@ env.Append(
     ]
 )
 
-# search relative includes in lib SAM directories
-core_dir = join(FRAMEWORK_DIR, "system", "libsam")
-for root, _, files in walk(core_dir):
-    for lib_file in files:
-        file_path = join(root, lib_file)
-        if not isfile(file_path):
-            continue
-        content = None
-        content_changed = False
-        with open(file_path) as fp:
-            content = fp.read()
-            if '#include "../' in content:
-                content_changed = True
-                content = content.replace('#include "../', '#include "')
-            if not content_changed:
-                continue
-            with open(file_path, "w") as fp:
-                fp.write(content)
+if BUILD_CORE == "arduino_samd":
+    env.Append(
+        CPPPATH=[
+            join(SYSTEM_DIR, "CMSIS", "CMSIS", "Include"),
+            join(SYSTEM_DIR, "CMSIS-Atmel", "CMSIS", "Device", "ATMEL")
+        ],
+
+        LIBPATH=[
+            join(SYSTEM_DIR, "CMSIS", "CMSIS", "Lib", "GCC"),
+        ],
+
+        LIBS=["arm_cortexM0l_math"]
+    )
+else:
+    env.Append(
+        CPPDEFINES=[
+            ("printf", "iprintf")
+        ],
+
+        CPPPATH=[
+            join(SYSTEM_DIR, "libsam"),
+            join(SYSTEM_DIR, "CMSIS", "CMSIS", "Include"),
+            join(SYSTEM_DIR, "CMSIS", "Device", "ATMEL")
+        ],
+
+        LIBPATH=[
+            join(FRAMEWORK_DIR, "variants",
+                 env.BoardConfig().get("build.variant"))
+        ],
+
+        LINKFLAGS=[
+            "-Wl,--entry=Reset_Handler"
+        ],
+
+        LIBS=["sam_sam3x8e_gcc_rel"]
+    )
+
 
 #
 # Lookup for specific core's libraries
 #
 
-BOARD_CORELIBDIRNAME = (
-    "digispark" if "digispark" in env.BoardConfig().get("build.core", "")
-    else env.BoardConfig().get("build.core", ""))
 env.Append(
     LIBSOURCE_DIRS=[
-        join(FRAMEWORK_DIR, "libraries", "__cores__", BOARD_CORELIBDIRNAME),
+        join(FRAMEWORK_DIR, "libraries", "__cores__", BUILD_CORE),
         join(FRAMEWORK_DIR, "libraries")
     ]
 )
@@ -125,17 +132,8 @@ envsafe = env.Clone()
 
 libs.append(envsafe.BuildLibrary(
     join("$BUILD_DIR", "FrameworkArduino"),
-    join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core"))
+    join(FRAMEWORK_DIR, "cores", BUILD_CORE)
 ))
 
-if "sam3x8e" in env.BoardConfig().get("build.mcu", ""):
-    env.Append(
-        LIBPATH=[
-            join(FRAMEWORK_DIR, "variants",
-                 env.BoardConfig().get("build.variant"))
-        ]
-    )
-
-    libs.append("sam_sam3x8e_gcc_rel")
 
 env.Prepend(LIBS=libs)

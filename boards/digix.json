@@ -1,33 +1,33 @@
 {
   "build": {
-    "core": "digispark_digix", 
-    "cpu": "cortex-m3", 
-    "extra_flags": "-w -D__SAM3X8E__ -DARDUINO_SAM_DIGIX -DARDUINO_ARCH_SAM", 
-    "f_cpu": "84000000L", 
+    "core": "arduino_sam",
+    "cpu": "cortex-m3",
+    "extra_flags": "-w -D__SAM3X8E__ -DARDUINO_SAM_DIGIX -DARDUINO_ARCH_SAM",
+    "f_cpu": "84000000L",
     "hwids": [
       [
-        "0x16D0", 
+        "0x16D0",
         "0x078A"
       ]
-    ], 
-    "ldscript": "sam3x8e.ld", 
-    "mcu": "at91sam3x8e", 
-    "usb_product": "Digistump DigiX", 
-    "variant": "digispark_digix"
-  }, 
+    ],
+    "ldscript": "flash.ld",
+    "mcu": "at91sam3x8e",
+    "usb_product": "Digistump DigiX",
+    "variant": "arduino_due_x"
+  },
   "frameworks": [
     "arduino"
-  ], 
-  "name": "Digistump DigiX", 
+  ],
+  "name": "Digistump DigiX",
   "upload": {
-    "disable_flushing": true, 
-    "maximum_ram_size": 28672, 
-    "maximum_size": 524288, 
-    "protocol": "sam-ba", 
-    "require_upload_port": true, 
-    "use_1200bps_touch": true, 
+    "disable_flushing": true,
+    "maximum_ram_size": 28672,
+    "maximum_size": 524288,
+    "protocol": "sam-ba",
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
     "wait_for_upload_port": true
-  }, 
-  "url": "http://digistump.com/products/50", 
+  },
+  "url": "http://digistump.com/products/50",
   "vendor": "Digistump"
 }

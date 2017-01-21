@@ -1,37 +1,37 @@
 {
   "build": {
-    "core": "arduino_zero", 
-    "cpu": "cortex-m0plus", 
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__", 
-    "f_cpu": "48000000L", 
+    "core": "arduino_samd",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "f_cpu": "48000000L",
     "hwids": [
       [
-        "0x1B4F", 
+        "0x1B4F",
         "0x8D21"
-      ], 
+      ],
       [
-        "0x1B4F", 
+        "0x1B4F",
         "0x0D21"
       ]
-    ], 
-    "ldscript": "flash_with_bootloader.ld", 
-    "mcu": "samd21g18a", 
-    "usb_product": "SparkFun SAMD21", 
+    ],
+    "ldscript": "flash_with_bootloader.ld",
+    "mcu": "samd21g18a",
+    "usb_product": "SparkFun SAMD21",
     "variant": "arduino_zero"
-  }, 
+  },
   "frameworks": [
     "arduino"
-  ], 
-  "name": "SparkFun SAMD21 Dev Breakout", 
+  ],
+  "name": "SparkFun SAMD21 Dev Breakout",
   "upload": {
-    "disable_flushing": true, 
-    "maximum_ram_size": 32768, 
-    "maximum_size": 262144, 
-    "protocol": "sam-ba", 
-    "require_upload_port": true, 
-    "use_1200bps_touch": true, 
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "protocol": "sam-ba",
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
     "wait_for_upload_port": true
-  }, 
-  "url": "https://www.sparkfun.com/products/13672", 
+  },
+  "url": "https://www.sparkfun.com/products/13672",
   "vendor": "SparkFun"
 }
