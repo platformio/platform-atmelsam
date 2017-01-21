@@ -92,7 +92,10 @@ else:
         ],
 
         LINKFLAGS=[
-            "-Wl,--entry=Reset_Handler"
+            "-Wl,--entry=Reset_Handler", "-u", "_sbrk", "-u", "link", "-u",
+            "_close", "-u", "_fstat", "-u", "_isatty", "-u", "_lseek", "-u",
+            "_read", "-u", "_write", "-u", "_exit", "-u", "kill",
+            "-u", "_getpid"
         ],
 
         LIBS=["sam_sam3x8e_gcc_rel"]
