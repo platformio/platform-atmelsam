@@ -2,31 +2,27 @@
   "build": {
     "core": "arduino_samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_SAMD_CIRCUITPLAYGROUND_EXPRESS -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
-        "0x2341",
-        "0x804D"
+        "0x239A",
+        "0x8018"
       ],
       [
-        "0x2341",
-        "0x004D"
-      ],
-      [
-        "0x2341",
-        "0x824D"
+        "0x239A",
+        "0x0018"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "Arduino Zero",
-    "variant": "arduino_zero"
+    "usb_product": "Circuit Playground Expresso",
+    "variant": "circuitplay"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "Arduino Zero (USB Native Port)",
+  "name": "Adafruit Circuit Playground Express",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -36,6 +32,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.arduino.cc/en/Main/ArduinoBoardZero",
-  "vendor": "Arduino"
+  "url": "https://www.adafruit.com/product/3000",
+  "vendor": "Adafruit"
 }

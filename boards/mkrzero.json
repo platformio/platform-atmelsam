@@ -2,45 +2,36 @@
   "build": {
     "core": "arduino_samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_SAMD_MKRZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
-        "0x2A03",
+        "0x2341",
         "0x804F"
       ],
       [
-        "0x2A03",
-        "0x004D"
-      ],
-      [
-        "0x2A03",
-        "0x804D"
-      ],
-      [
-        "0x2A03",
+        "0x2341",
         "0x004F"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "Arduino M0 Pro",
-    "variant": "arduino_mzero"
+    "usb_product": "Arduino MKRZero",
+    "variant": "mkrzero"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "Arduino M0 Pro (Native USB Port)",
+  "name": "Arduino MKRZero",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
-    "protocol": "stk500v2",
+    "protocol": "sam-ba",
     "require_upload_port": true,
-    "speed": 57600,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "http://www.arduino.org/products/boards/arduino-m0-pro",
+  "url": "https://www.arduino.cc/en/Main/ArduinoBoardMKRZero",
   "vendor": "Arduino"
 }

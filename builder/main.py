@@ -90,9 +90,9 @@ env.Replace(
 
     LINKFLAGS=[
         "-Os",
-        "-Wl,--gc-sections,--relax",
         "-mthumb",
         "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
+        "-Wl,--gc-sections",
         "-Wl,--check-sections",
         "-Wl,--unresolved-symbols=report-all",
         "-Wl,--warn-common",
@@ -139,33 +139,8 @@ env.Append(
 build_mcu = env.get("BOARD_MCU", env.BoardConfig().get("build.mcu", ""))
 upload_protocol = env.get("UPLOAD_PROTOCOL",
                           env.BoardConfig().get("upload.protocol", ""))
-user_code_section = env.BoardConfig().get("upload.section_start", "")
 
-if user_code_section:
-    env.Append(
-        CPPDEFINES=[
-            ("printf", "iprintf")
-        ],
-
-        LINKFLAGS=[
-            "-Wl,--entry=Reset_Handler",
-            "-Wl,--section-start=.text=%s" % user_code_section
-        ]
-    )
-
-if "sam3x8e" in build_mcu:
-    env.Append(
-        CPPDEFINES=[
-            ("printf", "iprintf")
-        ],
-
-        LINKFLAGS=[
-            "-Wl,--entry=Reset_Handler",
-            "-Wl,--start-group"
-        ]
-
-    )
-elif "samd" in build_mcu:
+if "samd" in build_mcu:
     env.Append(
         LINKFLAGS=[
             "--specs=nosys.specs",
@@ -202,8 +177,8 @@ if upload_protocol == "openocd":
     env.Append(
         UPLOADERFLAGS=[
             "-c", ("telnet_port disabled; program {{$SOURCES}} "
-                   "verify reset %s; shutdown" % (
-                       user_code_section if user_code_section else ""))
+                   "verify reset %s; shutdown" %
+                   env.BoardConfig().get("upload.section_start", ""))
         ]
     )
 
@@ -223,11 +198,11 @@ elif upload_protocol == "sam-ba":
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS $SOURCES'
     )
-    if int(ARGUMENTS.get("PIOVERBOSE", 0)):
-        env.Prepend(UPLOADERFLAGS=["--info", "--debug"])
-
     if "sam3x8e" in build_mcu:
         env.Append(UPLOADERFLAGS=["--boot"])
+
+    if int(ARGUMENTS.get("PIOVERBOSE", 0)):
+        env.Prepend(UPLOADERFLAGS=["--info", "--debug"])
 
 elif upload_protocol == "stk500v2":
     env.Replace(

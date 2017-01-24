@@ -1,6 +1,6 @@
 {
   "build": {
-    "core": "arduino_zero",
+    "core": "arduino_samd",
     "cpu": "cortex-m0plus",
     "extra_flags": "-D__SAMD21G18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_ONE",
     "f_cpu": "48000000L",
