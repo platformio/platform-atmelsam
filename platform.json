@@ -41,7 +41,7 @@
     "framework-arduinosam": {
       "type": "framework",
       "optional": true,
-      "version": "~1.10611.0"
+      "version": "~2.10611.0"
     },
     "framework-mbed": {
       "type": "framework",

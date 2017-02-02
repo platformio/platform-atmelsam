@@ -33,7 +33,8 @@ FRAMEWORK_DIR = platform.get_package_dir("framework-arduinosam")
 assert isdir(FRAMEWORK_DIR)
 FRAMEWORK_VERSION = platform.get_package_version("framework-arduinosam")
 BUILD_CORE = env.BoardConfig().get("build.core", "")
-SYSTEM_DIR = join(FRAMEWORK_DIR, "system", BUILD_CORE)
+BUILD_SYSTEM = env.BoardConfig().get("build.system", BUILD_CORE)
+SYSTEM_DIR = join(FRAMEWORK_DIR, "system", BUILD_SYSTEM)
 
 # USB flags
 ARDUINO_USBDEFINES = [("ARDUINO", int(FRAMEWORK_VERSION.split(".")[1]))]
@@ -61,7 +62,7 @@ env.Append(
     ]
 )
 
-if BUILD_CORE == "arduino_samd":
+if BUILD_SYSTEM == "samd":
     env.Append(
         CPPPATH=[
             join(SYSTEM_DIR, "CMSIS", "CMSIS", "Include"),
@@ -74,7 +75,7 @@ if BUILD_CORE == "arduino_samd":
 
         LIBS=["arm_cortexM0l_math"]
     )
-else:
+elif BUILD_SYSTEM == "sam":
     env.Append(
         CPPDEFINES=[
             ("printf", "iprintf")
@@ -99,6 +100,13 @@ else:
         ],
 
         LIBS=["sam_sam3x8e_gcc_rel"]
+    )
+elif BUILD_SYSTEM == "samd_legacy":
+    env.Append(
+        CPPPATH=[
+            join(SYSTEM_DIR, "CMSIS", "Include"),
+            join(SYSTEM_DIR, "Device", "ATMEL")
+        ]
     )
 
 

@@ -1,6 +1,7 @@
 {
   "build": {
-    "core": "arduino_samd",
+    "core": "sodaq",
+    "system": "samd_legacy",
     "cpu": "cortex-m0plus",
     "extra_flags": "-D__SAMD21J18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_AUTONOMO",
     "f_cpu": "48000000L",
