@@ -1,6 +1,6 @@
 {
   "build": {
-    "core": "arduino_sam",
+    "core": "sam",
     "cpu": "cortex-m3",
     "extra_flags": "-w -D__SAM3X8E__ -DARDUINO_SAM_DIGIX -DARDUINO_ARCH_SAM",
     "f_cpu": "84000000L",
