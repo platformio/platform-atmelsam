@@ -5,11 +5,11 @@
 Atmel | SMART offers Flash- based ARM products based on the ARM Cortex-M0+, Cortex-M3 and Cortex-M4 architectures, ranging from 8KB to 2MB of Flash including a rich peripheral and feature mix.
 
 * [Home](http://platformio.org/platforms/atmelsam) (home page in PlatformIO Platform Registry)
-* [Documentation](http://docs.platformio.org/en/stable/platforms/atmelsam.html) (advanced usage, packages, boards, frameworks, etc.)
+* [Documentation](http://docs.platformio.org/page/platforms/atmelsam.html) (advanced usage, packages, boards, frameworks, etc.)
 
 # Usage
 
-1. [Install PlatformIO CLI](http://docs.platformio.org/en/stable/installation.html)
+1. [Install PlatformIO Core](http://docs.platformio.org/page/core.html)
 2. Install Atmel SAM development platform:
 ```bash
 # install the latest stable version
