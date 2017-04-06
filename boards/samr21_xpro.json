@@ -1,21 +1,39 @@
 {
   "build": {
-    "cpu": "cortex-m0plus", 
-    "f_cpu": "48000000L", 
+    "cpu": "cortex-m0plus",
+    "f_cpu": "48000000L",
     "mcu": "atsamr21g18a"
-  }, 
+  },
   "debug": {
-    "openocdcfg": "atmel_samr21_xplained_pro.cfg"
-  }, 
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": ["-f", "scripts/board/atmel_samr21_xplained_pro.cfg"]
+        },
+        "gdbinit": [
+          "target remote :3333",
+          "file $PROG_PATH",
+          "load $PROG_PATH",
+          "monitor reset halt",
+          "monitor reset init",
+          "b main"
+        ],
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "mbed"
-  ], 
-  "name": "Atmel ATSAMR21-XPRO", 
+  ],
+  "name": "Atmel ATSAMR21-XPRO",
   "upload": {
-    "maximum_ram_size": 32768, 
-    "maximum_size": 262144, 
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "openocdcfg": "atmel_samr21_xplained_pro.cfg",
     "protocol": "openocd"
-  }, 
-  "url": "https://developer.mbed.org/platforms/SAMR21-XPRO/", 
+  },
+  "url": "https://developer.mbed.org/platforms/SAMR21-XPRO/",
   "vendor": "Atmel"
 }

@@ -52,6 +52,7 @@ env.Replace(
     AS="arm-none-eabi-as",
     CC="arm-none-eabi-gcc",
     CXX="arm-none-eabi-g++",
+    GDB="arm-none-eabi-gdb",
     OBJCOPY="arm-none-eabi-objcopy",
     RANLIB="arm-none-eabi-ranlib",
     SIZETOOL="arm-none-eabi-size",
@@ -152,7 +153,7 @@ if upload_protocol == "openocd":
     env.Replace(
         UPLOADER="openocd",
         UPLOADERFLAGS=[
-            "-f", join(env.BoardConfig().get("debug.openocdcfg", "")),
+            "-f", join(env.BoardConfig().get("upload.openocdcfg", "")),
             "-s", join(
                 platform.get_package_dir("tool-openocd") or "",
                 "share", "openocd", "scripts"),
