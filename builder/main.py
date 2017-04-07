@@ -153,13 +153,11 @@ if upload_protocol == "openocd":
     env.Replace(
         UPLOADER="openocd",
         UPLOADERFLAGS=[
-            "-f", join(env.BoardConfig().get("upload.openocdcfg", "")),
-            "-s", join(
-                platform.get_package_dir("tool-openocd") or "",
-                "share", "openocd", "scripts"),
-            "-s", join(
-                platform.get_package_dir("tool-openocd") or "",
-                "share", "openocd", "scripts", "board")
+            "-s", join(platform.get_package_dir("tool-openocd") or "",
+                       "scripts"),
+            "-s", join(platform.get_package_dir("tool-openocd") or "",
+                       "scripts", "board"),
+            "-f", join(env.BoardConfig().get("upload.openocdcfg", ""))
         ],
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'
