@@ -46,7 +46,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Arduino Zero (Programming Port)",
+  "name": "Arduino Zero (Programming/Debug Port)",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
