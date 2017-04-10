@@ -191,8 +191,8 @@ elif upload_protocol == "sam-ba":
             "--verify",
             "--reset",
             "-U",
-            "true" if ("usb" in env.subst("$BOARD").lower(
-            ) or env.subst("$BOARD") == "digix") else "false"
+            "true" if env.BoardConfig().get(
+                "upload.native_usb", False) else "false"
         ],
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS $SOURCES'

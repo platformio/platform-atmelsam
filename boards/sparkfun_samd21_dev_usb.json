@@ -27,6 +27,7 @@
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
+    "native_usb": true,
     "protocol": "sam-ba",
     "require_upload_port": true,
     "use_1200bps_touch": true,
