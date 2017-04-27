@@ -12,14 +12,6 @@
           "executable": "bin/openocd",
           "arguments": ["-f", "scripts/board/atmel_samr21_xplained_pro.cfg"]
         },
-        "gdbinit": [
-          "target remote :3333",
-          "file $PROG_PATH",
-          "load $PROG_PATH",
-          "monitor init",
-          "monitor reset halt",
-          "tb main"
-        ],
         "onboard": true
       }
     }
