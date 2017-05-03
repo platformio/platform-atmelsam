@@ -71,6 +71,8 @@ if BUILD_SYSTEM == "samd":
 
         LIBPATH=[
             join(SYSTEM_DIR, "CMSIS", "CMSIS", "Lib", "GCC"),
+            join(FRAMEWORK_DIR, "variants",
+                 env.BoardConfig().get("build.variant"))
         ],
 
         LIBS=["arm_cortexM0l_math"]

@@ -1,8 +1,8 @@
 {
   "build": {
     "core": "adafruit",
-    "system": "samd_legacy",
-    "extra_flags": "-D__SAMD21G18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SAMD_FEATHER_M0",
+    "system": "samd",
+    "extra_flags": "-D__SAMD21G18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SAMD_FEATHER_M0 -lsamd21_qtouch_gcc",
     "cpu": "cortex-m0plus",
     "f_cpu": "48000000L",
     "hwids": [
@@ -28,6 +28,7 @@
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
+    "native_usb": true,
     "protocol": "sam-ba",
     "require_upload_port": true,
     "use_1200bps_touch": true,

@@ -2,27 +2,27 @@
   "build": {
     "core": "samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_SAMD_MKRFox1200 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
-        "0x1B4F",
-        "0x8D21"
+        "0x2341",
+        "0x8050"
       ],
       [
-        "0x1B4F",
-        "0x0D21"
+        "0x2341",
+        "0x0050"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "SparkFun SAMD21",
-    "variant": "arduino_zero"
+    "usb_product": "Arduino MKRFox1200",
+    "variant": "mkrfox1200"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "SparkFun SAMD21 Dev Breakout",
+  "name": "Arduino MKRFox1200",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -33,6 +33,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.sparkfun.com/products/13672",
-  "vendor": "SparkFun"
+  "url": "https://www.arduino.cc/en/Main.ArduinoBoardMKRFox1200",
+  "vendor": "Arduino"
 }

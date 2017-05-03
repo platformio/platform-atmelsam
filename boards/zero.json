@@ -20,18 +20,33 @@
     "variant": "arduino_zero"
   },
   "debug": {
-    "openocdcfg": "arduino_zero.cfg"
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/interface/cmsis-dap.cfg",
+            "-c", "set CHIPNAME at91samd21g18; set ENDIAN little; set telnet_port 0",
+            "-f", "scripts/target/at91samdXX.cfg"
+          ]
+        },
+        "onboard": true
+      }
+    }
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "Arduino Zero (Programming Port)",
+  "name": "Arduino Zero (Programming/Debug Port)",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
+    "openocdcfg": "arduino_zero.cfg",
     "protocol": "openocd",
     "require_upload_port": false,
+    "section_start": "0x2000",
     "use_1200bps_touch": false,
     "wait_for_upload_port": false
   },

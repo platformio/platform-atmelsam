@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "1.8.0",
+  "version": "2.0.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
@@ -41,7 +41,7 @@
     "framework-arduinosam": {
       "type": "framework",
       "optional": true,
-      "version": "~2.10611.0"
+      "version": "~2.10614.0"
     },
     "framework-mbed": {
       "type": "framework",
@@ -61,12 +61,12 @@
     "tool-bossac": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.10601.0"
+      "version": "~1.10700.0"
     },
     "tool-openocd": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.900.0"
+      "version": "~1.1000.0"
     }
   }
 }
