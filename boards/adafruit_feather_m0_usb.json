@@ -20,6 +20,22 @@
     "usb_product": "Adafruit Feather M0",
     "variant": "adafruit_feather_m0"
   },
+  "debug": {
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/interface/cmsis-dap.cfg",
+            "-c", "set CHIPNAME at91samd21g18; set ENDIAN little; set telnet_port 0",
+            "-f", "scripts/target/at91samdXX.cfg"
+          ]
+        },
+        "load_cmd": "preload"
+      }
+    }
+  },
   "frameworks": [
     "arduino"
   ],
