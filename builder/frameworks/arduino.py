@@ -103,13 +103,6 @@ elif BUILD_SYSTEM == "sam":
 
         LIBS=["sam_sam3x8e_gcc_rel"]
     )
-elif BUILD_SYSTEM == "samd_legacy":
-    env.Append(
-        CPPPATH=[
-            join(SYSTEM_DIR, "CMSIS", "Include"),
-            join(SYSTEM_DIR, "Device", "ATMEL")
-        ]
-    )
 
 
 #
