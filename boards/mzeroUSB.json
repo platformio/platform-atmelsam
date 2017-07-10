@@ -32,6 +32,15 @@
           ]
         },
         "load_cmd": "mon program \"$PROG_DIR/firmware.bin\" 0x4000"
+      },
+      "blackmagic": {
+        "hwids": [
+          [
+            "0x1d50",
+            "0x6018"
+          ]
+        ],
+        "require_debug_port": true
       }
     }
   },
