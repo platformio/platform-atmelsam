@@ -33,6 +33,15 @@
           ]
         },
         "load_cmd": "preload"
+      },
+      "blackmagic": {
+        "hwids": [
+          [
+            "0x1d50",
+            "0x6018"
+          ]
+        ],
+        "require_debug_port": true
       }
     }
   },
