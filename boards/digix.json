@@ -15,6 +15,9 @@
     "usb_product": "Digistump DigiX",
     "variant": "arduino_due_x"
   },
+  "connectivity": [
+    "can"
+  ],
   "frameworks": [
     "arduino"
   ],
