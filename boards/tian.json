@@ -19,6 +19,9 @@
     "usb_product": "Arduino Tian",
     "variant": "arduino_mzero"
   },
+  "connectivity": [
+    "ethernet"
+  ],
   "frameworks": [
     "arduino"
   ],

@@ -27,6 +27,9 @@
     "usb_product": "Arduino MKR1000",
     "variant": "mkr1000"
   },
+  "connectivity": [
+    "wifi"
+  ],
   "debug": {
     "tools": {
       "cmsis-dap": {

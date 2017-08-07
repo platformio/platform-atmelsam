@@ -23,6 +23,9 @@
     "usb_product": "Arduino Due",
     "variant": "arduino_due_x"
   },
+  "connectivity": [
+    "can"
+  ],
   "frameworks": [
     "arduino",
     "simba"
