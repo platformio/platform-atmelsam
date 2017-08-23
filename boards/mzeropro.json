@@ -51,6 +51,6 @@
     "use_1200bps_touch": false,
     "wait_for_upload_port": false
   },
-  "url": "http://www.arduino.org/products/boards/arduino-m0-pro",
+  "url": "https://www.arduino.cc/en/Main/ArduinoBoardM0PRO",
   "vendor": "Arduino"
 }
