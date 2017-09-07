@@ -155,8 +155,6 @@ if upload_protocol == "openocd":
         UPLOADERFLAGS=[
             "-s", join(platform.get_package_dir("tool-openocd") or "",
                        "scripts"),
-            "-s", join(platform.get_package_dir("tool-openocd") or "",
-                       "scripts", "board"),
             "-f", join(env.BoardConfig().get("upload.openocdcfg", ""))
         ],
 

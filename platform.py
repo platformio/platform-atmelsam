@@ -37,11 +37,10 @@ class AtmelsamPlatform(PlatformBase):
                         continue
                     if name != upload_tool:
                         del self.packages[name]
-            
+
             if "mbed" in variables.get("pioframework", []):
                 self.packages["toolchain-gccarmnoneeabi"][
                     'version'] = ">=1.60301.0"
-
 
         return PlatformBase.configure_default_packages(self, variables,
                                                        targets)
