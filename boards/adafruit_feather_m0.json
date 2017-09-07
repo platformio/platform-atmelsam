@@ -2,7 +2,7 @@
   "build": {
     "core": "adafruit",
     "system": "samd",
-    "extra_flags": "-D__SAMD21G18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DARDUINO_SAMD_FEATHER_M0 -lsamd21_qtouch_gcc",
+    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DARDUINO_SAMD_FEATHER_M0 -D__SAMD21G18A__",
     "cpu": "cortex-m0plus",
     "f_cpu": "48000000L",
     "hwids": [
