@@ -57,7 +57,7 @@ env.Replace(
     RANLIB="arm-none-eabi-ranlib",
     SIZETOOL="arm-none-eabi-size",
 
-    ARFLAGS=["rcs"],
+    ARFLAGS=["rc"],
 
     ASFLAGS=["-x", "assembler-with-cpp"],
 
@@ -155,8 +155,6 @@ if upload_protocol == "openocd":
         UPLOADERFLAGS=[
             "-s", join(platform.get_package_dir("tool-openocd") or "",
                        "scripts"),
-            "-s", join(platform.get_package_dir("tool-openocd") or "",
-                       "scripts", "board"),
             "-f", join(env.BoardConfig().get("upload.openocdcfg", ""))
         ],
 
@@ -213,7 +211,8 @@ elif upload_protocol == "stk500v2":
                 "avrdude.conf"),
             "-c", "$UPLOAD_PROTOCOL",
             "-P", '"$UPLOAD_PORT"',
-            "-b", "$UPLOAD_SPEED"
+            "-b", "$UPLOAD_SPEED",
+            "-u"
         ],
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS -U flash:w:$SOURCES:i'

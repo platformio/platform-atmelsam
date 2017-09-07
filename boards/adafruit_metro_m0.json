@@ -2,7 +2,7 @@
   "build": {
     "core": "adafruit",
     "system": "samd",
-    "extra_flags": "-D__SAMD21G18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DDADAFRUIT_METRO_M0_EXPRESS -lsamd21_qtouch_gcc",
+    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DDADAFRUIT_METRO_M0_EXPRESS -D__SAMD21G18A__",
     "cpu": "cortex-m0plus",
     "f_cpu": "48000000L",
     "hwids": [
@@ -27,9 +27,10 @@
           "package": "tool-openocd",
           "executable": "bin/openocd",
           "arguments": [
-            "-f", "scripts/interface/cmsis-dap.cfg",
+            "-s", "$PACKAGE_DIR/scripts",
+            "-f", "interface/cmsis-dap.cfg",
             "-c", "set CHIPNAME at91samd21g18; set ENDIAN little; set telnet_port 0",
-            "-f", "scripts/target/at91samdXX.cfg"
+            "-f", "target/at91samdXX.cfg"
           ]
         },
         "load_cmd": "preload"
