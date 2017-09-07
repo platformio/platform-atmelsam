@@ -211,7 +211,8 @@ elif upload_protocol == "stk500v2":
                 "avrdude.conf"),
             "-c", "$UPLOAD_PROTOCOL",
             "-P", '"$UPLOAD_PORT"',
-            "-b", "$UPLOAD_SPEED"
+            "-b", "$UPLOAD_SPEED",
+            "-u"
         ],
 
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS -U flash:w:$SOURCES:i'
