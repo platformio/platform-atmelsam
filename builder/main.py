@@ -141,7 +141,7 @@ build_mcu = env.get("BOARD_MCU", env.BoardConfig().get("build.mcu", ""))
 upload_protocol = env.get("UPLOAD_PROTOCOL",
                           env.BoardConfig().get("upload.protocol", ""))
 
-if "samd" in build_mcu:
+if ("samd" in build_mcu) or ("samc" in build_mcu):
     env.Append(
         LINKFLAGS=[
             "--specs=nosys.specs",
