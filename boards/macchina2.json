@@ -1,0 +1,41 @@
+{
+  "build": {
+    "core": "sam",
+    "cpu": "cortex-m3",
+    "extra_flags": "-D__SAM3X8E__ -DARDUINO_ARCH_SAM -DARDUINO_M2 -DMACCHINA_M2",
+    "f_cpu": "84000000L",
+    "hwids": [
+      [
+        "0x2341",
+        "0x003E"
+      ],
+      [
+        "0x2A03",
+        "0x003E"
+      ]
+    ],
+    "ldscript": "flash.ld",
+    "mcu": "at91sam3x8e",
+    "usb_product": "Arduino Due",
+    "variant": "m2"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Macchina M2",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 524288,
+    "native_usb": true,
+    "protocol": "sam-ba",
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://www.macchina.cc",
+  "vendor": "Macchina"
+}
