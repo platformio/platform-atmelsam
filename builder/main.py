@@ -104,7 +104,6 @@ env.Replace(
 
     SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
 
-    PROGNAME="firmware",
     PROGSUFFIX=".elf"
 )
 
@@ -136,6 +135,10 @@ env.Append(
         )
     )
 )
+
+# Allow user to override via pre:script
+if env.get("PROGNAME", "program") == "program":
+    env.Replace(PROGNAME="firmware")
 
 build_mcu = env.get("BOARD_MCU", env.BoardConfig().get("build.mcu", ""))
 upload_protocol = env.get("UPLOAD_PROTOCOL",
@@ -226,14 +229,14 @@ elif upload_protocol == "stk500v2":
 
 target_elf = None
 if "nobuild" in COMMAND_LINE_TARGETS:
-    target_firm = join("$BUILD_DIR", "firmware.%s" % (
-        "hex" if upload_protocol == "stk500v2" else "bin"))
+    target_firm = join("$BUILD_DIR", "${PROGNAME}.%s" %
+                       ("hex" if upload_protocol == "stk500v2" else "bin"))
 else:
     target_elf = env.BuildProgram()
     if upload_protocol == "stk500v2":
-        target_firm = env.ElfToHex(join("$BUILD_DIR", "firmware"), target_elf)
+        target_firm = env.ElfToHex(target_elf)
     else:
-        target_firm = env.ElfToBin(join("$BUILD_DIR", "firmware"), target_elf)
+        target_firm = env.ElfToBin(target_elf)
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
