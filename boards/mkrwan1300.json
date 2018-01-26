@@ -7,11 +7,11 @@
     "hwids": [
       [
         "0x2341",
-        "0x804F"
+        "0x8053"
       ],
       [
         "0x2341",
-        "0x804F"
+        "0x8053"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
