@@ -234,9 +234,11 @@ if "nobuild" in COMMAND_LINE_TARGETS:
 else:
     target_elf = env.BuildProgram()
     if upload_protocol == "stk500v2":
-        target_firm = env.ElfToHex(target_elf)
+        target_firm = env.ElfToHex(
+            join("$BUILD_DIR", "${PROGNAME}"), target_elf)
     else:
-        target_firm = env.ElfToBin(target_elf)
+        target_firm = env.ElfToBin(
+            join("$BUILD_DIR", "${PROGNAME}"), target_elf)
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
