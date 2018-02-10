@@ -23,6 +23,9 @@
     "usb_product": "Arduino Due",
     "variant": "arduino_due_x"
   },
+  "debug": {
+    "openocd_chipname": "at91sam3X8E"
+  },
   "connectivity": [
     "can"
   ],
@@ -37,6 +40,11 @@
     "maximum_size": 524288,
     "native_usb": false,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "jlink",
+      "blackmagic"
+    ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": false

@@ -20,6 +20,9 @@
     "usb_product": "SODAQ Autonomo",
     "variant": "sodaq_autonomo"
   },
+  "debug": {
+    "openocd_chipname": "at91samd21j18"
+  },
   "frameworks": [
     "arduino"
   ],
@@ -30,6 +33,12 @@
     "maximum_size": 262144,
     "native_usb": true,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true

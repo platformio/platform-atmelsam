@@ -5,21 +5,10 @@
     "mcu": "atsamd21g18a"
   },
   "debug": {
-    "tools": {
-      "cmsis-dap": {
-        "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
-          "arguments": [
-            "-s", "$PACKAGE_DIR/scripts",
-            "-f", "interface/cmsis-dap.cfg",
-            "-c", "set CHIPNAME at91samd21g18;",
-            "-f", "target/at91samdXX.cfg"
-          ]
-        },
-        "onboard": true
-      }
-    }
+    "onboard_tools": [
+      "cmsis-dap"
+    ],
+    "openocd_chipname": "at91samd21g18"
   },
   "frameworks": [
     "mbed"
@@ -28,8 +17,13 @@
   "upload": {
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
-    "openocdcfg": "atmel_samd21_xplained_pro.cfg",
-    "protocol": "openocd"
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/SAMW25-XPRO/",
   "vendor": "Atmel"

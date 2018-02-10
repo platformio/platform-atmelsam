@@ -22,6 +22,9 @@
   "connectivity": [
     "can"
   ],
+  "debug": {
+    "openocd_chipname": "at91sam3X8E"
+  },
   "frameworks": [
     "arduino",
     "simba"
@@ -33,6 +36,11 @@
     "maximum_size": 524288,
     "native_usb": true,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "jlink",
+      "blackmagic"
+    ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true

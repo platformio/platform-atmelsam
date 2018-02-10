@@ -20,22 +20,10 @@
     "variant": "arduino_mzero"
   },
   "debug": {
-    "tools": {
-      "cmsis-dap": {
-        "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
-          "arguments": [
-            "-s", "$PACKAGE_DIR/scripts",
-            "-f", "interface/cmsis-dap.cfg",
-            "-c", "set CHIPNAME at91samd21g18; set ENDIAN little; set telnet_port 0",
-            "-f", "target/at91samdXX.cfg"
-          ]
-        },
-        "load_cmd": "mon program \"$PROG_DIR/firmware.bin\" 0x4000",
-        "onboard": true
-      }
-    }
+    "onboard_tools": [
+      "cmsis-dap"
+    ],
+    "openocd_chipname": "at91samd21g18"
   },
   "frameworks": [
     "arduino"
@@ -45,8 +33,13 @@
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
-    "openocdcfg": "arduino_zero.cfg",
-    "protocol": "openocd",
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
     "require_upload_port": false,
     "section_start": "0x4000",
     "use_1200bps_touch": false,
