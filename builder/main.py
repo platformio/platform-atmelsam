@@ -262,9 +262,10 @@ elif upload_protocol in debug_tools:
                 "program {{$SOURCE}} verify reset %s; shutdown" %
                 env.BoardConfig().get("upload.section_start", "")
             ],
-        UPLOADCMD="$UPLOADER $UPLOADERFLAGS")
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
+    )
     env['UPLOADERFLAGS'] = [
-        f.replace("$PACKAGE_DIR", platform.get_package_dir("tool-openocd")) or ""
+        f.replace("$PACKAGE_DIR", platform.get_package_dir("tool-openocd") or "")
         for f in env['UPLOADERFLAGS']
     ]
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
