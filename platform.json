@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "2.7.1",
+  "version": "3.0.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json",
@@ -40,7 +40,7 @@
     "framework-arduinosam": {
       "type": "framework",
       "optional": true,
-      "version": "~2.10616.1"
+      "version": "~2.10617.0"
     },
     "framework-mbed": {
       "type": "framework",
@@ -65,7 +65,7 @@
     "tool-openocd": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.900.2"
+      "version": "~1.1000.0"
     }
   }
 }

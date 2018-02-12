@@ -19,14 +19,12 @@ class AtmelsamPlatform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         if variables.get("board"):
-            upload_protocol = variables.get(
-                "upload_protocol",
-                self.board_config(variables.get("board")).get(
-                    "upload.protocol", ""))
-            upload_tool = None
-            if upload_protocol == "openocd":
-                upload_tool = "tool-openocd"
-            elif upload_protocol == "sam-ba":
+            upload_protocol = variables.get("upload_protocol",
+                                            self.board_config(
+                                                variables.get("board")).get(
+                                                    "upload.protocol", ""))
+            upload_tool = "tool-openocd"
+            if upload_protocol == "sam-ba":
                 upload_tool = "tool-bossac"
             elif upload_protocol == "stk500v2":
                 upload_tool = "tool-avrdude"
@@ -44,3 +42,56 @@ class AtmelsamPlatform(PlatformBase):
 
         return PlatformBase.configure_default_packages(self, variables,
                                                        targets)
+
+    def get_boards(self, id_=None):
+        result = PlatformBase.get_boards(self, id_)
+        if not result:
+            return result
+        if id_:
+            return self._add_default_debug_tools(result)
+        else:
+            for key, value in result.items():
+                result[key] = self._add_default_debug_tools(result[key])
+        return result
+
+    def _add_default_debug_tools(self, board):
+        debug = board.manifest.get("debug", {})
+        upload_protocols = board.manifest.get("upload", {}).get(
+            "protocols", [])
+        if "tools" not in debug:
+            debug['tools'] = {}
+
+        # Atmel Ice / J-Link / BlackMagic Probe
+        for link in ("blackmagic", "jlink", "atmel-ice", "cmsis-dap"):
+            if link not in upload_protocols or link in debug['tools']:
+                continue
+            if link == "blackmagic":
+                debug['tools']['blackmagic'] = {
+                    "hwids": [["0x1d50", "0x6018"]],
+                    "require_debug_port": True
+                }
+            else:
+                openocd_chipname = debug.get("openocd_chipname")
+                assert openocd_chipname
+                server_args = [
+                    "-s", "$PACKAGE_DIR/scripts", "-f",
+                    "interface/%s.cfg" % ("cmsis-dap"
+                                          if link == "atmel-ice" else link),
+                    "-c",
+                    "set CHIPNAME %s; set ENDIAN little" % openocd_chipname,
+                    "-f",
+                    "target/%s.cfg" %
+                    ("at91samdXX"
+                     if "samd" in openocd_chipname else "at91sam3ax_8x")
+                ]
+                debug['tools'][link] = {
+                    "server": {
+                        "package": "tool-openocd",
+                        "executable": "bin/openocd",
+                        "arguments": server_args
+                    },
+                    "onboard": link in debug.get("onboard_tools", [])
+                }
+
+        board.manifest['debug'] = debug
+        return board

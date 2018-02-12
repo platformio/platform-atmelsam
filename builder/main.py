@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import sys
 from os.path import basename, join
 
 from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
@@ -46,6 +47,8 @@ def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
 
 env = DefaultEnvironment()
 platform = env.PioPlatform()
+upload_protocol = env.subst("$UPLOAD_PROTOCOL")
+build_mcu = env.get("BOARD_MCU", env.BoardConfig().get("build.mcu", ""))
 
 env.Replace(
     AR="arm-none-eabi-ar",
@@ -66,7 +69,6 @@ env.Replace(
     ],
 
     CCFLAGS=[
-        "-g",   # include debugging info (so errors include line numbers)
         "-Os",  # optimize for size
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
@@ -104,7 +106,6 @@ env.Replace(
 
     SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
 
-    PROGNAME="firmware",
     PROGSUFFIX=".elf"
 )
 
@@ -137,9 +138,9 @@ env.Append(
     )
 )
 
-build_mcu = env.get("BOARD_MCU", env.BoardConfig().get("build.mcu", ""))
-upload_protocol = env.get("UPLOAD_PROTOCOL",
-                          env.BoardConfig().get("upload.protocol", ""))
+# Allow user to override via pre:script
+if env.get("PROGNAME", "program") == "program":
+    env.Replace(PROGNAME="firmware")
 
 if ("samd" in build_mcu) or ("samc" in build_mcu):
     env.Append(
@@ -149,91 +150,22 @@ if ("samd" in build_mcu) or ("samc" in build_mcu):
         ]
     )
 
-if upload_protocol == "openocd":
-    env.Replace(
-        UPLOADER="openocd",
-        UPLOADERFLAGS=[
-            "-s", join(platform.get_package_dir("tool-openocd") or "",
-                       "scripts"),
-            "-f", join(env.BoardConfig().get("upload.openocdcfg", ""))
-        ],
-
-        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'
-    )
-
-    if "zero" in env.subst("$BOARD"):
-        env.Append(
-            UPLOADERFLAGS=[
-                "-s", join(
-                    platform.get_package_dir("framework-arduinosam") or "",
-                    "variants", env.BoardConfig().get("build.variant"),
-                    "openocd_scripts")
-            ]
-        )
-
-    env.Append(
-        UPLOADERFLAGS=[
-            "-c", ("telnet_port disabled; program {{$SOURCES}} "
-                   "verify reset %s; shutdown" %
-                   env.BoardConfig().get("upload.section_start", ""))
-        ]
-    )
-
-elif upload_protocol == "sam-ba":
-    env.Replace(
-        UPLOADER="bossac",
-        UPLOADERFLAGS=[
-            "--port", '"$UPLOAD_PORT"',
-            "--erase",
-            "--write",
-            "--verify",
-            "--reset",
-            "-U",
-            "true" if env.BoardConfig().get(
-                "upload.native_usb", False) else "false"
-        ],
-
-        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS $SOURCES'
-    )
-    if "sam3x8e" in build_mcu:
-        env.Append(UPLOADERFLAGS=["--boot"])
-
-    if int(ARGUMENTS.get("PIOVERBOSE", 0)):
-        env.Prepend(UPLOADERFLAGS=["--info", "--debug"])
-
-elif upload_protocol == "stk500v2":
-    env.Replace(
-        UPLOADER="avrdude",
-        UPLOADERFLAGS=[
-            "-p", "atmega2560",  # Arduino M0/Tian upload hook
-            "-C", join(
-                platform.get_package_dir("tool-avrdude") or "",
-                "avrdude.conf"),
-            "-c", "$UPLOAD_PROTOCOL",
-            "-P", '"$UPLOAD_PORT"',
-            "-b", "$UPLOAD_SPEED",
-            "-u"
-        ],
-
-        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS -U flash:w:$SOURCES:i'
-    )
-    if int(ARGUMENTS.get("PIOVERBOSE", 0)):
-        env.Prepend(UPLOADERFLAGS=["-v"])
-
 #
 # Target: Build executable and linkable firmware
 #
 
 target_elf = None
 if "nobuild" in COMMAND_LINE_TARGETS:
-    target_firm = join("$BUILD_DIR", "firmware.%s" % (
-        "hex" if upload_protocol == "stk500v2" else "bin"))
+    target_firm = join("$BUILD_DIR", "${PROGNAME}.%s" %
+                       ("hex" if upload_protocol == "stk500v2" else "bin"))
 else:
     target_elf = env.BuildProgram()
     if upload_protocol == "stk500v2":
-        target_firm = env.ElfToHex(join("$BUILD_DIR", "firmware"), target_elf)
+        target_firm = env.ElfToHex(
+            join("$BUILD_DIR", "${PROGNAME}"), target_elf)
     else:
-        target_firm = env.ElfToBin(join("$BUILD_DIR", "firmware"), target_elf)
+        target_firm = env.ElfToBin(
+            join("$BUILD_DIR", "${PROGNAME}"), target_elf)
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
@@ -251,16 +183,101 @@ AlwaysBuild(target_size)
 # Target: Upload by default .bin file
 #
 
-if upload_protocol == "openocd":
-    target_upload = env.Alias(
-        "upload", target_firm,
-        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
+debug_tools = env.BoardConfig().get("debug.tools", {})
+upload_actions = []
+
+if upload_protocol.startswith("blackmagic"):
+    env.Replace(
+        UPLOADER="$GDB",
+        UPLOADERFLAGS=[
+            "-nx",
+            "--batch",
+            "-ex", "target extended-remote $UPLOAD_PORT",
+            "-ex", "monitor %s_scan" %
+            ("jtag" if upload_protocol == "blackmagic-jtag" else "swdp"),
+            "-ex", "attach 1",
+            "-ex", "load",
+            "-ex", "compare-sections",
+            "-ex", "kill"
+        ],
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS $BUILD_DIR/${PROGNAME}.elf"
+    )
+    upload_actions = [
+        env.VerboseAction(env.AutodetectUploadPort, "Looking for BlackMagic port..."),
+        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
+    ]
+
+elif upload_protocol == "sam-ba":
+    env.Replace(
+        UPLOADER="bossac",
+        UPLOADERFLAGS=[
+            "--port", '"$UPLOAD_PORT"',
+            "--erase",
+            "--write",
+            "--verify",
+            "--reset",
+            "-U",
+            "true" if env.BoardConfig().get(
+                "upload.native_usb", False) else "false"
+        ],
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCES"
+    )
+    if "sam3x8e" in build_mcu:
+        env.Append(UPLOADERFLAGS=["--boot"])
+    if int(ARGUMENTS.get("PIOVERBOSE", 0)):
+        env.Prepend(UPLOADERFLAGS=["--info", "--debug"])
+    upload_actions = [
+        env.VerboseAction(BeforeUpload, "Looking for upload port..."),
+        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
+    ]
+
+elif upload_protocol == "stk500v2":
+    env.Replace(
+        UPLOADER="avrdude",
+        UPLOADERFLAGS=[
+            "-p", "atmega2560",  # Arduino M0/Tian upload hook
+            "-C", join(
+                platform.get_package_dir("tool-avrdude") or "",
+                "avrdude.conf"),
+            "-c", "$UPLOAD_PROTOCOL",
+            "-P", '"$UPLOAD_PORT"',
+            "-b", "$UPLOAD_SPEED",
+            "-u"
+        ],
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS -U flash:w:$SOURCES:i"
+    )
+    if int(ARGUMENTS.get("PIOVERBOSE", 0)):
+        env.Prepend(UPLOADERFLAGS=["-v"])
+    upload_actions = [
+        env.VerboseAction(BeforeUpload, "Looking for upload port..."),
+        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
+    ]
+
+elif upload_protocol in debug_tools:
+    env.Replace(
+        UPLOADER="openocd",
+        UPLOADERFLAGS=debug_tools.get(upload_protocol).get("server").get(
+            "arguments", []) + [
+                "-c",
+                "program {{$SOURCE}} verify reset %s; shutdown" %
+                env.BoardConfig().get("upload.section_start", "")
+            ],
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
+    )
+    env['UPLOADERFLAGS'] = [
+        f.replace("$PACKAGE_DIR", platform.get_package_dir("tool-openocd") or "")
+        for f in env['UPLOADERFLAGS']
+    ]
+    upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
+
+# custom upload tool
+elif "UPLOADCMD" in env:
+    upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
+
 else:
-    target_upload = env.Alias(
-        "upload", target_firm,
-        [env.VerboseAction(BeforeUpload, "Looking for upload port..."),
-         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")])
-AlwaysBuild(target_upload)
+    sys.stderr.write("Warning! Unknown upload protocol %s\n" % upload_protocol)
+
+AlwaysBuild(env.Alias("upload", target_firm, upload_actions))
 
 #
 # Setup default targets

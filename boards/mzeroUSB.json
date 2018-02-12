@@ -20,30 +20,7 @@
     "variant": "arduino_mzero"
   },
   "debug": {
-    "tools": {
-      "cmsis-dap": {
-        "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
-          "arguments": [
-            "-s", "$PACKAGE_DIR/scripts",
-            "-f", "interface/cmsis-dap.cfg",
-            "-c", "set CHIPNAME at91samd21g18; set ENDIAN little; set telnet_port 0",
-            "-f", "target/at91samdXX.cfg"
-          ]
-        },
-        "load_cmd": "mon program \"$PROG_DIR/firmware.bin\" 0x4000"
-      },
-      "blackmagic": {
-        "hwids": [
-          [
-            "0x1d50",
-            "0x6018"
-          ]
-        ],
-        "require_debug_port": true
-      }
-    }
+    "openocd_chipname": "at91samd21g18"
   },
   "frameworks": [
     "arduino"
@@ -54,6 +31,12 @@
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
     "protocol": "stk500v2",
+    "protocols": [
+      "stk500v2",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
     "require_upload_port": true,
     "speed": 57600,
     "use_1200bps_touch": true,

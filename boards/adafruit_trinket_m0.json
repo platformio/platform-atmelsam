@@ -20,6 +20,9 @@
     "usb_product": "Adafruit Trinket M0",
     "variant": "trinket_m0"
   },
+  "debug": {
+    "openocd_chipname": "at91samd21e18"
+  },
   "frameworks": [
     "arduino"
   ],
@@ -30,6 +33,12 @@
     "maximum_size": 262144,
     "native_usb": true,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true

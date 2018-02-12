@@ -2,41 +2,30 @@
   "build": {
     "core": "samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_MKR1000 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_SAMD_MKRWAN1300 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
         "0x2341",
-        "0x804E"
+        "0x8053"
       ],
       [
         "0x2341",
-        "0x004E"
-      ],
-      [
-        "0x2341",
-        "0x824E"
-      ],
-      [
-        "0x2341",
-        "0x024E"
+        "0x0053"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "Arduino MKR1000",
-    "variant": "mkr1000"
+    "usb_product": "Arduino MKR WAN 1300",
+    "variant": "mkrwan1300"
   },
-  "connectivity": [
-    "wifi"
-  ],
   "debug": {
     "openocd_chipname": "at91samd21g18"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "Arduino MKR1000",
+  "name": "Arduino MKR WAN 1300",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -53,6 +42,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.arduino.cc/en/Main/ArduinoMKR1000",
+  "url": "https://store.arduino.cc/mkr-wan-1300",
   "vendor": "Arduino"
 }

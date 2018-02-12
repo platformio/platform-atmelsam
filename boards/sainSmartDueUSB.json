@@ -18,6 +18,9 @@
   "connectivity": [
     "can"
   ],
+  "debug": {
+    "openocd_chipname": "at91sam3X8E"
+  },
   "frameworks": [
     "arduino"
   ],
@@ -27,6 +30,11 @@
     "maximum_ram_size": 32768,
     "maximum_size": 524288,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "jlink",
+      "blackmagic"
+    ],
     "native_usb": true,
     "require_upload_port": true,
     "use_1200bps_touch": true,

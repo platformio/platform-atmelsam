@@ -21,42 +21,7 @@
     "variant": "sodaq_one"
   },
   "debug": {
-    "tools": {
-      "jlink": {
-        "server": [
-          {
-            "arguments": [
-              "-singlerun",
-              "-if", "SWD",
-              "-select", "USB",
-              "-device", "ATSAMD21G18",
-              "-port", "2331"
-            ],
-            "executable": "JLinkGDBServerCL.exe",
-            "system": [
-              "windows",
-              "windows_amd64",
-              "windows_x86"
-            ]
-          },
-          {
-            "arguments": [
-              "-singlerun",
-              "-if", "SWD",
-              "-select", "USB",
-              "-device", "ATSAMD21G18",
-              "-port", "2331"
-            ],
-            "executable": "JLinkGDBServer",
-            "system": [
-              "darwin_x86_64",
-              "linux_i686",
-              "linux_x86_64"
-            ]
-          }
-        ]
-      }
-    }
+    "openocd_chipname": "at91samd21g18"
   },
   "frameworks": [
     "arduino"
@@ -68,6 +33,12 @@
     "maximum_size": 262144,
     "native_usb": true,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true

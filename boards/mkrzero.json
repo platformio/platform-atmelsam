@@ -16,19 +16,28 @@
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "Arduino MKRZero",
+    "usb_product": "Arduino MKRZERO",
     "variant": "mkrzero"
+  },
+  "debug": {
+    "openocd_chipname": "at91samd21g18"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "Arduino MKRZero",
+  "name": "Arduino MKRZERO",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
     "native_usb": true,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true

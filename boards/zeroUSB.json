@@ -23,6 +23,12 @@
     "usb_product": "Arduino Zero",
     "variant": "arduino_zero"
   },
+  "debug": {
+    "onboard_tools": [
+      "cmsis-dap"
+    ],
+    "openocd_chipname": "at91samd21g18"
+  },
   "frameworks": [
     "arduino"
   ],
@@ -33,6 +39,12 @@
     "maximum_size": 262144,
     "native_usb": true,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true

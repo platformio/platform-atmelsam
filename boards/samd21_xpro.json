@@ -5,16 +5,10 @@
     "mcu": "atsamd21j18a"
   },
   "debug": {
-    "tools": {
-      "cmsis-dap": {
-        "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
-          "arguments": ["-f", "scripts/board/atmel_samd21_xplained_pro.cfg"]
-        },
-        "onboard": true
-      }
-    }
+    "onboard_tools": [
+      "cmsis-dap"
+    ],
+    "openocd_chipname": "at91samd21j18"
   },
   "frameworks": [
     "mbed"
@@ -23,8 +17,13 @@
   "upload": {
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
-    "openocdcfg": "atmel_samd21_xplained_pro.cfg",
-    "protocol": "openocd"
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/SAMD21-XPRO/",
   "vendor": "Atmel"

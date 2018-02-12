@@ -21,30 +21,7 @@
     "variant": "feather_m0"
   },
   "debug": {
-    "tools": {
-      "cmsis-dap": {
-        "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
-          "arguments": [
-            "-s", "$PACKAGE_DIR/scripts",
-            "-f", "interface/cmsis-dap.cfg",
-            "-c", "set CHIPNAME at91samd21g18; set ENDIAN little; set telnet_port 0",
-            "-f", "target/at91samdXX.cfg"
-          ]
-        },
-        "load_cmd": "preload"
-      },
-      "blackmagic": {
-        "hwids": [
-          [
-            "0x1d50",
-            "0x6018"
-          ]
-        ],
-        "require_debug_port": true
-      }
-    }
+    "openocd_chipname": "at91samd21g18"
   },
   "frameworks": [
     "arduino"
@@ -56,6 +33,12 @@
     "maximum_size": 262144,
     "native_usb": true,
     "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
