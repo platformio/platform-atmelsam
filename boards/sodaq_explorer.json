@@ -1,7 +1,6 @@
 {
   "build": {
     "core": "sodaq",
-    "system": "samd",
     "cpu": "cortex-m0plus",
     "extra_flags": "-D__SAMD21J18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_EXPLORER",
     "f_cpu": "48000000L",
@@ -17,6 +16,7 @@
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21j18a",
+    "system": "samd",
     "usb_product": "SODAQ ExpLoRer",
     "variant": "sodaq_explorer"
   },
