@@ -20,7 +20,7 @@ How to build PlatformIO based project
 .. code-block:: bash
 
     # Change directory to example
-    > cd platform-atmelsam/examples/arduino-wifi-scan
+    > cd platform-atmelsam/examples/arduino-web-thing-led
 
     # Build project
     > platformio run
