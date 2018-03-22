@@ -23,12 +23,12 @@
     "usb_product": "Arduino Due",
     "variant": "arduino_due_x"
   },
-  "debug": {
-    "openocd_chipname": "at91sam3X8E"
-  },
   "connectivity": [
     "can"
   ],
+  "debug": {
+    "openocd_chipname": "at91sam3X8E"
+  },
   "frameworks": [
     "arduino",
     "simba"
