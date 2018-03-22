@@ -1,4 +1,4 @@
-﻿/*
+/*
   WiFi Web Server LED control via web of things (e.g., iot.mozilla.org gateway)
   based on WiFi101.h example "Provisioning_WiFiWebServer.ino"
 
@@ -30,7 +30,15 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <WiFi101.h>
+
+#define USE_MDNS_RESPONDER  0
+
+#if USE_MDNS_RESPONDER
 #include <WiFiMDNSResponder.h>
+#else
+#include <WiFiUdp.h>
+#include <ArduinoMDNS.h>
+#endif
 
 #ifndef PIN_STATE_HIGH
 #define PIN_STATE_HIGH HIGH
@@ -50,8 +58,13 @@ byte mac[6];
 
 WiFiServer server(80);
 
+#if USE_MDNS_RESPONDER
 // Create a MDNS responder to listen and respond to MDNS name requests.
 WiFiMDNSResponder mdnsResponder;
+#else
+WiFiUDP udp;
+MDNS mdns(udp);
+#endif
 
 void printWiFiStatus();
 
@@ -99,6 +112,7 @@ void setup() {
 
   server.begin();
 
+#if USE_MDNS_RESPONDER
   // Setup the MDNS responder to listen to the configured name.
   // NOTE: You _must_ call this _after_ connecting to the WiFi network and
   // being assigned an IP address.
@@ -106,6 +120,32 @@ void setup() {
     Serial.println("Failed to start MDNS responder!");
     while(1);
   }
+#else
+ // Initialize the mDNS library. You can now reach or ping this
+  // Arduino via the host name "arduino.local", provided that your operating
+  // system is mDNS/Bonjour-enabled (such as MacOS X).
+  // Always call this before any other method!
+  mdns.begin(WiFi.localIP(), mdnsName);
+
+  // Now let's register the service we're offering (a web service) via Bonjour!
+  // To do so, we call the addServiceRecord() method. The first argument is the
+  // name of our service instance and its type, separated by a dot. In this
+  // case, the service type is _http. There are many other service types, use
+  // google to look up some common ones, but you can also invent your own
+  // service type, like _mycoolservice - As long as your clients know what to
+  // look for, you're good to go.
+  // The second argument is the port on which the service is running. This is
+  // port 80 here, the standard HTTP port.
+  // The last argument is the protocol type of the service, either TCP or UDP.
+  // Of course, our service is a TCP service.
+  // With the service registered, it will show up in a mDNS/Bonjour-enabled web
+  // browser. As an example, if you are using Apple's Safari, you will now see
+  // the service under Bookmarks -> Bonjour (Provided that you have enabled
+  // Bonjour in the "Bookmarks" preferences in Safari).
+  mdns.addServiceRecord("http-on-off._http",
+                        80,
+                        MDNSServiceTCP);
+#endif
 
   Serial.print("Server listening at http://");
   Serial.print(mdnsName);
@@ -118,9 +158,21 @@ void setup() {
 unsigned long lastPrint = 0;
 
 void loop() {
+#if USE_MDNS_RESPONDER
   // Call the update() function on the MDNS responder every loop iteration to
   // make sure it can detect and respond to name requests.
   mdnsResponder.poll();
+#else
+  mdns.run();
+#endif
+
+  // print wifi status every 30 seconds
+  unsigned long now = millis();
+  if ((now - lastPrint) > 30000) {
+    lastPrint = now;
+    Serial.println("");
+    printWiFiStatus();
+  }
 
   // listen for incoming clients
   WiFiClient client = server.available();
@@ -151,7 +203,7 @@ void loop() {
 
             // the content of the HTTP response follows the header:
             client.print("Click <a href=\"/H\">here</a> to turn the LED on<br>");
-            client.print("Click <a href=\"/L\">here</a> turn the LED off<br>");
+            client.print("Click <a href=\"/L\">here</a> to turn the LED off<br>");
 
             client.println("</html>");
             // break out of the while loop:
