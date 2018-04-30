@@ -8,7 +8,8 @@
     "onboard_tools": [
       "cmsis-dap"
     ],
-    "openocd_chipname": "at91saml21j18"
+    "openocd_chipname": "at91saml21j18",
+    "svd_path": "ATSAML21J18B.svd"
   },
   "frameworks": [
     "mbed"
