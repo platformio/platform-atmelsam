@@ -21,7 +21,8 @@
     "variant": "trinket_m0"
   },
   "debug": {
-    "openocd_chipname": "at91samd21e18"
+    "openocd_chipname": "at91samd21e18",
+    "svd_path": "ATSAMD21E18A.svd"
   },
   "frameworks": [
     "arduino"

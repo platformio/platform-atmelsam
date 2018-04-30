@@ -2,13 +2,14 @@
   "build": {
     "cpu": "cortex-m0plus",
     "f_cpu": "48000000L",
-    "mcu": "atsamd21j18a"
+    "mcu": "samd21j18a"
   },
   "debug": {
     "onboard_tools": [
       "cmsis-dap"
     ],
-    "openocd_chipname": "at91samd21j18"
+    "openocd_chipname": "at91samd21j18",
+    "svd_path": "ATSAMD21J18A.svd"
   },
   "frameworks": [
     "mbed"

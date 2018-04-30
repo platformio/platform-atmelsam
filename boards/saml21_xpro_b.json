@@ -2,7 +2,7 @@
   "build": {
     "cpu": "cortex-m0plus",
     "f_cpu": "48000000L",
-    "mcu": "atsaml21j18b"
+    "mcu": "saml21j18b"
   },
   "debug": {
     "onboard_tools": [

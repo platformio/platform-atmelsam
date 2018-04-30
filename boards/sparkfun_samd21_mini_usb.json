@@ -20,7 +20,8 @@
     "variant": "SparkFun_SAMD_Mini"
   },
   "debug": {
-    "openocd_chipname": "at91samd21g18"
+    "openocd_chipname": "at91samd21g18",
+    "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
     "arduino"
