@@ -31,13 +31,12 @@ platform = env.PioPlatform()
 
 FRAMEWORK_DIR = platform.get_package_dir("framework-arduinosam")
 assert isdir(FRAMEWORK_DIR)
-FRAMEWORK_VERSION = platform.get_package_version("framework-arduinosam")
 BUILD_CORE = env.BoardConfig().get("build.core", "")
 BUILD_SYSTEM = env.BoardConfig().get("build.system", BUILD_CORE)
 SYSTEM_DIR = join(FRAMEWORK_DIR, "system", BUILD_SYSTEM)
 
 # USB flags
-ARDUINO_USBDEFINES = [("ARDUINO", int(FRAMEWORK_VERSION.split(".")[1]))]
+ARDUINO_USBDEFINES = [("ARDUINO", 10805)]
 if "build.usb_product" in env.BoardConfig():
     ARDUINO_USBDEFINES += [
         ("USB_VID", env.BoardConfig().get("build.hwids")[0][0]),

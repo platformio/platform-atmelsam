@@ -81,8 +81,8 @@ class AtmelsamPlatform(PlatformBase):
                     "set CHIPNAME %s; set ENDIAN little" % openocd_chipname,
                     "-f",
                     "target/%s.cfg" %
-                    ("at91samdXX"
-                     if "samd" in openocd_chipname else "at91sam3ax_8x")
+                    ("at91sam3ax_8x"
+                     if "at91sam3" in openocd_chipname else "at91samdXX")
                 ]
                 debug['tools'][link] = {
                     "server": {

@@ -3,6 +3,7 @@
     "core": "samd",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_MKR1000 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "f_cpu": "48000000L",
     "hwids": [
       [
         "0x03EB",
@@ -10,8 +11,7 @@
       ]
     ],
     "ldscript": "flash_without_bootloader.ld",
-    "f_cpu": "48000000L",
-    "mcu": "atsamd21g18a",
+    "mcu": "samd21g18a",
     "usb_product": "Atmel ATSAMW25-XPRO",
     "variant": "w25_xplained_pro"
   },
@@ -22,7 +22,8 @@
     "onboard_tools": [
       "cmsis-dap"
     ],
-    "openocd_chipname": "at91samd21g18"
+    "openocd_chipname": "at91samd21g18",
+    "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
     "arduino",

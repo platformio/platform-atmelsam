@@ -21,7 +21,8 @@
     "variant": "sodaq_autonomo"
   },
   "debug": {
-    "openocd_chipname": "at91samd21j18"
+    "openocd_chipname": "at91samd21j18",
+    "svd_path": "ATSAMD21J18A.svd"
   },
   "frameworks": [
     "arduino"
