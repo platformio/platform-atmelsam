@@ -104,6 +104,9 @@ env.Replace(
 
     LIBS=["c", "gcc", "m"],
 
+    SIZEPROGREGEXP=r"^(?:\.text|\.data|\.rodata|\.text.align|\.ARM.exidx)\s+(\d+).*",
+    SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
+    SIZECHECKCMD="$SIZETOOL -A -d $SOURCES",
     SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
 
     PROGSUFFIX=".elf"
