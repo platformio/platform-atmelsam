@@ -19,10 +19,9 @@ class AtmelsamPlatform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         if variables.get("board"):
+            board = self.board_config(variables.get("board"))
             upload_protocol = variables.get("upload_protocol",
-                                            self.board_config(
-                                                variables.get("board")).get(
-                                                    "upload.protocol", ""))
+                                            board.get("upload.protocol", ""))
             upload_tool = "tool-openocd"
             if upload_protocol == "sam-ba":
                 upload_tool = "tool-bossac"
@@ -39,6 +38,8 @@ class AtmelsamPlatform(PlatformBase):
             if "mbed" in variables.get("pioframework", []):
                 self.packages["toolchain-gccarmnoneeabi"][
                     'version'] = ">=1.60301.0"
+            if board.get("build.core", "") == "adafruit":
+                self.packages["tool-bossac"]['version'] = "~1.10900.0"
 
         return PlatformBase.configure_default_packages(self, variables,
                                                        targets)
@@ -80,9 +81,9 @@ class AtmelsamPlatform(PlatformBase):
                     "-c",
                     "set CHIPNAME %s; set ENDIAN little" % openocd_chipname,
                     "-f",
-                    "target/%s.cfg" %
-                    ("at91sam3ax_8x"
-                     if "at91sam3" in openocd_chipname else "at91samdXX")
+                    "target/%s.cfg" % ("at91sam3ax_8x"
+                                       if "at91sam3" in openocd_chipname else
+                                       "at91samdXX")
                 ]
                 debug['tools'][link] = {
                     "server": {

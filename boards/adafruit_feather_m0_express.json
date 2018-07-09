@@ -2,7 +2,7 @@
   "build": {
     "core": "adafruit",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DARDUINO_SAMD_FEATHER_M0 -DARDUINO_SAMD_FEATHER_M0_EXPRESS -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DARDUINO_SAMD_FEATHER_M0 -DARDUINO_SAMD_FEATHER_M0_EXPRESS -DARM_MATH_CM0PLUS -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
@@ -41,6 +41,7 @@
       "atmel-ice"
     ],
     "require_upload_port": true,
+    "section_start": "0x2000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },

@@ -40,6 +40,7 @@
       "atmel-ice"
     ],
     "require_upload_port": true,
+    "section_start": "0x2000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
