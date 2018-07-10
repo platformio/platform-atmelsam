@@ -96,7 +96,7 @@ env.Replace(
         "-Os",
         "-mthumb",
         "-mcpu=%s" % board.get("build.cpu"),
-        "-Wl,--cref",
+        # "-Wl,--cref", # don't enable it, it prints Cross Reference Table
         "-Wl,--gc-sections",
         "-Wl,--check-sections",
         "-Wl,--unresolved-symbols=report-all",
