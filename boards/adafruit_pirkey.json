@@ -2,23 +2,23 @@
   "build": {
     "core": "adafruit",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_GEMMA_M0 -DARM_MATH_CM0PLUS -DCRYSTALLESS -DADAFRUIT_GEMMA_M0 -D__SAMD21E18A__",
+    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_PIRKEY -DARM_MATH_CM0PLUS -DCRYSTALLESS -DADAFRUIT_PIRKEY -D__SAMD21E18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
         "0x239A",
-        "0x801C"
+        "0x801E"
       ],
       [
         "0x239A",
-        "0x001C"
+        "0x001E"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21e18a",
     "system": "samd",
-    "usb_product": "Adafruit Gemma M0",
-    "variant": "gemma_m0"
+    "usb_product": "pIRKey",
+    "variant": "pirkey"
   },
   "debug": {
     "openocd_chipname": "at91samd21e18",
@@ -27,7 +27,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Adafruit Gemma M0",
+  "name": "Adafruit pIRkey",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -45,6 +45,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.adafruit.com/product/3501",
+  "url": "https://www.adafruit.com/product/3364",
   "vendor": "Adafruit"
 }

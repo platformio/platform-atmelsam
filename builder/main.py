@@ -47,8 +47,9 @@ def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
 
 env = DefaultEnvironment()
 platform = env.PioPlatform()
+board = env.BoardConfig()
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
-build_mcu = env.get("BOARD_MCU", env.BoardConfig().get("build.mcu", ""))
+build_mcu = env.get("BOARD_MCU", board.get("build.mcu", ""))
 
 env.Replace(
     AR="arm-none-eabi-ar",
@@ -74,7 +75,7 @@ env.Replace(
         "-fdata-sections",
         "-Wall",
         "-mthumb",
-        "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
+        "-mcpu=%s" % board.get("build.cpu"),
         "-nostdlib",
         "--param", "max-inline-insns-single=500"
     ],
@@ -94,7 +95,8 @@ env.Replace(
     LINKFLAGS=[
         "-Os",
         "-mthumb",
-        "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
+        "-mcpu=%s" % board.get("build.cpu"),
+        # "-Wl,--cref", # don't enable it, it prints Cross Reference Table
         "-Wl,--gc-sections",
         "-Wl,--check-sections",
         "-Wl,--unresolved-symbols=report-all",
@@ -102,7 +104,7 @@ env.Replace(
         "-Wl,--warn-section-align"
     ],
 
-    LIBS=["c", "gcc", "m"],
+    LIBS=["m"],
 
     SIZEPROGREGEXP=r"^(?:\.text|\.data|\.rodata|\.text.align|\.ARM.exidx)\s+(\d+).*",
     SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
@@ -186,7 +188,7 @@ AlwaysBuild(target_size)
 # Target: Upload by default .bin file
 #
 
-debug_tools = env.BoardConfig().get("debug.tools", {})
+debug_tools = board.get("debug.tools", {})
 upload_actions = []
 
 if upload_protocol.startswith("blackmagic"):
@@ -218,17 +220,24 @@ elif upload_protocol == "sam-ba":
             "--erase",
             "--write",
             "--verify",
-            "--reset",
-            "-U",
-            "true" if env.BoardConfig().get(
-                "upload.native_usb", False) else "false"
+            "--reset"
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCES"
     )
+    if board.get("build.core") == "adafruit":
+        env.Append(
+            UPLOADERFLAGS=["-U", "--offset",
+                           board.get("upload.section_start")])
+    else:
+        env.Append(UPLOADERFLAGS=[
+            "-U", "true"
+            if env.BoardConfig().get("upload.native_usb", False) else "false"
+        ])
     if "sam3x8e" in build_mcu:
         env.Append(UPLOADERFLAGS=["--boot"])
     if int(ARGUMENTS.get("PIOVERBOSE", 0)):
         env.Prepend(UPLOADERFLAGS=["--info", "--debug"])
+
     upload_actions = [
         env.VerboseAction(BeforeUpload, "Looking for upload port..."),
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
@@ -263,8 +272,8 @@ elif upload_protocol in debug_tools:
             "arguments", []) + [
                 "-c",
                 "program {{$SOURCE}} verify reset %s; shutdown" %
-                env.BoardConfig().get("upload.section_start", "")
-            ],
+                board.get("upload.section_start", "")
+        ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
     )
     env['UPLOADERFLAGS'] = [

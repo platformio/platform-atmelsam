@@ -1,8 +1,8 @@
 {
   "build": {
-    "core": "samd",
+    "core": "adafruit",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-D__SAMD21G18A__ -DCRYSTALLESS -DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DADAFRUIT_CIRCUITPLAYGROUND_M0 -DARDUINO_SAMD_CIRCUITPLAYGROUND_EXPRESS  ",
+    "extra_flags": "-D__SAMD21G18A__ -DCRYSTALLESS -DARM_MATH_CM0PLUS -DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DADAFRUIT_CIRCUITPLAYGROUND_M0 -DARDUINO_SAMD_CIRCUITPLAYGROUND_EXPRESS",
     "f_cpu": "48000000L",
     "hwids": [
       [
@@ -40,6 +40,7 @@
       "atmel-ice"
     ],
     "require_upload_port": true,
+    "section_start": "0x2000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },

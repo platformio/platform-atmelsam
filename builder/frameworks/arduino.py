@@ -28,23 +28,24 @@ from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
 platform = env.PioPlatform()
+board = env.BoardConfig()
 
 FRAMEWORK_DIR = platform.get_package_dir("framework-arduinosam")
 assert isdir(FRAMEWORK_DIR)
-BUILD_CORE = env.BoardConfig().get("build.core", "")
-BUILD_SYSTEM = env.BoardConfig().get("build.system", BUILD_CORE)
+BUILD_CORE = board.get("build.core", "")
+BUILD_SYSTEM = board.get("build.system", BUILD_CORE)
 SYSTEM_DIR = join(FRAMEWORK_DIR, "system", BUILD_SYSTEM)
 
 # USB flags
 ARDUINO_USBDEFINES = [("ARDUINO", 10805)]
 if "build.usb_product" in env.BoardConfig():
     ARDUINO_USBDEFINES += [
-        ("USB_VID", env.BoardConfig().get("build.hwids")[0][0]),
-        ("USB_PID", env.BoardConfig().get("build.hwids")[0][1]),
+        ("USB_VID", board.get("build.hwids")[0][0]),
+        ("USB_PID", board.get("build.hwids")[0][1]),
         ("USB_PRODUCT", '\\"%s\\"' %
-         env.BoardConfig().get("build.usb_product", "").replace('"', "")),
+         board.get("build.usb_product", "").replace('"', "")),
         ("USB_MANUFACTURER", '\\"%s\\"' %
-         env.BoardConfig().get("vendor", "").replace('"', ""))
+         board.get("vendor", "").replace('"', ""))
     ]
 
 
@@ -57,7 +58,7 @@ env.Append(
 
     LIBPATH=[
         join(FRAMEWORK_DIR, "variants",
-             env.BoardConfig().get("build.variant"), "linker_scripts", "gcc")
+             board.get("build.variant"), "linker_scripts", "gcc")
     ]
 )
 
@@ -71,11 +72,26 @@ if BUILD_SYSTEM == "samd":
         LIBPATH=[
             join(SYSTEM_DIR, "CMSIS", "CMSIS", "Lib", "GCC"),
             join(FRAMEWORK_DIR, "variants",
-                 env.BoardConfig().get("build.variant"))
-        ],
-
-        LIBS=["arm_cortexM0l_math"]
+                 board.get("build.variant"))
+        ]
     )
+    if board.get("build.cpu") == "cortex-m4":
+        env.Prepend(
+            CCFLAGS=[
+                "-mfloat-abi=hard",
+                "-mfpu=fpv4-sp-d16"
+            ],
+            LINKFLAGS=[
+                "-mfloat-abi=hard",
+                "-mfpu=fpv4-sp-d16"
+            ],
+            LIBS=["arm_cortexM4lf_math"]
+        )
+    else:
+        env.Prepend(
+            LIBS=["arm_cortexM0l_math"]
+        )
+
 elif BUILD_SYSTEM == "sam":
     env.Append(
         CPPDEFINES=[
@@ -89,8 +105,7 @@ elif BUILD_SYSTEM == "sam":
         ],
 
         LIBPATH=[
-            join(FRAMEWORK_DIR, "variants",
-                 env.BoardConfig().get("build.variant"))
+            join(FRAMEWORK_DIR, "variants", board.get("build.variant"))
         ],
 
         LINKFLAGS=[
@@ -100,7 +115,7 @@ elif BUILD_SYSTEM == "sam":
             "-u", "_getpid"
         ],
 
-        LIBS=["sam_sam3x8e_gcc_rel"]
+        LIBS=["sam_sam3x8e_gcc_rel", "gcc"]
     )
 
 
@@ -123,14 +138,11 @@ libs = []
 
 if "build.variant" in env.BoardConfig():
     env.Append(
-        CPPPATH=[
-            join(FRAMEWORK_DIR, "variants",
-                 env.BoardConfig().get("build.variant"))
-        ]
+        CPPPATH=[join(FRAMEWORK_DIR, "variants", board.get("build.variant"))]
     )
     libs.append(env.BuildLibrary(
         join("$BUILD_DIR", "FrameworkArduinoVariant"),
-        join(FRAMEWORK_DIR, "variants", env.BoardConfig().get("build.variant"))
+        join(FRAMEWORK_DIR, "variants", board.get("build.variant"))
     ))
 
 libs.append(env.BuildLibrary(
