@@ -37,7 +37,7 @@
   "name": "Arduino Due (Programming Port)",
   "upload": {
     "disable_flushing": true,
-    "maximum_ram_size": 32768,
+    "maximum_ram_size": 98304,
     "maximum_size": 524288,
     "native_usb": false,
     "protocol": "sam-ba",
