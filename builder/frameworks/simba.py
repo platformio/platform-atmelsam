@@ -50,6 +50,8 @@ env = DefaultEnvironment()
 env.AddMethod(LookupSources)
 env.AddMethod(VariantDirWrap)
 
+env.SConscript("_bare.py")
+
 env.Replace(
     PLATFORMFW_DIR=env.PioPlatform().get_package_dir("framework-simba")
 )

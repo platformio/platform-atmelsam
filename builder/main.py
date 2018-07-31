@@ -63,49 +63,6 @@ env.Replace(
 
     ARFLAGS=["rc"],
 
-    ASFLAGS=["-x", "assembler-with-cpp"],
-
-    CFLAGS=[
-        "-std=gnu11"
-    ],
-
-    CCFLAGS=[
-        "-Os",  # optimize for size
-        "-ffunction-sections",  # place each function in its own section
-        "-fdata-sections",
-        "-Wall",
-        "-mthumb",
-        "-mcpu=%s" % board.get("build.cpu"),
-        "-nostdlib",
-        "--param", "max-inline-insns-single=500"
-    ],
-
-    CXXFLAGS=[
-        "-fno-rtti",
-        "-fno-exceptions",
-        "-std=gnu++11",
-        "-fno-threadsafe-statics"
-    ],
-
-    CPPDEFINES=[
-        ("F_CPU", "$BOARD_F_CPU"),
-        "USBCON"
-    ],
-
-    LINKFLAGS=[
-        "-Os",
-        "-mthumb",
-        "-mcpu=%s" % board.get("build.cpu"),
-        # "-Wl,--cref", # don't enable it, it prints Cross Reference Table
-        "-Wl,--gc-sections",
-        "-Wl,--check-sections",
-        "-Wl,--unresolved-symbols=report-all",
-        "-Wl,--warn-common",
-        "-Wl,--warn-section-align"
-    ],
-
-    LIBS=["m"],
-
     SIZEPROGREGEXP=r"^(?:\.text|\.data|\.rodata|\.text.align|\.ARM.exidx)\s+(\d+).*",
     SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
     SIZECHECKCMD="$SIZETOOL -A -d $SOURCES",
@@ -115,8 +72,6 @@ env.Replace(
 )
 
 env.Append(
-    ASFLAGS=env.get("CCFLAGS", [])[:],
-
     BUILDERS=dict(
         ElfToBin=Builder(
             action=env.VerboseAction(" ".join([
@@ -146,14 +101,6 @@ env.Append(
 # Allow user to override via pre:script
 if env.get("PROGNAME", "program") == "program":
     env.Replace(PROGNAME="firmware")
-
-if ("samd" in build_mcu) or ("samc" in build_mcu):
-    env.Append(
-        LINKFLAGS=[
-            "--specs=nosys.specs",
-            "--specs=nano.specs"
-        ]
-    )
 
 #
 # Target: Build executable and linkable firmware
