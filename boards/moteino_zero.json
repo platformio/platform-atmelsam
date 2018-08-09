@@ -1,0 +1,50 @@
+{
+  "build": {
+    "core": "samd",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x04d8",
+        "0xeee5"
+      ],
+      [
+        "0x04d8",
+        "0xeee4"
+      ]
+    ],
+    "ldscript": "flash_with_bootloader.ld",
+    "mcu": "samd21g18a",
+    "usb_product": "LowPowerLab Moteino M0",
+    "variant": "moteino_zero"
+  },
+  "debug": {
+    "openocd_chipname": "at91samd21g18",
+    "svd_path": "ATSAMD21G18A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Moteino M0",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": false,
+    "section_start": "0x2000",
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://lowpowerlab.com/shop/product/184",
+  "vendor": "LowPowerLab"
+}

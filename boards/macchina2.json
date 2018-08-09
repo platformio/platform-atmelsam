@@ -32,7 +32,7 @@
   "name": "Macchina M2",
   "upload": {
     "disable_flushing": true,
-    "maximum_ram_size": 32768,
+    "maximum_ram_size": 98304,
     "maximum_size": 524288,
     "native_usb": true,
     "protocol": "sam-ba",
