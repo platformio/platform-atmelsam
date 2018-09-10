@@ -16,6 +16,7 @@
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
+    "system": "samd",
     "usb_product": "Circuit Playground Expresso",
     "variant": "circuitplay"
   },
