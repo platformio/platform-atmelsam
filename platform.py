@@ -12,34 +12,40 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from platform import system
+
 from platformio.managers.platform import PlatformBase
 
 
 class AtmelsamPlatform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
-        if variables.get("board"):
-            board = self.board_config(variables.get("board"))
-            upload_protocol = variables.get("upload_protocol",
-                                            board.get("upload.protocol", ""))
-            upload_tool = "tool-openocd"
-            if upload_protocol == "sam-ba":
-                upload_tool = "tool-bossac"
-            elif upload_protocol == "stk500v2":
-                upload_tool = "tool-avrdude"
+        if not variables.get("board"):
+            return PlatformBase.configure_default_packages(
+                self, variables, targets)
+        board = self.board_config(variables.get("board"))
+        upload_protocol = variables.get("upload_protocol",
+                                        board.get("upload.protocol", ""))
+        upload_tool = "tool-openocd"
+        if upload_protocol == "sam-ba":
+            upload_tool = "tool-bossac"
+        elif upload_protocol == "stk500v2":
+            upload_tool = "tool-avrdude"
+        elif upload_protocol == "jlink":
+            upload_tool = "tool-jlink"
 
-            if upload_tool:
-                for name, opts in self.packages.items():
-                    if "type" not in opts or opts['type'] != "uploader":
-                        continue
-                    if name != upload_tool:
-                        del self.packages[name]
+        if upload_tool:
+            for name, opts in self.packages.items():
+                if "type" not in opts or opts['type'] != "uploader":
+                    continue
+                if name != upload_tool:
+                    del self.packages[name]
 
-            if "mbed" in variables.get("pioframework", []):
-                self.packages["toolchain-gccarmnoneeabi"][
-                    'version'] = ">=1.60301.0"
-            if board.get("build.core", "") == "adafruit":
-                self.packages["tool-bossac"]['version'] = "~1.10900.0"
+        if "mbed" in variables.get("pioframework", []):
+            self.packages["toolchain-gccarmnoneeabi"][
+                'version'] = ">=1.60301.0"
+        if board.get("build.core", "") == "adafruit":
+            self.packages["tool-bossac"]['version'] = "~1.10900.0"
 
         return PlatformBase.configure_default_packages(self, variables,
                                                        targets)
@@ -71,6 +77,27 @@ class AtmelsamPlatform(PlatformBase):
                     "hwids": [["0x1d50", "0x6018"]],
                     "require_debug_port": True
                 }
+
+            elif link == "jlink":
+                assert debug.get("jlink_device"), (
+                    "Missed J-Link Device ID for %s" % board.id)
+                debug['tools'][link] = {
+                    "server": {
+                        "package": "tool-jlink",
+                        "arguments": [
+                            "-singlerun",
+                            "-if", "SWD",
+                            "-select", "USB",
+                            "-device", debug.get("jlink_device"),
+                            "-port", "2331"
+                        ],
+                        "executable": ("JLinkGDBServerCL.exe"
+                                       if system() == "Windows" else
+                                       "JLinkGDBServer")
+                    },
+                    "onboard": link in debug.get("onboard_tools", [])
+                }
+
             else:
                 openocd_chipname = debug.get("openocd_chipname")
                 assert openocd_chipname

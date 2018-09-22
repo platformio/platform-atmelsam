@@ -21,6 +21,7 @@
     "variant": "sodaq_explorer"
   },
   "debug": {
+    "jlink_device": "ATSAMD21J18",
     "openocd_chipname": "at91samd21j18",
     "svd_path": "ATSAMD21J18A.svd"
   },
