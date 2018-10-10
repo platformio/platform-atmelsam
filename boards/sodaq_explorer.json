@@ -20,6 +20,10 @@
     "usb_product": "SODAQ ExpLoRer",
     "variant": "sodaq_explorer"
   },
+  "connectivity": [
+    "LoRa",
+    "Bluetooth"
+  ],
   "debug": {
     "jlink_device": "ATSAMD21J18",
     "openocd_chipname": "at91samd21j18",
@@ -45,6 +49,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "http://support.sodaq.com/sodaq-one/explorer/",
+  "url": "https://support.sodaq.com/sodaq-one/explorer/",
   "vendor": "SODAQ"
 }

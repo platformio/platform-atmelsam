@@ -2,7 +2,7 @@
   "build": {
     "core": "sodaq",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-D__SAMD21J18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_AUTONOMO",
+    "extra_flags": "-D__SAMD21J18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_SARA",
     "f_cpu": "48000000L",
     "hwids": [
       [
@@ -17,9 +17,13 @@
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21j18a",
     "system": "samd",
-    "usb_product": "SODAQ Autonomo",
-    "variant": "sodaq_autonomo"
+    "usb_product": "SODAQ SARA",
+    "variant": "sodaq_sara"
   },
+  "connectivity": [
+    "NB-IoT",
+    "GPS"
+  ],
   "debug": {
     "jlink_device": "ATSAMD21J18",
     "openocd_chipname": "at91samd21j18",
@@ -28,7 +32,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "SODAQ Autonomo",
+  "name": "SODAQ SARA",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -45,6 +49,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://support.sodaq.com/autonom%D0%BE/features-autonomo/",
+  "url": "https://support.sodaq.com/sodaq-one/sara/",
   "vendor": "SODAQ"
 }

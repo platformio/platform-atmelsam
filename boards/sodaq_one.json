@@ -20,6 +20,10 @@
     "usb_product": "SODAQ ONE",
     "variant": "sodaq_one"
   },
+  "connectivity": [
+    "LoRa",
+    "GPS"
+  ],
   "debug": {
     "jlink_device": "ATSAMD21G18",
     "openocd_chipname": "at91samd21g18",
