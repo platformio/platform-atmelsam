@@ -1,0 +1,50 @@
+{
+  "build": {
+    "core": "sodaq",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-D__SAMD21G18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_SFF",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2341",
+        "0x804d"
+      ],
+      [
+        "0x2341",
+        "0x004d"
+      ]
+    ],
+    "ldscript": "flash_with_bootloader.ld",
+    "mcu": "samd21g18a",
+    "system": "samd",
+    "usb_product": "SODAQ SFF",
+    "variant": "sodaq_sff"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21G18",
+    "openocd_chipname": "at91samd21g18",
+    "svd_path": "ATSAMD21G18A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "SODAQ SFF",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "http://support.sodaq.com/sodaq-one/sff/",
+  "vendor": "SODAQ"
+}
