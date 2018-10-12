@@ -69,7 +69,8 @@ class AtmelsamPlatform(PlatformBase):
             debug['tools'] = {}
 
         # Atmel Ice / J-Link / BlackMagic Probe
-        for link in ("blackmagic", "jlink", "atmel-ice", "cmsis-dap"):
+        tools = ("blackmagic", "jlink", "atmel-ice", "cmsis-dap", "stlink")
+        for link in tools:
             if link not in upload_protocols or link in debug['tools']:
                 continue
             if link == "blackmagic":
@@ -101,14 +102,16 @@ class AtmelsamPlatform(PlatformBase):
             else:
                 openocd_chipname = debug.get("openocd_chipname")
                 assert openocd_chipname
+                openocd_cmds = ["set CHIPNAME %s" % openocd_chipname]
+                if link == "stlink" and "at91sam3" in openocd_chipname:
+                    openocd_cmds.append("set CPUTAPID 0x2ba01477")
                 server_args = [
                     "-s", "$PACKAGE_DIR/scripts", "-f",
                     "interface/%s.cfg" % ("cmsis-dap"
                                           if link == "atmel-ice" else link),
-                    "-c",
-                    "set CHIPNAME %s; set ENDIAN little" % openocd_chipname,
+                    "-c", "; ".join(openocd_cmds),
                     "-f",
-                    "target/%s.cfg" % ("at91sam3ax_8x"
+                    "target/%s.cfg" % ("at91sam3XXX"
                                        if "at91sam3" in openocd_chipname else
                                        "at91samdXX")
                 ]
@@ -120,6 +123,8 @@ class AtmelsamPlatform(PlatformBase):
                     },
                     "onboard": link in debug.get("onboard_tools", [])
                 }
+                if link == "stlink":
+                    debug['tools'][link]['load_cmd'] = "preload"
 
         board.manifest['debug'] = debug
         return board

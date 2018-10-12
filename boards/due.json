@@ -45,7 +45,9 @@
     "protocols": [
       "sam-ba",
       "jlink",
-      "blackmagic"
+      "blackmagic",
+      "atmel-ice",
+      "stlink"
     ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
