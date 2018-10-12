@@ -5,6 +5,7 @@
     "mcu": "saml21j18b"
   },
   "debug": {
+    "jlink_device": "ATSAML21J18",
     "onboard_tools": [
       "cmsis-dap"
     ],

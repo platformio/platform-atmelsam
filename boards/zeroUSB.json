@@ -24,6 +24,7 @@
     "variant": "arduino_zero"
   },
   "debug": {
+    "jlink_device": "ATSAMD21G18",
     "onboard_tools": [
       "cmsis-dap"
     ],

@@ -30,6 +30,7 @@
     "variant": "itsybitsy_m4"
   },
   "debug": {
+    "jlink_device": "ATSAMD51J19",
     "openocd_chipname": "at91samd51j19",
     "svd_path": "ATSAMD51J19A.svd"
   },

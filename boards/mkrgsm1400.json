@@ -20,6 +20,7 @@
     "variant": "mkrgsm1400"
   },
   "debug": {
+    "jlink_device": "ATSAMD21G18",
     "openocd_chipname": "at91samd21g18",
     "svd_path": "ATSAMD21G18A.svd"
   },

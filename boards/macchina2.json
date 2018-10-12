@@ -23,6 +23,7 @@
     "can"
   ],
   "debug": {
+    "jlink_device": "ATSAM3X8E",
     "openocd_chipname": "at91sam3X8E",
     "svd_path": "ATSAM3X8E.svd"
   },
@@ -39,7 +40,9 @@
     "protocols": [
       "sam-ba",
       "jlink",
-      "blackmagic"
+      "blackmagic",
+      "atmel-ice",
+      "stlink"
     ],
     "require_upload_port": true,
     "use_1200bps_touch": true,

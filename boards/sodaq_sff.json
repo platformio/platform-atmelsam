@@ -2,7 +2,7 @@
   "build": {
     "core": "sodaq",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-D__SAMD21J18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_AUTONOMO",
+    "extra_flags": "-D__SAMD21G18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_SFF",
     "f_cpu": "48000000L",
     "hwids": [
       [
@@ -15,20 +15,24 @@
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
-    "mcu": "samd21j18a",
+    "mcu": "samd21g18a",
     "system": "samd",
-    "usb_product": "SODAQ Autonomo",
-    "variant": "sodaq_autonomo"
+    "usb_product": "SODAQ SFF",
+    "variant": "sodaq_sff"
   },
+  "connectivity": [
+    "NB-IoT",
+    "GPS"
+  ],
   "debug": {
-    "jlink_device": "ATSAMD21J18",
-    "openocd_chipname": "at91samd21j18",
-    "svd_path": "ATSAMD21J18A.svd"
+    "jlink_device": "ATSAMD21G18",
+    "openocd_chipname": "at91samd21g18",
+    "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "SODAQ Autonomo",
+  "name": "SODAQ SFF",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -45,6 +49,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://support.sodaq.com/autonom%D0%BE/features-autonomo/",
+  "url": "https://support.sodaq.com/sodaq-one/sff//",
   "vendor": "SODAQ"
 }

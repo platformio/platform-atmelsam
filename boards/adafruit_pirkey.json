@@ -21,6 +21,7 @@
     "variant": "pirkey"
   },
   "debug": {
+    "jlink_device": "ATSAMD21E18",
     "openocd_chipname": "at91samd21e18",
     "svd_path": "ATSAMD21E18A.svd"
   },
