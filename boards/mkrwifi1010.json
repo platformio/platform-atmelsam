@@ -1,0 +1,50 @@
+{
+  "build": {
+    "core": "samd",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DARDUINO_SAMD_MKRWIFI1010 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DUSE_BQ24195L_PMIC",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2341",
+        "0x8054"
+      ],
+      [
+        "0x2341",
+        "0x0054"
+      ]
+    ],
+    "ldscript": "flash_with_bootloader.ld",
+    "mcu": "samd21g18a",
+    "usb_product": "Arduino MKR WiFi 1010",
+    "variant": "mkrwifi1010"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21G18",
+    "openocd_chipname": "at91samd21g18",
+    "svd_path": "ATSAMD21G18A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Arduino MKR WiFi 1010",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "section_start": "0x2000",
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://store.arduino.cc/arduino-mkr-wifi-1010",
+  "vendor": "Arduino"
+}
