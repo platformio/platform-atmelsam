@@ -26,6 +26,7 @@ class AtmelsamPlatform(PlatformBase):
         board = self.board_config(variables.get("board"))
         upload_protocol = variables.get("upload_protocol",
                                         board.get("upload.protocol", ""))
+        disabled_pkgs = []
         upload_tool = "tool-openocd"
         if upload_protocol == "sam-ba":
             upload_tool = "tool-bossac"
@@ -39,7 +40,7 @@ class AtmelsamPlatform(PlatformBase):
                 if "type" not in opts or opts['type'] != "uploader":
                     continue
                 if name != upload_tool:
-                    del self.packages[name]
+                    disabled_pkgs.append(name)
 
         if "mbed" in variables.get("pioframework", []):
             self.packages["toolchain-gccarmnoneeabi"][
@@ -47,6 +48,8 @@ class AtmelsamPlatform(PlatformBase):
         if board.get("build.core", "") == "adafruit":
             self.packages["tool-bossac"]['version'] = "~1.10900.0"
 
+        for name in disabled_pkgs:
+            del self.packages[name]
         return PlatformBase.configure_default_packages(self, variables,
                                                        targets)
 
