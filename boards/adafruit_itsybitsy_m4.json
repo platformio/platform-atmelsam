@@ -31,8 +31,7 @@
   },
   "debug": {
     "jlink_device": "ATSAMD51G19",
-    "openocd_chipname": "at91samd51g19",
-    "svd_path": "ATSAMD51G19A.svd"
+    "openocd_chipname": "at91samd51g19"
   },
   "frameworks": [
     "arduino"
