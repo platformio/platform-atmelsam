@@ -171,7 +171,13 @@ elif upload_protocol.startswith("jlink"):
         if not isdir(build_dir):
             makedirs(build_dir)
         script_path = join(build_dir, "upload.jlink")
-        commands = ["h", "loadbin %s,0x0" % source, "r", "q"]
+        commands = [
+            "h",
+            "loadbin %s, %s" % (source, env.BoardConfig().get(
+                "upload.offset_address", "0x0")),
+            "r",
+            "q"
+        ]
         with open(script_path, "w") as fp:
             fp.write("\n".join(commands))
         return script_path
