@@ -204,7 +204,7 @@ elif upload_protocol == "sam-ba":
     if board.get("build.core") == "adafruit":
         env.Append(
             UPLOADERFLAGS=["-U", "--offset",
-                           board.get("upload.section_start")])
+                           board.get("upload.offset_address")])
     else:
         env.Append(UPLOADERFLAGS=[
             "-U", "true"
@@ -249,7 +249,7 @@ elif upload_protocol in debug_tools:
             "arguments", []) + [
                 "-c",
                 "program {{$SOURCE}} verify reset %s; shutdown" %
-                board.get("upload.section_start", "")
+                board.get("upload.offset_address", "")
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
     )

@@ -43,7 +43,7 @@
       "atmel-ice"
     ],
     "require_upload_port": false,
-    "section_start": "0x2000",
+    "offset_address": "0x2000",
     "use_1200bps_touch": false,
     "wait_for_upload_port": false
   },
