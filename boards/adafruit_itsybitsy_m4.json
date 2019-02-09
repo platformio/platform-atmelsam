@@ -45,7 +45,6 @@
     "protocol": "sam-ba",
     "protocols": [
       "sam-ba",
-      "blackmagic",
       "jlink",
       "atmel-ice"
     ],
