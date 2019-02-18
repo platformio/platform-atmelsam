@@ -157,10 +157,6 @@ if BUILD_SYSTEM == "samd":
 
 elif BUILD_SYSTEM == "sam":
     env.Append(
-        CPPDEFINES=[
-            ("printf", "iprintf")
-        ],
-
         CPPPATH=[
             join(SYSTEM_DIR, "libsam"),
             join(SYSTEM_DIR, "CMSIS", "CMSIS", "Include"),

@@ -2,7 +2,7 @@
   "build": {
     "core": "samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_MKRGSM1400 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DUSE_BQ24195L_PMIC",
+    "extra_flags": "-DARDUINO_SAMD_MKRGSM1400 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DUSE_BQ24195L_PMIC -DUSE_ARDUINO_MKR_PIN_LAYOUT",
     "f_cpu": "48000000L",
     "hwids": [
       [
@@ -41,7 +41,7 @@
       "atmel-ice"
     ],
     "require_upload_port": true,
-    "section_start": "0x2000",
+    "offset_address": "0x2000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },

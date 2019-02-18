@@ -6,7 +6,7 @@
       "-DARDUINO_ARCH_SAMD",
       "-DARDUINO_ITSYBITSY_M4",
       "-DADAFRUIT_ITSYBITSY_M4_EXPRESS",
-      "-D__SAMD51J19A__",
+      "-D__SAMD51G19A__",
       "-D__SAMD51__",
       "-D__FPU_PRESENT",
       "-DARM_MATH_CM4",
@@ -24,15 +24,15 @@
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
-    "mcu": "samd51j19a",
+    "mcu": "samd51g19a",
     "system": "samd",
     "usb_product": "Adafruit ItsyBitsy M4",
     "variant": "itsybitsy_m4"
   },
   "debug": {
-    "jlink_device": "ATSAMD51J19",
-    "openocd_chipname": "at91samd51j19",
-    "svd_path": "ATSAMD51J19A.svd"
+    "jlink_device": "ATSAMD51G19",
+    "openocd_chipname": "at91samd51g19",
+    "svd_path": "ATSAMD51G19A.svd"
   },
   "frameworks": [
     "arduino"
@@ -46,12 +46,11 @@
     "protocol": "sam-ba",
     "protocols": [
       "sam-ba",
-      "blackmagic",
       "jlink",
       "atmel-ice"
     ],
     "require_upload_port": true,
-    "section_start": "0x4000",
+    "offset_address": "0x4000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },

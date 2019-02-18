@@ -6,45 +6,34 @@
     "f_cpu": "48000000L",
     "hwids": [
       [
-        "0x1B4F",
-        "0x8D21"
+        "0x04d8",
+        "0xeee5"
       ],
       [
-        "0x1B4F",
-        "0x0D21"
+        "0x04d8",
+        "0xeee4"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "SparkFun SAMD21",
-    "variant": "arduino_zero"
-  },
-  "debug": {
-    "jlink_device": "ATSAMD21G18",
-    "openocd_chipname": "at91samd21g18",
-    "svd_path": "ATSAMD21G18A.svd"
+    "usb_product": "LowPowerLab CurrentRanger",
+    "variant": "current_ranger"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "SparkFun SAMD21 Dev Breakout",
+  "name": "LowPowerLab CurrentRanger",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
     "native_usb": true,
     "protocol": "sam-ba",
-    "protocols": [
-      "sam-ba",
-      "blackmagic",
-      "jlink",
-      "atmel-ice"
-    ],
-    "require_upload_port": true,
+    "require_upload_port": false,
     "offset_address": "0x2000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.sparkfun.com/products/13672",
-  "vendor": "SparkFun"
+  "url": "https://lowpowerlab.com/shop/product/152?search=CurrentRanger",
+  "vendor": "LowPowerLab"
 }

@@ -2,22 +2,22 @@
   "build": {
     "core": "samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_SAMD_MKRNB1500 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DUSE_BQ24195L_PMIC -DUSE_ARDUINO_MKR_PIN_LAYOUT",
     "f_cpu": "48000000L",
     "hwids": [
       [
-        "0x2A03",
-        "0x804E"
+        "0x2341",
+        "0x8055"
       ],
       [
-        "0x2A03",
-        "0x004E"
+        "0x2341",
+        "0x0055"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "Arduino M0",
-    "variant": "arduino_mzero"
+    "usb_product": "Arduino MKR NB 1500",
+    "variant": "mkrnb1500"
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
@@ -27,24 +27,24 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Arduino M0",
+  "name": "Arduino MKR NB 1500",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
-    "protocol": "stk500v2",
+    "native_usb": true,
+    "protocol": "sam-ba",
     "protocols": [
-      "stk500v2",
+      "sam-ba",
       "blackmagic",
       "jlink",
       "atmel-ice"
     ],
     "require_upload_port": true,
-    "offset_address": "0x4000",
-    "speed": 57600,
+    "offset_address": "0x2000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.arduino.cc/en/Main/ArduinoBoardM0",
+  "url": "https://store.arduino.cc/arduino-mkr-nb-1500",
   "vendor": "Arduino"
 }

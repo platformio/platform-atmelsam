@@ -6,13 +6,13 @@
   "homepage": "http://platformio.org/platforms/atmelsam",
   "license": "Apache-2.0",
   "engines": {
-    "platformio": "^3.0.0"
+    "platformio": "<5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "3.4.2",
+  "version": "3.5.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json",
@@ -40,7 +40,7 @@
     "framework-arduinosam": {
       "type": "framework",
       "optional": true,
-      "version": "~3.10619.0"
+      "version": "~4.0.0"
     },
     "framework-mbed": {
       "type": "framework",

@@ -171,7 +171,13 @@ elif upload_protocol.startswith("jlink"):
         if not isdir(build_dir):
             makedirs(build_dir)
         script_path = join(build_dir, "upload.jlink")
-        commands = ["h", "loadbin %s,0x0" % source, "r", "q"]
+        commands = [
+            "h",
+            "loadbin %s, %s" % (source, env.BoardConfig().get(
+                "upload.offset_address", "0x0")),
+            "r",
+            "q"
+        ]
         with open(script_path, "w") as fp:
             fp.write("\n".join(commands))
         return script_path
@@ -204,7 +210,7 @@ elif upload_protocol == "sam-ba":
     if board.get("build.core") == "adafruit":
         env.Append(
             UPLOADERFLAGS=["-U", "--offset",
-                           board.get("upload.section_start")])
+                           board.get("upload.offset_address")])
     else:
         env.Append(UPLOADERFLAGS=[
             "-U", "true"
@@ -249,7 +255,7 @@ elif upload_protocol in debug_tools:
             "arguments", []) + [
                 "-c",
                 "program {{$SOURCE}} verify reset %s; shutdown" %
-                board.get("upload.section_start", "")
+                board.get("upload.offset_address", "")
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
     )
@@ -260,7 +266,7 @@ elif upload_protocol in debug_tools:
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 # custom upload tool
-elif "UPLOADCMD" in env:
+elif upload_protocol == "custom":
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 else:
