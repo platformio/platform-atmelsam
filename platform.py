@@ -44,7 +44,7 @@ class AtmelsamPlatform(PlatformBase):
 
         if "mbed" in variables.get("pioframework", []):
             self.packages["toolchain-gccarmnoneeabi"][
-                'version'] = ">=1.60301.0"
+                'version'] = ">=1.60301.0,<1.80000.0"
         if (board.get("build.core", "") == "adafruit"
                 and "tool-bossac" in self.packages):
             self.packages["tool-bossac"]['version'] = "~1.10900.0"
