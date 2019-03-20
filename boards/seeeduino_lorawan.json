@@ -20,21 +20,18 @@
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "Seeeduino Lorawan",
+    "usb_product": "Seeeduino LoRaWAN",
     "variant": "arduino_zero"
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
-    "onboard_tools": [
-      "cmsis-dap"
-    ],
     "openocd_chipname": "at91samd21g18",
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "Seeeduino Lorawan (USB Native Port)",
+  "name": "Seeeduino LoRaWAN",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -52,6 +49,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.arduino.cc/en/Main/ArduinoBoardZero",
-  "vendor": "Seeeduino"
+  "url": "http://wiki.seeedstudio.com/Seeeduino_LoRAWAN/",
+  "vendor": "Seeed"
 }
