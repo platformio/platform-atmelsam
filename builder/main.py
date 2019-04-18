@@ -30,15 +30,15 @@ def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
     if "BOARD" in env:
         upload_options = env.BoardConfig().get("upload", {})
 
-    if not upload_options.get("disable_flushing", False):
+    if not bool(upload_options.get("disable_flushing", False)):
         env.FlushSerialBuffer("$UPLOAD_PORT")
 
     before_ports = get_serialports()
 
-    if upload_options.get("use_1200bps_touch", False):
+    if bool(upload_options.get("use_1200bps_touch", False)):
         env.TouchSerialPort("$UPLOAD_PORT", 1200)
 
-    if upload_options.get("wait_for_upload_port", False):
+    if bool(upload_options.get("wait_for_upload_port", False)):
         env.Replace(UPLOAD_PORT=env.WaitForNewSerialPort(before_ports))
 
     # use only port name for BOSSA
