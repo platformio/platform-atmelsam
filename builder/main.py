@@ -254,7 +254,7 @@ elif upload_protocol in debug_tools:
         UPLOADERFLAGS=debug_tools.get(upload_protocol).get("server").get(
             "arguments", []) + [
                 "-c",
-                "program {{$SOURCE}} verify reset %s; shutdown" %
+                "program {$SOURCE} verify reset %s; shutdown" %
                 board.get("upload.offset_address", "")
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
