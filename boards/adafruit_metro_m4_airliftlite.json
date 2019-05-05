@@ -1,0 +1,61 @@
+{
+  "build": {
+    "core": "adafruit",
+    "cpu": "cortex-m4",
+    "extra_flags": [
+      "-DARDUINO_ARCH_SAMD",
+      "-DARDUINO_METRO_M4_AIRLIFT_LITE",
+      "-DADAFRUIT_METRO_M4_AIRLIFT_LITE",
+      "-D__SAMD51J19A__",
+      "-D__SAMD51__",
+      "-D__FPU_PRESENT",
+      "-DARM_MATH_CM4",
+      "-DENABLE_CACHE",
+      "-DMAX_SPI=24000000",
+      "-DVARIANT_QSPI_BAUD_DEFAULT=50000000"
+    ],
+    "f_cpu": "120000000L",
+    "hwids": [
+      [
+        "0x239A",
+        "0x8037"
+      ],
+      [
+        "0x239A",
+        "0x0037"
+      ]
+    ],
+    "ldscript": "flash_with_bootloader.ld",
+    "mcu": "samd51j19a",
+    "system": "samd",
+    "usb_product": "Adafruit Metro M4 Airlift Lite",
+    "variant": "metro_m4_airlift"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD51J19",
+    "openocd_chipname": "at91samd51j19",
+    "svd_path": "ATSAMD51J19A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Adafruit Metro M4 AirLift Lite",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 196608,
+    "maximum_size": 524288,
+    "native_usb": true,
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "offset_address": "0x4000",
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://www.adafruit.com/product/4000",
+  "vendor": "Adafruit"
+}
