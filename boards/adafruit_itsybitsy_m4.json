@@ -10,7 +10,10 @@
       "-D__SAMD51__",
       "-D__FPU_PRESENT",
       "-DARM_MATH_CM4",
-      "-DCRYSTALLESS"
+      "-DCRYSTALLESS",
+      "-DENABLE_CACHE",
+      "-DMAX_SPI=24000000",
+      "-DVARIANT_QSPI_BAUD_DEFAULT=50000000"
     ],
     "f_cpu": "120000000L",
     "hwids": [
@@ -37,11 +40,11 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Adafruit ItsyBitsy M4 (SAMD51)",
+  "name": "Adafruit ItsyBitsy M4",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 196608,
-    "maximum_size": 507904,
+    "maximum_size": 524288,
     "native_usb": true,
     "protocol": "sam-ba",
     "protocols": [
