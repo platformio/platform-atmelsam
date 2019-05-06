@@ -1,0 +1,50 @@
+{
+  "build": {
+    "core": "samd",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DARDUINO_SAMD_MINITRONICS20 -DARDUINO_ARCH_SAMD -D__SAMD21J18A__ -DUSE_BQ24195L_PMIC",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2341",
+        "0x8054"
+      ],
+      [
+        "0x2341",
+        "0x0054"
+      ]
+    ],
+    "ldscript": "flash_with_bootloader.ld",
+    "mcu": "samd21j18a",
+    "usb_product": "Minitronics v2.0",
+    "variant": "minitronics20"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21J18",
+    "openocd_chipname": "at91samd21j18",
+    "svd_path": "ATSAMD21J18A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Minitronics v2.0",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "offset_address": "0x4000",
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://reprapworld.com/products/electronics/minitronics/minitronics_v2_0_32_bit_all_in_one_controller_board/",
+  "vendor": "ReprapWorld"
+}
