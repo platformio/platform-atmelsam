@@ -109,15 +109,20 @@ class AtmelsamPlatform(PlatformBase):
                 openocd_cmds = ["set CHIPNAME %s" % openocd_chipname]
                 if link == "stlink" and "at91sam3" in openocd_chipname:
                     openocd_cmds.append("set CPUTAPID 0x2ba01477")
+                target_script = "at91samdXX.cfg"
+                if "at91sam3" in openocd_chipname:
+                    target_script = "at91sam3XXX.cfg"
+                elif openocd_chipname.startswith((
+                        "at91same54", "at91same53",
+                        "at91same51", "at91samd51")):
+                    target_script = "atsame5x.cfg"
                 server_args = [
                     "-s", "$PACKAGE_DIR/scripts", "-f",
                     "interface/%s.cfg" % ("cmsis-dap"
                                           if link == "atmel-ice" else link),
                     "-c", "; ".join(openocd_cmds),
                     "-f",
-                    "target/%s.cfg" % ("at91sam3XXX"
-                                       if "at91sam3" in openocd_chipname else
-                                       "at91samdXX")
+                    "target/" + target_script
                 ]
                 debug['tools'][link] = {
                     "server": {
