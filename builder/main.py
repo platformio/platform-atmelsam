@@ -113,6 +113,7 @@ if not env.get("PIOFRAMEWORK"):
 
 target_elf = None
 if "nobuild" in COMMAND_LINE_TARGETS:
+    target_elf = join("$BUILD_DIR", "${PROGNAME}.elf")
     target_firm = join("$BUILD_DIR", "${PROGNAME}.%s" %
                        ("hex" if upload_protocol == "stk500v2" else "bin"))
 else:
