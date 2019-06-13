@@ -250,21 +250,24 @@ elif upload_protocol == "stk500v2":
     ]
 
 elif upload_protocol in debug_tools:
-    env.Replace(
-        UPLOADER="openocd",
-        UPLOADERFLAGS=debug_tools.get(upload_protocol).get("server").get(
-            "arguments", []),
-        UPLOADCMD="$UPLOADER $UPLOADERFLAGS")
-    env.Append(UPLOADERFLAGS=[
-        "-c",
-        "program {$SOURCE} verify reset %s; shutdown" %
+    openocd_args = [
+        "-d%d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1)
+    ]
+    openocd_args.extend(
+        debug_tools.get(upload_protocol).get("server").get("arguments", []))
+    openocd_args.extend([
+        "-c", "program {$SOURCE} %s verify reset; shutdown;" %
         board.get("upload.offset_address", "")
     ])
-    env.Replace(UPLOADERFLAGS=[
+    openocd_args = [
         f.replace("$PACKAGE_DIR",
                   platform.get_package_dir("tool-openocd") or "")
-        for f in env['UPLOADERFLAGS']
-    ])
+        for f in openocd_args
+    ]
+    env.Replace(
+        UPLOADER="openocd",
+        UPLOADERFLAGS=openocd_args,
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS")
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 # custom upload tool
