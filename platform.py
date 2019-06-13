@@ -117,12 +117,11 @@ class AtmelsamPlatform(PlatformBase):
                         "at91same51", "at91samd51")):
                     target_script = "atsame5x.cfg"
                 server_args = [
-                    "-s", "$PACKAGE_DIR/scripts", "-f",
-                    "interface/%s.cfg" % ("cmsis-dap"
-                                          if link == "atmel-ice" else link),
+                    "-s", "$PACKAGE_DIR/scripts",
+                    "-f", "interface/%s.cfg" % (
+                        "cmsis-dap" if link == "atmel-ice" else link),
                     "-c", "; ".join(openocd_cmds),
-                    "-f",
-                    "target/" + target_script
+                    "-f", "target/" + target_script
                 ]
                 debug['tools'][link] = {
                     "server": {
