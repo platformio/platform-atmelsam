@@ -253,17 +253,18 @@ elif upload_protocol in debug_tools:
     env.Replace(
         UPLOADER="openocd",
         UPLOADERFLAGS=debug_tools.get(upload_protocol).get("server").get(
-            "arguments", []) + [
-                "-c",
-                "program {$SOURCE} verify reset %s; shutdown" %
-                board.get("upload.offset_address", "")
-        ],
-        UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
-    )
-    env['UPLOADERFLAGS'] = [
-        f.replace("$PACKAGE_DIR", platform.get_package_dir("tool-openocd") or "")
+            "arguments", []),
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS")
+    env.Append(UPLOADERFLAGS=[
+        "-c",
+        "program {$SOURCE} verify reset %s; shutdown" %
+        board.get("upload.offset_address", "")
+    ])
+    env.Replace(UPLOADERFLAGS=[
+        f.replace("$PACKAGE_DIR",
+                  platform.get_package_dir("tool-openocd") or "")
         for f in env['UPLOADERFLAGS']
-    ]
+    ])
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 # custom upload tool
