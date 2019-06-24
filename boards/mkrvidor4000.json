@@ -2,22 +2,22 @@
   "build": {
     "core": "samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_MKRFox1200 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DUSE_ARDUINO_MKR_PIN_LAYOUT -DVERY_LOW_POWER",
+    "extra_flags": "-DARDUINO_SAMD_MKRVIDOR4000 -DARDUINO_ARCH_SAMD -DUSE_BQ24195L_PMIC -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
         "0x2341",
-        "0x8050"
+        "0x8056"
       ],
       [
         "0x2341",
-        "0x0050"
+        "0x0056"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "usb_product": "Arduino MKRFox1200",
-    "variant": "mkrfox1200"
+    "usb_product": "Arduino MKR Vidor 4000",
+    "variant": "mkrvidor4000"
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
@@ -27,7 +27,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Arduino MKR FOX 1200",
+  "name": "MKR Vidor 4000",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -41,10 +41,10 @@
       "atmel-ice"
     ],
     "require_upload_port": true,
-    "offset_address": "0x2000",
+    "offset_address": "0x2000", 
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.arduino.cc/en/Main.ArduinoBoardMKRFox1200",
+  "url": "https://store.arduino.cc/mkr-vidor-4000",
   "vendor": "Arduino"
 }
