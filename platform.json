@@ -35,7 +35,7 @@
   "packages": {
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
-      "version": ">=1.40803.0,<1.40805.0"
+      "version": "~1.70201.0"
     },
     "framework-arduinosam": {
       "type": "framework",
