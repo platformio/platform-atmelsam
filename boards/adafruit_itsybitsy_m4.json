@@ -35,6 +35,7 @@
   "debug": {
     "jlink_device": "ATSAMD51G19",
     "openocd_chipname": "at91samd51g19",
+    "openocd_target": "atsame5x",
     "svd_path": "ATSAMD51G19A.svd"
   },
   "frameworks": [
@@ -46,6 +47,7 @@
     "maximum_ram_size": 196608,
     "maximum_size": 524288,
     "native_usb": true,
+    "offset_address": "0x4000",
     "protocol": "sam-ba",
     "protocols": [
       "sam-ba",
@@ -53,7 +55,6 @@
       "atmel-ice"
     ],
     "require_upload_port": true,
-    "offset_address": "0x4000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },

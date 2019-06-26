@@ -29,6 +29,7 @@
       "cmsis-dap"
     ],
     "openocd_chipname": "at91samd21g18",
+    "openocd_target": "at91samdXX",
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
@@ -40,6 +41,7 @@
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
     "native_usb": true,
+    "offset_address": "0x2000",
     "protocol": "sam-ba",
     "protocols": [
       "sam-ba",
@@ -48,7 +50,6 @@
       "atmel-ice"
     ],
     "require_upload_port": true,
-    "offset_address": "0x2000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },

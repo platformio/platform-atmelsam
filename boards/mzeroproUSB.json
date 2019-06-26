@@ -33,6 +33,7 @@
       "cmsis-dap"
     ],
     "openocd_chipname": "at91samd21g18",
+    "openocd_target": "at91samdXX",
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
@@ -43,6 +44,7 @@
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
+    "offset_address": "0x4000",
     "protocol": "stk500v2",
     "protocols": [
       "stk500v2",
@@ -51,7 +53,6 @@
       "atmel-ice"
     ],
     "require_upload_port": true,
-    "offset_address": "0x4000",
     "speed": 57600,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
