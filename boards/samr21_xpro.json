@@ -10,6 +10,7 @@
       "cmsis-dap"
     ],
     "openocd_chipname": "at91samr21g18",
+    "openocd_target": "at91samdXX",
     "svd_path": "ATSAMR21G18A.svd"
   },
   "frameworks": [

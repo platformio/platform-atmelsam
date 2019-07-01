@@ -45,6 +45,9 @@ class AtmelsamPlatform(PlatformBase):
         if "mbed" in variables.get("pioframework", []):
             self.packages["toolchain-gccarmnoneeabi"][
                 'version'] = ">=1.60301.0,<1.80000.0"
+        if "simba" in variables.get("pioframework", []):
+            self.packages["toolchain-gccarmnoneeabi"][
+                'version'] = ">=1.40803.0,<1.40805.0"
         if (board.get("build.core", "") == "adafruit"
                 and "tool-bossac" in self.packages):
             self.packages["tool-bossac"]['version'] = "~1.10900.0"
@@ -109,20 +112,12 @@ class AtmelsamPlatform(PlatformBase):
                 openocd_cmds = ["set CHIPNAME %s" % openocd_chipname]
                 if link == "stlink" and "at91sam3" in openocd_chipname:
                     openocd_cmds.append("set CPUTAPID 0x2ba01477")
-                target_script = "at91samdXX.cfg"
-                if "at91sam3" in openocd_chipname:
-                    target_script = "at91sam3XXX.cfg"
-                elif openocd_chipname.startswith((
-                        "at91same54", "at91same53",
-                        "at91same51", "at91samd51")):
-                    target_script = "atsame5x.cfg"
                 server_args = [
-                    "-s", "$PACKAGE_DIR/scripts", "-f",
-                    "interface/%s.cfg" % ("cmsis-dap"
-                                          if link == "atmel-ice" else link),
+                    "-s", "$PACKAGE_DIR/scripts",
+                    "-f", "interface/%s.cfg" % (
+                        "cmsis-dap" if link == "atmel-ice" else link),
                     "-c", "; ".join(openocd_cmds),
-                    "-f",
-                    "target/" + target_script
+                    "-f", "target/%s.cfg" % debug.get("openocd_target")
                 ]
                 debug['tools'][link] = {
                     "server": {

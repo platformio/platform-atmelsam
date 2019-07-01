@@ -28,9 +28,9 @@
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
     "native_usb": true,
+    "offset_address": "0x2000",
     "protocol": "sam-ba",
     "require_upload_port": false,
-    "offset_address": "0x2000",
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },

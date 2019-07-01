@@ -1,24 +1,23 @@
 {
   "build": {
-    "core": "adafruit",
+    "core": "samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DDADAFRUIT_METRO_M0_EXPRESS -DARM_MATH_CM0PLUS -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_SAMD_MKRVIDOR4000 -DARDUINO_ARCH_SAMD -DUSE_BQ24195L_PMIC -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
-        "0x239A",
-        "0x8013"
+        "0x2341",
+        "0x8056"
       ],
       [
-        "0x239A",
-        "0x0013"
+        "0x2341",
+        "0x0056"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
-    "system": "samd",
-    "usb_product": "Metro M0 Expres",
-    "variant": "metro_m0"
+    "usb_product": "Arduino MKR Vidor 4000",
+    "variant": "mkrvidor4000"
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
@@ -29,7 +28,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Adafruit Metro M0 Expresss",
+  "name": "MKR Vidor 4000",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -47,6 +46,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.adafruit.com/product/3505",
-  "vendor": "Adafruit"
+  "url": "https://store.arduino.cc/mkr-vidor-4000",
+  "vendor": "Arduino"
 }
