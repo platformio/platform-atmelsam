@@ -102,11 +102,6 @@ env.Append(
     LIBS=["m"]
 )
 
-env.Append(
-    ASFLAGS=env.get("CCFLAGS", [])[:],
-    CPPDEFINES=ARDUINO_USBDEFINES
-)
-
 if "BOARD" in env:
     env.Append(
         CCFLAGS=[
@@ -138,6 +133,7 @@ if BUILD_SYSTEM == "samd":
                  board.get("build.variant"))
         ]
     )
+
     if board.get("build.cpu") == "cortex-m4":
         env.Prepend(
             CCFLAGS=[
@@ -153,6 +149,17 @@ if BUILD_SYSTEM == "samd":
     else:
         env.Prepend(
             LIBS=["arm_cortexM0l_math"]
+        )
+
+    if BUILD_CORE == "adafruit":
+        env.Append(
+            CPPDEFINES=["USE_TINYUSB"],
+            CPPPATH=[
+                join(FRAMEWORK_DIR, "cores", BUILD_CORE,
+                     "Adafruit_TinyUSB_Core"),
+                join(FRAMEWORK_DIR, "cores", BUILD_CORE,
+                     "Adafruit_TinyUSB_Core", "tinyusb", "src")
+            ]
         )
 
 elif BUILD_SYSTEM == "sam":
@@ -177,6 +184,10 @@ elif BUILD_SYSTEM == "sam":
         LIBS=["sam_sam3x8e_gcc_rel", "gcc"]
     )
 
+env.Append(
+    ASFLAGS=env.get("CCFLAGS", [])[:],
+    CPPDEFINES=ARDUINO_USBDEFINES
+)
 
 #
 # Lookup for specific core's libraries
