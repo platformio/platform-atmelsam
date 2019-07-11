@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "3.7.0",
+  "version": "3.8.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json",
@@ -40,7 +40,7 @@
     "framework-arduinosam": {
       "type": "framework",
       "optional": true,
-      "version": "~4.2.0"
+      "version": "~4.3.0"
     },
     "framework-mbed": {
       "type": "framework",

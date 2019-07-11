@@ -201,7 +201,6 @@ elif upload_protocol == "sam-ba":
         UPLOADER="bossac",
         UPLOADERFLAGS=[
             "--port", '"$UPLOAD_PORT"',
-            "--erase",
             "--write",
             "--verify",
             "--reset"
@@ -214,6 +213,7 @@ elif upload_protocol == "sam-ba":
                            board.get("upload.offset_address")])
     else:
         env.Append(UPLOADERFLAGS=[
+            "--erase",
             "-U", "true"
             if env.BoardConfig().get("upload.native_usb", False) else "false"
         ])

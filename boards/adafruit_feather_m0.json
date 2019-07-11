@@ -12,6 +12,10 @@
       [
         "0x239A",
         "0x000B"
+      ],
+      [
+        "0x239A",
+        "0x0015"
       ]
     ],
     "ldscript": "flash_with_bootloader.ld",
