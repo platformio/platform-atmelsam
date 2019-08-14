@@ -30,6 +30,7 @@ env = DefaultEnvironment()
 platform = env.PioPlatform()
 board = env.BoardConfig()
 build_mcu = env.get("BOARD_MCU", board.get("build.mcu", ""))
+project_dir = env.get("PROJECT_DIR")
 
 FRAMEWORK_DIR = platform.get_package_dir("framework-arduinosam")
 assert isdir(FRAMEWORK_DIR)
@@ -49,6 +50,11 @@ if "build.usb_product" in env.BoardConfig():
          board.get("vendor", "").replace('"', ""))
     ]
 
+variant_path = join(FRAMEWORK_DIR, "variants",
+                 board.get("build.variant"))
+if env.get("OVERRIDE_VARIANT"):
+	variant_path = join(project_dir,"variant")
+	print(f'Variant overridden: {variant_path}')
 
 env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
@@ -95,8 +101,7 @@ env.Append(
     ],
 
     LIBPATH=[
-        join(FRAMEWORK_DIR, "variants",
-             board.get("build.variant"), "linker_scripts", "gcc")
+        join(variant_path, "linker_scripts", "gcc")
     ],
 
     LIBS=["m"]
@@ -129,8 +134,7 @@ if BUILD_SYSTEM == "samd":
 
         LIBPATH=[
             join(SYSTEM_DIR, "CMSIS", "CMSIS", "Lib", "GCC"),
-            join(FRAMEWORK_DIR, "variants",
-                 board.get("build.variant"))
+            variant_path
         ]
     )
 
@@ -171,7 +175,7 @@ elif BUILD_SYSTEM == "sam":
         ],
 
         LIBPATH=[
-            join(FRAMEWORK_DIR, "variants", board.get("build.variant"))
+            variant_path
         ],
 
         LINKFLAGS=[
@@ -208,11 +212,11 @@ libs = []
 
 if "build.variant" in env.BoardConfig():
     env.Append(
-        CPPPATH=[join(FRAMEWORK_DIR, "variants", board.get("build.variant"))]
+        CPPPATH=[variant_path]
     )
     libs.append(env.BuildLibrary(
         join("$BUILD_DIR", "FrameworkArduinoVariant"),
-        join(FRAMEWORK_DIR, "variants", board.get("build.variant"))
+        variant_path
     ))
 
 libs.append(env.BuildLibrary(
