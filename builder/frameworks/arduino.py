@@ -54,7 +54,7 @@ variant_path = join(FRAMEWORK_DIR, "variants",
                  board.get("build.variant"))
 if env.get("OVERRIDE_VARIANT"):
 	variant_path = join(project_dir,"variant")
-	print(f'Variant overridden: {variant_path}')
+	print('Variant overridden: ' + str(variant_path))
 
 env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
