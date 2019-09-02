@@ -2,7 +2,7 @@
   "build": {
     "core": "samd",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_MKR1000 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [
