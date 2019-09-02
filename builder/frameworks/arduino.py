@@ -153,7 +153,6 @@ if BUILD_SYSTEM == "samd":
 
     if BUILD_CORE == "adafruit":
         env.Append(
-            CPPDEFINES=["USE_TINYUSB"],
             CPPPATH=[
                 join(FRAMEWORK_DIR, "cores", BUILD_CORE,
                      "Adafruit_TinyUSB_Core"),
