@@ -207,10 +207,13 @@ elif upload_protocol == "sam-ba":
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCES"
     )
-    if board.get("build.core") == "adafruit":
+    if board.get("build.core") == "adafruit" and board.get(
+            "build.mcu").startswith("samd51"):
+        # special flags for the latest bossac tool
         env.Append(
-            UPLOADERFLAGS=["-U", "--offset",
-                           board.get("upload.offset_address")])
+            UPLOADERFLAGS=[
+            "-U", "--offset", board.get("upload.offset_address")])
+
     else:
         env.Append(UPLOADERFLAGS=[
             "--erase",

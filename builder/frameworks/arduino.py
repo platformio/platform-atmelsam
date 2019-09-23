@@ -94,13 +94,17 @@ env.Append(
         "-Wl,--warn-section-align"
     ],
 
-    LIBPATH=[
-        join(FRAMEWORK_DIR, "variants",
-             board.get("build.variant"), "linker_scripts", "gcc")
-    ],
-
     LIBS=["m"]
 )
+
+variants_dir = join(
+    "$PROJECT_DIR", board.get("build.variants_dir")) if board.get(
+        "build.variants_dir", "") else join(FRAMEWORK_DIR, "variants")
+
+env.Append(
+    LIBPATH=[
+        join(variants_dir, board.get("build.variant"), "linker_scripts", "gcc")
+    ])
 
 if "BOARD" in env:
     env.Append(
@@ -129,8 +133,7 @@ if BUILD_SYSTEM == "samd":
 
         LIBPATH=[
             join(SYSTEM_DIR, "CMSIS", "CMSIS", "Lib", "GCC"),
-            join(FRAMEWORK_DIR, "variants",
-                 board.get("build.variant"))
+            join(variants_dir, board.get("build.variant"))
         ]
     )
 
@@ -153,7 +156,6 @@ if BUILD_SYSTEM == "samd":
 
     if BUILD_CORE == "adafruit":
         env.Append(
-            CPPDEFINES=["USE_TINYUSB"],
             CPPPATH=[
                 join(FRAMEWORK_DIR, "cores", BUILD_CORE,
                      "Adafruit_TinyUSB_Core"),
@@ -171,7 +173,7 @@ elif BUILD_SYSTEM == "sam":
         ],
 
         LIBPATH=[
-            join(FRAMEWORK_DIR, "variants", board.get("build.variant"))
+            join(variants_dir, board.get("build.variant"))
         ],
 
         LINKFLAGS=[
@@ -208,11 +210,11 @@ libs = []
 
 if "build.variant" in env.BoardConfig():
     env.Append(
-        CPPPATH=[join(FRAMEWORK_DIR, "variants", board.get("build.variant"))]
+        CPPPATH=[join(variants_dir, board.get("build.variant"))]
     )
     libs.append(env.BuildLibrary(
         join("$BUILD_DIR", "FrameworkArduinoVariant"),
-        join(FRAMEWORK_DIR, "variants", board.get("build.variant"))
+        join(variants_dir, board.get("build.variant"))
     ))
 
 libs.append(env.BuildLibrary(

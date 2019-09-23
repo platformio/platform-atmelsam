@@ -49,7 +49,8 @@ class AtmelsamPlatform(PlatformBase):
             self.packages["toolchain-gccarmnoneeabi"][
                 'version'] = ">=1.40803.0,<1.40805.0"
         if (board.get("build.core", "") == "adafruit"
-                and "tool-bossac" in self.packages):
+                and "tool-bossac" in self.packages
+                and board.get("build.mcu", "").startswith("samd51")):
             self.packages["tool-bossac"]['version'] = "~1.10900.0"
 
         for name in disabled_pkgs:
