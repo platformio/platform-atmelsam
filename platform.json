@@ -23,6 +23,10 @@
       "package": "framework-arduinosam",
       "script": "builder/frameworks/arduino.py"
     },
+    "cmsis": {
+      "package": "framework-cmsis",
+      "script": "builder/frameworks/cmsis.py"
+    },
     "mbed": {
       "package": "framework-mbed",
       "script": "builder/frameworks/mbed/mbed.py"
@@ -41,6 +45,11 @@
       "type": "framework",
       "optional": true,
       "version": "~4.4.0"
+    },
+    "framework-cmsis": {
+      "type": "framework",
+      "optional": true,
+      "version": "~2.50400.191019"
     },
     "framework-mbed": {
       "type": "framework",
