@@ -461,7 +461,7 @@ def get_variant_dir(mcu):
         sys.stderr.write(
             """Error: There is no variant dir for %s MCU!
             Please add initialization code to your project manually!""" % mcu)
-        raise Exception("Unknown MCU '%s'" % mcu)
+        env.Exit(1)
 
     return join(FRAMEWORK_DIR, "variants", PLATFORM_NAME, VARIANT_DIRS[mcu])
 
@@ -499,7 +499,7 @@ def get_linker_script(mcu):
     sys.stderr.write(
         """Error: There is no linker script for %s MCU!
         Please add custom linker script to your project manually!""" % mcu)
-    raise Exception("Unknown MCU '%s'" % mcu)
+    env.Exit(1)
 
 env.Append(CPPPATH=[
     join(FRAMEWORK_DIR, "CMSIS", "Core", "Include"),
