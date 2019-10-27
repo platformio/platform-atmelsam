@@ -49,7 +49,7 @@
     "framework-cmsis": {
       "type": "framework",
       "optional": true,
-      "version": "~2.50400.191019"
+      "version": "https://github.com/frankleonrose/framework-cmsis"
     },
     "framework-mbed": {
       "type": "framework",
