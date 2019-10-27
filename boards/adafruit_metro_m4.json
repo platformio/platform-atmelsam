@@ -37,7 +37,8 @@
     "svd_path": "ATSAMD51J19A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Adafruit Metro M4",
   "upload": {
