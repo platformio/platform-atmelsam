@@ -1,6 +1,7 @@
 {
   "build": {
     "cpu": "cortex-m0plus",
+    "extra_flags": "-D__SAML21J18B__",
     "f_cpu": "48000000L",
     "mcu": "saml21j18b"
   },
@@ -14,6 +15,7 @@
     "svd_path": "ATSAML21J18B.svd"
   },
   "frameworks": [
+    "cmsis",
     "mbed"
   ],
   "name": "Atmel SAML21-XPRO-B",
