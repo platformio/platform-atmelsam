@@ -1,11 +1,15 @@
 #include <sam.h>
 #include <stdint.h>
 
-#if defined(ADAFRUIT_METRO_M4_EXPRESS)
-#define LED_PORT PORT_PA16
+#if defined(ADAFRUIT_METRO_M4_EXPRESS) || defined(ADAFRUIT_GRAND_CENTRAL_M4)
+#define LED_PAD PORT_PA16
 const uint32_t CYCLES_PER_SEC = 48000000; // Initial speed of SAMD51 post reset
+#elif defined(ARDUINO_SAMD_FEATHER_M0)
+#define LED_PAD PORT_PA17
+const uint32_t CYCLES_PER_SEC = 1000000; // Initial speed of SAMD21 post reset
 #else
-#define LED_PORT PORT_PA17
+#warning Blink execution untested with this device. Please set LED_PAD, initial MCU clock speed, and control ports correctly.
+#define LED_PAD PORT_PA17
 const uint32_t CYCLES_PER_SEC = 1000000; // Initial speed of SAMD21 post reset
 #endif
 
@@ -15,10 +19,10 @@ void toggleLED() {
 
 #if defined(REG_PORT_OUT0)
   if (led) {
-    REG_PORT_OUT0 &= ~LED_PORT;
+    REG_PORT_OUT0 &= ~LED_PAD;
   }
   else {
-    REG_PORT_OUT0 |= LED_PORT;
+    REG_PORT_OUT0 |= LED_PAD;
   }
 #endif
 }
@@ -28,7 +32,7 @@ void init() {
 
   // Direct register manipulation, because CMSIS does not provide a GPIO abstraction.
 #if defined(REG_PORT_OUT0)
-  REG_PORT_DIR0 |= LED_PORT;
+  REG_PORT_DIR0 |= LED_PAD;
 #endif
 }
 
