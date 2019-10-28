@@ -38,7 +38,8 @@
     "svd_path": "ATSAMD51J20A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Adafruit PyGamer Advance M4",
   "upload": {

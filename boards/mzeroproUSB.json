@@ -37,7 +37,8 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Arduino M0 Pro (Native USB Port)",
   "upload": {

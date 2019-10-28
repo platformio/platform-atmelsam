@@ -37,7 +37,8 @@
     "svd_path": "ATSAMD51J19A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Adafruit Trellis M4",
   "upload": {

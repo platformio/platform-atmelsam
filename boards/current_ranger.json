@@ -20,7 +20,8 @@
     "variant": "current_ranger"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "LowPowerLab CurrentRanger",
   "upload": {

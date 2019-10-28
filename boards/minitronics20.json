@@ -26,7 +26,8 @@
     "svd_path": "ATSAMD21J18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Minitronics v2.0",
   "upload": {

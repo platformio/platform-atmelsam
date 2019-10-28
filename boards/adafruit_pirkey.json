@@ -27,7 +27,8 @@
     "svd_path": "ATSAMD21E18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Adafruit pIRkey",
   "upload": {
