@@ -50,7 +50,7 @@ MCU_FAMILY_SELECTORS = {
   'sam3sd8': r'^sam3sd?[8].?$',
   'sam3x': r'^sam3x.*$',
   'sam3u': r'^sam3u.*$',
-  'sam3x': r'^sam3x.*$',
+  'sam3x': r'^(at91)?sam3x.*$',
   'sam4c32': r'^sam4c32.*$',
   'sam4cm32': r'^sam4cm.*32.*$',
   'sam4cm': r'^sam4cm[^3]*$',
@@ -136,9 +136,9 @@ def get_variant_dir(mcu):
         Please add initialization code to your project manually!""" % mcu)
     env.Exit(1)
 
-def adjust_linker_offset(mcu, ldscript):
-    offset_address = env.BoardConfig().get("upload.offset_address", None)
-    if offset_address is None or int(offset_address, 0)==0:
+def adjust_linker_offset(script_name, ldscript):
+    offset_address = env.BoardConfig().get("upload.offset_address", "0")
+    if int(offset_address, 0)==0:
         return ldscript
 
     content = ""
@@ -153,19 +153,23 @@ def adjust_linker_offset(mcu, ldscript):
 
     # offset_script = join("$BUILD_DIR", basename(ldscript))
     offset_script = join(FRAMEWORK_DIR, "platformio", "ldscripts", PLATFORM_NAME,
-                    "%s_flash_%s.ld" % (mcu, offset_address))
+                    "%s_flash_%s.ld" % (script_name, offset_address))
 
     with open(offset_script, "w") as fp:
         fp.write(content)
 
     return offset_script
 
+def remove_prefix(s, prefix):
+    return s[len(prefix):] if s.startswith(prefix) else s
+
 def get_linker_script(mcu):
+    script_name = remove_prefix(mcu.lower(), 'at91')
     ldscript = join(FRAMEWORK_DIR, "platformio", "ldscripts", PLATFORM_NAME,
-                    mcu.lower() + "_flash.ld")
+                    script_name + "_flash.ld")
 
     if isfile(ldscript):
-        return adjust_linker_offset(mcu, ldscript)
+        return adjust_linker_offset(script_name, ldscript)
 
     sys.stderr.write(
         """Error: There is no linker script for %s MCU!
@@ -177,6 +181,9 @@ env.Append(CPPPATH=[
     join(get_variant_dir(env.BoardConfig().get("build.mcu")), "include")
 ])
 
+env.Append(LIBPATH=[
+    join(FRAMEWORK_DIR, "platformio", "ldscripts", "atmelsam")
+])
 
 env.Replace(
     LDSCRIPT_PATH=get_linker_script(env.BoardConfig().get("build.mcu")))

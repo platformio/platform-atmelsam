@@ -29,6 +29,7 @@
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "mbed"
   ],
   "name": "Atmel ATSAMW25-XPRO",

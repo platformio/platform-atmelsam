@@ -27,7 +27,8 @@
     "svd_path": "ATSAMD21J18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "SODAQ Autonomo",
   "upload": {
