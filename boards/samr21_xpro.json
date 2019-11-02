@@ -1,6 +1,7 @@
 {
   "build": {
     "cpu": "cortex-m0plus",
+    "extra_flags": "-D__SAMR21G18A__",
     "f_cpu": "48000000L",
     "mcu": "samr21g18a"
   },
@@ -14,6 +15,7 @@
     "svd_path": "ATSAMR21G18A.svd"
   },
   "frameworks": [
+    "cmsis",
     "mbed"
   ],
   "name": "Atmel ATSAMR21-XPRO",

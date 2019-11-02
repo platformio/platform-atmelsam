@@ -30,6 +30,7 @@
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "simba"
   ],
   "name": "Arduino Due (USB Native Port)",

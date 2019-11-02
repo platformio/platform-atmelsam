@@ -25,7 +25,8 @@
     "svd_path": "ATSAM3X8E.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Digistump DigiX",
   "upload": {

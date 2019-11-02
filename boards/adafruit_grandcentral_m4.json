@@ -37,7 +37,8 @@
     "svd_path": "ATSAMD51P20A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Adafruit Grand Central M4",
   "upload": {

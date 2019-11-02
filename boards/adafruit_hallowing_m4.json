@@ -42,7 +42,8 @@
     "svd_path": "ATSAMD51J19A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Adafruit Hallowing M4",
   "upload": {

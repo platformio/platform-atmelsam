@@ -30,7 +30,8 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Seeeduino LoRaWAN",
   "upload": {

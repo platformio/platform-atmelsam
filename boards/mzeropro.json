@@ -29,7 +29,8 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis"
   ],
   "name": "Arduino M0 Pro (Programming/Debug Port)",
   "upload": {
