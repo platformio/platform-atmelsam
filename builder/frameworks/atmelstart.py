@@ -17,18 +17,18 @@ import requests
 import zipfile
 
 try:
-    import yaml
-except ImportError:
-    env.Execute("$PYTHONEXE -m pip install pyyaml")
-    import yaml
-from yaml import CLoader as Loader
-
-try:
     import configparser
 except ImportError:
     import ConfigParser as configparser
 
 env = DefaultEnvironment()
+
+try:
+    import yaml
+except ImportError:
+    env.Execute("$PYTHONEXE -m pip install pyyaml")
+    import yaml
+from yaml import CLoader as Loader
 
 env.SConscript("_bare.py")
 
