@@ -33,7 +33,7 @@ env = DefaultEnvironment()
 env.SConscript("_bare.py")
 
 output_filename = os.path.join(env.subst('$PROJECTBUILD_DIR'), "output.json")
-DOWNLOAD_DIR = os.path.join(env.subst('PROJECTWORKSPACE_DIR'), ".downloads")
+DOWNLOAD_DIR = os.path.join(env.subst('$PROJECTWORKSPACE_DIR'), ".downloads")
 PACKAGES_DIR = os.path.join(env.subst('$PROJECTBUILD_DIR'), "packages")
 
 config = configparser.ConfigParser()
