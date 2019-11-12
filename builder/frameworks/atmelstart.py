@@ -15,6 +15,7 @@ import re
 import json
 import requests
 import zipfile
+from collections import OrderedDict
 
 env = DefaultEnvironment()
 
@@ -63,7 +64,7 @@ def convert_config_yaml_to_json(input, output):
         config["pads"].sort(key=lambda x: x["name"])
 
         # Force order of keys in configuration. Fails to accept configuration without this.
-        sorted_config = {}
+        sorted_config = OrderedDict()
         for key in ['jsonForm', 'formatVersion', 'board', 'identifier', 'name', 'details', 'application', 'middlewares', 'drivers', 'pads']:
             sorted_config[key] = config[key]
 
