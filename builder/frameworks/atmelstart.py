@@ -23,7 +23,7 @@ try:
 except ImportError:
     env.Execute("$PYTHONEXE -m pip install pyyaml")
     import yaml
-from yaml import CLoader as Loader
+from yaml import Loader
 
 env.SConscript("_bare.py")
 
@@ -110,7 +110,8 @@ def hash_file(file):
 
 def download_package(config_file, download_dir, packages_dir):
     hash = hash_file(config_file)
-    os.makedirs(download_dir, exist_ok=True)
+    if not os.path.exists(download_dir):
+        os.makedirs(download_dir)
     filename = os.path.join(download_dir, hash + '.zip')
     if os.path.isfile(filename):
         print('NOTE: Atmel Start package', filename, 'already downloaded. Delete it and re-run if you want to re-download')
