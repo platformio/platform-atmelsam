@@ -27,7 +27,7 @@
   },
   "frameworks": [
     "arduino",
-    "atmelstart"
+    "atmel-asf"
   ],
   "name": "Moteino M0",
   "upload": {

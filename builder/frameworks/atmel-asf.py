@@ -1,9 +1,9 @@
-# AtmelStart Framework build script
+# Atmel ASF build script
 # Author: Frank Leon Rose
 # Copyright (c) 2019
 #
-# Given framework = atmelstart, this builder will look for an
-# `atstart_file = myproject.atstart` line in the Platformio environment.
+# Given `framework = atmel-asf`, this builder will look for an
+# `board_build.atmel-asf.atstart_file = myproject.atstart` line in the Platformio environment.
 # It will use that file to request a package of generated code from
 # Atmel Start (start.atmel.com).
 # Then it will build the env with the generated code files.
@@ -31,11 +31,11 @@ env.SConscript("_bare.py")
 DOWNLOAD_DIR = os.path.join(env.subst('$PROJECT_WORKSPACE_DIR'), "atmelstart_downloads")
 BUILD_DIR = os.path.join(env.subst('$PROJECT_BUILD_DIR'), env.subst('$PIOENV'))
 PACKAGES_DIR = os.path.join(BUILD_DIR, "atmelstart_packages")
-output_filename = os.path.join(BUILD_DIR, "atmelstart.json")
+output_filename = os.path.join(BUILD_DIR, "atmel-asf.json")
 
-atstart_file = env.BoardConfig().get("build.atmelstart.atstart_file", None)
+atstart_file = env.BoardConfig().get("build.atmel-asf.atstart_file", None)
 if atstart_file is None:
-    sys.stderr.write("Error: Please specify property `board_build.atmelstart.atstart_file = myproject.atstart`.\nThe file path is relative to the project directory.\n")
+    sys.stderr.write("Error: Please specify property `board_build.atmel-asf.atstart_file = myproject.atstart`.\nThe file path is relative to the project directory.\n")
     env.Exit(1)
 input_filename = os.path.join(env['PROJECT_DIR'], atstart_file)
 if not os.path.isfile(input_filename):

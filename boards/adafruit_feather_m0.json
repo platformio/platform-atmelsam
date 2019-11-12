@@ -32,7 +32,7 @@
   },
   "frameworks": [
     "arduino",
-    "atmelstart"
+    "atmel-asf"
   ],
   "name": "Adafruit Feather M0",
   "upload": {
