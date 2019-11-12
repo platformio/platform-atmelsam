@@ -27,9 +27,10 @@ from yaml import CLoader as Loader
 
 env.SConscript("_bare.py")
 
-output_filename = os.path.join(env.subst('$PROJECTBUILD_DIR'), "output.json")
-DOWNLOAD_DIR = os.path.join(env.subst('$PROJECTWORKSPACE_DIR'), ".downloads")
-PACKAGES_DIR = os.path.join(env.subst('$PROJECTBUILD_DIR'), "packages")
+DOWNLOAD_DIR = os.path.join(env.subst('$PROJECT_WORKSPACE_DIR'), "atmelstart_downloads")
+BUILD_DIR = os.path.join(env.subst('$PROJECT_BUILD_DIR'), env.subst('$PIOENV'))
+PACKAGES_DIR = os.path.join(BUILD_DIR, "atmelstart_packages")
+output_filename = os.path.join(BUILD_DIR, "atmelstart.json")
 
 atstart_file = env.BoardConfig().get("build.atmelstart.atstart_file", None)
 if atstart_file is None:
@@ -173,7 +174,7 @@ def adjust_linker_offset(script_name, ldscript):
             r"\1+%s\2-%s" % (offset_address, offset_address),
             content, flags=re.MULTILINE)
 
-    offset_script = os.path.join(env.subst('$PROJECTBUILD_DIR'),
+    offset_script = os.path.join(BUILD_DIR,
                     "%s_flash_%s.ld" % (script_name, offset_address))
 
     with open(offset_script, "w") as fp:
