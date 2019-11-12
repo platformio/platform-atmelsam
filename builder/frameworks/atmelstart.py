@@ -16,11 +16,6 @@ import json
 import requests
 import zipfile
 
-try:
-    import configparser
-except ImportError:
-    import ConfigParser as configparser
-
 env = DefaultEnvironment()
 
 try:
@@ -36,13 +31,11 @@ output_filename = os.path.join(env.subst('$PROJECTBUILD_DIR'), "output.json")
 DOWNLOAD_DIR = os.path.join(env.subst('$PROJECTWORKSPACE_DIR'), ".downloads")
 PACKAGES_DIR = os.path.join(env.subst('$PROJECTBUILD_DIR'), "packages")
 
-config = configparser.ConfigParser()
-config.read(env['PROJECT_CONFIG'])
-atstart_file = config.get('env:' + env['PIOENV'], "atstart_file", fallback=None)
+atstart_file = env.BoardConfig().get("build.atmelstart.atstart_file", None)
 if atstart_file is None:
-    sys.stderr.write("Error: Please specify property `atstart_file = myproject.atstart`.\nThe file is expected to be in the project source directory.\n")
+    sys.stderr.write("Error: Please specify property `board_build.atmelstart.atstart_file = myproject.atstart`.\nThe file path is relative to the project directory.\n")
     env.Exit(1)
-input_filename = os.path.join(env['PROJECTSRC_DIR'], atstart_file)
+input_filename = os.path.join(env['PROJECT_DIR'], atstart_file)
 if not os.path.isfile(input_filename):
     sys.stderr.write("Error: atstart_file specifies a non-existent or invalid file: {}\n".format(input_filename))
     env.Exit(1)
