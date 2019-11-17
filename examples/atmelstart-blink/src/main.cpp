@@ -1,5 +1,10 @@
 #include <atmel_start.h>
 
+extern "C" void sleep_manager_init(void)
+{
+	sleepmgr_init();
+}
+
 int main(void)
 {
 	atmel_start_init(); // Initializes MCU, drivers and middleware

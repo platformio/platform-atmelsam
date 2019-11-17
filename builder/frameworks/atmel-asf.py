@@ -149,7 +149,7 @@ for dirpath, dirnames, filenames in os.walk(package_dir):
     if valid_source(dirpath):
         if any(".h" in fn for fn in filenames):
             include_paths.append(dirpath)
-        if any(".c" in fn for fn in filenames):
+        if dirpath != package_dir and any(".c" in fn for fn in filenames):
             source_paths.append(dirpath)
 
     if "gcc" in dirpath:
@@ -191,7 +191,8 @@ env.Append(CPPPATH=[os.path.realpath(p) for p in include_paths])
 
 sources = ["-<*>"]
 sources.extend(["+<{}>".format(os.path.join(sp, '*.c')) for sp in source_paths])
-sources.append("-<{}>".format('main.c'))
+sources.append("+<atmel_start.c>")
+sources.append("+<driver_init.c>")
 
 env.BuildSources(
     os.path.join("$BUILD_DIR", "FrameworkCMSISVariant"),
