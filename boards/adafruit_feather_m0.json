@@ -31,7 +31,8 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "atmel-asf"
   ],
   "name": "Adafruit Feather M0",
   "upload": {

@@ -23,6 +23,9 @@
       "package": "framework-arduinosam",
       "script": "builder/frameworks/arduino.py"
     },
+    "atmel-asf": {
+      "script": "builder/frameworks/atmel-asf.py"
+    },
     "mbed": {
       "package": "framework-mbed",
       "script": "builder/frameworks/mbed/mbed.py"

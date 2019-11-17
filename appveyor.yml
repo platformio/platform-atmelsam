@@ -6,6 +6,7 @@ environment:
     - PLATFORMIO_PROJECT_DIR: "examples/arduino-external-libs"
     - PLATFORMIO_PROJECT_DIR: "examples/arduino-internal-libs"
     - PLATFORMIO_PROJECT_DIR: "examples/arduino-web-thing-led"
+    - PLATFORMIO_PROJECT_DIR: "examples/atmel-asf-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/mbed-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/mbed-dsp"
     # - PLATFORMIO_PROJECT_DIR: "examples/mbed-events"
