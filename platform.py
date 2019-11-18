@@ -15,6 +15,7 @@
 from platform import system
 
 from platformio.managers.platform import PlatformBase
+from platformio.util import get_systype
 
 
 class AtmelsamPlatform(PlatformBase):
@@ -52,6 +53,12 @@ class AtmelsamPlatform(PlatformBase):
                 and "tool-bossac" in self.packages
                 and board.get("build.mcu", "").startswith("samd51")):
             self.packages["tool-bossac"]['version'] = "~1.10900.0"
+        if "zephyr" in variables.get("pioframework", []):
+            for p in ("framework-zephyr-hal-atmel", "tool-cmake", "tool-dtc", "tool-ninja"):
+                self.packages[p]["optional"] = False
+            self.packages['toolchain-gccarmnoneeabi']['version'] = "~1.80201.0"
+            if "windows" not in get_systype():
+                self.packages['tool-gperf']['optional'] = False
 
         for name in disabled_pkgs:
             del self.packages[name]

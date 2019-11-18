@@ -17,7 +17,10 @@
     "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "Arduino Zero",
-    "variant": "arduino_zero"
+    "variant": "arduino_zero",
+    "zephyr": {
+       "variant": "arduino_zero"
+    }
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
@@ -29,7 +32,8 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "zephyr"
   ],
   "name": "Arduino Zero (Programming/Debug Port)",
   "upload": {
