@@ -13,7 +13,20 @@ env:
   # - PLATFORMIO_PROJECT_DIR=examples/mbed-events
   - PLATFORMIO_PROJECT_DIR=examples/mbed-serial
   - PLATFORMIO_PROJECT_DIR=examples/simba-blink
+  - PLATFORMIO_PROJECT_DIR=examples/zephyr-blink
+  - PLATFORMIO_PROJECT_DIR=examples/zephyr-drivers-i2c-scanner
+  - PLATFORMIO_PROJECT_DIR=examples/zephyr-subsys-logger
 
+# Zephyr framework doesn't support python 2
+jobs:
+  exclude:
+    - python: "2.7"
+      env: PLATFORMIO_PROJECT_DIR=examples/zephyr-blink
+    - python: "2.7"
+      env: PLATFORMIO_PROJECT_DIR=examples/zephyr-drivers-i2c-scanner
+    - python: "2.7"
+      env: PLATFORMIO_PROJECT_DIR=examples/zephyr-subsys-logger
+  
 install:
   - pip install -U https://github.com/platformio/platformio/archive/develop.zip
   - platformio platform install file://.

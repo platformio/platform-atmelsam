@@ -18,7 +18,10 @@
     "mcu": "samd21e18a",
     "system": "samd",
     "usb_product": "Adafruit Trinket M0",
-    "variant": "trinket_m0"
+    "variant": "trinket_m0",
+    "zephyr": {
+       "variant": "adafruit_trinket_m0"
+    }
   },
   "debug": {
     "jlink_device": "ATSAMD21E18",
@@ -27,7 +30,8 @@
     "svd_path": "ATSAMD21E18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "zephyr"
   ],
   "name": "Adafruit Trinket M0",
   "upload": {

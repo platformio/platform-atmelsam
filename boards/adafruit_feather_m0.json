@@ -22,7 +22,10 @@
     "mcu": "samd21g18a",
     "system": "samd",
     "usb_product": "Adafruit Feather M0",
-    "variant": "feather_m0"
+    "variant": "feather_m0",
+    "zephyr": {
+       "variant": "adafruit_feather_m0_basic_proto"
+    }
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
@@ -31,7 +34,8 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "zephyr"
   ],
   "name": "Adafruit Feather M0",
   "upload": {
