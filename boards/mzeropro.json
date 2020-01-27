@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "samd",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
@@ -14,7 +17,6 @@
         "0x2111"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "Arduino M0 Pro",
     "variant": "arduino_mzero"

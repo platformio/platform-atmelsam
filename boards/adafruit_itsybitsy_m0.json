@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "adafruit",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_ITSYBITSY_M0 -DADAFRUIT_ITSYBITSY_M0 -DCRYSTALLESS -DARM_MATH_CM0PLUS -D__SAMD21G18A__",
@@ -14,7 +17,6 @@
         "0x000F"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "system": "samd",
     "usb_product": "ItsyBitsy M0 Express",

@@ -101,10 +101,12 @@ variants_dir = join(
     "$PROJECT_DIR", board.get("build.variants_dir")) if board.get(
         "build.variants_dir", "") else join(FRAMEWORK_DIR, "variants")
 
-env.Append(
-    LIBPATH=[
-        join(variants_dir, board.get("build.variant"), "linker_scripts", "gcc")
-    ])
+if not board.get("build.ldscript", ""):
+    env.Append(
+        LIBPATH=[
+            join(variants_dir, board.get("build.variant"), "linker_scripts", "gcc")
+        ])
+    env.Replace(LDSCRIPT_PATH=board.get("build.arduino.ldscript", ""))
 
 if "BOARD" in env:
     env.Append(

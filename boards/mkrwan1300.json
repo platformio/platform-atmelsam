@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "samd",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_MKRWAN1300 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DUSE_ARDUINO_MKR_PIN_LAYOUT",
@@ -14,7 +17,6 @@
         "0x0053"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "Arduino MKR WAN 1300",
     "variant": "mkrwan1300"

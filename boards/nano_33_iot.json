@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "samd",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_NANO_33_IOT -DARDUINO_ARCH_SAMD -DCRYSTALLESS -D__SAMD21G18A__",
@@ -14,7 +17,6 @@
         "0x0057"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "Arduino NANO 33 IoT",
     "variant": "nano_33_iot"

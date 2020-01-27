@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "samd",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_MKRVIDOR4000 -DARDUINO_ARCH_SAMD -DUSE_BQ24195L_PMIC -D__SAMD21G18A__",
@@ -14,7 +17,6 @@
         "0x0056"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "Arduino MKR Vidor 4000",
     "variant": "mkrvidor4000"

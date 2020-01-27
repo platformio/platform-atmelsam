@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "adafruit",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_TRINKET_M0 -DCRYSTALLESS -DADAFRUIT_TRINKET_M0 -DARM_MATH_CM0PLUS -D__SAMD21E18A__",
@@ -14,7 +17,6 @@
         "0x001E"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21e18a",
     "system": "samd",
     "usb_product": "Adafruit Trinket M0",

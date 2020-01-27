@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash.ld"
+    },
     "core": "sam",
     "cpu": "cortex-m3",
     "extra_flags": "-w -D__SAM3X8E__ -DARDUINO_SAM_DIGIX -DARDUINO_ARCH_SAM",
@@ -10,7 +13,6 @@
         "0x078A"
       ]
     ],
-    "ldscript": "flash.ld",
     "mcu": "at91sam3x8e",
     "usb_product": "Digistump DigiX",
     "variant": "arduino_due_x"

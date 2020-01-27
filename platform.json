@@ -59,7 +59,7 @@
     "framework-zephyr": {
       "type": "framework",
       "optional": true,
-      "version": "~1.20100.0"
+      "version": "~2.20100.0"
     },
     "framework-zephyr-hal-atmel": {
       "optional": true,

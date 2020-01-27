@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash.ld"
+    },
     "core": "sam",
     "cpu": "cortex-m3",
     "extra_flags": "-D__SAM3X8E__ -DARDUINO_ARCH_SAM -DARDUINO_SAM_DUE",
@@ -10,7 +13,6 @@
         "0x003E"
       ]
     ],
-    "ldscript": "flash.ld",
     "mcu": "at91sam3x8e",
     "usb_product": "Arduino Due",
     "variant": "arduino_due_x"

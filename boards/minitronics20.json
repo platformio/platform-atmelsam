@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "samd",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_MINITRONICS20 -DARDUINO_ARCH_SAMD -D__SAMD21J18A__ -DUSE_BQ24195L_PMIC",
@@ -14,7 +17,6 @@
         "0x0054"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21j18a",
     "usb_product": "Minitronics v2.0",
     "variant": "minitronics20"
