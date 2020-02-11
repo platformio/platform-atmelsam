@@ -43,6 +43,26 @@ class AtmelsamPlatform(PlatformBase):
                 if name != upload_tool:
                     disabled_pkgs.append(name)
 
+        build_core = variables.get(
+            "board_build.core", self.board_config(variables.get("board")).get(
+                "build.core", "arduino")).lower()
+
+        if "arduino" in variables.get("pioframework", []):
+            framework_package = "framework-arduino-%s" % (
+                "samd" if board.get("build.mcu", "").startswith("samd") else "sam")
+
+            if build_core != "arduino":
+                framework_package += "-" + build_core
+
+            self.frameworks["arduino"]["package"] = framework_package
+            if not board.get("build.mcu", "").startswith("samd"):
+                self.packages["framework-arduino-sam"]["optional"] = True
+            self.packages[framework_package]["optional"] = False
+            self.packages["framework-cmsis"]["optional"] = False
+            self.packages["framework-cmsis-atmel"]["optional"] = False
+            if build_core in ("sodaq", "tuino0", "reprap"):
+                self.packages["framework-cmsis-atmel"]["version"] = "~1.1.0"
+
         if "mbed" in variables.get("pioframework", []):
             self.packages["toolchain-gccarmnoneeabi"][
                 'version'] = ">=1.60301.0,<1.80000.0"

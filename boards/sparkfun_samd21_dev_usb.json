@@ -3,7 +3,7 @@
     "arduino": {
         "ldscript": "flash_with_bootloader.ld"
     },
-    "core": "samd",
+    "core": "sparkfun",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
@@ -19,7 +19,7 @@
     ],
     "mcu": "samd21g18a",
     "usb_product": "SparkFun SAMD21",
-    "variant": "arduino_zero"
+    "variant": "SparkFun_SAMD21_Dev"
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",

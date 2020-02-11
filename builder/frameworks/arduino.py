@@ -31,15 +31,32 @@ platform = env.PioPlatform()
 board = env.BoardConfig()
 build_mcu = env.get("BOARD_MCU", board.get("build.mcu", ""))
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-arduinosam")
+BUILD_CORE = board.get("build.core", "").lower()
+MCU_FAMILY = board.get(
+    "build.system", "sam" if build_mcu.startswith("at91") else "samd")
+
+assert(MCU_FAMILY in ("sam", "samd"))
+
+FRAMEWORK_DIR = platform.get_package_dir(
+    "framework-arduino-%s" % ("samd" if build_mcu.startswith(
+        "samd") else "sam"))
+
+if BUILD_CORE != "arduino":
+    FRAMEWORK_DIR += "-" + BUILD_CORE
+
+if MCU_FAMILY == "samd":
+    CMSIS_DIR = platform.get_package_dir("framework-cmsis")
+    CMSIS_ATMEL_DIR = platform.get_package_dir("framework-cmsis-atmel")
+    assert isdir(CMSIS_DIR) and isdir(CMSIS_ATMEL_DIR)
+else:
+    SYSTEM_DIR = join(FRAMEWORK_DIR, "system")
+    assert isdir(SYSTEM_DIR)
+
 assert isdir(FRAMEWORK_DIR)
-BUILD_CORE = board.get("build.core", "")
-BUILD_SYSTEM = board.get("build.system", BUILD_CORE)
-SYSTEM_DIR = join(FRAMEWORK_DIR, "system", BUILD_SYSTEM)
 
 # USB flags
 ARDUINO_USBDEFINES = [("ARDUINO", 10805)]
-if "build.usb_product" in env.BoardConfig():
+if "build.usb_product" in board:
     ARDUINO_USBDEFINES += [
         ("USB_VID", board.get("build.hwids")[0][0]),
         ("USB_PID", board.get("build.hwids")[0][1]),
@@ -48,6 +65,11 @@ if "build.usb_product" in env.BoardConfig():
         ("USB_MANUFACTURER", '\\"%s\\"' %
          board.get("vendor", "").replace('"', ""))
     ]
+
+    if BUILD_CORE == "adafruit":
+        ARDUINO_USBDEFINES.append(
+            ("USB_CONFIG_POWER", board.get("build.usb_power", 100))
+        )
 
 
 env.Append(
@@ -80,7 +102,7 @@ env.Append(
     ],
 
     CPPPATH=[
-        join(FRAMEWORK_DIR, "cores", BUILD_CORE)
+        join(FRAMEWORK_DIR, "cores", "arduino")
     ],
 
     LINKFLAGS=[
@@ -126,15 +148,15 @@ if ("samd" in build_mcu) or ("samc" in build_mcu):
         ]
     )
 
-if BUILD_SYSTEM == "samd":
+if MCU_FAMILY == "samd":
     env.Append(
         CPPPATH=[
-            join(SYSTEM_DIR, "CMSIS", "CMSIS", "Include"),
-            join(SYSTEM_DIR, "CMSIS-Atmel", "CMSIS", "Device", "ATMEL")
+            join(CMSIS_DIR, "CMSIS", "Include"),
+            join(CMSIS_ATMEL_DIR, "CMSIS", "Device", "ATMEL")
         ],
 
         LIBPATH=[
-            join(SYSTEM_DIR, "CMSIS", "CMSIS", "Lib", "GCC"),
+            join(CMSIS_DIR, "CMSIS", "Lib", "GCC"),
             join(variants_dir, board.get("build.variant"))
         ]
     )
@@ -158,15 +180,19 @@ if BUILD_SYSTEM == "samd":
 
     if BUILD_CORE == "adafruit":
         env.Append(
+            CCFLAGS=[
+                "-Wno-expansion-to-defined"
+            ],
             CPPPATH=[
-                join(FRAMEWORK_DIR, "cores", BUILD_CORE,
-                     "Adafruit_TinyUSB_Core"),
-                join(FRAMEWORK_DIR, "cores", BUILD_CORE,
-                     "Adafruit_TinyUSB_Core", "tinyusb", "src")
+                join(FRAMEWORK_DIR, "cores", "arduino", "TinyUSB"),
+                join(FRAMEWORK_DIR, "cores", "arduino", "TinyUSB",
+                     "Adafruit_TinyUSB_ArduinoCore"),
+                join(FRAMEWORK_DIR, "cores", "arduino", "TinyUSB",
+                     "Adafruit_TinyUSB_ArduinoCore", "tinyusb", "src")
             ]
         )
 
-elif BUILD_SYSTEM == "sam":
+elif MCU_FAMILY == "sam":
     env.Append(
         CPPPATH=[
             join(SYSTEM_DIR, "libsam"),
@@ -199,7 +225,6 @@ env.Append(
 
 env.Append(
     LIBSOURCE_DIRS=[
-        join(FRAMEWORK_DIR, "libraries", "__cores__", BUILD_CORE),
         join(FRAMEWORK_DIR, "libraries")
     ]
 )
@@ -210,7 +235,7 @@ env.Append(
 
 libs = []
 
-if "build.variant" in env.BoardConfig():
+if "build.variant" in board:
     env.Append(
         CPPPATH=[join(variants_dir, board.get("build.variant"))]
     )
@@ -221,7 +246,7 @@ if "build.variant" in env.BoardConfig():
 
 libs.append(env.BuildLibrary(
     join("$BUILD_DIR", "FrameworkArduino"),
-    join(FRAMEWORK_DIR, "cores", BUILD_CORE)
+    join(FRAMEWORK_DIR, "cores", "arduino")
 ))
 
 

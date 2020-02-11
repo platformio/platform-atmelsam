@@ -3,7 +3,7 @@
     "arduino": {
         "ldscript": "flash_with_bootloader.ld"
     },
-    "core": "samd",
+    "core": "arduino",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_NANO_33_IOT -DARDUINO_ARCH_SAMD -DCRYSTALLESS -D__SAMD21G18A__",
     "f_cpu": "48000000L",
