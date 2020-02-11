@@ -37,12 +37,8 @@ MCU_FAMILY = board.get(
 
 assert(MCU_FAMILY in ("sam", "samd"))
 
-FRAMEWORK_DIR = platform.get_package_dir(
-    "framework-arduino-%s" % ("samd" if build_mcu.startswith(
-        "samd") else "sam"))
-
-if BUILD_CORE != "arduino":
-    FRAMEWORK_DIR += "-" + BUILD_CORE
+FRAMEWORK_DIR = platform.get_package_dir("framework-arduino-%s" % (
+    MCU_FAMILY if BUILD_CORE == "arduino" else "%s-%s" % (MCU_FAMILY, BUILD_CORE)))
 
 if MCU_FAMILY == "samd":
     CMSIS_DIR = platform.get_package_dir("framework-cmsis")
