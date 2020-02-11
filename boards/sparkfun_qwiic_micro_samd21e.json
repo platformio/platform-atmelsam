@@ -1,0 +1,60 @@
+{
+  "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
+    "core": "sparkfun",
+    "cpu": "cortex-m0plus",
+    "extra_flags": [
+      "-DARDUINO_QWIIC_MICRO",
+      "-DARDUINO_ARCH_SAMD",
+      "-DCRYSTALLESS",
+      "-D__SAMD21E18A__",
+      "-DQWIIC_MICRO_SAMD21E",
+      "-DARM_MATH_CM0PLUS"
+    ],
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x1B4F",
+        "0x0019"
+      ],
+      [
+        "0x1B4F",
+        "0xF019"
+      ]
+    ],
+    "mcu": "samd21e18a",
+    "usb_product": "SparkFun Qwiic Micro",
+    "variant": "SparkFun_Qwiic_Micro"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21E18",
+    "openocd_chipname": "at91samd21e18",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD21E18A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "SparkFun Qwiic Micro",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "offset_address": "0x2000",
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://www.sparkfun.com/products/15423",
+  "vendor": "SparkFun"
+}
