@@ -1,8 +1,21 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_without_bootloader.ld"
+    },
+    "core": "samd",
     "cpu": "cortex-m0plus",
+    "extra_flags": "-DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
-    "mcu": "samd21g18a"
+    "hwids": [
+      [
+        "0x03EB",
+        "0x2111"
+      ]
+    ],
+    "mcu": "samd21g18a",
+    "usb_product": "Atmel ATSAMW25-XPRO",
+    "variant": "w25_xplained_pro"
   },
   "connectivity": [
     "wifi"
@@ -17,6 +30,7 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
+    "arduino",
     "mbed"
   ],
   "name": "Atmel ATSAMW25-XPRO",
