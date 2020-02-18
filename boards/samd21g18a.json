@@ -1,6 +1,9 @@
 {
   "build": {
-    "core": "samd",
+    "arduino": {
+        "ldscript": "flash_without_bootloader.ld"
+    },
+    "core": "arduino",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
@@ -10,7 +13,6 @@
         "0x2111"
       ]
     ],
-    "ldscript": "flash_without_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "Atmel ATSAMW25-XPRO",
     "variant": "w25_xplained_pro"

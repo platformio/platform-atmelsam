@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "adafruit",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_SAMD_ZERO -DDADAFRUIT_METRO_M0_EXPRESS -DARM_MATH_CM0PLUS -D__SAMD21G18A__",
@@ -14,7 +17,6 @@
         "0x0013"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "system": "samd",
     "usb_product": "Metro M0 Expres",

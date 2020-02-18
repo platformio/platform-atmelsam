@@ -1,6 +1,9 @@
 {
   "build": {
-    "core": "samd",
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
+    "core": "arduino",
     "cpu": "cortex-m0plus",
     "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
@@ -14,7 +17,6 @@
         "0x2157"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "Arduino Zero",
     "variant": "arduino_zero",

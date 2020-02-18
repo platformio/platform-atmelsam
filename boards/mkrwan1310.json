@@ -3,24 +3,31 @@
     "arduino": {
         "ldscript": "flash_with_bootloader.ld"
     },
-    "core": "adafruit",
+    "core": "arduino",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_ITSYBITSY_M0 -DADAFRUIT_ITSYBITSY_M0 -DCRYSTALLESS -DARM_MATH_CM0PLUS -D__SAMD21G18A__",
+    "extra_flags": [
+      "-DARDUINO_SAMD_MKRWAN1310",
+      "-DARDUINO_ARCH_SAMD",
+      "-D__SAMD21G18A__",
+      "-DUSE_ARDUINO_MKR_PIN_LAYOUT",
+      "-DUSE_BQ24195L_PMIC",
+      "-DVERY_LOW_POWER"
+    ],
     "f_cpu": "48000000L",
+
     "hwids": [
       [
-        "0x239A",
-        "0x800F"
+        "0x2341",
+        "0x8059"
       ],
       [
-        "0x239A",
-        "0x000F"
+        "0x2341",
+        "0x0059"
       ]
     ],
     "mcu": "samd21g18a",
-    "system": "samd",
-    "usb_product": "ItsyBitsy M0 Express",
-    "variant": "itsybitsy_m0"
+    "usb_product": "Arduino MKR WAN 1310",
+    "variant": "mkrwan1300"
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
@@ -31,7 +38,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Adafruit ItsyBitsy M0",
+  "name": "Arduino MKR WAN 1310",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -49,6 +56,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.adafruit.com/product/3727",
-  "vendor": "Adafruit"
+  "url": "https://store.arduino.cc/mkr-wan-1310",
+  "vendor": "Arduino"
 }

@@ -1,12 +1,15 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "adafruit",
     "cpu": "cortex-m4",
     "extra_flags": [
       "-DARDUINO_ARCH_SAMD",
       "-DARDUINO_MONSTER_M4SK",
       "-DADAFRUIT_MONSTER_M4SK_EXPRESS",
-      "-D__SAMD51J19A__",
+      "-D__SAMD51G19A__",
       "-D__SAMD51__",
       "-D__FPU_PRESENT",
       "-DARM_MATH_CM4",
@@ -29,8 +32,7 @@
         "0x8048"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
-    "mcu": "samd51j19a",
+    "mcu": "samd51g19a",
     "system": "samd",
     "usb_product": "Adafruit MONSTER M4SK",
     "variant": "monster_m4sk"

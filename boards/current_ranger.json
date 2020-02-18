@@ -1,8 +1,11 @@
 {
   "build": {
-    "core": "samd",
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
+    "core": "moteino",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DVERY_LOW_POWER",
     "f_cpu": "48000000L",
     "hwids": [
       [
@@ -14,7 +17,6 @@
         "0xeee4"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "LowPowerLab CurrentRanger",
     "variant": "current_ranger"

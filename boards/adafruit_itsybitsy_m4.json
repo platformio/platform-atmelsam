@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "adafruit",
     "cpu": "cortex-m4",
     "extra_flags": [
@@ -25,7 +28,6 @@
         "0x002B"
       ]
     ],
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd51g19a",
     "system": "samd",
     "usb_product": "Adafruit ItsyBitsy M4",
