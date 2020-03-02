@@ -16,7 +16,8 @@
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json",
-    "https://raw.githubusercontent.com/eerimoq/simba/master/make/platformio/manifest.json"
+    "https://raw.githubusercontent.com/eerimoq/simba/master/make/platformio/manifest.json",
+    "https://briki.org/download/resources/manifest.json"
   ],
   "frameworks": {
     "arduino": {
@@ -90,6 +91,11 @@
       "type": "framework",
       "optional": true,
       "version": "~1.2.0"
+    },
+    "framework-arduino-mbcwb": {
+      "type": "framework",
+      "optional": true,
+      "version": ">=2.1.1"
     },
     "framework-mbed": {
       "type": "framework",
@@ -171,6 +177,10 @@
       "type": "uploader",
       "optional": true,
       "version": "~1.10700.0"
+    },
+    "tool-mbctool": {
+      "type": "uploader",
+      "version": ">=2.0.0"
     },
     "tool-openocd": {
       "type": "uploader",
