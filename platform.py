@@ -47,7 +47,7 @@ class AtmelsamPlatform(PlatformBase):
             "board_build.core", self.board_config(variables.get("board")).get(
                 "build.core", "arduino")).lower()
 
-        if "arduino" in variables.get("pioframework", []):
+        if "arduino" in variables.get("pioframework", []) or build_core == "mattairtech":
             framework_package = "framework-arduino-%s" % (
                 "samd" if board.get("build.mcu", "").startswith("samd") else "sam")
 

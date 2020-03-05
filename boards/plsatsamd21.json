@@ -1,0 +1,54 @@
+{
+  "build": {
+    "arduino":{
+      "ldscript": "flash_256KB.ld",
+      "bootloader_dir": "8KB_Bootloader"
+    },
+    "core": "mattairtech",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -D__8KB_BOOTLOADER__",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2341",
+        "0x804D"
+      ],
+      [
+        "0x03EB",
+        "0x2157"
+      ]
+    ],
+    "mcu": "samd21g18a",
+    "usb_product": "PLS IMU v1",
+    "variant": "arduino_zero"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21G18",
+    "openocd_chipname": "at91samd21g18",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD21G18A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "PLS IMU logging board SAMD21",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "offset_address": "0x2000",
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "todo",
+  "vendor": "Arduino"
+}

@@ -81,6 +81,11 @@
       "optional": true,
       "version": "~1.0.6"
     },
+    "framework-arduino-samd-mattairtech": {
+      "type": "framework",
+      "optional": true,
+      "version": "~1.6.18"
+    },
     "framework-cmsis": {
       "type": "framework",
       "optional": true,

@@ -1,0 +1,54 @@
+{
+  "build": {
+    "arduino":{
+      "ldscript": "flash_16KB.ld",
+      "bootloader_dir": "4KB_Bootloader"
+    },
+    "core": "mattairtech",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DARDUINO_ARCH_SAMD -D__SAMD11D14AS__ -D__4KB_BOOTLOADER__",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2341",
+        "0x804D"
+      ],
+      [
+        "0x03EB",
+        "0x2157"
+      ]
+    ],
+    "mcu": "samd11d14as",
+    "usb_product": "PLS IMU v1",
+    "variant": "Generic_D11D14AS"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD11D14",
+    "openocd_chipname": "at91samd11d14",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD11D14A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "PLS IMU logging board SAMD11",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 4096,
+    "maximum_size": 16384,
+    "offset_address": "0x1000",
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "todo",
+  "vendor": "Arduino"
+}
