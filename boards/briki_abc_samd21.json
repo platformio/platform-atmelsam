@@ -1,5 +1,8 @@
 {
   "build": {
+    "arduino": {
+      "ldscript": "flash_with_bootloader.ld"
+    },
     "core": "mbcwb",
     "cpu": "cortex-m0plus",
     "board": "briki_abc_samd21",
@@ -16,7 +19,6 @@
       ]
     ],
     "system": "samd",
-    "ldscript": "flash_with_bootloader.ld",
     "mcu": "samd21g18a",
     "usb_product": "Briki",
     "variant": "briki_mbcwb_samd21"
@@ -35,12 +37,10 @@
     "arduino"
   ],
   "name": "Briki ABC (MBC-WB) - Samd21",
-  "platform": "atmelsam",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
-    "tool": "bossac",
     "protocol": "mbctool",
     "protocols": [
       "sam-ba",
