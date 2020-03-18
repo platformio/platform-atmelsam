@@ -35,6 +35,8 @@ class AtmelsamPlatform(PlatformBase):
             upload_tool = "tool-avrdude"
         elif upload_protocol == "jlink":
             upload_tool = "tool-jlink"
+        elif upload_protocol == "mbctool":
+            upload_tool = "tool-mbctool"
 
         if upload_tool:
             for name, opts in self.packages.items():
@@ -53,6 +55,9 @@ class AtmelsamPlatform(PlatformBase):
 
             if build_core != "arduino":
                 framework_package += "-" + build_core
+            if build_core == "mbcwb":
+                self.packages["tool-mbctool"]["optional"] = False
+                framework_package = "framework-arduino-mbcwb"
 
             self.frameworks["arduino"]["package"] = framework_package
             if not board.get("build.mcu", "").startswith("samd"):
