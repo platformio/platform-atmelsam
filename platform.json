@@ -60,7 +60,7 @@
     "framework-arduino-samd-moteino": {
       "type": "framework",
       "optional": true,
-      "version": "~1.3.0"
+      "version": "~1.5.0"
     },
     "framework-arduino-samd-reprap": {
       "type": "framework",

@@ -78,7 +78,7 @@ else:
         LIBS=["arm_cortexM0l_math"]
     )
 
-if BUILD_CORE == "adafruit":
+if BUILD_CORE in ("adafruit", "moteino"):
     env.Append(
         CPPDEFINES=[
             ("USB_CONFIG_POWER", board.get("build.usb_power", 100))
@@ -94,6 +94,13 @@ if BUILD_CORE == "adafruit":
                  "Adafruit_TinyUSB_ArduinoCore"),
             os.path.join(FRAMEWORK_DIR, "cores", "arduino", "TinyUSB",
                  "Adafruit_TinyUSB_ArduinoCore", "tinyusb", "src")
+        ]
+    )
+
+if BUILD_CORE == "moteino":
+    env.Append(
+        CPPDEFINES=[
+            "ARM_MATH_CM0PLUS"
         ]
     )
 
