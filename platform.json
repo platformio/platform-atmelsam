@@ -50,7 +50,7 @@
     "framework-arduino-samd": {
       "type": "framework",
       "optional": true,
-      "version": "~1.8.4"
+      "version": "~1.8.6"
     },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
