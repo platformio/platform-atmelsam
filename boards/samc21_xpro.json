@@ -13,9 +13,7 @@
     "openocd_target": "at91samdXX",
     "svd_path": "ATSAMC21J18A.svd"
   },
-  "frameworks": [
-    "mbed"
-  ],
+  "frameworks": [],
   "name": "Atmel SAMC21-XPRO",
   "upload": {
     "maximum_ram_size": 32768,
