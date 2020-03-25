@@ -12,11 +12,12 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "4.1.0",
+  "version": "4.2.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json",
-    "https://raw.githubusercontent.com/eerimoq/simba/master/make/platformio/manifest.json"
+    "https://raw.githubusercontent.com/eerimoq/simba/master/make/platformio/manifest.json",
+    "https://briki.org/download/resources/manifest.json"
   ],
   "frameworks": {
     "arduino": {
@@ -49,7 +50,7 @@
     "framework-arduino-samd": {
       "type": "framework",
       "optional": true,
-      "version": "~1.8.4"
+      "version": "~1.8.6"
     },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
@@ -59,7 +60,7 @@
     "framework-arduino-samd-moteino": {
       "type": "framework",
       "optional": true,
-      "version": "~1.3.0"
+      "version": "~1.5.0"
     },
     "framework-arduino-samd-reprap": {
       "type": "framework",
@@ -90,6 +91,11 @@
       "type": "framework",
       "optional": true,
       "version": "~1.2.0"
+    },
+    "framework-arduino-mbcwb": {
+      "type": "framework",
+      "optional": true,
+      "version": ">=2.1.1"
     },
     "framework-mbed": {
       "type": "framework",
@@ -171,6 +177,10 @@
       "type": "uploader",
       "optional": true,
       "version": "~1.10700.0"
+    },
+    "tool-mbctool": {
+      "optional": true,
+      "version": ">=2.0.0"
     },
     "tool-openocd": {
       "type": "uploader",

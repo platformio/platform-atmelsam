@@ -19,7 +19,7 @@
     ],
     "mcu": "samd21g18a",
     "usb_product": "LowPowerLab Moteino M0",
-    "variant": "moteino_zero"
+    "variant": "moteino_m0"
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
