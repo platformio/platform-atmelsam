@@ -56,6 +56,7 @@ class AtmelsamPlatform(PlatformBase):
             if build_core != "arduino":
                 framework_package += "-" + build_core
             if build_core == "mbcwb":
+                self.packages["tool-mbctool"]["type"] = "uploader"
                 self.packages["tool-mbctool"]["optional"] = False
                 framework_package = "framework-arduino-mbcwb"
 

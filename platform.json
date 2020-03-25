@@ -179,7 +179,6 @@
       "version": "~1.10700.0"
     },
     "tool-mbctool": {
-      "type": "uploader",
       "optional": true,
       "version": ">=2.0.0"
     },
