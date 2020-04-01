@@ -2,25 +2,19 @@
   "build": {
     "cpu": "cortex-m0plus",
     "f_cpu": "48000000L",
-    "mcu": "samr21g18a",
-    "zephyr": {
-      "variant": "atsamr21_xpro"
-    }
+    "mcu": "samc21j18a"
   },
   "debug": {
-    "jlink_device": "ATSAMR21G18",
+    "jlink_device": "ATSAMC21J18",
     "onboard_tools": [
       "cmsis-dap"
     ],
-    "openocd_chipname": "at91samr21g18",
+    "openocd_chipname": "at91samc21j18",
     "openocd_target": "at91samdXX",
-    "svd_path": "ATSAMR21G18A.svd"
+    "svd_path": "ATSAMC21J18A.svd"
   },
-  "frameworks": [
-    "mbed",
-    "zephyr"
-  ],
-  "name": "Atmel ATSAMR21-XPRO",
+  "frameworks": [],
+  "name": "Atmel SAMC21-XPRO",
   "upload": {
     "maximum_ram_size": 32768,
     "maximum_size": 262144,
@@ -32,6 +26,6 @@
       "atmel-ice"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/SAMR21-XPRO/",
+  "url": "https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATSAMC21-XPRO",
   "vendor": "Atmel"
 }
