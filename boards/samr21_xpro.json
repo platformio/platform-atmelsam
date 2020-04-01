@@ -2,7 +2,10 @@
   "build": {
     "cpu": "cortex-m0plus",
     "f_cpu": "48000000L",
-    "mcu": "samr21g18a"
+    "mcu": "samr21g18a",
+    "zephyr": {
+      "variant": "atsamr21_xpro"
+    }
   },
   "debug": {
     "jlink_device": "ATSAMR21G18",
@@ -14,7 +17,8 @@
     "svd_path": "ATSAMR21G18A.svd"
   },
   "frameworks": [
-    "mbed"
+    "mbed",
+    "zephyr"
   ],
   "name": "Atmel ATSAMR21-XPRO",
   "upload": {
