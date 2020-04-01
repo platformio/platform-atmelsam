@@ -1,0 +1,31 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "48000000L",
+    "mcu": "samc21j18a"
+  },
+  "debug": {
+    "jlink_device": "ATSAMC21J18",
+    "onboard_tools": [
+      "cmsis-dap"
+    ],
+    "openocd_chipname": "at91samc21j18",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMC21J18A.svd"
+  },
+  "frameworks": [],
+  "name": "Atmel SAMC21-XPRO",
+  "upload": {
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATSAMC21-XPRO",
+  "vendor": "Atmel"
+}
