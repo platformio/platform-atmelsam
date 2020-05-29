@@ -21,6 +21,7 @@ from platformio.util import get_systype
 class AtmelsamPlatform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
+        self._custom_packages = variables.get("platform_packages")
         if not variables.get("board"):
             return PlatformBase.configure_default_packages(
                 self, variables, targets)
