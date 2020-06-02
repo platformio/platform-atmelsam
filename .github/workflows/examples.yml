@@ -1,0 +1,45 @@
+name: Examples
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-16.04, windows-latest, macos-latest]
+        python-version: [2.7, 3.7]
+        example:
+          - "examples/arduino-blink"
+          - "examples/arduino-briki-internal-libs"
+          - "examples/arduino-external-libs"
+          - "examples/arduino-internal-libs"
+          - "examples/arduino-web-thing-led"
+          - "examples/mbed-blink"
+          - "examples/mbed-dsp"
+          - "examples/mbed-serial"
+          - "examples/simba-blink"
+          - "examples/zephyr-blink"
+          - "examples/zephyr-drivers-i2c-scanner"
+          - "examples/zephyr-subsys-logger"
+        exclude:
+          - {python-version: 2.7, example: "examples/zephyr-blink"}
+          - {python-version: 2.7, example: "examples/zephyr-drivers-i2c-scanner"}
+          - {python-version: 2.7, example: "examples/zephyr-subsys-logger"}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/platformio/platformio/archive/develop.zip
+          platformio platform install file://.
+      - name: Build examples
+        run: |
+          platformio run -d ${{ matrix.example }}
