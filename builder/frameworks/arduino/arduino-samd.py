@@ -78,7 +78,7 @@ else:
         LIBS=["arm_cortexM0l_math"]
     )
 
-if BUILD_CORE in ("adafruit", "moteino"):
+if BUILD_CORE in ("seeed","adafruit", "moteino"):
     env.Append(
         CPPDEFINES=[
             ("USB_CONFIG_POWER", board.get("build.usb_power", 100))

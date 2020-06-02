@@ -214,7 +214,7 @@ elif upload_protocol == "sam-ba":
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCES"
     )
-    if board.get("build.core") == "adafruit" and board.get(
+    if ((board.get("build.core") == "adafruit") or (board.get("build.core") == "seeed")) and board.get(
             "build.mcu").startswith("samd51"):
         # special flags for the latest bossac tool
         env.Append(
@@ -275,7 +275,7 @@ elif upload_protocol == "mbctool":
         env.VerboseAction(env.AutodetectUploadPort,
                           "Looking for upload port..."),
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
-    ]    
+    ]
 
 elif upload_protocol in debug_tools:
     openocd_args = [

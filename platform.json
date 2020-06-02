@@ -56,6 +56,11 @@
       "optional": true,
       "version": "~1.5.10"
     },
+    "framework-arduino-samd-seeed": {
+      "type": "framework",
+      "optional": true,
+      "version": "~1.7.6"
+    },
     "framework-arduino-samd-moteino": {
       "type": "framework",
       "optional": true,
