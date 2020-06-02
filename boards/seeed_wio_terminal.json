@@ -5,7 +5,17 @@
     },
     "core": "seeed",
     "cpu": "cortex-m4",
-    "extra_flags":"-D__SAMD51P19A__ -DWIO_TERMINAL -DSEEED_WIO_TERMINAL -DSEEED_GROVE_UI_WIRELESS -D__SAMD51__ -D__FPU_PRESENT -DARM_MATH_CM4 -mfloat-abi=hard -mfpu=fpv4-sp-d16",
+    "extra_flags":[
+      "-D__SAMD51P19A__",
+      "-DWIO_TERMINAL",
+      "-DSEEED_WIO_TERMINAL",
+      "-DSEEED_GROVE_UI_WIRELESS",
+      "-D__SAMD51__",
+      "-D__FPU_PRESENT",
+      "-DARM_MATH_CM4",
+      "-mfloat-abi=hard",
+      "-mfpu=fpv4-sp-d16"
+      ],
     "f_cpu": "120000000L",
     "hwids": [
       [
