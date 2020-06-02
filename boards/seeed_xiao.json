@@ -24,6 +24,7 @@
       ]
     ],
     "mcu": "samd21g18a",
+    "system": "samd",
     "usb_product": "Seeeduino XIAO",
     "variant": "XIAO_m0"
   },

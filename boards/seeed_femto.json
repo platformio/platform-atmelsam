@@ -25,6 +25,7 @@
         ]
       ],
       "mcu": "samd21g18a",
+      "system": "samd",
       "usb_product": "Seeeduino Femto M0",
       "variant": "femto_m0"
     },
