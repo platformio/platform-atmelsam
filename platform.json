@@ -79,7 +79,7 @@
     "framework-arduino-samd-sparkfun": {
       "type": "framework",
       "optional": true,
-      "version": "~1.7.4"
+      "version": "~1.7.5"
     },
     "framework-arduino-samd-tuino0": {
       "type": "framework",
