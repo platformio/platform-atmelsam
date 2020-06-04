@@ -37,7 +37,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Wio Lite MG126",
+  "name": "Seeeduino Wio Lite MG126",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
