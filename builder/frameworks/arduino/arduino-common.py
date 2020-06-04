@@ -73,10 +73,6 @@ env.Append(
         "USBCON"
     ],
 
-    CPPPATH=[
-        os.path.join(FRAMEWORK_DIR, "cores", "arduino")
-    ],
-
     LIBSOURCE_DIRS=[
         os.path.join(FRAMEWORK_DIR, "libraries")
     ],
