@@ -63,7 +63,8 @@ class AtmelsamPlatform(PlatformBase):
             self.frameworks["arduino"]["package"] = framework_package
             if not board.get("build.mcu", "").startswith("samd"):
                 self.packages["framework-arduino-sam"]["optional"] = True
-            self.packages[framework_package]["optional"] = False
+            if framework_package in self.packages:
+                self.packages[framework_package]["optional"] = False
             self.packages["framework-cmsis"]["optional"] = False
             self.packages["framework-cmsis-atmel"]["optional"] = False
             if build_core in ("sodaq", "tuino0", "reprap"):
@@ -75,7 +76,7 @@ class AtmelsamPlatform(PlatformBase):
         if "simba" in variables.get("pioframework", []):
             self.packages["toolchain-gccarmnoneeabi"][
                 'version'] = ">=1.40803.0,<1.40805.0"
-        if (board.get("build.core", "") == "adafruit"
+        if (board.get("build.core", "") in ("adafruit", "seeed")
                 and "tool-bossac" in self.packages
                 and board.get("build.mcu", "").startswith("samd51")):
             self.packages["tool-bossac"]['version'] = "~1.10900.0"

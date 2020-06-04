@@ -1,0 +1,61 @@
+{
+  "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
+    "core": "seeed",
+    "cpu": "cortex-m0plus",
+    "extra_flags": [
+      "-DARDUINO_SAMD_ZERO",
+      "-D__SAMD21__",
+      "-D__SAMD21G18A__",
+      "-DARM_MATH_CM0PLUS",
+      "-DSEEED_FEMTO_M0",
+      "-DCRYSTALLESS"
+    ],
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2886",
+        "0x802F"
+      ],
+      [
+        "0x2886",
+        "0x002F"
+      ]
+    ],
+    "mcu": "samd21g18a",
+    "system": "samd",
+    "usb_product": "Seeeduino Femto M0",
+    "variant": "femto_m0"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21G18",
+    "openocd_chipname": "at91samd21g18",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD21G18A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Seeeduino Femto M0",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "offset_address": "0x2000",
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html",
+  "vendor": "Seeed"
+}

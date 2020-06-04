@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "4.3.1",
+  "version": "4.4.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json",
@@ -54,7 +54,12 @@
     "framework-arduino-samd-adafruit": {
       "type": "framework",
       "optional": true,
-      "version": "~1.5.10"
+      "version": "~1.5.14"
+    },
+    "framework-arduino-samd-seeed": {
+      "type": "framework",
+      "optional": true,
+      "version": "~1.7.6"
     },
     "framework-arduino-samd-moteino": {
       "type": "framework",
@@ -74,7 +79,7 @@
     "framework-arduino-samd-sparkfun": {
       "type": "framework",
       "optional": true,
-      "version": "~1.7.4"
+      "version": "~1.7.5"
     },
     "framework-arduino-samd-tuino0": {
       "type": "framework",

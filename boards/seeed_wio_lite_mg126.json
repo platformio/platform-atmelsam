@@ -1,0 +1,60 @@
+{
+  "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
+    "core": "seeed",
+    "cpu": "cortex-m0plus",
+    "extra_flags": [
+      "-DARDUINO_SAMD_ZERO",
+      "-DARM_MATH_CM0PLUS",
+      "-D__SAMD21__",
+      "-D__SAMD21G18A__",
+      "-DWio_Lite_MG126"
+    ],
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2886",
+        "0x802A"
+      ],
+      [
+        "0x2886",
+        "0x002A"
+      ]
+    ],
+    "mcu": "samd21g18a",
+    "system": "samd",
+    "usb_product": "Wio Lite MG126",
+    "variant": "Wio_Lite_MG126"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21G18",
+    "openocd_chipname": "at91samd21g18",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD21G18A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Seeeduino Wio Lite MG126",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "offset_address": "0x2000",
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://www.seeedstudio.com/Wio-Lite-MG126-p-4189.html",
+  "vendor": "Seeed"
+}

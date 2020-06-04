@@ -44,6 +44,7 @@ env.SConscript("arduino-common.py")
 
 env.Append(
     CPPPATH=[
+        os.path.join(FRAMEWORK_DIR, "cores", "arduino"),
         os.path.join(SYSTEM_DIR, "libsam"),
         os.path.join(SYSTEM_DIR, "CMSIS", "CMSIS", "Include"),
         os.path.join(SYSTEM_DIR, "CMSIS", "Device", "ATMEL")
