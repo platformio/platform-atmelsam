@@ -6,6 +6,7 @@
     "core": "seeed",
     "cpu": "cortex-m4",
     "extra_flags": [
+      "-DARDUINO_ARCH_SAMD",
       "-D__SAMD51P19A__",
       "-DWIO_TERMINAL",
       "-DSEEED_WIO_TERMINAL",
