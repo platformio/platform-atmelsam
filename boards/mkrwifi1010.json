@@ -5,7 +5,7 @@
     },
     "core": "arduino",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_MKRWIFI1010 -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DUSE_BQ24195L_PMIC -DUSE_ARDUINO_MKR_PIN_LAYOUT",
+    "extra_flags": "-DARDUINO_SAMD_MKRWIFI1010 -D__SAMD21G18A__ -DUSE_BQ24195L_PMIC -DUSE_ARDUINO_MKR_PIN_LAYOUT",
     "f_cpu": "48000000L",
     "hwids": [
       [

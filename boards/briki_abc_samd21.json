@@ -6,7 +6,7 @@
     "core": "mbcwb",
     "cpu": "cortex-m0plus",
     "board": "briki_abc_samd21",
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DBRIKI_ABC -DBRIKI_MBC_WB_SAMD -w",
+    "extra_flags": "-DARDUINO_SAMD_ZERO -D__SAMD21G18A__ -DBRIKI_ABC -DBRIKI_MBC_WB_SAMD -w",
     "f_cpu": "48000000L",
     "hwids": [
       [

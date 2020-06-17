@@ -43,6 +43,10 @@ assert os.path.isdir(FRAMEWORK_DIR)
 env.SConscript("arduino-common.py")
 
 env.Append(
+    CPPDEFINES=[
+        "ARDUINO_ARCH_SAM"
+    ],
+
     CPPPATH=[
         os.path.join(FRAMEWORK_DIR, "cores", "arduino"),
         os.path.join(SYSTEM_DIR, "libsam"),

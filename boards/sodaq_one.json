@@ -5,7 +5,7 @@
     },
     "core": "sodaq",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-D__SAMD21G18A__ -DARDUINO_ARCH_SAMD -DARDUINO_SODAQ_ONE",
+    "extra_flags": "-D__SAMD21G18A__ -DARDUINO_SODAQ_ONE",
     "f_cpu": "48000000L",
     "hwids": [
       [

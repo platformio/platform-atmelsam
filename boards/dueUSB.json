@@ -5,7 +5,7 @@
     },
     "core": "arduino",
     "cpu": "cortex-m3",
-    "extra_flags": "-D__SAM3X8E__ -DARDUINO_ARCH_SAM -DARDUINO_SAM_DUE",
+    "extra_flags": "-D__SAM3X8E__ -DARDUINO_SAM_DUE",
     "f_cpu": "84000000L",
     "hwids": [
       [

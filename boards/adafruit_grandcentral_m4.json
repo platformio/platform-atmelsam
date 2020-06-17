@@ -6,7 +6,6 @@
     "core": "adafruit",
     "cpu": "cortex-m4",
     "extra_flags": [
-      "-DARDUINO_ARCH_SAMD",
       "-DARDUINO_GRAND_CENTRAL_M4",
       "-DADAFRUIT_GRAND_CENTRAL_M4",
       "-D__SAMD51P20A__",
