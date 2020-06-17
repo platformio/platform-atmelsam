@@ -48,6 +48,10 @@ if VENDOR_CORE == "sparkfun" and board.get("build.mcu", "").startswith("samd51")
     BUILD_CORE = "arduino51"
 
 env.Append(
+    CPPDEFINES=[
+        "ARDUINO_ARCH_SAMD"
+    ],
+
     CPPPATH=[
         os.path.join(CMSIS_DIR, "CMSIS", "Include"),
         os.path.join(CMSIS_ATMEL_DIR, "CMSIS", "Device", "ATMEL"),

@@ -5,7 +5,7 @@
     },
     "core": "arduino",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "extra_flags": "-D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [

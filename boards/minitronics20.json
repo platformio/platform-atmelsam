@@ -5,7 +5,7 @@
     },
     "core": "reprap",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_MINITRONICS20 -DARDUINO_ARCH_SAMD -D__SAMD21J18A__ -DUSE_BQ24195L_PMIC",
+    "extra_flags": "-DARDUINO_SAMD_MINITRONICS20 -D__SAMD21J18A__ -DUSE_BQ24195L_PMIC",
     "f_cpu": "48000000L",
     "hwids": [
       [

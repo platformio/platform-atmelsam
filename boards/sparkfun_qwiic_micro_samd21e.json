@@ -7,7 +7,6 @@
     "cpu": "cortex-m0plus",
     "extra_flags": [
       "-DARDUINO_QWIIC_MICRO",
-      "-DARDUINO_ARCH_SAMD",
       "-DCRYSTALLESS",
       "-D__SAMD21E18A__",
       "-DQWIIC_MICRO_SAMD21E",

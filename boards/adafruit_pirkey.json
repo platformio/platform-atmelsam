@@ -5,7 +5,7 @@
     },
     "core": "adafruit",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_ARCH_SAMD -DARDUINO_PIRKEY -DARM_MATH_CM0PLUS -DCRYSTALLESS -DADAFRUIT_PIRKEY -D__SAMD21E18A__",
+    "extra_flags": "-DARDUINO_PIRKEY -DARM_MATH_CM0PLUS -DCRYSTALLESS -DADAFRUIT_PIRKEY -D__SAMD21E18A__",
     "f_cpu": "48000000L",
     "hwids": [
       [

@@ -5,7 +5,7 @@
     },
     "core": "moteino",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__ -DVERY_LOW_POWER -DCRYSTALLESS",
+    "extra_flags": "-DARDUINO_SAMD_ZERO -D__SAMD21G18A__ -DVERY_LOW_POWER -DCRYSTALLESS",
     "f_cpu": "48000000L",
     "hwids": [
       [

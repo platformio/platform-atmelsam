@@ -6,7 +6,6 @@
     "core": "sparkfun",
     "cpu": "cortex-m4",
     "extra_flags": [
-      "-DARDUINO_ARCH_SAMD",
       "-DARDUINO_SAMD51_THING_PLUS",
       "-D__SAMD51J20A__",
       "-D__SAMD51__",
