@@ -20,11 +20,11 @@ jobs:
           - "examples/mbed-serial"
           - "examples/simba-blink"
           - "examples/zephyr-blink"
-          - "examples/zephyr-drivers-i2c-scanner"
+          - "examples/zephyr-drivers-lcd-hd44780"
           - "examples/zephyr-subsys-logger"
         exclude:
           - {python-version: 2.7, example: "examples/zephyr-blink"}
-          - {python-version: 2.7, example: "examples/zephyr-drivers-i2c-scanner"}
+          - {python-version: 2.7, example: "examples/zephyr-drivers-lcd-hd44780"}
           - {python-version: 2.7, example: "examples/zephyr-subsys-logger"}
     runs-on: ${{ matrix.os }}
     steps:
