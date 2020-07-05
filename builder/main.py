@@ -214,6 +214,13 @@ elif upload_protocol == "sam-ba":
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCES"
     )
+
+    # use patched bossac for Udoo Quad
+    if board.get("name") in ("Udoo Quad", "Udoo Dual"):
+        if bool(board.get("upload.internal", False)):
+            env.Replace(UPLOADER="bossac-udoo-internal")
+        env.Replace(UPLOADER="bossac-udoo")
+
     if board.get("build.core") in ("adafruit", "seeed") and board.get(
             "build.mcu").startswith("samd51"):
         # special flags for the latest bossac tool
@@ -267,9 +274,9 @@ elif upload_protocol == "mbctool":
             "--device", "samd",
             "--speed", "1500000",
             "--port", '"$UPLOAD_PORT"',
-            "--upload", "$SOURCES",            
+            "--upload", "$SOURCES",
         ],
-        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'       
+        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'
     )
     upload_actions = [
         env.VerboseAction(env.AutodetectUploadPort,
