@@ -20,7 +20,7 @@ How to build PlatformIO based project
 .. code-block:: bash
 
     # Change directory to example
-    > cd platform-atmelsam/examples/zephyr-drivers-i2c-scanner
+    > cd platform-atmelsam/examples/zephyr-drivers-lcd-hd44780
 
     # Build project
     > platformio run
