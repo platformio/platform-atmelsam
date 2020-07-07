@@ -48,6 +48,7 @@ def BeforeUpload(target, source, env):  # pylint: disable=W0613,W0621
 
 
 env = DefaultEnvironment()
+env.SConscript("compat.py", exports="env")
 platform = env.PioPlatform()
 board = env.BoardConfig()
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
@@ -267,9 +268,9 @@ elif upload_protocol == "mbctool":
             "--device", "samd",
             "--speed", "1500000",
             "--port", '"$UPLOAD_PORT"',
-            "--upload", "$SOURCES",            
+            "--upload", "$SOURCES",
         ],
-        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'       
+        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'
     )
     upload_actions = [
         env.VerboseAction(env.AutodetectUploadPort,
