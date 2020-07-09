@@ -217,9 +217,9 @@ elif upload_protocol == "sam-ba":
 
     # use patched bossac for Udoo Quad
     if board.get("name") in ("Udoo Quad", "Udoo Dual"):
-        if bool(board.get("upload.internal", False)):
-            env.Replace(UPLOADER="bossac-udoo-internal")
         env.Replace(UPLOADER="bossac-udoo")
+        if env.BoardConfig().get("upload.internal", False):
+            env.Replace(UPLOADER="bossac-udoo-internal")
 
     if board.get("build.core") in ("adafruit", "seeed") and board.get(
             "build.mcu").startswith("samd51"):
@@ -227,7 +227,6 @@ elif upload_protocol == "sam-ba":
         env.Append(
             UPLOADERFLAGS=[
             "-U", "--offset", board.get("upload.offset_address")])
-
     else:
         env.Append(UPLOADERFLAGS=[
             "--erase",
