@@ -1,0 +1,49 @@
+{
+  "build": {
+    "arduino": {
+        "ldscript": "flash.ld"
+    },
+    "core": "arduino",
+    "cpu": "cortex-m3",
+    "extra_flags": "-D__SAM3X8E__ -DARDUINO_SAM_DUE",
+    "f_cpu": "84000000L",
+    "hwids": [
+      [
+        "0x10C4",
+        "0xEA60"
+      ]
+    ],
+    "mcu": "at91sam3x8e",
+    "usb_product": "Arduino Due",
+    "variant": "arduino_due_x"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "jlink_device": "ATSAM3X8E",
+    "openocd_chipname": "at91sam3X8E",
+    "openocd_target": "at91sam3ax_8x",
+    "svd_path": "ATSAM3X8E.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Udoo Quad",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 98304,
+    "maximum_size": 524288,
+    "native_usb": false,
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba"
+    ],
+    "internal": false,
+    "require_upload_port": true,
+    "use_1200bps_touch": false,
+    "wait_for_upload_port": false
+  },
+  "url": "https://www.udoo.org/",
+  "vendor": "Udoo"
+}

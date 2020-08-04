@@ -31,6 +31,8 @@ class AtmelsamPlatform(PlatformBase):
         upload_tool = "tool-openocd"
         if upload_protocol == "sam-ba":
             upload_tool = "tool-bossac"
+            if board.get("name") in ("Udoo Quad", "Udoo Dual"):
+                upload_tool = "tool-bossac-udoo"
         elif upload_protocol == "stk500v2":
             upload_tool = "tool-avrdude"
         elif upload_protocol == "jlink":

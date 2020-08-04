@@ -24,7 +24,8 @@
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json",
-    "https://raw.githubusercontent.com/eerimoq/simba/master/make/platformio/manifest.json"
+    "https://raw.githubusercontent.com/eerimoq/simba/master/make/platformio/manifest.json",
+    "https://raw.githubusercontent.com/ArkadiuszMichalRys/bossac-udoo/master/platformio/manifest.json"
   ],
   "frameworks": {
     "arduino": {
@@ -209,6 +210,11 @@
       "type": "uploader",
       "optional": true,
       "version": "~1.10700.0"
+    },
+    "tool-bossac-udoo": {
+      "type": "uploader",
+      "optional": true,
+      "version": "~0.0.1"
     },
     "tool-mbctool": {
       "optional": true,

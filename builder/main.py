@@ -215,13 +215,19 @@ elif upload_protocol == "sam-ba":
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCES"
     )
+
+    # use patched bossac for Udoo Quad
+    if board.get("name") in ("Udoo Quad", "Udoo Dual"):
+        env.Replace(UPLOADER="bossac-udoo")
+        if env.BoardConfig().get("upload.internal", False):
+            env.Replace(UPLOADER="bossac-udoo-internal")
+
     if board.get("build.core") in ("adafruit", "seeed") and board.get(
             "build.mcu").startswith("samd51"):
         # special flags for the latest bossac tool
         env.Append(
             UPLOADERFLAGS=[
             "-U", "--offset", board.get("upload.offset_address")])
-
     else:
         env.Append(UPLOADERFLAGS=[
             "--erase",
