@@ -4,6 +4,15 @@
   "description": "Atmel | SMART offers Flash- based ARM products based on the ARM Cortex-M0+, Cortex-M3 and Cortex-M4 architectures, ranging from 8KB to 2MB of Flash including a rich peripheral and feature mix.",
   "homepage": "https://www.microchip.com/design-centers/32-bit",
   "license": "Apache-2.0",
+  "keywords": [
+      "dev-platform",
+      "ARM",
+      "Cortex-M",
+      "Atmel",
+      "Microchip",
+      "SAM",
+      "SAM D"
+  ],
   "engines": {
     "platformio": "<5"
   },
