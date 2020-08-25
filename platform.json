@@ -5,13 +5,13 @@
   "homepage": "https://www.microchip.com/design-centers/32-bit",
   "license": "Apache-2.0",
   "keywords": [
-      "dev-platform",
-      "ARM",
-      "Cortex-M",
-      "Atmel",
-      "Microchip",
-      "SAM",
-      "SAM D"
+    "dev-platform",
+    "ARM",
+    "Cortex-M",
+    "Atmel",
+    "Microchip",
+    "SAM",
+    "SAM D"
   ],
   "engines": {
     "platformio": "<5"
@@ -47,197 +47,241 @@
   "packages": {
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
+      "owner": "platformio",
       "version": "~1.70201.0"
     },
     "framework-arduino-sam": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.6.12"
     },
     "framework-arduino-samd": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.8.6"
     },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.5.14"
     },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.7.6"
     },
     "framework-arduino-samd-moteino": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.5.0"
     },
     "framework-arduino-samd-reprap": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.0.2"
     },
     "framework-arduino-samd-sodaq": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.6.20"
     },
     "framework-arduino-samd-sparkfun": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.7.5"
     },
     "framework-arduino-samd-tuino0": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.0.6"
     },
     "framework-cmsis": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.40500.0"
     },
     "framework-cmsis-atmel": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.2.0"
     },
     "framework-arduino-mbcwb": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": ">=2.1.1"
     },
     "framework-mbed": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~4.151.0"
     },
     "framework-simba": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": ">=7.0.0"
     },
     "framework-zephyr": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~2.20300.0"
     },
     "framework-zephyr-canopennode": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.5c6b0566d5"
     },
     "framework-zephyr-civetweb": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.99129c5efc"
     },
     "framework-zephyr-cmsis": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.542b2296e6"
     },
     "framework-zephyr-fatfs": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.9ee6b9b951"
     },
     "framework-zephyr-hal-atmel": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.1fe96f0a5e"
     },
     "framework-zephyr-libmetal": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.3c3c9ec83b"
     },
     "framework-zephyr-lvgl": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.74fc2e753a"
     },
     "framework-zephyr-mbedtls": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.4bf099f125"
     },
     "framework-zephyr-mcuboot": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.e88113bbeb"
     },
     "framework-zephyr-mcumgr": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.5885efb7ca"
     },
     "framework-zephyr-open-amp": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.724f7e2a45"
     },
     "framework-zephyr-loramac-node": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.29e516ec58"
     },
     "framework-zephyr-openthread": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.a83d18cf18"
     },
     "framework-zephyr-segger": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.6fcf61606d"
     },
     "framework-zephyr-tinycbor": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.40daca97b4"
     },
     "framework-zephyr-tinycrypt": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.3e9a49d267"
     },
     "framework-zephyr-littlefs": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.0aefdda69d"
     },
     "framework-zephyr-mipi-sys-t": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.957d46bc3c"
     },
     "framework-zephyr-trusted-firmware-m": {
       "optional": true,
+      "owner": "platformio",
       "version": "0.0.0-alpha+sha.7de2daa196"
     },
     "tool-avrdude": {
       "type": "uploader",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.60300.0"
     },
     "tool-bossac": {
       "type": "uploader",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.10700.0"
     },
     "tool-mbctool": {
       "optional": true,
+      "owner": "platformio",
       "version": ">=2.0.0"
     },
     "tool-openocd": {
       "type": "uploader",
       "optional": true,
+      "owner": "platformio",
       "version": "~2.1000.0"
     },
     "tool-jlink": {
       "type": "uploader",
       "optional": true,
+      "owner": "platformio",
       "version": "^1.63208.0"
     },
     "tool-cmake": {
       "optional": true,
+      "owner": "platformio",
       "version": "~3.16.0"
     },
     "tool-dtc": {
       "optional": true,
+      "owner": "platformio",
       "version": "~1.4.7"
     },
     "tool-ninja": {
       "optional": true,
+      "owner": "platformio",
       "version": "^1.7.0"
     },
     "tool-gperf": {
       "optional": true,
+      "owner": "platformio",
       "version": "^3.0.0"
     }
   }
