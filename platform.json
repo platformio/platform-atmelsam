@@ -14,18 +14,13 @@
     "SAM D"
   ],
   "engines": {
-    "platformio": "<5"
+    "platformio": "^5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
   "version": "4.5.1",
-  "packageRepositories": [
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
-    "http://dl.platformio.org/packages/manifest.json",
-    "https://raw.githubusercontent.com/eerimoq/simba/master/make/platformio/manifest.json"
-  ],
   "frameworks": {
     "arduino": {
       "package": "framework-arduino-sam",
