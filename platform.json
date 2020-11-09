@@ -55,7 +55,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.8.6"
+      "version": "~1.8.9"
     },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
