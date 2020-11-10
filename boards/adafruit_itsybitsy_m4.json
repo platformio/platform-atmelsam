@@ -30,7 +30,10 @@
     "mcu": "samd51g19a",
     "system": "samd",
     "usb_product": "Adafruit ItsyBitsy M4",
-    "variant": "itsybitsy_m4"
+    "variant": "itsybitsy_m4",
+    "zephyr": {
+       "variant": "adafruit_itsybitsy_m4_express"
+    }
   },
   "debug": {
     "jlink_device": "ATSAMD51G19",
@@ -39,7 +42,8 @@
     "svd_path": "ATSAMD51G19A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "zephyr"
   ],
   "name": "Adafruit ItsyBitsy M4",
   "upload": {
