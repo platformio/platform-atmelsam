@@ -26,7 +26,10 @@
     "mcu": "samd21g18a",
     "system": "samd",
     "usb_product": "Seeeduino XIAO",
-    "variant": "XIAO_m0"
+    "variant": "XIAO_m0",
+    "zephyr": {
+       "variant": "seeeduino_xiao"
+    }
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
@@ -35,7 +38,8 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "zephyr"
   ],
   "name": "Seeeduino XIAO",
   "upload": {

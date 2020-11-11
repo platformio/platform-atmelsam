@@ -19,7 +19,10 @@
     ],
     "mcu": "samd21g18a",
     "usb_product": "Arduino NANO 33 IoT",
-    "variant": "nano_33_iot"
+    "variant": "nano_33_iot",
+    "zephyr": {
+       "variant": "arduino_nano_33_iot"
+    }
   },
   "debug": {
     "jlink_device": "ATSAMD21G18",
@@ -28,7 +31,8 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "zephyr"
   ],
   "name": "NANO 33 IoT",
   "upload": {
