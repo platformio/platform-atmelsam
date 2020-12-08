@@ -20,7 +20,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "5.0.1",
+  "version": "5.0.2",
   "frameworks": {
     "arduino": {
       "package": "framework-arduino-sam",
