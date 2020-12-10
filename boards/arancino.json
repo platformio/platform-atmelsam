@@ -1,0 +1,58 @@
+{
+  "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
+    "core": "arancino",
+    "cpu": "cortex-m0plus",
+    "board": "SAMD_ARANCINO",
+    "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x04D8",
+        "0xECDA"
+      ]
+    ],
+    "mcu": "samd21g18a",
+    "usb_product": "Arancino",
+    "variant": "arancino"
+  },
+  "bootloader": {
+    "tool": "openocd",
+    "file": "arancino/samd21_sam_ba_arancino.bin"
+  },
+  "connectivity": [
+    "ethernet",
+    "wifi"
+  ],
+  "debug": {
+    "jlink_device": "ATSAMD21G18",
+    "openocd_chipname": "at91samd21g18",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD21G18A.svd"
+  },
+  "frameworks": ["arduino"],
+  "name": "Arancino",
+  "platform": "atmelsam",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "offset_address": "0x2000",
+    "protocol": "arancino-ota",
+    "protocols": [
+      "sam-ba",
+      "arancino-ota",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": false,
+    "wait_for_upload_port": true
+  },
+  "url": "http://smartme.io/it/projects/arancino-cc-2/",
+  "vendor": "smartme.io"
+}
