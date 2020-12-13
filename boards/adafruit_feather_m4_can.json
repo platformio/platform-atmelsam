@@ -33,7 +33,7 @@
     "variant": "feather_m4_can"
   },
   "debug": {
-    "jlink_device": "ATSAMD51J19",
+    "jlink_device": "ATSAME51J19",
     "openocd_chipname": "at91samd51j19",
     "openocd_target": "atsame5x",
     "svd_path": "ATSAMD51J19A.svd"
