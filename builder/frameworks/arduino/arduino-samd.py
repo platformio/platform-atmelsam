@@ -113,10 +113,20 @@ if VENDOR_CORE in ("seeed", "adafruit", "moteino"):
     if VENDOR_CORE == "adafruit":
         env.Append(CPPPATH=[os.path.join(CMSIS_DIR, "CMSIS", "DSP", "Include")])
 
+#
+# Vendor-specific configurations
+#
+
 if VENDOR_CORE == "moteino":
     env.Append(
         CPPDEFINES=[
             "ARM_MATH_CM0PLUS"
+        ]
+    )
+elif VENDOR_CORE == "arduino":
+    env.Append(
+        CPPPATH=[
+            os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "api", "deprecated")
         ]
     )
 
