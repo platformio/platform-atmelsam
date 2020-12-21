@@ -124,7 +124,7 @@ if VENDOR_CORE == "moteino":
         ]
     )
 elif VENDOR_CORE == "arduino":
-    env.Append(
+    env.Prepend(
         CPPPATH=[
             os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "api", "deprecated")
         ]
