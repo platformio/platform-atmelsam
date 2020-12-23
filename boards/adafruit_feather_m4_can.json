@@ -1,0 +1,63 @@
+{
+  "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
+    "core": "adafruit",
+    "cpu": "cortex-m4",
+    "extra_flags": [
+      "-DARDUINO_FEATHER_M4_CAN",
+      "-DADAFRUIT_FEATHER_M4_EXPRESS",
+      "-DADAFRUIT_FEATHER_M4_CAN",
+      "-D__SAME51J19A__",
+      "-D__SAMD51__",
+      "-D__FPU_PRESENT",
+      "-DARM_MATH_CM4",
+      "-DENABLE_CACHE",
+      "-DVARIANT_QSPI_BAUD_DEFAULT=50000000"
+    ],
+    "f_cpu": "120000000L",
+    "hwids": [
+      [
+        "0x239A",
+        "0x80CD"
+      ],
+      [
+        "0x239A",
+        "0x00CD"
+      ]
+    ],
+    "mcu": "same51j19a",
+    "system": "samd",
+    "usb_product": "Adafruit Feather M4 CAN",
+    "variant": "feather_m4_can"
+  },
+  "debug": {
+    "jlink_device": "ATSAME51J19",
+    "openocd_chipname": "at91same51j19",
+    "openocd_target": "atsame5x",
+    "svd_path": "ATSAME51J19A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "Adafruit Feather M4 CAN",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 196608,
+    "maximum_size": 507904,
+    "native_usb": true,
+    "offset_address": "0x4000",
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://www.adafruit.com/product/4759",
+  "vendor": "Adafruit"
+}

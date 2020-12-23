@@ -53,7 +53,11 @@ env.Append(
     ],
 
     CPPPATH=[
-        os.path.join(CMSIS_DIR, "CMSIS", "Include"),
+        os.path.join(
+            CMSIS_DIR,
+            "CMSIS",
+            os.path.join("Core", "Include") if VENDOR_CORE == "adafruit" else "Include",
+        ),  # Adafruit core uses CMSIS v5.4 with different folder structure
         os.path.join(CMSIS_ATMEL_DIR, "CMSIS", "Device", "ATMEL"),
         os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE)
     ],
@@ -106,10 +110,23 @@ if VENDOR_CORE in ("seeed", "adafruit", "moteino"):
         ]
     )
 
+    if VENDOR_CORE == "adafruit":
+        env.Append(CPPPATH=[os.path.join(CMSIS_DIR, "CMSIS", "DSP", "Include")])
+
+#
+# Vendor-specific configurations
+#
+
 if VENDOR_CORE == "moteino":
     env.Append(
         CPPDEFINES=[
             "ARM_MATH_CM0PLUS"
+        ]
+    )
+elif VENDOR_CORE == "arduino":
+    env.Prepend(
+        CPPPATH=[
+            os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "api", "deprecated")
         ]
     )
 
