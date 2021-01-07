@@ -148,10 +148,10 @@ if "build.variant" in board:
     env.Append(
         CPPPATH=[os.path.join(variants_dir, board.get("build.variant"))]
     )
-    libs.append(env.BuildLibrary(
+    env.BuildSources(
         os.path.join("$BUILD_DIR", "FrameworkArduinoVariant"),
         os.path.join(variants_dir, board.get("build.variant"))
-    ))
+    )
 
 libs.append(env.BuildLibrary(
     os.path.join("$BUILD_DIR", "FrameworkArduino"),
