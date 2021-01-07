@@ -57,6 +57,12 @@
       "owner": "platformio",
       "version": "~1.8.11"
     },
+    "framework-arduino-samd-arancino": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/artynet/platformio-arancino.git"
+    },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
       "optional": true,
@@ -251,6 +257,11 @@
       "optional": true,
       "owner": "meteca",
       "version": ">=2.0.0"
+    },
+    "tool-arancino-ota": {
+      "optional": true,
+      "owner": "smartme",
+      "version": "https://download.smartme.io/artifactory/tool-arancino-ota/tool-arancino-ota-linux_x86_64-1.0.8.tar.gz"
     },
     "tool-openocd": {
       "type": "uploader",

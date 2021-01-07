@@ -46,6 +46,8 @@ env.SConscript("arduino-common.py")
 BUILD_CORE = "arduino"
 if VENDOR_CORE == "sparkfun" and board.get("build.mcu", "").startswith("samd51"):
     BUILD_CORE = "arduino51"
+elif VENDOR_CORE == "arancino":
+    BUILD_CORE = "arancino"
 
 env.Append(
     CPPDEFINES=[

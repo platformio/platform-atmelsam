@@ -279,6 +279,22 @@ elif upload_protocol == "mbctool":
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
 
+elif upload_protocol == "arancino-ota":
+    env.Replace(
+        UPLOADER=join(
+            platform.get_package_dir("tool-arancino-ota") or "", "ArancinoOTA"),
+        UPLOADERFLAGS=[
+            "--ip", '"$UPLOAD_PORT"',
+            "--path", "$SOURCES",
+        ],
+        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'
+    )
+    upload_actions = [
+        env.VerboseAction(env.AutodetectUploadPort,
+                          "Looking for upload port..."),
+        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
+    ]
+
 elif upload_protocol in debug_tools:
     openocd_args = [
         "-d%d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1)
