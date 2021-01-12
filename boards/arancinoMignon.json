@@ -5,7 +5,6 @@
     },
     "core": "arancino",
     "cpu": "cortex-m0plus",
-    "board": "SAMD_ARANCINO",
     "extra_flags": "-DARDUINO_SAMD_ZERO -DARDUINO_ARCH_SAMD -D__SAMD21G18A__",
     "f_cpu": "48000000L",
     "hwids": [
