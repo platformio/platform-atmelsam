@@ -60,8 +60,8 @@
     "framework-arduino-samd-arancino": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "https://github.com/artynet/platformio-arancino.git"
+      "owner": "smartme",
+      "version": "~1.2.1"
     },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
@@ -261,7 +261,12 @@
     "tool-arancino-ota": {
       "optional": true,
       "owner": "smartme",
-      "version": "https://download.smartme.io/artifactory/tool-arancino-ota/tool-arancino-ota-linux_x86_64-1.0.8.tar.gz"
+      "version": "~1.0.8"
+    },
+    "tool-arancino-ota-rest": {
+      "optional": true,
+      "owner": "smartme",
+      "version": "~1.0.0"
     },
     "tool-openocd": {
       "type": "uploader",

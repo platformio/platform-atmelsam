@@ -295,6 +295,18 @@ elif upload_protocol == "arancino-ota":
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
 
+elif upload_protocol == "arancino-ota-rest":
+	env.Replace(
+		UPLOADER=join(
+			platform.get_package_dir("tool-arancino-ota-rest") or "", "arancino-ota-rest.py"),
+		UPLOADCMD='"$PYTHONEXE" "$UPLOADER"'
+	)
+	upload_actions = [
+		env.VerboseAction(env.AutodetectUploadPort,
+						  "Looking for upload port..."),
+		env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE via REST APIs")
+	]
+
 elif upload_protocol in debug_tools:
     openocd_args = [
         "-d%d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1)
