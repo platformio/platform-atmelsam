@@ -33,7 +33,6 @@
   },
   "frameworks": ["arduino"],
   "name": "Arancino",
-  "platform": "atmelsam",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
