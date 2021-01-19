@@ -300,8 +300,8 @@ elif upload_protocol == "arancino-ota-rest":
 		UPLOADER=join(
 			platform.get_package_dir("tool-arancino-ota-rest") or "", "arancino-ota-rest.py"),
         UPLOADERFLAGS=[
-            "--url", '"$UPLOAD_PORT"',
-            "--firmware", "$SOURCES",
+            "--arancino_ip_address", '"$UPLOAD_PORT"',
+            "--arancino_firmware", "$SOURCES",
         ],
 	    UPLOADCMD='"$PYTHONEXE" "$UPLOADER" $UPLOADERFLAGS'
 	)

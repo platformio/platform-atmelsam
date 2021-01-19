@@ -259,14 +259,14 @@
       "version": ">=2.0.0"
     },
     "tool-arancino-ota": {
-      "optional": true,
+      "optional": false,
       "owner": "smartme",
       "version": "~1.0.8"
     },
     "tool-arancino-ota-rest": {
-      "optional": true,
+      "optional": false,
       "owner": "smartme",
-      "version": "~1.0.0"
+      "version": "~1.0.2"
     },
     "tool-openocd": {
       "type": "uploader",
