@@ -295,10 +295,10 @@ elif upload_protocol == "arancino-ota":
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
 
-elif upload_protocol == "arancino-ota-rest":
+elif upload_protocol == "arancino-ota-no-gui":
 	env.Replace(
 		UPLOADER=join(
-			platform.get_package_dir("tool-arancino-ota-rest") or "", "arancino-ota-rest.py"),
+			platform.get_package_dir("tool-arancino-ota-no-gui") or "", "arancino-ota-no-gui.py"),
         UPLOADERFLAGS=[
             "--arancino_ip_address", '"$UPLOAD_PORT"',
             "--arancino_firmware", "$SOURCES",
