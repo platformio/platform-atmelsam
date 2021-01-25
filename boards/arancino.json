@@ -43,7 +43,7 @@
     "protocols": [
       "sam-ba",
       "arancino-ota",
-      "arancino-ota-rest",
+      "arancino-ota-no-gui",
       "blackmagic",
       "jlink",
       "atmel-ice"
