@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from copy import deepcopy
 from platform import system
 
 from platformio.managers.platform import PlatformBase
@@ -40,7 +41,7 @@ class AtmelsamPlatform(PlatformBase):
 
         if upload_tool:
             for name, opts in self.packages.items():
-                if "type" not in opts or opts['type'] != "uploader":
+                if "type" not in opts or opts["type"] != "uploader":
                     continue
                 if name != upload_tool:
                     disabled_pkgs.append(name)
@@ -75,22 +76,22 @@ class AtmelsamPlatform(PlatformBase):
 
         if "mbed" in variables.get("pioframework", []):
             self.packages["toolchain-gccarmnoneeabi"][
-                'version'] = ">=1.60301.0,<1.80000.0"
+                "version"] = ">=1.60301.0,<1.80000.0"
         if "simba" in variables.get("pioframework", []):
             self.packages["toolchain-gccarmnoneeabi"][
-                'version'] = ">=1.40803.0,<1.40805.0"
+                "version"] = ">=1.40803.0,<1.40805.0"
         if (board.get("build.core", "") in ("adafruit", "seeed")
                 and "tool-bossac" in self.packages
                 and board.get("build.mcu", "").startswith("samd51")):
-            self.packages["tool-bossac"]['version'] = "~1.10900.0"
+            self.packages["tool-bossac"]["version"] = "~1.10900.0"
         if "zephyr" in variables.get("pioframework", []):
             for p in self.packages:
                 if p.startswith("framework-zephyr-") or p in (
                     "tool-cmake", "tool-dtc", "tool-ninja"):
                     self.packages[p]["optional"] = False
-            self.packages['toolchain-gccarmnoneeabi']['version'] = "~1.80201.0"
+            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.80201.0"
             if "windows" not in get_systype():
-                self.packages['tool-gperf']['optional'] = False
+                self.packages["tool-gperf"]["optional"] = False
 
         for name in disabled_pkgs:
             del self.packages[name]
@@ -113,15 +114,15 @@ class AtmelsamPlatform(PlatformBase):
         upload_protocols = board.manifest.get("upload", {}).get(
             "protocols", [])
         if "tools" not in debug:
-            debug['tools'] = {}
+            debug["tools"] = {}
 
         # Atmel Ice / J-Link / BlackMagic Probe
         tools = ("blackmagic", "jlink", "atmel-ice", "cmsis-dap", "stlink")
         for link in tools:
-            if link not in upload_protocols or link in debug['tools']:
+            if link not in upload_protocols or link in debug["tools"]:
                 continue
             if link == "blackmagic":
-                debug['tools']['blackmagic'] = {
+                debug["tools"]["blackmagic"] = {
                     "hwids": [["0x1d50", "0x6018"]],
                     "require_debug_port": True
                 }
@@ -129,7 +130,7 @@ class AtmelsamPlatform(PlatformBase):
             elif link == "jlink":
                 assert debug.get("jlink_device"), (
                     "Missed J-Link Device ID for %s" % board.id)
-                debug['tools'][link] = {
+                debug["tools"][link] = {
                     "server": {
                         "package": "tool-jlink",
                         "arguments": [
@@ -159,7 +160,7 @@ class AtmelsamPlatform(PlatformBase):
                     "-c", "; ".join(openocd_cmds),
                     "-f", "target/%s.cfg" % debug.get("openocd_target")
                 ]
-                debug['tools'][link] = {
+                debug["tools"][link] = {
                     "server": {
                         "package": "tool-openocd",
                         "executable": "bin/openocd",
@@ -168,7 +169,23 @@ class AtmelsamPlatform(PlatformBase):
                     "onboard": link in debug.get("onboard_tools", [])
                 }
                 if link == "stlink":
-                    debug['tools'][link]['load_cmd'] = "preload"
+                    debug["tools"][link]["load_cmd"] = "preload"
 
-        board.manifest['debug'] = debug
+        board.manifest["debug"] = debug
         return board
+
+    def configure_debug_options(self, initial_debug_options, ide_data):
+        debug_options = deepcopy(initial_debug_options)
+        server_executable = debug_options["server"]["executable"].lower()
+        adapter_speed = initial_debug_options.get("speed")
+        if adapter_speed:
+            if "openocd" in server_executable:
+                debug_options["server"]["arguments"].extend(
+                    ["-c", "adapter speed %s" % adapter_speed]
+                )
+            elif "jlink" in server_executable:
+                debug_options["server"]["arguments"].extend(
+                    ["-speed", adapter_speed]
+                )
+
+        return debug_options
