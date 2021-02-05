@@ -43,7 +43,13 @@
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
       "owner": "platformio",
-      "version": "~1.70201.0"
+      "version": "~1.70201.0",
+      "optionalVersions": [
+        ">=1.40803.0,<1.40805.0",
+        ">=1.60301.0,<1.80000.0",
+        "~1.80201.0",
+        "~1.90301.0"
+      ]
     },
     "framework-arduino-sam": {
       "type": "framework",
@@ -103,13 +109,15 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.40500.0"
+      "version": "~1.40500.0",
+      "optionalVersions": ["~2.50400.0"]
     },
     "framework-cmsis-atmel": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.2.0"
+      "version": "~1.2.0",
+      "optionalVersions": ["~1.1.0"]
     },
     "framework-arduino-mbcwb": {
       "type": "framework",
@@ -245,7 +253,8 @@
       "type": "uploader",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.10700.0"
+      "version": "~1.10700.0",
+      "optionalVersions": ["~1.10900.0"]
     },
     "tool-mbctool": {
       "optional": true,
