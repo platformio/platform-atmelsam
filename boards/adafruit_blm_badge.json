@@ -5,7 +5,14 @@
     },
     "core": "adafruit",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_BLM_BADGE_M0 -DCRYSTALLESS -DADAFRUIT_BLM_BADGE -D__SAMD21E18A__ -DARM_MATH_CM0PLUS",
+    "extra_flags": [
+      "-DARDUINO_BLM_BADGE_M0",
+      "-DCRYSTALLESS",
+      "-DADAFRUIT_BLM_BADGE",
+      "-DARDUINO_SAMD_ZERO",
+      "-D__SAMD21E18A__",
+      "-DARM_MATH_CM0PLUS"
+    ],
     "f_cpu": "48000000L",
     "hwids": [
       [
