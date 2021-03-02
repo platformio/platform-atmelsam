@@ -127,7 +127,7 @@ elif VENDOR_CORE == "seeed":
     env.Append(
         LINKFLAGS=[
             "-Wl,--wrap,_write",
-            "-u __wrap__write"
+            "-u", "__wrap__write"
         ]
     )
 elif VENDOR_CORE == "arduino":
