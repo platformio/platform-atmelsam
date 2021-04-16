@@ -69,6 +69,12 @@
       "owner": "platformio",
       "version": "~1.6.5"
     },
+    "framework-arduino-samd-industruino": {
+      "type": "framework",
+      "optional": true,
+      "owner": "industruino",
+      "version": "https://github.com/kumajaya/IndustruinoSAMx"
+    },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,

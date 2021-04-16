@@ -85,6 +85,9 @@ class AtmelsamPlatform(PlatformBase):
                 and "tool-bossac" in self.packages
                 and board.get("build.mcu", "").startswith("samd51")):
             self.packages["tool-bossac"]["version"] = "~1.10900.0"
+        if (board.get("build.core", "") == "industruino"
+                and "tool-bossac" in self.packages):
+            self.packages["tool-bossac"]["version"] = "~1.10900.0"
         if "zephyr" in variables.get("pioframework", []):
             for p in self.packages:
                 if p.startswith("framework-zephyr-") or p in (
