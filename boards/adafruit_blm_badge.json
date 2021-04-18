@@ -5,33 +5,40 @@
     },
     "core": "adafruit",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-DARDUINO_SAMD_ZERO -DADAFRUIT_METRO_M0_EXPRESS -DARM_MATH_CM0PLUS -D__SAMD21G18A__",
+    "extra_flags": [
+      "-DARDUINO_BLM_BADGE_M0",
+      "-DCRYSTALLESS",
+      "-DADAFRUIT_BLM_BADGE",
+      "-DARDUINO_SAMD_ZERO",
+      "-D__SAMD21E18A__",
+      "-DARM_MATH_CM0PLUS"
+    ],
     "f_cpu": "48000000L",
     "hwids": [
       [
         "0x239A",
-        "0x8013"
+        "0x80BF"
       ],
       [
         "0x239A",
-        "0x0013"
+        "0x00BF"
       ]
     ],
-    "mcu": "samd21g18a",
+    "mcu": "samd21e18a",
     "system": "samd",
-    "usb_product": "Metro M0 Expres",
-    "variant": "metro_m0"
+    "usb_product": "BLM Badge",
+    "variant": "blm_badge"
   },
   "debug": {
-    "jlink_device": "ATSAMD21G18",
-    "openocd_chipname": "at91samd21g18",
+    "jlink_device": "ATSAMD21E18",
+    "openocd_chipname": "at91samd21e18",
     "openocd_target": "at91samdXX",
-    "svd_path": "ATSAMD21G18A.svd"
+    "svd_path": "ATSAMD21E18A.svd"
   },
   "frameworks": [
     "arduino"
   ],
-  "name": "Adafruit Metro M0 Expresss",
+  "name": "Adafruit BLM Badge",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -49,6 +56,6 @@
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.adafruit.com/product/3505",
+  "url": "https://www.adafruit.com/blacklivesmatter",
   "vendor": "Adafruit"
 }
