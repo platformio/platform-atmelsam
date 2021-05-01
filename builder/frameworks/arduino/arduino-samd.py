@@ -62,6 +62,7 @@ env.Append(
             os.path.join("Core", "Include") if VENDOR_CORE in ("adafruit", "seeed") else "Include",
         ),  # Adafruit and Seeed cores use CMSIS v5.4 with different folder structure
         os.path.join(CMSIS_ATMEL_DIR, "CMSIS", "Device", "ATMEL"),
+        os.path.join(CMSIS_ATMEL_DIR, "CMSIS-Atmel", "CMSIS", "Device", "ATMEL"),
         os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE)
     ],
 

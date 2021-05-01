@@ -126,7 +126,8 @@
       "owner": "platformio",
       "version": "~1.2.0",
       "optionalVersions": [
-        "~1.1.0"
+        "~1.1.0",
+        "https://github.com/kumajaya/ArduinoModule-CMSIS-Atmel"
       ]
     },
     "framework-arduino-mbcwb": {
