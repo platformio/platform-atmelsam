@@ -91,6 +91,9 @@ else:
         LIBS=["arm_cortexM0l_math"]
     )
 
+
+# USB-specific flags
+
 if VENDOR_CORE in ("seeed", "adafruit", "moteino"):
     env.Append(
         CPPDEFINES=[
@@ -99,23 +102,50 @@ if VENDOR_CORE in ("seeed", "adafruit", "moteino"):
 
         CCFLAGS=[
             "-Wno-expansion-to-defined"
-        ],
-
-        CPPPATH=[
-            os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "TinyUSB"),
-            os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "TinyUSB",
-                "Adafruit_TinyUSB_ArduinoCore"),
-            os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "TinyUSB",
-                "Adafruit_TinyUSB_ArduinoCore", "tinyusb", "src")
         ]
     )
 
-    if VENDOR_CORE in ("adafruit", "seeed"):
-        env.Append(CPPPATH=[os.path.join(CMSIS_DIR, "CMSIS", "DSP", "Include")])
+    if VENDOR_CORE == "adafruit":
+        env.Append(
+            CPPPATH=[
+                os.path.join(
+                    FRAMEWORK_DIR,
+                    "libraries",
+                    "Adafruit_TinyUSB_Arduino",
+                    "src",
+                    "arduino",
+                )
+            ]
+        )
+    else:
+        env.Append(
+            CPPPATH=[
+                os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "TinyUSB"),
+                os.path.join(
+                    FRAMEWORK_DIR,
+                    "cores",
+                    BUILD_CORE,
+                    "TinyUSB",
+                    "Adafruit_TinyUSB_ArduinoCore",
+                ),
+                os.path.join(
+                    FRAMEWORK_DIR,
+                    "cores",
+                    BUILD_CORE,
+                    "TinyUSB",
+                    "Adafruit_TinyUSB_ArduinoCore",
+                    "tinyusb",
+                    "src",
+                ),
+            ]
+        )
 
 #
 # Vendor-specific configurations
 #
+
+if VENDOR_CORE in ("adafruit", "seeed"):
+    env.Append(CPPPATH=[os.path.join(CMSIS_DIR, "CMSIS", "DSP", "Include")])
 
 if VENDOR_CORE == "moteino":
     env.Append(
