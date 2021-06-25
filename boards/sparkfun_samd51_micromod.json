@@ -1,0 +1,59 @@
+{
+  "build": {
+    "arduino": {
+        "ldscript": "flash_with_bootloader.ld"
+    },
+    "core": "sparkfun",
+    "cpu": "cortex-m4",
+    "extra_flags": [
+      "-DARDUINO_SAMD51_MICROMOD",
+      "-D__SAMD51J20A__",
+      "-D__SAMD51__",
+      "-D__FPU_PRESENT",
+      "-DARM_MATH_CM4"
+    ],
+    "f_cpu": "120000000L",
+    "hwids": [
+      [
+        "0x1B4F",
+        "0x0020"
+      ],
+      [
+        "0x1B4F",
+        "0xF020"
+      ]
+    ],
+    "mcu": "samd51j20a",
+    "system": "samd",
+    "usb_product": "SparkFun SAMD51 MicroMod",
+    "variant": "SparkFun_SAMD51_MicroMod"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD51J20",
+    "openocd_chipname": "at91samd51j20",
+    "openocd_target": "atsame5x",
+    "svd_path": "ATSAMD51J20A.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "SparkFun SAMD51 MicroMod",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 196608,
+    "maximum_size": 507904,
+    "native_usb": true,
+    "offset_address": "0x4000",
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "jlink",
+      "atmel-ice"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://www.sparkfun.com/products/16791",
+  "vendor": "SparkFun"
+}
