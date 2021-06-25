@@ -79,7 +79,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.5.0"
+      "version": "~1.6.3"
     },
     "framework-arduino-samd-reprap": {
       "type": "framework",
