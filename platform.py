@@ -68,7 +68,7 @@ class AtmelsamPlatform(PlatformBase):
                 self.packages[framework_package]["optional"] = False
             self.packages["framework-cmsis"]["optional"] = False
             self.packages["framework-cmsis-atmel"]["optional"] = False
-            if build_core in ("sodaq", "tuino0", "reprap"):
+            if build_core in ("tuino0", "reprap"):
                 self.packages["framework-cmsis-atmel"]["version"] = "~1.1.0"
             if build_core == "adafruit":
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90301.0"
