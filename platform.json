@@ -145,7 +145,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~2.20600.0"
+      "version": "~2.20700.0"
     },
     "tool-avrdude": {
       "type": "uploader",
@@ -182,7 +182,7 @@
     "tool-cmake": {
       "optional": true,
       "owner": "platformio",
-      "version": "~3.16.0"
+      "version": "~3.21.0"
     },
     "tool-dtc": {
       "optional": true,
