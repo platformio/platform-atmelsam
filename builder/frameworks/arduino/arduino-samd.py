@@ -107,6 +107,9 @@ if VENDOR_CORE in ("seeed", "adafruit", "moteino"):
 
     if VENDOR_CORE == "adafruit":
         env.Append(
+            CPPDEFINES=[
+                "ARDUINO_SAMD_ADAFRUIT"
+            ],
             CPPPATH=[
                 os.path.join(
                     FRAMEWORK_DIR,
