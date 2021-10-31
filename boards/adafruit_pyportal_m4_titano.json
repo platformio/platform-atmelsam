@@ -7,6 +7,7 @@
     "cpu": "cortex-m4",
     "extra_flags": [
       "-DARDUINO_PYPORTAL_M4_TITANO",
+      "-DADAFRUIT_PYPORTAL_M4_TITANO",
       "-DADAFRUIT_PYPORTAL",
       "-D__SAMD51J20A__",
       "-D__SAMD51__",
