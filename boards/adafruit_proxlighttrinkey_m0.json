@@ -6,28 +6,27 @@
     "core": "adafruit",
     "cpu": "cortex-m0plus",
     "extra_flags": [
-      "-DARDUINO_BLM_BADGE_M0",
-      "-DCRYSTALLESS",
-      "-DADAFRUIT_BLM_BADGE",
-      "-DARDUINO_SAMD_ZERO",
+      "-DARDUINO_SAMD_PROXLIGHTTRINKEY_M0",
+      "-DADAFRUIT_PROXLIGHTTRINKEY_M0",
+      "-DARM_MATH_CM0PLUS",
       "-D__SAMD21E18A__",
-      "-DARM_MATH_CM0PLUS"
+      "-DCRYSTALLESS"
     ],
     "f_cpu": "48000000L",
     "hwids": [
       [
         "0x239A",
-        "0x80BF"
+        "0x8103"
       ],
       [
         "0x239A",
-        "0x00BF"
+        "0x0103"
       ]
     ],
     "mcu": "samd21e18a",
     "system": "samd",
-    "usb_product": "BLM Badge",
-    "variant": "blm_badge"
+    "usb_product": "ProxLight Trinkey M0",
+    "variant": "proxlighttrinkey_m0"
   },
   "debug": {
     "jlink_device": "ATSAMD21E18",
@@ -38,7 +37,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Adafruit BLM Badge",
+  "name": "Adafruit ProxLight Trinkey",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -47,15 +46,15 @@
     "offset_address": "0x2000",
     "protocol": "sam-ba",
     "protocols": [
-      "sam-ba",
+      "atmel-ice",
       "blackmagic",
       "jlink",
-      "atmel-ice"
+      "sam-ba"
     ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
     "wait_for_upload_port": true
   },
-  "url": "https://www.adafruit.com/blacklivesmatter",
+  "url": "https://www.adafruit.com/product/4964",
   "vendor": "Adafruit"
 }
