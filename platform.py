@@ -76,9 +76,9 @@ class AtmelsamPlatform(PlatformBase):
                 self.packages["framework-cmsis"]["version"] = "~2.50400.0"
             if build_core in ("5gnbiot"):
                 self.packages["toolchain-gccarmnoneeabi"][
-                    "version"] = "^1.40803.0"
+                    "version"] = ">=1.40803.0,<1.40805.0"
                 self.packages["tool-bossac"]["version"] = "~1.10700.0"
-                self.packages["framework-cmsis"]["version"] = "~2.50400.0"
+                self.packages["framework-cmsis"]["version"] = "~1.40500.0"
                 self.packages["framework-cmsis-atmel"]["version"] = "~1.1.0"
 
         if "mbed" in variables.get("pioframework", []):
