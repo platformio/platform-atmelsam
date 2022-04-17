@@ -55,13 +55,13 @@ upload_protocol = env.subst("$UPLOAD_PROTOCOL")
 build_mcu = env.get("BOARD_MCU", board.get("build.mcu", ""))
 
 env.Replace(
-    AR="arm-none-eabi-ar",
+    AR="arm-none-eabi-gcc-ar",
     AS="arm-none-eabi-as",
     CC="arm-none-eabi-gcc",
     CXX="arm-none-eabi-g++",
     GDB="arm-none-eabi-gdb",
     OBJCOPY="arm-none-eabi-objcopy",
-    RANLIB="arm-none-eabi-ranlib",
+    RANLIB="arm-none-eabi-gcc-ranlib",
     SIZETOOL="arm-none-eabi-size",
 
     ARFLAGS=["rc"],
@@ -132,6 +132,7 @@ else:
     else:
         target_firm = env.ElfToBin(
             join("$BUILD_DIR", "${PROGNAME}"), target_elf)
+        env.Depends(target_firm, "checkprogsize")
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
@@ -196,7 +197,7 @@ elif upload_protocol.startswith("jlink"):
         UPLOADER="JLink.exe" if system() == "Windows" else "JLinkExe",
         UPLOADERFLAGS=[
             "-device", env.BoardConfig().get("debug", {}).get("jlink_device"),
-            "-speed", "4000",
+            "-speed", env.GetProjectOption("debug_speed", "4000"),
             "-if", ("jtag" if upload_protocol == "jlink-jtag" else "swd"),
             "-autoconnect", "1",
             "-NoGui", "1"
@@ -216,8 +217,8 @@ elif upload_protocol == "sam-ba":
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCES"
     )
-    if board.get("build.core") in ("adafruit", "seeed") and board.get(
-            "build.mcu").startswith("samd51"):
+    if board.get("build.core") in ("adafruit", "seeed", "sparkfun") and board.get(
+            "build.mcu").startswith(("samd51", "same51")):
         # special flags for the latest bossac tool
         env.Append(
             UPLOADERFLAGS=[
@@ -285,6 +286,10 @@ elif upload_protocol in debug_tools:
     ]
     openocd_args.extend(
         debug_tools.get(upload_protocol).get("server").get("arguments", []))
+    if env.GetProjectOption("debug_speed"):
+        openocd_args.extend(
+            ["-c", "adapter speed %s" % env.GetProjectOption("debug_speed")]
+        )
     openocd_args.extend([
         "-c", "program {$SOURCE} %s verify reset; shutdown;" %
         board.get("upload.offset_address", "")

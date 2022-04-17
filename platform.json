@@ -20,7 +20,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "5.1.1",
+  "version": "7.1.0",
   "frameworks": {
     "arduino": {
       "package": "framework-arduino-sam",
@@ -67,19 +67,19 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.6.4"
+      "version": "~1.7.2"
     },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.7.6"
+      "version": "~1.8.1"
     },
     "framework-arduino-samd-moteino": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.5.0"
+      "version": "~1.6.3"
     },
     "framework-arduino-samd-reprap": {
       "type": "framework",
@@ -91,13 +91,13 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.6.20"
+      "version": "~1.8.6"
     },
     "framework-arduino-samd-sparkfun": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.7.5"
+      "version": "~1.8.3"
     },
     "framework-arduino-samd-tuino0": {
       "type": "framework",
@@ -110,14 +110,18 @@
       "optional": true,
       "owner": "platformio",
       "version": "~1.40500.0",
-      "optionalVersions": ["~2.50400.0"]
+      "optionalVersions": [
+        "~2.50400.0"
+      ]
     },
     "framework-cmsis-atmel": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.2.0",
-      "optionalVersions": ["~1.1.0"]
+      "version": "~1.2.2",
+      "optionalVersions": [
+        "~1.1.0"
+      ]
     },
     "framework-arduino-mbcwb": {
       "type": "framework",
@@ -141,107 +145,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~2.20400.0"
-    },
-    "framework-zephyr-cmsis": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.542b2296e6"
-    },
-    "framework-zephyr-canopennode": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.468d350028"
-    },
-    "framework-zephyr-civetweb": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.99129c5efc"
-    },
-    "framework-zephyr-fatfs": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.13697783bf"
-    },
-    "framework-zephyr-hal-atmel": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.9f0a699a2f"
-    },
-    "framework-zephyr-hal-st": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.5b3ec3e182"
-    },
-    "framework-zephyr-libmetal": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.0b23894a04"
-    },
-    "framework-zephyr-lvgl": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.928b61c7c8"
-    },
-    "framework-zephyr-mbedtls": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.aef137b1af"
-    },
-    "framework-zephyr-mcuboot": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.a5d79cf8cc"
-    },
-    "framework-zephyr-mcumgr": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.5051f9d900"
-    },
-    "framework-zephyr-open-amp": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.724f7e2a45"
-    },
-    "framework-zephyr-loramac-node": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.3f545d76a2"
-    },
-    "framework-zephyr-openthread": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.07f430dac6"
-    },
-    "framework-zephyr-segger": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.874d9e9696"
-    },
-    "framework-zephyr-tinycbor": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.40daca97b4"
-    },
-    "framework-zephyr-tinycrypt": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.3e9a49d267"
-    },
-    "framework-zephyr-littlefs": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.9e4498d1c7"
-    },
-    "framework-zephyr-mipi-sys-t": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.957d46bc3c"
-    },
-    "framework-zephyr-trusted-firmware-m": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.143df67555"
+      "version": "~2.20701.0"
     },
     "tool-avrdude": {
       "type": "uploader",
@@ -254,7 +158,9 @@
       "optional": true,
       "owner": "platformio",
       "version": "~1.10700.0",
-      "optionalVersions": ["~1.10900.0"]
+      "optionalVersions": [
+        "~1.10900.0"
+      ]
     },
     "tool-mbctool": {
       "optional": true,
@@ -265,7 +171,7 @@
       "type": "uploader",
       "optional": true,
       "owner": "platformio",
-      "version": "~2.1000.0"
+      "version": "~2.1100.0"
     },
     "tool-jlink": {
       "type": "uploader",
@@ -276,7 +182,7 @@
     "tool-cmake": {
       "optional": true,
       "owner": "platformio",
-      "version": "~3.16.0"
+      "version": "~3.21.0"
     },
     "tool-dtc": {
       "optional": true,
