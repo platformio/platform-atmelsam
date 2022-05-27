@@ -30,10 +30,6 @@
       "package": "framework-mbed",
       "script": "builder/frameworks/mbed/mbed.py"
     },
-    "simba": {
-      "package": "framework-simba",
-      "script": "builder/frameworks/simba.py"
-    },
     "zephyr": {
       "package": "framework-zephyr",
       "script": "builder/frameworks/zephyr.py"
@@ -134,12 +130,6 @@
       "optional": true,
       "owner": "platformio",
       "version": "~4.151.0"
-    },
-    "framework-simba": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": ">=7.0.0"
     },
     "framework-zephyr": {
       "type": "framework",

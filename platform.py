@@ -80,10 +80,6 @@ class AtmelsamPlatform(PlatformBase):
             self.packages["toolchain-gccarmnoneeabi"][
                 "version"
             ] = ">=1.60301.0,<1.80000.0"
-        if "simba" in variables.get("pioframework", []):
-            self.packages["toolchain-gccarmnoneeabi"][
-                "version"
-            ] = ">=1.40803.0,<1.40805.0"
         if (
             board.get("build.core", "") in ("adafruit", "seeed", "sparkfun")
             and "tool-bossac" in self.packages
