@@ -150,7 +150,7 @@ class AtmelsamPlatform(PlatformBase):
                         ],
                         "executable": (
                             "JLinkGDBServerCL.exe"
-                            if system() == "Windows"
+                            if IS_WINDOWS
                             else "JLinkGDBServer"
                         ),
                     },
