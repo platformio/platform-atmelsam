@@ -64,10 +64,6 @@ env.Append(
     LIBS=["sam_sam3x8e_gcc_rel", "gcc"]
 )
 
-env.Append(
-    ASFLAGS=env.get("CCFLAGS", [])[:]
-)
-
 #
 # Target: Build Core Library
 #

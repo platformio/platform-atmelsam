@@ -42,20 +42,26 @@ FRAMEWORK_DIR = platform.get_package_dir(framework_package)
 
 assert os.path.isdir(FRAMEWORK_DIR)
 
+machine_flags = [
+    "-mcpu=%s" % board.get("build.cpu"),
+    "-mthumb",
+]
+
 env.Append(
-    ASFLAGS=["-x", "assembler-with-cpp"],
+    ASFLAGS=machine_flags,
+    ASPPFLAGS=[
+        "-x", "assembler-with-cpp",
+    ],
 
     CFLAGS=[
         "-std=gnu11"
     ],
 
-    CCFLAGS=[
+    CCFLAGS=machine_flags + [
         "-Os",  # optimize for size
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
         "-Wall",
-        "-mcpu=%s" % board.get("build.cpu"),
-        "-mthumb",
         "-nostdlib",
         "--param", "max-inline-insns-single=500"
     ],
@@ -77,10 +83,8 @@ env.Append(
         os.path.join(FRAMEWORK_DIR, "libraries")
     ],
 
-    LINKFLAGS=[
+    LINKFLAGS=machine_flags + [
         "-Os",
-        "-mcpu=%s" % board.get("build.cpu"),
-        "-mthumb",
         "-Wl,--gc-sections",
         "-Wl,--check-sections",
         "-Wl,--unresolved-symbols=report-all",
