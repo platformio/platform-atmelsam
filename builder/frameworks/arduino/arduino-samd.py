@@ -171,10 +171,6 @@ elif VENDOR_CORE == "arduino":
         ]
     )
 
-env.Append(
-    ASFLAGS=env.get("CCFLAGS", [])[:],
-)
-
 #
 # Target: Build Core Library
 #

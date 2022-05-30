@@ -10,7 +10,8 @@
       "-D__SAMD21__",
       "-D__SAMD21G18A__",
       "-DARM_MATH_CM0PLUS",
-      "-DSEEED_XIAO_M0"
+      "-DSEEED_XIAO_M0",
+      "-DARDUINO_SEEED_XIAO_M0"
     ],
     "f_cpu": "48000000L",
     "hwids": [

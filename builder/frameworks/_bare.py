@@ -23,7 +23,7 @@ board = env.BoardConfig()
 build_mcu = env.get("BOARD_MCU", board.get("build.mcu", ""))
 
 env.Append(
-    ASFLAGS=["-x", "assembler-with-cpp"],
+    ASPPFLAGS=["-x", "assembler-with-cpp"],
 
     CFLAGS=[
         "-std=gnu11"
@@ -83,5 +83,3 @@ if ("samd" in build_mcu) or ("samc" in build_mcu):
         ]
     )
 
-# copy CCFLAGS to ASFLAGS (-x assembler-with-cpp mode)
-env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])

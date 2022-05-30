@@ -39,7 +39,6 @@
   },
   "frameworks": [
     "arduino",
-    "simba",
     "zephyr"
   ],
   "name": "Arduino Due (Programming Port)",
