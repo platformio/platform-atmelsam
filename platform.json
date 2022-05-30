@@ -20,15 +20,11 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "7.1.0",
+  "version": "8.0.0-beta.1",
   "frameworks": {
     "arduino": {
       "package": "framework-arduino-sam",
       "script": "builder/frameworks/arduino.py"
-    },
-    "mbed": {
-      "package": "framework-mbed",
-      "script": "builder/frameworks/mbed/mbed.py"
     },
     "zephyr": {
       "package": "framework-zephyr",
@@ -124,12 +120,6 @@
       "optional": true,
       "owner": "meteca",
       "version": ">=2.1.1"
-    },
-    "framework-mbed": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~4.151.0"
     },
     "framework-zephyr": {
       "type": "framework",
