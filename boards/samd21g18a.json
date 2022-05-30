@@ -30,8 +30,7 @@
     "svd_path": "ATSAMD21G18A.svd"
   },
   "frameworks": [
-    "arduino",
-    "mbed"
+    "arduino"
   ],
   "name": "Atmel ATSAMW25-XPRO",
   "upload": {
@@ -45,6 +44,6 @@
       "atmel-ice"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/SAMW25-XPRO/",
+  "url": "https://www.microchip.com/en-us/development-tool/atsamw25-xpro",
   "vendor": "Atmel"
 }

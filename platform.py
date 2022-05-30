@@ -76,10 +76,6 @@ class AtmelsamPlatform(PlatformBase):
             if build_core in ("adafruit", "seeed"):
                 self.packages["framework-cmsis"]["version"] = "~2.50400.0"
 
-        if "mbed" in variables.get("pioframework", []):
-            self.packages["toolchain-gccarmnoneeabi"][
-                "version"
-            ] = ">=1.60301.0,<1.80000.0"
         if (
             board.get("build.core", "") in ("adafruit", "seeed", "sparkfun")
             and "tool-bossac" in self.packages
