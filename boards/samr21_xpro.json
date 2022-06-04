@@ -17,7 +17,6 @@
     "svd_path": "ATSAMR21G18A.svd"
   },
   "frameworks": [
-    "mbed",
     "zephyr"
   ],
   "name": "Atmel ATSAMR21-XPRO",
@@ -32,6 +31,6 @@
       "atmel-ice"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/SAMR21-XPRO/",
+  "url": "https://www.microchip.com/en-us/development-tool/ATSAMR21-XPRO",
   "vendor": "Atmel"
 }

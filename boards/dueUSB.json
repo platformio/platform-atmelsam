@@ -31,8 +31,7 @@
     "svd_path": "ATSAM3X8E.svd"
   },
   "frameworks": [
-    "arduino",
-    "simba"
+    "arduino"
   ],
   "name": "Arduino Due (USB Native Port)",
   "upload": {
