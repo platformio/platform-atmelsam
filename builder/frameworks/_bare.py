@@ -23,7 +23,12 @@ board = env.BoardConfig()
 build_mcu = env.get("BOARD_MCU", board.get("build.mcu", ""))
 
 env.Append(
-    ASPPFLAGS=["-x", "assembler-with-cpp"],
+    ASFLAGS=[
+        "-mthumb",
+    ],
+    ASPPFLAGS=[
+        "-x", "assembler-with-cpp",
+    ],
 
     CFLAGS=[
         "-std=gnu11"
@@ -67,6 +72,9 @@ env.Append(
 
 if "BOARD" in env:
     env.Append(
+        ASFLAGS=[
+            "-mcpu=%s" % board.get("build.cpu")
+        ],
         CCFLAGS=[
             "-mcpu=%s" % board.get("build.cpu")
         ],
