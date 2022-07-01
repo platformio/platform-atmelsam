@@ -5,8 +5,16 @@
 
 <br>
 
-* [Home](https://registry.platformio.org/platforms/platformio/atmelsam) (home page in the PlatformIO Registry)
-* [Documentation](https://docs.platformio.org/page/platforms/atmelsam.html) (advanced usage, packages, boards, frameworks, etc.)
+<div align = center>
+
+---
+
+[![Button PIO Page]][PIO Page] 
+[![Button Documentation]][Documentation]
+
+---
+
+</div>
 
 <br>
 <br>
@@ -60,9 +68,20 @@ Offers a rich selection of peripherals and features to:
 
 <!----------------------------------------------------------------------------->
 
-[Badge Status]: https://github.com/platformio/platform-atmelsam/workflows/Examples/badge.svg
 
+[Documentation]: https://docs.platformio.org/page/platforms/atmelsam.html 'Advanced usage, packages, boards, frameworks, etc.'
 [PlatformIO]: https://platformio.org
+[PIO Page]: https://registry.platformio.org/platforms/platformio/atmelsam 'Home page in the PlatformIO Registry'
 [Status]: https://github.com/platformio/platform-atmelsam/actions
 [Config]: https://docs.platformio.org/page/projectconf.html
 
+
+<!---------------------------------[ Badges ]---------------------------------->
+
+[Badge Status]: https://github.com/platformio/platform-atmelsam/workflows/Examples/badge.svg
+
+
+<!--------------------------------[ Buttons ]---------------------------------->
+
+[Button Documentation]: https://img.shields.io/badge/Documentation-3884FF?style=for-the-badge&logoColor=white&logo=GitBook
+[Button PIO Page]: https://img.shields.io/badge/PlatformIO-ff7f00?style=for-the-badge&logoColor=white&logo=AzureArtifacts
