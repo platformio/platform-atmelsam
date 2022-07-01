@@ -9,7 +9,7 @@
 
 ---
 
-[![Button PIO Page]][PIO Page] 
+[![Button PIO Page]][PIO Page]   
 [![Button Documentation]][Documentation]
 
 ---
@@ -42,7 +42,7 @@ Offers a rich selection of peripherals and features to:
 
 1. Install **[PlatformIO]**
 
-2. Create PlatformIO project
+2. Create a new project project
 
 3. Configure a platform option in [`/platformio.ini`][Config]
 
