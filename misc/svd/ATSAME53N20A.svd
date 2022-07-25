@@ -550,19 +550,24 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <enumeratedValues>
                         <name>HYSTSelect</name>
                         <enumeratedValue>
+                           <name>HYST25</name>
+                           <description>25mV</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
                            <name>HYST50</name>
                            <description>50mV</description>
-                           <value>0</value>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>HYST75</name>
+                           <description>75mV</description>
+                           <value>2</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>HYST100</name>
                            <description>100mV</description>
-                           <value>1</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>HYST150</name>
-                           <description>150mV</description>
-                           <value>2</value>
+                           <value>3</value>
                         </enumeratedValue>
                      </enumeratedValues>
                   </field>
@@ -962,46 +967,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                            <value>0xF</value>
                         </enumeratedValue>
                         <enumeratedValue>
-                           <name>AIN16</name>
-                           <description>ADC AIN16 Pin</description>
-                           <value>0x10</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>AIN17</name>
-                           <description>ADC AIN17 Pin</description>
-                           <value>0x11</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>AIN18</name>
-                           <description>ADC AIN18 Pin</description>
-                           <value>0x12</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>AIN19</name>
-                           <description>ADC AIN19 Pin</description>
-                           <value>0x13</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>AIN20</name>
-                           <description>ADC AIN20 Pin</description>
-                           <value>0x14</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>AIN21</name>
-                           <description>ADC AIN21 Pin</description>
-                           <value>0x15</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>AIN22</name>
-                           <description>ADC AIN22 Pin</description>
-                           <value>0x16</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>AIN23</name>
-                           <description>ADC AIN23 Pin</description>
-                           <value>0x17</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
                            <name>SCALEDCOREVCC</name>
                            <description>1/4 Scaled Core Supply</description>
                            <value>0x18</value>
@@ -1023,12 +988,12 @@ Copyright (c) 2017 Microchip Technology Inc.
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>PTAT</name>
-                           <description>Temperature Sensor</description>
+                           <description>Temperature Sensor TSENSP</description>
                            <value>0x1C</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>CTAT</name>
-                           <description>Temperature Sensor</description>
+                           <description>Temperature Sensor TSENSC</description>
                            <value>0x1D</value>
                         </enumeratedValue>
                         <enumeratedValue>
@@ -1238,17 +1203,17 @@ Copyright (c) 2017 Microchip Technology Inc.
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>AREFA</name>
-                           <description>External Reference</description>
+                           <description>External Reference A</description>
                            <value>0x4</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>AREFB</name>
-                           <description>External Reference</description>
+                           <description>External Reference B</description>
                            <value>0x5</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>AREFC</name>
-                           <description>External Reference (only on ADC1)</description>
+                           <description>External Reference C (only on ADC1)</description>
                            <value>0x6</value>
                         </enumeratedValue>
                      </enumeratedValues>
@@ -2231,6 +2196,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                <size>32</size>
                <access>write-only</access>
                <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>KEYWORD</name>
+                     <description>Key Word Value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
             </register>
             <register>
                <name>INDATA</name>
@@ -2238,6 +2211,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x38</addressOffset>
                <size>32</size>
                <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>INDATA</name>
+                     <description>Data Value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
             </register>
             <register>
                <dim>4</dim>
@@ -2248,6 +2229,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                <size>32</size>
                <access>write-only</access>
                <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>INTVECTV</name>
+                     <description>Initialization Vector Value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
             </register>
             <register>
                <dim>4</dim>
@@ -2257,6 +2246,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x5C</addressOffset>
                <size>32</size>
                <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>HASHKEY</name>
+                     <description>Hash Key Value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
             </register>
             <register>
                <dim>4</dim>
@@ -2266,6 +2263,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x6C</addressOffset>
                <size>32</size>
                <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>GHASH</name>
+                     <description>Galois Hash Value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
             </register>
             <register>
                <name>CIPLEN</name>
@@ -2273,6 +2278,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x80</addressOffset>
                <size>32</size>
                <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>CIPLEN</name>
+                     <description>Cipher Length</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
             </register>
             <register>
                <name>RANDSEED</name>
@@ -2280,6 +2293,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x84</addressOffset>
                <size>32</size>
                <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RANDSEED</name>
+                     <description>Random Seed</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
             </register>
          </registers>
       </peripheral>
@@ -2308,18 +2329,57 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Software Reset</description>
                      <bitOffset>0</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>SWRSTSelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>The peripheral is not reset</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLE</name>
+                           <description>The peripheral is reset</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>ENABLE</name>
                      <description>Enable</description>
                      <bitOffset>1</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>ENABLESelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>The peripheral is disabled</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLE</name>
+                           <description>The peripheral is enabled</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>RUNSTDBY</name>
                      <description>Run in Standby</description>
                      <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>RUNSTDBYSelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>Generic clock is not required in standby sleep mode</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLE</name>
+                           <description>Generic clock is  required in standby sleep mode</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                </fields>
             </register>
@@ -2382,6 +2442,19 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>LUT Enable</description>
                      <bitOffset>1</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>ENABLESelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>LUT block is disabled</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLE</name>
+                           <description>LUT block is enabled</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>FILTSEL</name>
@@ -2412,6 +2485,19 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Edge Selection</description>
                      <bitOffset>7</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>EDGESELSelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>Edge detector is disabled</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLE</name>
+                           <description>Edge detector is enabled</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>INSEL0</name>
@@ -2482,52 +2568,52 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <enumeratedValue>
                            <name>MASK</name>
                            <description>Masked input</description>
-                           <value>0x0</value>
+                           <value>0</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>FEEDBACK</name>
                            <description>Feedback input source</description>
-                           <value>0x1</value>
+                           <value>1</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>LINK</name>
                            <description>Linked LUT input source</description>
-                           <value>0x2</value>
+                           <value>2</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>EVENT</name>
                            <description>Event input source</description>
-                           <value>0x3</value>
+                           <value>3</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>IO</name>
                            <description>I/O pin input source</description>
-                           <value>0x4</value>
+                           <value>4</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>AC</name>
                            <description>AC input source</description>
-                           <value>0x5</value>
+                           <value>5</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>TC</name>
                            <description>TC input source</description>
-                           <value>0x6</value>
+                           <value>6</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>ALTTC</name>
                            <description>Alternate TC input source</description>
-                           <value>0x7</value>
+                           <value>7</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>TCC</name>
                            <description>TCC input source</description>
-                           <value>0x8</value>
+                           <value>8</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>SERCOM</name>
                            <description>SERCOM input source</description>
-                           <value>0x9</value>
+                           <value>9</value>
                         </enumeratedValue>
                      </enumeratedValues>
                   </field>
@@ -2541,52 +2627,52 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <enumeratedValue>
                            <name>MASK</name>
                            <description>Masked input</description>
-                           <value>0x0</value>
+                           <value>0</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>FEEDBACK</name>
                            <description>Feedback input source</description>
-                           <value>0x1</value>
+                           <value>1</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>LINK</name>
                            <description>Linked LUT input source</description>
-                           <value>0x2</value>
+                           <value>2</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>EVENT</name>
                            <description>Event input source</description>
-                           <value>0x3</value>
+                           <value>3</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>IO</name>
                            <description>I/O pin input source</description>
-                           <value>0x4</value>
+                           <value>4</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>AC</name>
                            <description>AC input source</description>
-                           <value>0x5</value>
+                           <value>5</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>TC</name>
                            <description>TC input source</description>
-                           <value>0x6</value>
+                           <value>6</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>ALTTC</name>
                            <description>Alternate TC input source</description>
-                           <value>0x7</value>
+                           <value>7</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>TCC</name>
                            <description>TCC input source</description>
-                           <value>0x8</value>
+                           <value>8</value>
                         </enumeratedValue>
                         <enumeratedValue>
                            <name>SERCOM</name>
                            <description>SERCOM input source</description>
-                           <value>0x9</value>
+                           <value>9</value>
                         </enumeratedValue>
                      </enumeratedValues>
                   </field>
@@ -2595,18 +2681,57 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Inverted Event Input Enable</description>
                      <bitOffset>20</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>INVEISelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>Incoming event is not inverted</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLE</name>
+                           <description>Incoming event is inverted</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>LUTEI</name>
                      <description>LUT Event Input Enable</description>
                      <bitOffset>21</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>LUTEISelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>LUT incoming event is disabled</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLE</name>
+                           <description>LUT incoming event is enabled</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>LUTEO</name>
                      <description>LUT Event Output Enable</description>
                      <bitOffset>22</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>LUTEOSelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>LUT event output is disabled</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLE</name>
+                           <description>LUT event output is enabled</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>TRUTH</name>
@@ -2659,16 +2784,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <enumeratedValues>
                         <name>WAYNUMSelect</name>
                         <enumeratedValue>
-                           <name>DMAPPED</name>
-                           <description>Direct Mapped Cache</description>
-                           <value>0</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>ARCH2WAY</name>
-                           <description>2-WAY set associative</description>
-                           <value>1</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
                            <name>ARCH4WAY</name>
                            <description>4-WAY set associative</description>
                            <value>2</value>
@@ -2703,26 +2818,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                            <description>Cache Size is 4 KB</description>
                            <value>2</value>
                         </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CSIZE_8KB</name>
-                           <description>Cache Size is 8 KB</description>
-                           <value>3</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CSIZE_16KB</name>
-                           <description>Cache Size is 16 KB</description>
-                           <value>4</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CSIZE_32KB</name>
-                           <description>Cache Size is 32 KB</description>
-                           <value>5</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CSIZE_64KB</name>
-                           <description>Cache Size is 64 KB</description>
-                           <value>6</value>
-                        </enumeratedValue>
                      </enumeratedValues>
                   </field>
                   <field>
@@ -2733,34 +2828,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <enumeratedValues>
                         <name>CLSIZESelect</name>
                         <enumeratedValue>
-                           <name>CLSIZE_4B</name>
-                           <description>Cache Line Size is 4 bytes</description>
-                           <value>0</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CLSIZE_8B</name>
-                           <description>Cache Line Size is 8 bytes</description>
-                           <value>1</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
                            <name>CLSIZE_16B</name>
                            <description>Cache Line Size is 16 bytes</description>
                            <value>2</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CLSIZE_32B</name>
-                           <description>Cache Line Size is 32 bytes</description>
-                           <value>3</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CLSIZE_64B</name>
-                           <description>Cache Line Size is 64 bytes</description>
-                           <value>4</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CLSIZE_128B</name>
-                           <description>Cache Line Size is 128 bytes</description>
-                           <value>5</value>
                         </enumeratedValue>
                      </enumeratedValues>
                   </field>
@@ -2806,26 +2876,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                            <name>CONF_CSIZE_4KB</name>
                            <description>The Cache Size is configured to 4KB</description>
                            <value>2</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CONF_CSIZE_8KB</name>
-                           <description>The Cache Size is configured to 8KB</description>
-                           <value>3</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CONF_CSIZE_16KB</name>
-                           <description>The Cache Size is configured to 16KB</description>
-                           <value>4</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CONF_CSIZE_32KB</name>
-                           <description>The Cache Size is configured to 32KB</description>
-                           <value>5</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CONF_CSIZE_64KB</name>
-                           <description>The Cache Size is configured to 64KB</description>
-                           <value>6</value>
                         </enumeratedValue>
                      </enumeratedValues>
                   </field>
@@ -3835,6 +3885,166 @@ Copyright (c) 2017 Microchip Technology Inc.
                            <name>IO</name>
                            <description>I/O interface</description>
                            <value>0x01</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN0</name>
+                           <description>DMA Channel 0</description>
+                           <value>0x20</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN1</name>
+                           <description>DMA Channel 1</description>
+                           <value>0x21</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN2</name>
+                           <description>DMA Channel 2</description>
+                           <value>0x22</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN3</name>
+                           <description>DMA Channel 3</description>
+                           <value>0x23</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN4</name>
+                           <description>DMA Channel 4</description>
+                           <value>0x24</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN5</name>
+                           <description>DMA Channel 5</description>
+                           <value>0x25</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN6</name>
+                           <description>DMA Channel 6</description>
+                           <value>0x26</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN7</name>
+                           <description>DMA Channel 7</description>
+                           <value>0x27</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN8</name>
+                           <description>DMA Channel 8</description>
+                           <value>0x28</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN9</name>
+                           <description>DMA Channel 9</description>
+                           <value>0x29</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN10</name>
+                           <description>DMA Channel 10</description>
+                           <value>0x2A</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN11</name>
+                           <description>DMA Channel 11</description>
+                           <value>0x2B</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN12</name>
+                           <description>DMA Channel 12</description>
+                           <value>0x2C</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN13</name>
+                           <description>DMA Channel 13</description>
+                           <value>0x2D</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN14</name>
+                           <description>DMA Channel 14</description>
+                           <value>0x2E</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN15</name>
+                           <description>DMA Channel 15</description>
+                           <value>0x2F</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN16</name>
+                           <description>DMA Channel 16</description>
+                           <value>0x30</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN17</name>
+                           <description>DMA Channel 17</description>
+                           <value>0x31</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN18</name>
+                           <description>DMA Channel 18</description>
+                           <value>0x32</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN19</name>
+                           <description>DMA Channel 19</description>
+                           <value>0x33</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN20</name>
+                           <description>DMA Channel 20</description>
+                           <value>0x34</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN21</name>
+                           <description>DMA Channel 21</description>
+                           <value>0x35</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN22</name>
+                           <description>DMA Channel 22</description>
+                           <value>0x36</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN23</name>
+                           <description>DMA Channel 23</description>
+                           <value>0x37</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN24</name>
+                           <description>DMA Channel 24</description>
+                           <value>0x38</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN25</name>
+                           <description>DMA Channel 25</description>
+                           <value>0x39</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN26</name>
+                           <description>DMA Channel 26</description>
+                           <value>0x3A</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN27</name>
+                           <description>DMA Channel 27</description>
+                           <value>0x3B</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN28</name>
+                           <description>DMA Channel 28</description>
+                           <value>0x3C</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN29</name>
+                           <description>DMA Channel 29</description>
+                           <value>0x3D</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN30</name>
+                           <description>DMA Channel 30</description>
+                           <value>0x3E</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CHN31</name>
+                           <description>DMA Channel 31</description>
+                           <value>0x3F</value>
                         </enumeratedValue>
                      </enumeratedValues>
                   </field>
@@ -5566,18 +5776,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitOffset>4</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
-                  <field>
-                     <name>ARR</name>
-                     <description>Auxiliary Row Read</description>
-                     <bitOffset>6</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SMSA</name>
-                     <description>Start Memory Stream Access</description>
-                     <bitOffset>7</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
                </fields>
             </register>
             <register>
@@ -5661,18 +5859,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <name>CELCK</name>
                      <description>Chip Erase Locked</description>
                      <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TDCCD0</name>
-                     <description>Test Debug Communication Channel 0 Dirty</description>
-                     <bitOffset>6</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TDCCD1</name>
-                     <description>Test Debug Communication Channel 1 Dirty</description>
-                     <bitOffset>7</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                </fields>
@@ -8537,6 +8723,39 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>MDC CLock Division</description>
                      <bitOffset>18</bitOffset>
                      <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>CLKSelect</name>
+                        <enumeratedValue>
+                           <name>MCK8</name>
+                           <description>MCK divided by 8</description>
+                           <value>0x0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK16</name>
+                           <description>MCK divided by 16</description>
+                           <value>0x1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK32</name>
+                           <description>MCK divided by 32</description>
+                           <value>0x2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK48</name>
+                           <description>MCK divided by 48</description>
+                           <value>0x3</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK64</name>
+                           <description>MCK divided by 64</description>
+                           <value>0x4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK96</name>
+                           <description>MCK divided by 96</description>
+                           <value>0x5</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>DBW</name>
@@ -8637,6 +8856,29 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Fixed Burst Length for DMA Data Operations:</description>
                      <bitOffset>0</bitOffset>
                      <bitWidth>5</bitWidth>
+                     <enumeratedValues>
+                        <name>FBLDOSelect</name>
+                        <enumeratedValue>
+                           <name>SINGLE</name>
+                           <description>00001: Always use SINGLE AHB bursts</description>
+                           <value>0x1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>INCR4</name>
+                           <description>001xx: Attempt to use INCR4 AHB bursts (Default)</description>
+                           <value>0x4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>INCR8</name>
+                           <description>01xxx: Attempt to use INCR8 AHB bursts</description>
+                           <value>0x8</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>INCR16</name>
+                           <description>1xxxx: Attempt to use INCR16 AHB bursts</description>
+                           <value>0x16</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>ESMA</name>
@@ -8655,6 +8897,29 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Receiver Packet Buffer Memory Size Select</description>
                      <bitOffset>8</bitOffset>
                      <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>RXBMSSelect</name>
+                        <enumeratedValue>
+                           <name>EIGHTH</name>
+                           <description>RECEIVE_BUFFER_SIZE/8 Kbyte Memory Size</description>
+                           <value>0x1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>QUARTER</name>
+                           <description>RECEIVE_BUFFER_SIZE/4 Kbytes Memory Size</description>
+                           <value>0x4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>HALF</name>
+                           <description>RECEIVE_BUFFER_SIZE/2 Kbytes Memory Size</description>
+                           <value>0x8</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>FULL</name>
+                           <description>RECEIVE_BUFFER_SIZE Kbytes Memory Size</description>
+                           <value>0x16</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>TXPBMS</name>
@@ -8942,6 +9207,12 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
+                     <name>RXLPISBC</name>
+                     <description>Enable RX LPI Indication</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
                      <name>WOL</name>
                      <description>Wake On LAN</description>
                      <bitOffset>28</bitOffset>
@@ -9098,6 +9369,12 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <name>SRI</name>
                      <description>TSU Seconds Register Increment</description>
                      <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXLPISBC</name>
+                     <description>Enable RX LPI Indication</description>
+                     <bitOffset>27</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -9260,6 +9537,12 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
+                     <name>RXLPISBC</name>
+                     <description>Enable RX LPI Indication</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
                      <name>WOL</name>
                      <description>Wake On LAN</description>
                      <bitOffset>28</bitOffset>
@@ -9417,6 +9700,12 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <name>SRI</name>
                      <description>TSU Seconds Register Increment</description>
                      <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXLPISBC</name>
+                     <description>Enable RX LPI Indication</description>
+                     <bitOffset>27</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -9643,16 +9932,22 @@ Copyright (c) 2017 Microchip Technology Inc.
                <dim>4</dim>
                <dimIncrement>4</dimIncrement>
                <name>TIDM[%s]</name>
-               <description>Type ID Match Register</description>
+               <description>Type ID Match n Register</description>
                <addressOffset>0xA8</addressOffset>
                <size>32</size>
                <resetValue>0x00000000</resetValue>
                <fields>
                   <field>
                      <name>TID</name>
-                     <description>Type ID Match 1</description>
+                     <description>Type ID Match n</description>
                      <bitOffset>0</bitOffset>
                      <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>ENID</name>
+                     <description>Enable Copying of TID n Matched Frames</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
                   </field>
                </fields>
             </register>
@@ -11070,18 +11365,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                         </enumeratedValue>
                      </enumeratedValues>
                   </field>
-                  <field>
-                     <name>HAPROT</name>
-                     <description>Region Hash Area Protection</description>
-                     <bitOffset>16</bitOffset>
-                     <bitWidth>6</bitWidth>
-                  </field>
-                  <field>
-                     <name>DAPROT</name>
-                     <description>Region Descriptor Area Protection</description>
-                     <bitOffset>24</bitOffset>
-                     <bitWidth>6</bitWidth>
-                  </field>
                </fields>
             </register>
             <register>
@@ -11950,30 +12233,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                <resetValue>0x00000000</resetValue>
                <fields>
                   <field>
-                     <name>SERMODE</name>
-                     <description>Serializer Mode</description>
-                     <bitOffset>0</bitOffset>
-                     <bitWidth>2</bitWidth>
-                     <enumeratedValues>
-                        <name>SERMODESelect</name>
-                        <enumeratedValue>
-                           <name>RX</name>
-                           <description>Receive</description>
-                           <value>0x0</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>TX</name>
-                           <description>Transmit</description>
-                           <value>0x1</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>PDM2</name>
-                           <description>Receive one PDM data on each serial clock edge</description>
-                           <value>0x2</value>
-                        </enumeratedValue>
-                     </enumeratedValues>
-                  </field>
-                  <field>
                      <name>TXDEFAULT</name>
                      <description>Line Default Line when Slot Disabled</description>
                      <bitOffset>2</bitOffset>
@@ -12012,25 +12271,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <enumeratedValue>
                            <name>SAME</name>
                            <description>Last data transmitted in case of underrun</description>
-                           <value>0x1</value>
-                        </enumeratedValue>
-                     </enumeratedValues>
-                  </field>
-                  <field>
-                     <name>CLKSEL</name>
-                     <description>Clock Unit Selection</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                     <enumeratedValues>
-                        <name>CLKSELSelect</name>
-                        <enumeratedValue>
-                           <name>CLK0</name>
-                           <description>Use Clock Unit 0</description>
-                           <value>0x0</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CLK1</name>
-                           <description>Use Clock Unit 1</description>
                            <value>0x1</value>
                         </enumeratedValue>
                      </enumeratedValues>
@@ -12748,21 +12988,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>HMATRIX_</name>
-                     <description>HMATRIX AHB Clock Mask</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>NVMCTRL_</name>
                      <description>NVMCTRL AHB Clock Mask</description>
                      <bitOffset>6</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>HSRAM_</name>
-                     <description>HSRAM AHB Clock Mask</description>
-                     <bitOffset>7</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -12781,12 +13009,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <name>USB_</name>
                      <description>USB AHB Clock Mask</description>
                      <bitOffset>10</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>BKUPRAM_</name>
-                     <description>BKUPRAM AHB Clock Mask</description>
-                     <bitOffset>11</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -12985,12 +13207,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <name>PORT_</name>
                      <description>PORT APB Clock Enable</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>HMATRIX_</name>
-                     <description>HMATRIX APB Clock Enable</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -15744,12 +15960,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>CALIB</name>
-                     <description>Oscillator Calibration</description>
-                     <bitOffset>8</bitOffset>
-                     <bitWidth>6</bitWidth>
-                  </field>
-                  <field>
                      <name>WRTLOCK</name>
                      <description>Write Lock</description>
                      <bitOffset>15</bitOffset>
@@ -15962,12 +16172,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitOffset>14</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
-                  <field>
-                     <name>BKUPRAM_</name>
-                     <description>BKUPRAM</description>
-                     <bitOffset>15</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
                </fields>
             </register>
             <register>
@@ -16116,12 +16320,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <name>DMAC_</name>
                      <description>DMAC</description>
                      <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>HMATRIX_</name>
-                     <description>HMATRIX</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -16493,12 +16691,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>HMATRIX_</name>
-                     <description>HMATRIX APB Protect Enable</description>
-                     <bitOffset>6</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>EVSYS_</name>
                      <description>EVSYS APB Protect Enable</description>
                      <bitOffset>7</bitOffset>
@@ -16755,6 +16947,24 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Data size</description>
                      <bitOffset>4</bitOffset>
                      <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>DSIZESelect</name>
+                        <enumeratedValue>
+                           <name>1DATA</name>
+                           <description>1 data is read in the PCC_RHR</description>
+                           <value>0x0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>2DATA</name>
+                           <description>2 data is read in the PCC_RHR</description>
+                           <value>0x1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>4DATA</name>
+                           <description>4 data are read in the PCC_RHR (only for 8 bits data size, ISIZE = 0)</description>
+                           <value>0x2</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>SCALE</name>
@@ -16785,6 +16995,29 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Input Data Size</description>
                      <bitOffset>16</bitOffset>
                      <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>ISIZESelect</name>
+                        <enumeratedValue>
+                           <name>8BITS</name>
+                           <description>Input data bus size is 8 bits</description>
+                           <value>0x0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>10BITS</name>
+                           <description>Input data bus size is 10 bits</description>
+                           <value>0x1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>12BITS</name>
+                           <description>Input data bus size is 12 bits</description>
+                           <value>0x2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>14BITS</name>
+                           <description>Input data bus size is 14 bits</description>
+                           <value>0x3</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>CID</name>
@@ -16916,6 +17149,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Write Protection Key</description>
                      <bitOffset>8</bitOffset>
                      <bitWidth>24</bitWidth>
+                     <enumeratedValues>
+                        <name>WPKEYSelect</name>
+                        <enumeratedValue>
+                           <name>PASSWD</name>
+                           <description>Write Protection Key</description>
+                           <value>0x504343</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                </fields>
             </register>
@@ -18471,12 +18712,158 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>Peripheral Multiplexing for Even-Numbered Pin</description>
                         <bitOffset>0</bitOffset>
                         <bitWidth>4</bitWidth>
+                        <enumeratedValues>
+                           <name>PMUXESelect</name>
+                           <enumeratedValue>
+                              <name>A</name>
+                              <description>Peripheral function A selected</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>B</name>
+                              <description>Peripheral function B selected</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>C</name>
+                              <description>Peripheral function C selected</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>D</name>
+                              <description>Peripheral function D selected</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>E</name>
+                              <description>Peripheral function E selected</description>
+                              <value>0x4</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>F</name>
+                              <description>Peripheral function F selected</description>
+                              <value>0x5</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>G</name>
+                              <description>Peripheral function G selected</description>
+                              <value>0x6</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>H</name>
+                              <description>Peripheral function H selected</description>
+                              <value>0x7</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>I</name>
+                              <description>Peripheral function I selected</description>
+                              <value>0x8</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>J</name>
+                              <description>Peripheral function J selected</description>
+                              <value>0x9</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>K</name>
+                              <description>Peripheral function K selected</description>
+                              <value>0xA</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>L</name>
+                              <description>Peripheral function L selected</description>
+                              <value>0xB</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>M</name>
+                              <description>Peripheral function M selected</description>
+                              <value>0xC</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>N</name>
+                              <description>Peripheral function N selected</description>
+                              <value>0xD</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>PMUXO</name>
                         <description>Peripheral Multiplexing for Odd-Numbered Pin</description>
                         <bitOffset>4</bitOffset>
                         <bitWidth>4</bitWidth>
+                        <enumeratedValues>
+                           <name>PMUXOSelect</name>
+                           <enumeratedValue>
+                              <name>A</name>
+                              <description>Peripheral function A selected</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>B</name>
+                              <description>Peripheral function B selected</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>C</name>
+                              <description>Peripheral function C selected</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>D</name>
+                              <description>Peripheral function D selected</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>E</name>
+                              <description>Peripheral function E selected</description>
+                              <value>0x4</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>F</name>
+                              <description>Peripheral function F selected</description>
+                              <value>0x5</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>G</name>
+                              <description>Peripheral function G selected</description>
+                              <value>0x6</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>H</name>
+                              <description>Peripheral function H selected</description>
+                              <value>0x7</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>I</name>
+                              <description>Peripheral function I selected</description>
+                              <value>0x8</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>J</name>
+                              <description>Peripheral function J selected</description>
+                              <value>0x9</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>K</name>
+                              <description>Peripheral function K selected</description>
+                              <value>0xA</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>L</name>
+                              <description>Peripheral function L selected</description>
+                              <value>0xB</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>M</name>
+                              <description>Peripheral function M selected</description>
+                              <value>0xC</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>N</name>
+                              <description>Peripheral function N selected</description>
+                              <value>0xD</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                   </fields>
                </register>
@@ -18593,6 +18980,19 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Local Loopback Enable</description>
                      <bitOffset>1</bitOffset>
                      <bitWidth>1</bitWidth>
+                     <enumeratedValues>
+                        <name>LOOPENSelect</name>
+                        <enumeratedValue>
+                           <name>DISABLED</name>
+                           <description>Local Loopback is disabled</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ENABLED</name>
+                           <description>Local Loopback is enabled</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                   <field>
                      <name>WDRBT</name>
@@ -26984,16 +27384,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                            <description>512 bytes</description>
                            <value>0</value>
                         </enumeratedValue>
-                        <enumeratedValue>
-                           <name>1024</name>
-                           <description>1024 bytes</description>
-                           <value>1</value>
-                        </enumeratedValue>
-                        <enumeratedValue>
-                           <name>2048</name>
-                           <description>2048 bytes</description>
-                           <value>2</value>
-                        </enumeratedValue>
                      </enumeratedValues>
                   </field>
                   <field>
@@ -27935,7 +28325,7 @@ Copyright (c) 2017 Microchip Technology Inc.
                <dim>1</dim>
                <dimIncrement>4</dimIncrement>
                <name>ASAR[%s]</name>
-               <description>ADMA System Address n</description>
+               <description>ADMA System Address</description>
                <addressOffset>0x58</addressOffset>
                <size>32</size>
                <resetValue>0x00000000</resetValue>
@@ -28221,6 +28611,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <description>Key (0x46)</description>
                      <bitOffset>8</bitOffset>
                      <bitWidth>8</bitWidth>
+                     <enumeratedValues>
+                        <name>KEYSelect</name>
+                        <enumeratedValue>
+                           <name>KEY</name>
+                           <description>Key</description>
+                           <value>0x46</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
                   </field>
                </fields>
             </register>
@@ -28679,6 +29077,29 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>Bus State</description>
                         <bitOffset>4</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>BUSSTATESelect</name>
+                           <enumeratedValue>
+                              <name>UNKNOWN</name>
+                              <description>The Bus state is unknown to the I2C Host</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>IDLE</name>
+                              <description>The Bus state is waiting for a transaction to be initialized</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>OWNER</name>
+                              <description>The I2C Host is the current owner of the bus</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>BUSY</name>
+                              <description>Some other I2C Host owns the bus</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>LOWTOUT</name>
@@ -28738,12 +29159,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <bitOffset>2</bitOffset>
                         <bitWidth>1</bitWidth>
                      </field>
-                     <field>
-                        <name>LENGTH</name>
-                        <description>Length Synchronization Busy</description>
-                        <bitOffset>4</bitOffset>
-                        <bitWidth>1</bitWidth>
-                     </field>
                   </fields>
                </register>
                <register>
@@ -28789,14 +29204,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                   <name>DATA</name>
                   <description>I2CM Data</description>
                   <addressOffset>0x28</addressOffset>
-                  <size>8</size>
-                  <resetValue>0x00</resetValue>
+                  <size>32</size>
+                  <resetValue>0x00000000</resetValue>
                   <fields>
                      <field>
                         <name>DATA</name>
                         <description>Data Value</description>
                         <bitOffset>0</bitOffset>
-                        <bitWidth>8</bitWidth>
+                        <bitWidth>32</bitWidth>
                      </field>
                   </fields>
                </register>
@@ -28995,6 +29410,24 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>Address Mode</description>
                         <bitOffset>14</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>AMODESelect</name>
+                           <enumeratedValue>
+                              <name>MASK</name>
+                              <description>I2C Address mask </description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>2_ADDRESSES</name>
+                              <description>Two unique Addressess</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>RANGE</name>
+                              <description>Address Range</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>CMD</name>
@@ -30585,12 +31018,17 @@ Copyright (c) 2017 Microchip Technology Inc.
                            <name>TXPOSelect</name>
                            <enumeratedValue>
                               <name>PAD0</name>
-                              <description>SERCOM PAD[0] is used for data transmission</description>
+                              <description>PAD[0] = TxD; PAD[1] = XCK</description>
                               <value>0x0</value>
                            </enumeratedValue>
                            <enumeratedValue>
+                              <name>PAD2</name>
+                              <description>PAD[0] = TxD; PAD[2] = RTS; PAD[3] = CTS</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
                               <name>PAD3</name>
-                              <description>SERCOM_PAD[0] is used for data transmission</description>
+                              <description>PAD[0] = TxD; PAD[1] = XCK; PAD[2] = TE</description>
                               <value>0x3</value>
                            </enumeratedValue>
                         </enumeratedValues>
@@ -30629,6 +31067,29 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>Sample Adjustment</description>
                         <bitOffset>22</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>SAMPASelect</name>
+                           <enumeratedValue>
+                              <name>ADJ0</name>
+                              <description>16x Over-sampling = 7-8-9; 8x Over-sampling = 3-4-5</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>ADJ1</name>
+                              <description>16x Over-sampling = 9-10-11; 8x Over-sampling = 4-5-6</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>ADJ2</name>
+                              <description>16x Over-sampling = 11-12-13; 8x Over-sampling = 5-6-7</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>ADJ3</name>
+                              <description>16x Over-sampling = 13-14-15; 8x Over-sampling = 6-7-8</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>FORM</name>
@@ -30654,7 +31115,7 @@ Copyright (c) 2017 Microchip Technology Inc.
                            </enumeratedValue>
                            <enumeratedValue>
                               <name>USART_FRAME_AUTO_BAUD_NO_PARITY</name>
-                              <description>Auto-baud - break detection and auto-baud</description>
+                              <description>Auto-baud (LIN Slave) - break detection and auto-baud</description>
                               <value>0x4</value>
                            </enumeratedValue>
                            <enumeratedValue>
@@ -30842,6 +31303,24 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>LIN Command</description>
                         <bitOffset>24</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>LINCMDSelect</name>
+                           <enumeratedValue>
+                              <name>NONE</name>
+                              <description>Normal USART transmission</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>SOFTWARE_CONTROL_TRANSMIT_CMD</name>
+                              <description>Break field is transmitted when DATA is written</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>AUTO_TRANSMIT_CMD</name>
+                              <description>Break, sync and identifier are automatically transmitted when DATA is written with the identifier</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                   </fields>
                </register>
@@ -30863,12 +31342,58 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>LIN Master Break Length</description>
                         <bitOffset>8</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>BRKLENSelect</name>
+                           <enumeratedValue>
+                              <name>13_BIT</name>
+                              <description>Break field transmission is 13 bit times</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>17_BIT</name>
+                              <description>Break field transmission is 17 bit times</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>21_BIT</name>
+                              <description>Break field transmission is 21 bit times</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>26_BIT</name>
+                              <description>Break field transmission is 26 bit times</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>HDRDLY</name>
                         <description>LIN Master Header Delay</description>
                         <bitOffset>10</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>HDRDLYSelect</name>
+                           <enumeratedValue>
+                              <name>DELAY0</name>
+                              <description>Delay between break and sync transmission is 1 bit time; Delay between sync and ID transmission is 1 bit time</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>DELAY1</name>
+                              <description>Delay between break and sync transmission is 4 bit time; Delay between sync and ID transmission is 4 bit time</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>DELAY2</name>
+                              <description>Delay between break and sync transmission is 8 bit time; Delay between sync and ID transmission is 4 bit time</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>DELAY3</name>
+                              <description>Delay between break and sync transmission is 14 bit time; Delay between sync and ID transmission is 4 bit time</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>INACK</name>
@@ -31266,6 +31791,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                   <size>8</size>
                   <access>read-only</access>
                   <resetValue>0x00</resetValue>
+                  <fields>
+                     <field>
+                        <name>RXERRCNT</name>
+                        <description>Receive Error Count</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>8</bitWidth>
+                     </field>
+                  </fields>
                </register>
                <register>
                   <name>LENGTH</name>
@@ -31450,12 +31983,17 @@ Copyright (c) 2017 Microchip Technology Inc.
                            <name>TXPOSelect</name>
                            <enumeratedValue>
                               <name>PAD0</name>
-                              <description>SERCOM PAD[0] is used for data transmission</description>
+                              <description>PAD[0] = TxD; PAD[1] = XCK</description>
                               <value>0x0</value>
                            </enumeratedValue>
                            <enumeratedValue>
+                              <name>PAD2</name>
+                              <description>PAD[0] = TxD; PAD[2] = RTS; PAD[3] = CTS</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
                               <name>PAD3</name>
-                              <description>SERCOM_PAD[0] is used for data transmission</description>
+                              <description>PAD[0] = TxD; PAD[1] = XCK; PAD[2] = TE</description>
                               <value>0x3</value>
                            </enumeratedValue>
                         </enumeratedValues>
@@ -31494,6 +32032,29 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>Sample Adjustment</description>
                         <bitOffset>22</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>SAMPASelect</name>
+                           <enumeratedValue>
+                              <name>ADJ0</name>
+                              <description>16x Over-sampling = 7-8-9; 8x Over-sampling = 3-4-5</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>ADJ1</name>
+                              <description>16x Over-sampling = 9-10-11; 8x Over-sampling = 4-5-6</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>ADJ2</name>
+                              <description>16x Over-sampling = 11-12-13; 8x Over-sampling = 5-6-7</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>ADJ3</name>
+                              <description>16x Over-sampling = 13-14-15; 8x Over-sampling = 6-7-8</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>FORM</name>
@@ -31519,7 +32080,7 @@ Copyright (c) 2017 Microchip Technology Inc.
                            </enumeratedValue>
                            <enumeratedValue>
                               <name>USART_FRAME_AUTO_BAUD_NO_PARITY</name>
-                              <description>Auto-baud - break detection and auto-baud</description>
+                              <description>Auto-baud (LIN Slave) - break detection and auto-baud</description>
                               <value>0x4</value>
                            </enumeratedValue>
                            <enumeratedValue>
@@ -31707,6 +32268,24 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>LIN Command</description>
                         <bitOffset>24</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>LINCMDSelect</name>
+                           <enumeratedValue>
+                              <name>NONE</name>
+                              <description>Normal USART transmission</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>SOFTWARE_CONTROL_TRANSMIT_CMD</name>
+                              <description>Break field is transmitted when DATA is written</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>AUTO_TRANSMIT_CMD</name>
+                              <description>Break, sync and identifier are automatically transmitted when DATA is written with the identifier</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                   </fields>
                </register>
@@ -31728,12 +32307,58 @@ Copyright (c) 2017 Microchip Technology Inc.
                         <description>LIN Master Break Length</description>
                         <bitOffset>8</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>BRKLENSelect</name>
+                           <enumeratedValue>
+                              <name>13_BIT</name>
+                              <description>Break field transmission is 13 bit times</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>17_BIT</name>
+                              <description>Break field transmission is 17 bit times</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>21_BIT</name>
+                              <description>Break field transmission is 21 bit times</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>26_BIT</name>
+                              <description>Break field transmission is 26 bit times</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>HDRDLY</name>
                         <description>LIN Master Header Delay</description>
                         <bitOffset>10</bitOffset>
                         <bitWidth>2</bitWidth>
+                        <enumeratedValues>
+                           <name>HDRDLYSelect</name>
+                           <enumeratedValue>
+                              <name>DELAY0</name>
+                              <description>Delay between break and sync transmission is 1 bit time; Delay between sync and ID transmission is 1 bit time</description>
+                              <value>0x0</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>DELAY1</name>
+                              <description>Delay between break and sync transmission is 4 bit time; Delay between sync and ID transmission is 4 bit time</description>
+                              <value>0x1</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>DELAY2</name>
+                              <description>Delay between break and sync transmission is 8 bit time; Delay between sync and ID transmission is 4 bit time</description>
+                              <value>0x2</value>
+                           </enumeratedValue>
+                           <enumeratedValue>
+                              <name>DELAY3</name>
+                              <description>Delay between break and sync transmission is 14 bit time; Delay between sync and ID transmission is 4 bit time</description>
+                              <value>0x3</value>
+                           </enumeratedValue>
+                        </enumeratedValues>
                      </field>
                      <field>
                         <name>INACK</name>
@@ -32131,6 +32756,14 @@ Copyright (c) 2017 Microchip Technology Inc.
                   <size>8</size>
                   <access>read-only</access>
                   <resetValue>0x00</resetValue>
+                  <fields>
+                     <field>
+                        <name>RXERRCNT</name>
+                        <description>Receive Error Count</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>8</bitWidth>
+                     </field>
+                  </fields>
                </register>
                <register>
                   <name>LENGTH</name>
@@ -33181,11 +33814,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                               <description>Force a read synchronization of COUNT</description>
                               <value>4</value>
                            </enumeratedValue>
-                           <enumeratedValue>
-                              <name>DMAOS</name>
-                              <description>One-shot DMA trigger</description>
-                              <value>5</value>
-                           </enumeratedValue>
                         </enumeratedValues>
                      </field>
                   </fields>
@@ -33246,11 +33874,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                               <name>READSYNC</name>
                               <description>Force a read synchronization of COUNT</description>
                               <value>4</value>
-                           </enumeratedValue>
-                           <enumeratedValue>
-                              <name>DMAOS</name>
-                              <description>One-shot DMA trigger</description>
-                              <value>5</value>
                            </enumeratedValue>
                         </enumeratedValues>
                      </field>
@@ -33965,11 +34588,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                               <description>Force a read synchronization of COUNT</description>
                               <value>4</value>
                            </enumeratedValue>
-                           <enumeratedValue>
-                              <name>DMAOS</name>
-                              <description>One-shot DMA trigger</description>
-                              <value>5</value>
-                           </enumeratedValue>
                         </enumeratedValues>
                      </field>
                   </fields>
@@ -34030,11 +34648,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                               <name>READSYNC</name>
                               <description>Force a read synchronization of COUNT</description>
                               <value>4</value>
-                           </enumeratedValue>
-                           <enumeratedValue>
-                              <name>DMAOS</name>
-                              <description>One-shot DMA trigger</description>
-                              <value>5</value>
                            </enumeratedValue>
                         </enumeratedValues>
                      </field>
@@ -34719,11 +35332,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                               <description>Force a read synchronization of COUNT</description>
                               <value>4</value>
                            </enumeratedValue>
-                           <enumeratedValue>
-                              <name>DMAOS</name>
-                              <description>One-shot DMA trigger</description>
-                              <value>5</value>
-                           </enumeratedValue>
                         </enumeratedValues>
                      </field>
                   </fields>
@@ -34784,11 +35392,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                               <name>READSYNC</name>
                               <description>Force a read synchronization of COUNT</description>
                               <value>4</value>
-                           </enumeratedValue>
-                           <enumeratedValue>
-                              <name>DMAOS</name>
-                              <description>One-shot DMA trigger</description>
-                              <value>5</value>
                            </enumeratedValue>
                         </enumeratedValues>
                      </field>
@@ -40332,11 +40935,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                            <description>8192 clock cycles</description>
                            <value>0xA</value>
                         </enumeratedValue>
-                        <enumeratedValue>
-                           <name>CYC16384</name>
-                           <description>16384 clock cycles</description>
-                           <value>0xB</value>
-                        </enumeratedValue>
                      </enumeratedValues>
                   </field>
                </fields>
@@ -41731,32 +42329,15 @@ Copyright (c) 2017 Microchip Technology Inc.
          <baseAddress>0xE0000000</baseAddress>
          <addressBlock>
             <offset>0</offset>
-            <size>0xF00</size>
+            <size>0x1000</size>
             <usage>registers</usage>
          </addressBlock>
          <registers>
             <register>
                <dim>32</dim>
                <dimIncrement>4</dimIncrement>
-               <name>PORT_WORD_MODE[%s]</name>
-               <description>ITM Stimulus Port Registers</description>
-               <addressOffset>0x0</addressOffset>
-               <size>32</size>
-               <access>write-only</access>
-               <fields>
-                  <field>
-                     <name>PORT</name>
-                     <bitOffset>0</bitOffset>
-                     <bitWidth>32</bitWidth>
-                  </field>
-               </fields>
-            </register>
-            <register>
-               <dim>32</dim>
-               <dimIncrement>4</dimIncrement>
                <name>PORT_BYTE_MODE[%s]</name>
                <description>ITM Stimulus Port Registers</description>
-               <alternateRegister>PORT_WORD_MODE[%s]</alternateRegister>
                <addressOffset>0x0</addressOffset>
                <size>32</size>
                <access>write-only</access>
@@ -41773,7 +42354,7 @@ Copyright (c) 2017 Microchip Technology Inc.
                <dimIncrement>4</dimIncrement>
                <name>PORT_HWORD_MODE[%s]</name>
                <description>ITM Stimulus Port Registers</description>
-               <alternateRegister>PORT_WORD_MODE[%s]</alternateRegister>
+               <alternateRegister>PORT_BYTE_MODE[%s]</alternateRegister>
                <addressOffset>0x0</addressOffset>
                <size>32</size>
                <access>write-only</access>
@@ -41782,6 +42363,23 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <name>PORT</name>
                      <bitOffset>0</bitOffset>
                      <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <dim>32</dim>
+               <dimIncrement>4</dimIncrement>
+               <name>PORT_WORD_MODE[%s]</name>
+               <description>ITM Stimulus Port Registers</description>
+               <alternateRegister>PORT_BYTE_MODE[%s]</alternateRegister>
+               <addressOffset>0x0</addressOffset>
+               <size>32</size>
+               <access>write-only</access>
+               <fields>
+                  <field>
+                     <name>PORT</name>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
                   </field>
                </fields>
             </register>
@@ -41889,6 +42487,102 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                </fields>
+            </register>
+            <register>
+               <name>PID4</name>
+               <description>ITM Peripheral Identification Register #4</description>
+               <addressOffset>0xFD0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000004</resetValue>
+            </register>
+            <register>
+               <name>PID5</name>
+               <description>ITM Peripheral Identification Register #5</description>
+               <addressOffset>0xFD4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+            </register>
+            <register>
+               <name>PID6</name>
+               <description>ITM Peripheral Identification Register #6</description>
+               <addressOffset>0xFD8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+            </register>
+            <register>
+               <name>PID7</name>
+               <description>ITM Peripheral Identification Register #7</description>
+               <addressOffset>0xFDC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+            </register>
+            <register>
+               <name>PID0</name>
+               <description>ITM Peripheral Identification Register #0</description>
+               <addressOffset>0xFE0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000001</resetValue>
+            </register>
+            <register>
+               <name>PID1</name>
+               <description>ITM Peripheral Identification Register #1</description>
+               <addressOffset>0xFE4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x000000B0</resetValue>
+            </register>
+            <register>
+               <name>PID2</name>
+               <description>ITM Peripheral Identification Register #2</description>
+               <addressOffset>0xFE8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x0000003B</resetValue>
+            </register>
+            <register>
+               <name>PID3</name>
+               <description>ITM Peripheral Identification Register #3</description>
+               <addressOffset>0xFEC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+            </register>
+            <register>
+               <name>CID0</name>
+               <description>ITM Component  Identification Register #0</description>
+               <addressOffset>0xFF0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x0000000D</resetValue>
+            </register>
+            <register>
+               <name>CID1</name>
+               <description>ITM Component  Identification Register #1</description>
+               <addressOffset>0xFF4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x000000E0</resetValue>
+            </register>
+            <register>
+               <name>CID2</name>
+               <description>ITM Component  Identification Register #2</description>
+               <addressOffset>0xFF8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000005</resetValue>
+            </register>
+            <register>
+               <name>CID3</name>
+               <description>ITM Component  Identification Register #3</description>
+               <addressOffset>0xFFC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x000000B1</resetValue>
             </register>
          </registers>
       </peripheral>
@@ -43561,10 +44255,10 @@ Copyright (c) 2017 Microchip Technology Inc.
          </registers>
       </peripheral>
       <peripheral>
-         <name>TPI</name>
-         <description>Trace Port Interface Register</description>
-         <groupName>TPI</groupName>
-         <prependToName>TPI_</prependToName>
+         <name>TPIU</name>
+         <description>Trace Port Interface Unit</description>
+         <groupName>TPIU</groupName>
+         <prependToName>TPIU_</prependToName>
          <baseAddress>0xE0040000</baseAddress>
          <addressBlock>
             <offset>0</offset>
