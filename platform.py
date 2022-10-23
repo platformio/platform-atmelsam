@@ -151,7 +151,11 @@ class AtmelsamPlatform(PlatformBase):
 
             else:
                 openocd_chipname = debug.get("openocd_chipname")
-                assert openocd_chipname
+                
+                assert openocd_chipname, (
+                  "Missing openocd_chipname for %s" % board.id
+                )
+                
                 openocd_cmds = ["set CHIPNAME %s" % openocd_chipname]
                 if link == "stlink" and "at91sam3" in openocd_chipname:
                     openocd_cmds.append("set CPUTAPID 0x2ba01477")
