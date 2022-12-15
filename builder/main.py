@@ -181,6 +181,7 @@ elif upload_protocol.startswith("jlink"):
             makedirs(build_dir)
         script_path = join(build_dir, "upload.jlink")
         commands = [
+            "ExitOnError 1",
             "h",
             "loadbin %s, %s" % (source, env.BoardConfig().get(
                 "upload.offset_address", "0x0")),
