@@ -157,7 +157,7 @@ class AtmelsamPlatform(PlatformBase):
                     openocd_cmds.append("set CPUTAPID 0x2ba01477")
                 server_args = [
                     "-s",
-                    "$PACKAGE_DIR/scripts",
+                    "$PACKAGE_DIR/openocd/scripts",
                     "-f",
                     "interface/%s.cfg" % ("cmsis-dap" if link == "atmel-ice" else link),
                     "-c",
