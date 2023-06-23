@@ -59,13 +59,13 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.7.10"
+      "version": "~1.7.13"
     },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.8.1"
+      "version": "~1.8.4"
     },
     "framework-arduino-samd-moteino": {
       "type": "framework",
@@ -83,7 +83,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.8.6"
+      "version": "~1.8.9"
     },
     "framework-arduino-samd-sparkfun": {
       "type": "framework",
