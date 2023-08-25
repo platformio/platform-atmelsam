@@ -143,6 +143,13 @@ if VENDOR_CORE in ("seeed", "adafruit", "moteino"):
             ]
         )
 
+if VENDOR_CORE == "clearcore":
+    env.Append(
+        CPPDEFINES=[
+            ("USB_CONFIG_POWER", board.get("build.usb_power", 0))
+        ],
+    )
+
 #
 # Vendor-specific configurations
 #
@@ -168,6 +175,32 @@ elif VENDOR_CORE == "arduino":
         CPPPATH=[
             os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "api", "deprecated"),
             os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE, "api", "deprecated-avr-comp")
+        ]
+    )
+elif VENDOR_CORE == "clearcore":
+    CLEARCORE_BASE_DIR = platform.get_package_dir("framework-arduino-samd-clearcore")
+    CLEARCORE_LIB_DIR = os.path.join(CLEARCORE_BASE_DIR, "Teknic")
+
+    env.Append(
+        CPPPATH=[
+            os.path.join(CLEARCORE_BASE_DIR, "variants", "clearcore", "ThirdParty", "SAME53", "CMSIS", "Device", "Include"),
+            os.path.join(CLEARCORE_BASE_DIR, "cores", "arduino", "api"),
+            os.path.join(CLEARCORE_BASE_DIR, "cores", "arduino"),
+            os.path.join(CLEARCORE_BASE_DIR, "variants", "clearcore"),
+            os.path.join(CLEARCORE_LIB_DIR, "LwIP", "LwIP", "port", "include"),
+            os.path.join(CLEARCORE_LIB_DIR, "LwIP", "LwIP", "src", "include"),
+            os.path.join(CLEARCORE_LIB_DIR, "libClearCore", "inc")
+        ],
+
+        LIBPATH=[
+            os.path.join(CLEARCORE_LIB_DIR, "libClearCore", "Release"),
+            os.path.join(CLEARCORE_LIB_DIR, "LwIP", "Release")
+        ],
+
+        LIBS=[
+            "ClearCore",
+            "LwIP",
+            "arm_cortexM4lf_math"
         ]
     )
 
