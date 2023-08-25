@@ -76,7 +76,7 @@ class AtmelsamPlatform(PlatformBase):
             if build_core in ("adafruit", "seeed"):
                 self.packages["framework-cmsis"]["version"] = "~2.50400.0"
             if build_core == "clearcore":
-                self.packages["framework-cmsis"]["version"] = "~2.50700"
+                self.packages["framework-cmsis"]["version"] = "~1.40500.0"
 
         if (
             board.get("build.core", "") in ("adafruit", "seeed", "sparkfun")

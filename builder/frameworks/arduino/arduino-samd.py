@@ -181,9 +181,15 @@ elif VENDOR_CORE == "clearcore":
     CLEARCORE_BASE_DIR = platform.get_package_dir("framework-arduino-samd-clearcore")
     CLEARCORE_LIB_DIR = os.path.join(CLEARCORE_BASE_DIR, "Teknic")
 
-    env.Append(
+
+    env.Prepend(
         CPPPATH=[
             os.path.join(CLEARCORE_BASE_DIR, "variants", "clearcore", "ThirdParty", "SAME53", "CMSIS", "Device", "Include"),
+        ]
+    )
+
+    env.Append(
+        CPPPATH=[
             os.path.join(CLEARCORE_BASE_DIR, "cores", "arduino", "api"),
             os.path.join(CLEARCORE_BASE_DIR, "cores", "arduino"),
             os.path.join(CLEARCORE_BASE_DIR, "variants", "clearcore"),
@@ -199,8 +205,7 @@ elif VENDOR_CORE == "clearcore":
 
         LIBS=[
             "ClearCore",
-            "LwIP",
-            "arm_cortexM4lf_math"
+            "LwIP"
         ]
     )
 
