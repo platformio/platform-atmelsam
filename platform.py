@@ -99,6 +99,9 @@ class AtmelsamPlatform(PlatformBase):
                 self.packages["tool-gperf"]["optional"] = False
 
         for name in disabled_pkgs:
+            # OpenOCD should be available when debugging
+            if name == "tool-openocd" and variables.get("build_type", "") == "debug":
+                continue
             del self.packages[name]
         return super().configure_default_packages(variables, targets)
 
