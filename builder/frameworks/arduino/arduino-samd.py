@@ -188,7 +188,6 @@ elif VENDOR_CORE == "clearcore":
         CPPPATH=[
             os.path.join(FRAMEWORK_DIR, "cores", "arduino", "api"),
             os.path.join(FRAMEWORK_DIR, "cores", "arduino"),
-            os.path.join(FRAMEWORK_DIR, "variants", "clearcore"),
             os.path.join(FRAMEWORK_DIR, "Teknic", "LwIP", "LwIP", "port", "include"),
             os.path.join(FRAMEWORK_DIR, "Teknic", "LwIP", "LwIP", "src", "include"),
             os.path.join(FRAMEWORK_DIR, "Teknic", "libClearCore", "inc")
