@@ -178,29 +178,25 @@ elif VENDOR_CORE == "arduino":
         ]
     )
 elif VENDOR_CORE == "clearcore":
-    CLEARCORE_BASE_DIR = platform.get_package_dir("framework-arduino-samd-clearcore")
-    CLEARCORE_LIB_DIR = os.path.join(CLEARCORE_BASE_DIR, "Teknic")
-
-
     env.Prepend(
         CPPPATH=[
-            os.path.join(CLEARCORE_BASE_DIR, "variants", "clearcore", "ThirdParty", "SAME53", "CMSIS", "Device", "Include"),
+            os.path.join(FRAMEWORK_DIR, "variants", "clearcore", "ThirdParty", "SAME53", "CMSIS", "Device", "Include"),
         ]
     )
 
     env.Append(
         CPPPATH=[
-            os.path.join(CLEARCORE_BASE_DIR, "cores", "arduino", "api"),
-            os.path.join(CLEARCORE_BASE_DIR, "cores", "arduino"),
-            os.path.join(CLEARCORE_BASE_DIR, "variants", "clearcore"),
-            os.path.join(CLEARCORE_LIB_DIR, "LwIP", "LwIP", "port", "include"),
-            os.path.join(CLEARCORE_LIB_DIR, "LwIP", "LwIP", "src", "include"),
-            os.path.join(CLEARCORE_LIB_DIR, "libClearCore", "inc")
+            os.path.join(FRAMEWORK_DIR, "cores", "arduino", "api"),
+            os.path.join(FRAMEWORK_DIR, "cores", "arduino"),
+            os.path.join(FRAMEWORK_DIR, "variants", "clearcore"),
+            os.path.join(FRAMEWORK_DIR, "Teknic", "LwIP", "LwIP", "port", "include"),
+            os.path.join(FRAMEWORK_DIR, "Teknic", "LwIP", "LwIP", "src", "include"),
+            os.path.join(FRAMEWORK_DIR, "Teknic", "libClearCore", "inc")
         ],
 
         LIBPATH=[
-            os.path.join(CLEARCORE_LIB_DIR, "libClearCore", "Release"),
-            os.path.join(CLEARCORE_LIB_DIR, "LwIP", "Release")
+            os.path.join(FRAMEWORK_DIR, "Teknic", "libClearCore", "Release"),
+            os.path.join(FRAMEWORK_DIR, "Teknic", "LwIP", "Release")
         ],
 
         LIBS=[

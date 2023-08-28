@@ -1,13 +1,10 @@
 {
     "build": {
         "arduino": {
-            "ldscript": "flash_with_bootloader.ld",
-            "_ldscript_comment": "looks for {ldscript} in the core directory under variants/{variant}/linker_scripts/gcc/{ldscript}"
+            "ldscript": "flash_with_bootloader.ld"
         },
         "core": "clearcore",
-        "_core_comment": "looks for .platformio/packages/framework-arduino-samd-{core}",
         "cpu": "cortex-m4",
-        "_cpu_comment": "sets arm-none-eabi-g++ -mcpu target",
         "extra_flags": [
             "-D __SAME53N19A__",
             "-D __SAMD53__",
@@ -20,22 +17,16 @@
             "-D VARIANT_QSPI_BAUD_DEFAULT=50000000"
         ],
         "f_cpu": "120000000L",
-        "_f_cpu_comment": "indicates the clock frequency 120 MHz in this case. sets arm-none-eabi-g++ -DF_CPU {f_cpu}",
         "hwids": [
             [
                 "0x2890",
                 "0x0022"
             ]
         ],
-        "_hwi_comment": "matches devices with the given VID/PID shown using lsusb: Bus 003 Device 044: ID 2890:0022 Teknic, Inc ClearCore",
         "mcu": "same53n19a",
-        "_mcu_comment": "will prevent uploads if set incorrectly, not sure where it is explicitly used",
         "system": "samd",
-        "_system_comment": "looks for .platformio/platforms/atmelsam/builder/frameworks/arduino/arduino-{system}.py",
         "usb_product": "Teknic ClearCore",
-        "_usb_product_comment": "seems to have no effect",
-        "variant": "clearcore",
-        "_variant_comment": "looks for .platformio/packages/framework-arduino-samd-{core}/variants/{variant}"
+        "variant": "clearcore"
     },
     "debug": {
         "jlink_device": "ATSAME53N19A",
@@ -46,7 +37,6 @@
     "frameworks": [
         "arduino"
     ],
-    "_frameworks_comment": "declares which framework the device supports. not sure where it is explicitly used",
     "name": "ClearCore",
     "upload": {
         "disable_flushing": true,
