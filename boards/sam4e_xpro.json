@@ -1,33 +1,44 @@
 {
   "build": {
+    "arduino": {
+        "ldscript": "flash.ld"
+    },
+    "core": "adafruit",
     "cpu": "cortex-m4",
+    "extra_flags": "",
     "f_cpu": "120000000L",
-    "mcu": "sam4e16e",
-    "zephyr": {
-      "variant": "sam4e_xpro"
-    }    
+    "hwids": [
+      [
+        "0x03EB",
+        "0x6124"
+      ]
+    ],
+    "mcu": "atsam4e16e",
+    "usb_product": "Atmel SAM4",
+    "variant": "generic_sam4E"
   },
   "debug": {
     "jlink_device": "ATSAM4E16E",
-    "onboard_tools": [
-      "cmsis-dap"
-    ],
-    "openocd_chipname": "atmel_sam4e_ek",
-    "openocd_target": "atmel_sam4e_ek",
+    "openocd_chipname": "atsam4E16E",
+    "openocd_target": "at91sam4XXX",
     "svd_path": "ATSAM4E16E.svd"
-  },  
+  },
   "frameworks": [
     "zephyr"
   ],
   "name": "Atmel ATSAM4E-XPRO",
   "upload": {
-    "maximum_ram_size": 128000,
-    "maximum_size": 1024000,
+    "disable_flushing": true,
+    "maximum_ram_size": 98304,
+    "maximum_size": 524288,
+    "native_usb": true,
+    "protocol": "sam-ba",
     "protocols": [
-      "sam-ba",
-      "jlink",
-      "atmel-ice"
-    ]
+      "sam-ba"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
   },
   "url": "https://www.microchip.com/developmenttools/ProductDetails/ATSAM4E-XPRO",
   "vendor": "Microchip"
