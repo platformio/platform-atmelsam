@@ -55,6 +55,12 @@
       "owner": "platformio",
       "version": "~1.8.13"
     },
+    "framework-arduino-samd-arancino": {
+      "type": "framework",
+      "optional": true,
+      "owner": "smartmeio",
+      "version": "~1.2.1"
+    },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
       "optional": true,
@@ -146,6 +152,16 @@
       "optional": true,
       "owner": "meteca",
       "version": ">=2.0.0"
+    },
+    "tool-arancino-ota": {
+      "optional": false,
+      "owner": "smartmeio",
+      "version": "~1.0.8"
+    },
+    "tool-arancino-ota-no-gui": {
+      "optional": false,
+      "owner": "smartmeio",
+      "version": "~1.0.2"
     },
     "tool-openocd": {
       "type": "uploader",
