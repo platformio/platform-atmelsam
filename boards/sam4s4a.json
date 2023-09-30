@@ -1,0 +1,48 @@
+{
+  "build": {
+    "arduino": {
+        "ldscript": "flash.ld"
+    },
+    "core": "arduino",
+    "cpu": "cortex-m4",
+    "extra_flags": "",
+    "f_cpu": "120000000L",
+    "hwids": [
+      [
+        "0x03EB",
+        "0x6124"
+      ]
+    ],
+    "mcu": "at91sam4s4a",
+    "usb_product": "Atmel SAM4",
+    "variant": "motionbow"
+  },
+  "debug": {
+    "jlink_device": "ATSAM4S4A",
+    "openocd_chipname": "atsam4S4A",
+    "openocd_target": "at91sam4XXX",
+    "svd_path": "ATSAM4S4A.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "zephyr"
+  ],
+  "name": "Generic ATSAM4E",
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 98304,
+    "maximum_size": 524288,
+    "native_usb": true,
+    "protocol": "sam-ba",
+    "protocols": [
+      "sam-ba",
+      "jlink",
+      "blackmagic"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },
+  "url": "https://www.microchip.com/wwwproducts/en/ATsam4e8e",
+  "vendor": "Microchip"
+}

@@ -3,7 +3,7 @@
     "arduino": {
         "ldscript": "flash.ld"
     },
-    "core": "adafruit",
+    "core": "arduino",
     "cpu": "cortex-m4",
     "extra_flags": "",
     "f_cpu": "120000000L",
@@ -13,9 +13,9 @@
         "0x6124"
       ]
     ],
-    "mcu": "atsam4e8e",
+    "mcu": "at91sam4e8e",
     "usb_product": "Atmel SAM4",
-    "variant": "generic_sam4E"
+    "variant": "sam4e8e"
   },
   "debug": {
     "jlink_device": "ATSAM4E8E",
@@ -35,7 +35,9 @@
     "native_usb": true,
     "protocol": "sam-ba",
     "protocols": [
-      "sam-ba"
+      "sam-ba",
+      "jlink",
+      "blackmagic"
     ],
     "require_upload_port": true,
     "use_1200bps_touch": true,
