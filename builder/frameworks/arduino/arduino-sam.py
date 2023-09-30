@@ -40,6 +40,11 @@ SYSTEM_DIR = os.path.join(FRAMEWORK_DIR, "system")
 assert os.path.isdir(SYSTEM_DIR)
 assert os.path.isdir(FRAMEWORK_DIR)
 
+if "build.libsam" in board:
+    libsam_name = board.get("build.libsam", "")
+else: 
+    libsam_name = "sam_sam3x8e_gcc_rel"
+
 env.SConscript("arduino-common.py")
 
 env.Append(
@@ -61,7 +66,7 @@ env.Append(
         "-u", "_getpid"
     ],
 
-    LIBS=["sam_sam3x8e_gcc_rel", "gcc"]
+    LIBS=[libsam_name, "gcc"]
 )
 
 #

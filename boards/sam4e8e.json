@@ -5,7 +5,7 @@
     },
     "core": "arduino",
     "cpu": "cortex-m4",
-    "extra_flags": "",
+    "extra_flags": "-D__SAM4E8E__",
     "f_cpu": "120000000L",
     "hwids": [
       [
@@ -15,7 +15,8 @@
     ],
     "mcu": "at91sam4e8e",
     "usb_product": "Atmel SAM4",
-    "variant": "sam4e8e"
+    "variant": "sam4e8e",
+    "libsam" : "libsam_sam4e8e_gcc_rel"
   },
   "debug": {
     "jlink_device": "ATSAM4E8E",

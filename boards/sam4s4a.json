@@ -5,7 +5,7 @@
     },
     "core": "arduino",
     "cpu": "cortex-m4",
-    "extra_flags": "",
+    "extra_flags": "-D__SAM4S4A__",
     "f_cpu": "120000000L",
     "hwids": [
       [
@@ -15,7 +15,8 @@
     ],
     "mcu": "at91sam4s4a",
     "usb_product": "Atmel SAM4",
-    "variant": "motionbow"
+    "variant": "motionbow",
+    "libsam" : "libsam_sam4s4a_gcc_rel"
   },
   "debug": {
     "jlink_device": "ATSAM4S4A",
