@@ -20,6 +20,7 @@
     "upload": {
       "maximum_ram_size": 384000,
       "maximum_size": 2048000,
+      "offset_address": "0x00400000",
       "protocol": "cmsis-dap",
       "protocols": [
         "cmsis-dap",
