@@ -261,24 +261,6 @@ elif upload_protocol == "stk500v2":
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
 
-elif upload_protocol == "mbctool":
-    env.Replace(
-        UPLOADER=join(
-            platform.get_package_dir("tool-mbctool") or "", "bin", "mbctool"),
-        UPLOADERFLAGS=[
-            "--device", "samd",
-            "--speed", "1500000",
-            "--port", '"$UPLOAD_PORT"',
-            "--upload", "$SOURCES",
-        ],
-        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS'
-    )
-    upload_actions = [
-        env.VerboseAction(env.AutodetectUploadPort,
-                          "Looking for upload port..."),
-        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
-    ]
-
 elif upload_protocol in debug_tools:
     openocd_args = [
         "-d%d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1)

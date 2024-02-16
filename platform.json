@@ -115,12 +115,6 @@
         "~1.1.0"
       ]
     },
-    "framework-arduino-mbcwb": {
-      "type": "framework",
-      "optional": true,
-      "owner": "meteca",
-      "version": ">=2.1.1"
-    },
     "framework-zephyr": {
       "type": "framework",
       "optional": true,
@@ -141,11 +135,6 @@
       "optionalVersions": [
         "~1.10900.0"
       ]
-    },
-    "tool-mbctool": {
-      "optional": true,
-      "owner": "meteca",
-      "version": ">=2.0.0"
     },
     "tool-openocd": {
       "type": "uploader",
