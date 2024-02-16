@@ -10,7 +10,6 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         example:
           - "examples/arduino-blink"
-          - "examples/arduino-briki-internal-libs"
           - "examples/arduino-external-libs"
           - "examples/arduino-internal-libs"
           - "examples/arduino-web-thing-led"
