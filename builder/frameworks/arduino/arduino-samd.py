@@ -47,6 +47,9 @@ BUILD_CORE = "arduino"
 if VENDOR_CORE == "sparkfun" and board.get("build.mcu", "").startswith("samd51"):
     BUILD_CORE = "arduino51"
 
+if VENDOR_CORE == "industruino":
+    BUILD_CORE = "industruino"
+
 env.Append(
     CPPDEFINES=[
         "ARDUINO_ARCH_SAMD"
@@ -59,6 +62,7 @@ env.Append(
             os.path.join("Core", "Include") if VENDOR_CORE in ("adafruit", "seeed") else "Include",
         ),  # Adafruit and Seeed cores use CMSIS v5.4 with different folder structure
         os.path.join(CMSIS_ATMEL_DIR, "CMSIS", "Device", "ATMEL"),
+        os.path.join(CMSIS_ATMEL_DIR, "CMSIS-Atmel", "CMSIS", "Device", "ATMEL"),
         os.path.join(FRAMEWORK_DIR, "cores", BUILD_CORE)
     ],
 
