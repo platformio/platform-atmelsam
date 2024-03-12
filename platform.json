@@ -20,7 +20,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "8.1.0",
+  "version": "8.2.1",
   "frameworks": {
     "arduino": {
       "package": "framework-arduino-sam",
@@ -64,13 +64,13 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.7.10"
+      "version": "~1.7.13"
     },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.8.1"
+      "version": "~1.8.4"
     },
     "framework-arduino-samd-moteino": {
       "type": "framework",
@@ -88,7 +88,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.8.6"
+      "version": "~1.8.9"
     },
     "framework-arduino-samd-sparkfun": {
       "type": "framework",
@@ -120,12 +120,6 @@
         "~1.1.0"
       ]
     },
-    "framework-arduino-mbcwb": {
-      "type": "framework",
-      "optional": true,
-      "owner": "meteca",
-      "version": ">=2.1.1"
-    },
     "framework-zephyr": {
       "type": "framework",
       "optional": true,
@@ -147,16 +141,11 @@
         "~1.10900.0"
       ]
     },
-    "tool-mbctool": {
-      "optional": true,
-      "owner": "meteca",
-      "version": ">=2.0.0"
-    },
     "tool-openocd": {
       "type": "uploader",
       "optional": true,
       "owner": "platformio",
-      "version": "~2.1100.0"
+      "version": "~3.1200.0"
     },
     "tool-jlink": {
       "type": "uploader",
