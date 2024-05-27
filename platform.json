@@ -53,19 +53,19 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.8.13"
+      "version": "~1.8.14"
     },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.7.13"
+      "version": "~1.7.16"
     },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.8.4"
+      "version": "~1.8.5"
     },
     "framework-arduino-samd-moteino": {
       "type": "framework",
