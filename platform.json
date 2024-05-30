@@ -59,7 +59,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.7.16"
+      "version": "~1.10716.0"
     },
     "framework-arduino-samd-seeed": {
       "type": "framework",
