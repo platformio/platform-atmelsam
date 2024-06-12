@@ -1,35 +1,87 @@
-# Atmel SAM: development platform for [PlatformIO](https://platformio.org)
 
-[![Build Status](https://github.com/platformio/platform-atmelsam/workflows/Examples/badge.svg)](https://github.com/platformio/platform-atmelsam/actions)
+# Atmel SAM   [![Badge Status]][Status]
 
-Atmel | SMART offers Flash- based ARM products based on the ARM Cortex-M0+, Cortex-M3 and Cortex-M4 architectures, ranging from 8KB to 2MB of Flash including a rich peripheral and feature mix.
+*A development platform for **[PlatformIO]**.*
 
-* [Home](https://registry.platformio.org/platforms/platformio/atmelsam) (home page in the PlatformIO Registry)
-* [Documentation](https://docs.platformio.org/page/platforms/atmelsam.html) (advanced usage, packages, boards, frameworks, etc.)
+<br>
 
-# Usage
+<div align = center>
 
-1. [Install PlatformIO](https://platformio.org)
-2. Create PlatformIO project and configure a platform option in [platformio.ini](https://docs.platformio.org/page/projectconf.html) file:
+---
 
-## Stable version
+[![Button PIO Page]][PIO Page]   
+[![Button Documentation]][Documentation]
 
-```ini
-[env:stable]
-platform = atmelsam
-board = ...
-...
-```
+---
 
-## Development version
+</div>
 
-```ini
-[env:development]
-platform = https://github.com/platformio/platform-atmelsam.git
-board = ...
-...
-```
+<br>
+<br>
 
-# Configuration
+## Supported Architectures
 
-Please navigate to [documentation](https://docs.platformio.org/page/platforms/atmelsam.html).
+Offers a rich selection of peripherals and features to:
+
+- Flash based products
+
+- ARM based products
+
+    `8KB → 2MB` of flash 
+
+    - `Cortex-M0+`
+    
+    - `Cortex-M3`
+    
+    - `Cortex-M4`
+    
+<br>
+<br>
+
+## Usage
+
+1. Install **[PlatformIO]**
+
+2. Create a new project project
+
+3. Configure a platform option in [`/platformio.ini`][Config]
+
+    #### Stable
+
+    ```ini
+    [env:stable]
+    platform = atmelsam
+    board = ...
+    ...
+    ```
+
+    #### Development
+
+    ```ini
+    [env:development]
+    platform = https://github.com/platformio/platform-atmelsam.git
+    board = ...
+    ...
+    ```
+<br>
+
+
+<!----------------------------------------------------------------------------->
+
+
+[Documentation]: https://docs.platformio.org/page/platforms/atmelsam.html 'Advanced usage, packages, boards, frameworks, etc.'
+[PlatformIO]: https://platformio.org
+[PIO Page]: https://registry.platformio.org/platforms/platformio/atmelsam 'Home page in the PlatformIO Registry'
+[Status]: https://github.com/platformio/platform-atmelsam/actions
+[Config]: https://docs.platformio.org/page/projectconf.html
+
+
+<!---------------------------------[ Badges ]---------------------------------->
+
+[Badge Status]: https://github.com/platformio/platform-atmelsam/workflows/Examples/badge.svg
+
+
+<!--------------------------------[ Buttons ]---------------------------------->
+
+[Button Documentation]: https://img.shields.io/badge/Documentation-3884FF?style=for-the-badge&logoColor=white&logo=GitBook
+[Button PIO Page]: https://img.shields.io/badge/PlatformIO-ff7f00?style=for-the-badge&logoColor=white&logo=AzureArtifacts
