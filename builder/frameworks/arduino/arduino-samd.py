@@ -94,7 +94,7 @@ else:
 
 # USB-specific flags
 
-if VENDOR_CORE in ("seeed", "adafruit", "moteino"):
+if VENDOR_CORE in ("seeed", "adafruit", "moteino", "facts-engineering"):
     env.Append(
         CPPDEFINES=[
             ("USB_CONFIG_POWER", board.get("build.usb_power", 100))
@@ -147,7 +147,7 @@ if VENDOR_CORE in ("seeed", "adafruit", "moteino"):
 # Vendor-specific configurations
 #
 
-if VENDOR_CORE in ("adafruit", "seeed"):
+if VENDOR_CORE in ("adafruit", "seeed", "facts-engineering"):
     env.Append(CPPPATH=[os.path.join(CMSIS_DIR, "CMSIS", "DSP", "Include")])
 
 if VENDOR_CORE == "moteino":

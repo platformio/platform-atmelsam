@@ -61,6 +61,12 @@
       "owner": "platformio",
       "version": "~1.10716.0"
     },
+    "framework-arduino-samd-facts-engineering": {
+      "type": "framework",
+      "optional": true,
+      "owner": "facts-engineering",
+      "version": "https://github.com/facts-engineering/ArduinoCore-samd"
+    },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,
