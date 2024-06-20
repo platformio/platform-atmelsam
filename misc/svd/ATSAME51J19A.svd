@@ -21,10 +21,10 @@ Copyright (c) 2017 Microchip Technology Inc.
         xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
    <vendor>Microchip Technology</vendor>
    <vendorID>MCHP</vendorID>
-   <name>ATSAMD51P20A</name>
-   <series>SAMD51</series>
+   <name>ATSAME51J19A</name>
+   <series>SAME51</series>
    <version>0</version>
-   <description>Microchip ATSAMD51P20A Microcontroller</description>
+   <description>Microchip ATSAME51J19A Microcontroller</description>
    <cpu>
       <name>CM4</name>
       <revision>r0p1</revision>
@@ -2303,6 +2303,3866 @@ Copyright (c) 2017 Microchip Technology Inc.
                </fields>
             </register>
          </registers>
+      </peripheral>
+      <peripheral>
+         <name>CAN0</name>
+         <version>U20033.2.1</version>
+         <description>Control Area Network</description>
+         <groupName>CAN</groupName>
+         <prependToName>CAN_</prependToName>
+         <baseAddress>0x42000000</baseAddress>
+         <addressBlock>
+            <offset>0</offset>
+            <size>0xFC</size>
+            <usage>registers</usage>
+         </addressBlock>
+         <interrupt>
+            <name>CAN0</name>
+            <value>78</value>
+         </interrupt>
+         <registers>
+            <register>
+               <name>CREL</name>
+               <description>Core Release</description>
+               <addressOffset>0x0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x32100000</resetValue>
+               <fields>
+                  <field>
+                     <name>SUBSTEP</name>
+                     <description>Sub-step of Core Release</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>4</bitWidth>
+                  </field>
+                  <field>
+                     <name>STEP</name>
+                     <description>Step of Core Release</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>4</bitWidth>
+                  </field>
+                  <field>
+                     <name>REL</name>
+                     <description>Core Release</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>4</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>ENDN</name>
+               <description>Endian</description>
+               <addressOffset>0x4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x87654321</resetValue>
+               <fields>
+                  <field>
+                     <name>ETV</name>
+                     <description>Endianness Test Value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>MRCFG</name>
+               <description>Message RAM Configuration</description>
+               <addressOffset>0x8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000002</resetValue>
+               <fields>
+                  <field>
+                     <name>QOS</name>
+                     <description>Quality of Service</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>QOSSelect</name>
+                        <enumeratedValue>
+                           <name>DISABLE</name>
+                           <description>Background (no sensitive operation)</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>LOW</name>
+                           <description>Sensitive Bandwidth</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MEDIUM</name>
+                           <description>Sensitive Latency</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>HIGH</name>
+                           <description>Critical Latency</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>DBTP</name>
+               <description>Fast Bit Timing and Prescaler</description>
+               <addressOffset>0xC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000A33</resetValue>
+               <fields>
+                  <field>
+                     <name>DSJW</name>
+                     <description>Data (Re)Synchronization Jump Width</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>4</bitWidth>
+                  </field>
+                  <field>
+                     <name>DTSEG2</name>
+                     <description>Data time segment after sample point</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>4</bitWidth>
+                  </field>
+                  <field>
+                     <name>DTSEG1</name>
+                     <description>Data time segment before sample point</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+                  <field>
+                     <name>DBRP</name>
+                     <description>Data Baud Rate Prescaler</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+                  <field>
+                     <name>TDC</name>
+                     <description>Tranceiver Delay Compensation</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TEST</name>
+               <description>Test</description>
+               <addressOffset>0x10</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>LBCK</name>
+                     <description>Loop Back Mode</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TX</name>
+                     <description>Control of Transmit Pin</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>TXSelect</name>
+                        <enumeratedValue>
+                           <name>CORE</name>
+                           <description>TX controlled by CAN core</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>SAMPLE</name>
+                           <description>TX monitoring sample point</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DOMINANT</name>
+                           <description>Dominant (0) level at pin CAN_TX</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>RECESSIVE</name>
+                           <description>Recessive (1) level at pin CAN_TX</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>RX</name>
+                     <description>Receive Pin</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RWD</name>
+               <description>RAM Watchdog</description>
+               <addressOffset>0x14</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>WDC</name>
+                     <description>Watchdog Configuration</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+                  <field>
+                     <name>WDV</name>
+                     <description>Watchdog Value</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>CCCR</name>
+               <description>CC Control</description>
+               <addressOffset>0x18</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000001</resetValue>
+               <fields>
+                  <field>
+                     <name>INIT</name>
+                     <description>Initialization</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CCE</name>
+                     <description>Configuration Change Enable</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ASM</name>
+                     <description>ASM Restricted Operation Mode</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CSA</name>
+                     <description>Clock Stop Acknowledge</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CSR</name>
+                     <description>Clock Stop Request</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>MON</name>
+                     <description>Bus Monitoring Mode</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DAR</name>
+                     <description>Disable Automatic Retransmission</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEST</name>
+                     <description>Test Mode Enable</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>FDOE</name>
+                     <description>FD Operation Enable</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BRSE</name>
+                     <description>Bit Rate Switch Enable</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PXHD</name>
+                     <description>Protocol Exception Handling Disable</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EFBI</name>
+                     <description>Edge Filtering during Bus Integration</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXP</name>
+                     <description>Transmit Pause</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>NBTP</name>
+               <description>Nominal Bit Timing and Prescaler</description>
+               <addressOffset>0x1C</addressOffset>
+               <size>32</size>
+               <resetValue>0x06000A03</resetValue>
+               <fields>
+                  <field>
+                     <name>NTSEG2</name>
+                     <description>Nominal Time segment after sample point</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>NTSEG1</name>
+                     <description>Nominal Time segment before sample point</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+                  <field>
+                     <name>NBRP</name>
+                     <description>Nominal Baud Rate Prescaler</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>9</bitWidth>
+                  </field>
+                  <field>
+                     <name>NSJW</name>
+                     <description>Nominal (Re)Synchronization Jump Width</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TSCC</name>
+               <description>Timestamp Counter Configuration</description>
+               <addressOffset>0x20</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TSS</name>
+                     <description>Timestamp Select</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>TSSSelect</name>
+                        <enumeratedValue>
+                           <name>ZERO</name>
+                           <description>Timestamp counter value always 0x0000</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>INC</name>
+                           <description>Timestamp counter value incremented by TCP</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>TCP</name>
+                     <description>Timestamp Counter Prescaler</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>4</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TSCV</name>
+               <description>Timestamp Counter Value</description>
+               <addressOffset>0x24</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TSC</name>
+                     <description>Timestamp Counter</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TOCC</name>
+               <description>Timeout Counter Configuration</description>
+               <addressOffset>0x28</addressOffset>
+               <size>32</size>
+               <resetValue>0xFFFF0000</resetValue>
+               <fields>
+                  <field>
+                     <name>ETOC</name>
+                     <description>Enable Timeout Counter</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TOS</name>
+                     <description>Timeout Select</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>TOSSelect</name>
+                        <enumeratedValue>
+                           <name>CONT</name>
+                           <description>Continuout operation</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>TXEF</name>
+                           <description>Timeout controlled by TX Event FIFO</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>RXF0</name>
+                           <description>Timeout controlled by Rx FIFO 0</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>RXF1</name>
+                           <description>Timeout controlled by Rx FIFO 1</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>TOP</name>
+                     <description>Timeout Period</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TOCV</name>
+               <description>Timeout Counter Value</description>
+               <addressOffset>0x2C</addressOffset>
+               <size>32</size>
+               <resetValue>0x0000FFFF</resetValue>
+               <fields>
+                  <field>
+                     <name>TOC</name>
+                     <description>Timeout Counter</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>ECR</name>
+               <description>Error Counter</description>
+               <addressOffset>0x40</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TEC</name>
+                     <description>Transmit Error Counter</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+                  <field>
+                     <name>REC</name>
+                     <description>Receive Error Counter</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>RP</name>
+                     <description>Receive Error Passive</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CEL</name>
+                     <description>CAN Error Logging</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PSR</name>
+               <description>Protocol Status</description>
+               <addressOffset>0x44</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000707</resetValue>
+               <fields>
+                  <field>
+                     <name>LEC</name>
+                     <description>Last Error Code</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>LECSelect</name>
+                        <enumeratedValue>
+                           <name>NONE</name>
+                           <description>No Error</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>STUFF</name>
+                           <description>Stuff Error</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>FORM</name>
+                           <description>Form Error</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ACK</name>
+                           <description>Ack Error</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>BIT1</name>
+                           <description>Bit1 Error</description>
+                           <value>4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>BIT0</name>
+                           <description>Bit0 Error</description>
+                           <value>5</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CRC</name>
+                           <description>CRC Error</description>
+                           <value>6</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>NC</name>
+                           <description>No Change</description>
+                           <value>7</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>ACT</name>
+                     <description>Activity</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>ACTSelect</name>
+                        <enumeratedValue>
+                           <name>SYNC</name>
+                           <description>Node is synchronizing on CAN communication</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>IDLE</name>
+                           <description>Node is neither receiver nor transmitter</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>RX</name>
+                           <description>Node is operating as receiver</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>TX</name>
+                           <description>Node is operating as transmitter</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>EP</name>
+                     <description>Error Passive</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EW</name>
+                     <description>Warning Status</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BO</name>
+                     <description>Bus_Off Status</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DLEC</name>
+                     <description>Data Phase Last Error Code</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>DLECSelect</name>
+                        <enumeratedValue>
+                           <name>NONE</name>
+                           <description>No Error</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>STUFF</name>
+                           <description>Stuff Error</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>FORM</name>
+                           <description>Form Error</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>ACK</name>
+                           <description>Ack Error</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>BIT1</name>
+                           <description>Bit1 Error</description>
+                           <value>4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>BIT0</name>
+                           <description>Bit0 Error</description>
+                           <value>5</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>CRC</name>
+                           <description>CRC Error</description>
+                           <value>6</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>NC</name>
+                           <description>No Change</description>
+                           <value>7</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>RESI</name>
+                     <description>ESI flag of last received CAN FD Message</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RBRS</name>
+                     <description>BRS flag of last received CAN FD Message</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RFDF</name>
+                     <description>Received a CAN FD Message</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PXE</name>
+                     <description>Protocol Exception Event</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TDCV</name>
+                     <description>Transmitter Delay Compensation Value</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TDCR</name>
+               <description>Extended ID Filter Configuration</description>
+               <addressOffset>0x48</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TDCF</name>
+                     <description>Transmitter Delay Compensation Filter Length</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>TDCO</name>
+                     <description>Transmitter Delay Compensation Offset</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>IR</name>
+               <description>Interrupt</description>
+               <addressOffset>0x50</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RF0N</name>
+                     <description>Rx FIFO 0 New Message</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0W</name>
+                     <description>Rx FIFO 0 Watermark Reached</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0F</name>
+                     <description>Rx FIFO 0 Full</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0L</name>
+                     <description>Rx FIFO 0 Message Lost</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1N</name>
+                     <description>Rx FIFO 1 New Message</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1W</name>
+                     <description>Rx FIFO 1 Watermark Reached</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1F</name>
+                     <description>Rx FIFO 1 FIFO Full</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1L</name>
+                     <description>Rx FIFO 1 Message Lost</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HPM</name>
+                     <description>High Priority Message</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TC</name>
+                     <description>Timestamp Completed</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCF</name>
+                     <description>Transmission Cancellation Finished</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFE</name>
+                     <description>Tx FIFO Empty</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFN</name>
+                     <description>Tx Event FIFO New Entry</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFW</name>
+                     <description>Tx Event FIFO Watermark Reached</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFF</name>
+                     <description>Tx Event FIFO Full</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFL</name>
+                     <description>Tx Event FIFO Element Lost</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TSW</name>
+                     <description>Timestamp Wraparound</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>MRAF</name>
+                     <description>Message RAM Access Failure</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TOO</name>
+                     <description>Timeout Occurred</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRX</name>
+                     <description>Message stored to Dedicated Rx Buffer</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BEC</name>
+                     <description>Bit Error Corrected</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BEU</name>
+                     <description>Bit Error Uncorrected</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ELO</name>
+                     <description>Error Logging Overflow</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EP</name>
+                     <description>Error Passive</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EW</name>
+                     <description>Warning Status</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BO</name>
+                     <description>Bus_Off Status</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WDI</name>
+                     <description>Watchdog Interrupt</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PEA</name>
+                     <description>Protocol Error in Arbitration Phase</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PED</name>
+                     <description>Protocol Error in Data Phase</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ARA</name>
+                     <description>Access to Reserved Address</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>IE</name>
+               <description>Interrupt Enable</description>
+               <addressOffset>0x54</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RF0NE</name>
+                     <description>Rx FIFO 0 New Message Interrupt Enable</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0WE</name>
+                     <description>Rx FIFO 0 Watermark Reached Interrupt Enable</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0FE</name>
+                     <description>Rx FIFO 0 Full Interrupt Enable</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0LE</name>
+                     <description>Rx FIFO 0 Message Lost Interrupt Enable</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1NE</name>
+                     <description>Rx FIFO 1 New Message Interrupt Enable</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1WE</name>
+                     <description>Rx FIFO 1 Watermark Reached Interrupt Enable</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1FE</name>
+                     <description>Rx FIFO 1 FIFO Full Interrupt Enable</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1LE</name>
+                     <description>Rx FIFO 1 Message Lost Interrupt Enable</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HPME</name>
+                     <description>High Priority Message Interrupt Enable</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCE</name>
+                     <description>Timestamp Completed Interrupt Enable</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCFE</name>
+                     <description>Transmission Cancellation Finished Interrupt Enable</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFEE</name>
+                     <description>Tx FIFO Empty Interrupt Enable</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFNE</name>
+                     <description>Tx Event FIFO New Entry Interrupt Enable</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFWE</name>
+                     <description>Tx Event FIFO Watermark Reached Interrupt Enable</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFFE</name>
+                     <description>Tx Event FIFO Full Interrupt Enable</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFLE</name>
+                     <description>Tx Event FIFO Element Lost Interrupt Enable</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TSWE</name>
+                     <description>Timestamp Wraparound Interrupt Enable</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>MRAFE</name>
+                     <description>Message RAM Access Failure Interrupt Enable</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TOOE</name>
+                     <description>Timeout Occurred Interrupt Enable</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRXE</name>
+                     <description>Message stored to Dedicated Rx Buffer Interrupt Enable</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BECE</name>
+                     <description>Bit Error Corrected Interrupt Enable</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BEUE</name>
+                     <description>Bit Error Uncorrected Interrupt Enable</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ELOE</name>
+                     <description>Error Logging Overflow Interrupt Enable</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EPE</name>
+                     <description>Error Passive Interrupt Enable</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EWE</name>
+                     <description>Warning Status Interrupt Enable</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BOE</name>
+                     <description>Bus_Off Status Interrupt Enable</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WDIE</name>
+                     <description>Watchdog Interrupt Interrupt Enable</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PEAE</name>
+                     <description>Protocol Error in Arbitration Phase Enable</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PEDE</name>
+                     <description>Protocol Error in Data Phase Enable</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ARAE</name>
+                     <description>Access to Reserved Address Enable</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>ILS</name>
+               <description>Interrupt Line Select</description>
+               <addressOffset>0x58</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RF0NL</name>
+                     <description>Rx FIFO 0 New Message Interrupt Line</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0WL</name>
+                     <description>Rx FIFO 0 Watermark Reached Interrupt Line</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0FL</name>
+                     <description>Rx FIFO 0 Full Interrupt Line</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0LL</name>
+                     <description>Rx FIFO 0 Message Lost Interrupt Line</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1NL</name>
+                     <description>Rx FIFO 1 New Message Interrupt Line</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1WL</name>
+                     <description>Rx FIFO 1 Watermark Reached Interrupt Line</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1FL</name>
+                     <description>Rx FIFO 1 FIFO Full Interrupt Line</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1LL</name>
+                     <description>Rx FIFO 1 Message Lost Interrupt Line</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HPML</name>
+                     <description>High Priority Message Interrupt Line</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCL</name>
+                     <description>Timestamp Completed Interrupt Line</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCFL</name>
+                     <description>Transmission Cancellation Finished Interrupt Line</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFEL</name>
+                     <description>Tx FIFO Empty Interrupt Line</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFNL</name>
+                     <description>Tx Event FIFO New Entry Interrupt Line</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFWL</name>
+                     <description>Tx Event FIFO Watermark Reached Interrupt Line</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFFL</name>
+                     <description>Tx Event FIFO Full Interrupt Line</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFLL</name>
+                     <description>Tx Event FIFO Element Lost Interrupt Line</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TSWL</name>
+                     <description>Timestamp Wraparound Interrupt Line</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>MRAFL</name>
+                     <description>Message RAM Access Failure Interrupt Line</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TOOL</name>
+                     <description>Timeout Occurred Interrupt Line</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRXL</name>
+                     <description>Message stored to Dedicated Rx Buffer Interrupt Line</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BECL</name>
+                     <description>Bit Error Corrected Interrupt Line</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BEUL</name>
+                     <description>Bit Error Uncorrected Interrupt Line</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ELOL</name>
+                     <description>Error Logging Overflow Interrupt Line</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EPL</name>
+                     <description>Error Passive Interrupt Line</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EWL</name>
+                     <description>Warning Status Interrupt Line</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BOL</name>
+                     <description>Bus_Off Status Interrupt Line</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WDIL</name>
+                     <description>Watchdog Interrupt Interrupt Line</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PEAL</name>
+                     <description>Protocol Error in Arbitration Phase Line</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PEDL</name>
+                     <description>Protocol Error in Data Phase Line</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ARAL</name>
+                     <description>Access to Reserved Address Line</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>ILE</name>
+               <description>Interrupt Line Enable</description>
+               <addressOffset>0x5C</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>EINT0</name>
+                     <description>Enable Interrupt Line 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EINT1</name>
+                     <description>Enable Interrupt Line 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>GFC</name>
+               <description>Global Filter Configuration</description>
+               <addressOffset>0x80</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RRFE</name>
+                     <description>Reject Remote Frames Extended</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RRFS</name>
+                     <description>Reject Remote Frames Standard</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ANFE</name>
+                     <description>Accept Non-matching Frames Extended</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>ANFESelect</name>
+                        <enumeratedValue>
+                           <name>RXF0</name>
+                           <description>Accept in Rx FIFO 0</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>RXF1</name>
+                           <description>Accept in Rx FIFO 1</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>REJECT</name>
+                           <description>Reject</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>ANFS</name>
+                     <description>Accept Non-matching Frames Standard</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>ANFSSelect</name>
+                        <enumeratedValue>
+                           <name>RXF0</name>
+                           <description>Accept in Rx FIFO 0</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>RXF1</name>
+                           <description>Accept in Rx FIFO 1</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>REJECT</name>
+                           <description>Reject</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>SIDFC</name>
+               <description>Standard ID Filter Configuration</description>
+               <addressOffset>0x84</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>FLSSA</name>
+                     <description>Filter List Standard Start Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>LSS</name>
+                     <description>List Size Standard</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>XIDFC</name>
+               <description>Extended ID Filter Configuration</description>
+               <addressOffset>0x88</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>FLESA</name>
+                     <description>Filter List Extended Start Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>LSE</name>
+                     <description>List Size Extended</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>XIDAM</name>
+               <description>Extended ID AND Mask</description>
+               <addressOffset>0x90</addressOffset>
+               <size>32</size>
+               <resetValue>0x1FFFFFFF</resetValue>
+               <fields>
+                  <field>
+                     <name>EIDM</name>
+                     <description>Extended ID Mask</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>29</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>HPMS</name>
+               <description>High Priority Message Status</description>
+               <addressOffset>0x94</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>BIDX</name>
+                     <description>Buffer Index</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>MSI</name>
+                     <description>Message Storage Indicator</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>MSISelect</name>
+                        <enumeratedValue>
+                           <name>NONE</name>
+                           <description>No FIFO selected</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>LOST</name>
+                           <description>FIFO message lost</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>FIFO0</name>
+                           <description>Message stored in FIFO 0</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>FIFO1</name>
+                           <description>Message stored in FIFO 1</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>FIDX</name>
+                     <description>Filter Index</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>FLST</name>
+                     <description>Filter List</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>NDAT1</name>
+               <description>New Data 1</description>
+               <addressOffset>0x98</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ND0</name>
+                     <description>New Data 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND1</name>
+                     <description>New Data 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND2</name>
+                     <description>New Data 2</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND3</name>
+                     <description>New Data 3</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND4</name>
+                     <description>New Data 4</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND5</name>
+                     <description>New Data 5</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND6</name>
+                     <description>New Data 6</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND7</name>
+                     <description>New Data 7</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND8</name>
+                     <description>New Data 8</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND9</name>
+                     <description>New Data 9</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND10</name>
+                     <description>New Data 10</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND11</name>
+                     <description>New Data 11</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND12</name>
+                     <description>New Data 12</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND13</name>
+                     <description>New Data 13</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND14</name>
+                     <description>New Data 14</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND15</name>
+                     <description>New Data 15</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND16</name>
+                     <description>New Data 16</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND17</name>
+                     <description>New Data 17</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND18</name>
+                     <description>New Data 18</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND19</name>
+                     <description>New Data 19</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND20</name>
+                     <description>New Data 20</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND21</name>
+                     <description>New Data 21</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND22</name>
+                     <description>New Data 22</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND23</name>
+                     <description>New Data 23</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND24</name>
+                     <description>New Data 24</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND25</name>
+                     <description>New Data 25</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND26</name>
+                     <description>New Data 26</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND27</name>
+                     <description>New Data 27</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND28</name>
+                     <description>New Data 28</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND29</name>
+                     <description>New Data 29</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND30</name>
+                     <description>New Data 30</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND31</name>
+                     <description>New Data 31</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>NDAT2</name>
+               <description>New Data 2</description>
+               <addressOffset>0x9C</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ND32</name>
+                     <description>New Data 32</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND33</name>
+                     <description>New Data 33</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND34</name>
+                     <description>New Data 34</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND35</name>
+                     <description>New Data 35</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND36</name>
+                     <description>New Data 36</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND37</name>
+                     <description>New Data 37</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND38</name>
+                     <description>New Data 38</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND39</name>
+                     <description>New Data 39</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND40</name>
+                     <description>New Data 40</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND41</name>
+                     <description>New Data 41</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND42</name>
+                     <description>New Data 42</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND43</name>
+                     <description>New Data 43</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND44</name>
+                     <description>New Data 44</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND45</name>
+                     <description>New Data 45</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND46</name>
+                     <description>New Data 46</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND47</name>
+                     <description>New Data 47</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND48</name>
+                     <description>New Data 48</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND49</name>
+                     <description>New Data 49</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND50</name>
+                     <description>New Data 50</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND51</name>
+                     <description>New Data 51</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND52</name>
+                     <description>New Data 52</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND53</name>
+                     <description>New Data 53</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND54</name>
+                     <description>New Data 54</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND55</name>
+                     <description>New Data 55</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND56</name>
+                     <description>New Data 56</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND57</name>
+                     <description>New Data 57</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND58</name>
+                     <description>New Data 58</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND59</name>
+                     <description>New Data 59</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND60</name>
+                     <description>New Data 60</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND61</name>
+                     <description>New Data 61</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND62</name>
+                     <description>New Data 62</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ND63</name>
+                     <description>New Data 63</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RXF0C</name>
+               <description>Rx FIFO 0 Configuration</description>
+               <addressOffset>0xA0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>F0SA</name>
+                     <description>Rx FIFO 0 Start Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>F0S</name>
+                     <description>Rx FIFO 0 Size</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>F0WM</name>
+                     <description>Rx FIFO 0 Watermark</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>F0OM</name>
+                     <description>FIFO 0 Operation Mode</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RXF0S</name>
+               <description>Rx FIFO 0 Status</description>
+               <addressOffset>0xA4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>F0FL</name>
+                     <description>Rx FIFO 0 Fill Level</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>F0GI</name>
+                     <description>Rx FIFO 0 Get Index</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>F0PI</name>
+                     <description>Rx FIFO 0 Put Index</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>F0F</name>
+                     <description>Rx FIFO 0 Full</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF0L</name>
+                     <description>Rx FIFO 0 Message Lost</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RXF0A</name>
+               <description>Rx FIFO 0 Acknowledge</description>
+               <addressOffset>0xA8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>F0AI</name>
+                     <description>Rx FIFO 0 Acknowledge Index</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RXBC</name>
+               <description>Rx Buffer Configuration</description>
+               <addressOffset>0xAC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RBSA</name>
+                     <description>Rx Buffer Start Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RXF1C</name>
+               <description>Rx FIFO 1 Configuration</description>
+               <addressOffset>0xB0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>F1SA</name>
+                     <description>Rx FIFO 1 Start Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>F1S</name>
+                     <description>Rx FIFO 1 Size</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>F1WM</name>
+                     <description>Rx FIFO 1 Watermark</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>F1OM</name>
+                     <description>FIFO 1 Operation Mode</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RXF1S</name>
+               <description>Rx FIFO 1 Status</description>
+               <addressOffset>0xB4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>F1FL</name>
+                     <description>Rx FIFO 1 Fill Level</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>7</bitWidth>
+                  </field>
+                  <field>
+                     <name>F1GI</name>
+                     <description>Rx FIFO 1 Get Index</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>F1PI</name>
+                     <description>Rx FIFO 1 Put Index</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>F1F</name>
+                     <description>Rx FIFO 1 Full</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RF1L</name>
+                     <description>Rx FIFO 1 Message Lost</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DMS</name>
+                     <description>Debug Message Status</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>DMSSelect</name>
+                        <enumeratedValue>
+                           <name>IDLE</name>
+                           <description>Idle state</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DBGA</name>
+                           <description>Debug message A received</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DBGB</name>
+                           <description>Debug message A/B received</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DBGC</name>
+                           <description>Debug message A/B/C received, DMA request set</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RXF1A</name>
+               <description>Rx FIFO 1 Acknowledge</description>
+               <addressOffset>0xB8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>F1AI</name>
+                     <description>Rx FIFO 1 Acknowledge Index</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RXESC</name>
+               <description>Rx Buffer / FIFO Element Size Configuration</description>
+               <addressOffset>0xBC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>F0DS</name>
+                     <description>Rx FIFO 0 Data Field Size</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>F0DSSelect</name>
+                        <enumeratedValue>
+                           <name>DATA8</name>
+                           <description>8 byte data field</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA12</name>
+                           <description>12 byte data field</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA16</name>
+                           <description>16 byte data field</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA20</name>
+                           <description>20 byte data field</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA24</name>
+                           <description>24 byte data field</description>
+                           <value>4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA32</name>
+                           <description>32 byte data field</description>
+                           <value>5</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA48</name>
+                           <description>48 byte data field</description>
+                           <value>6</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA64</name>
+                           <description>64 byte data field</description>
+                           <value>7</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>F1DS</name>
+                     <description>Rx FIFO 1 Data Field Size</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>F1DSSelect</name>
+                        <enumeratedValue>
+                           <name>DATA8</name>
+                           <description>8 byte data field</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA12</name>
+                           <description>12 byte data field</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA16</name>
+                           <description>16 byte data field</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA20</name>
+                           <description>20 byte data field</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA24</name>
+                           <description>24 byte data field</description>
+                           <value>4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA32</name>
+                           <description>32 byte data field</description>
+                           <value>5</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA48</name>
+                           <description>48 byte data field</description>
+                           <value>6</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA64</name>
+                           <description>64 byte data field</description>
+                           <value>7</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>RBDS</name>
+                     <description>Rx Buffer Data Field Size</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>RBDSSelect</name>
+                        <enumeratedValue>
+                           <name>DATA8</name>
+                           <description>8 byte data field</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA12</name>
+                           <description>12 byte data field</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA16</name>
+                           <description>16 byte data field</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA20</name>
+                           <description>20 byte data field</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA24</name>
+                           <description>24 byte data field</description>
+                           <value>4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA32</name>
+                           <description>32 byte data field</description>
+                           <value>5</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA48</name>
+                           <description>48 byte data field</description>
+                           <value>6</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA64</name>
+                           <description>64 byte data field</description>
+                           <value>7</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXBC</name>
+               <description>Tx Buffer Configuration</description>
+               <addressOffset>0xC0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TBSA</name>
+                     <description>Tx Buffers Start Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>NDTB</name>
+                     <description>Number of Dedicated Transmit Buffers</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFQS</name>
+                     <description>Transmit FIFO/Queue Size</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFQM</name>
+                     <description>Tx FIFO/Queue Mode</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXFQS</name>
+               <description>Tx FIFO / Queue Status</description>
+               <addressOffset>0xC4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TFFL</name>
+                     <description>Tx FIFO Free Level</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFGI</name>
+                     <description>Tx FIFO Get Index</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFQPI</name>
+                     <description>Tx FIFO/Queue Put Index</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFQF</name>
+                     <description>Tx FIFO/Queue Full</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXESC</name>
+               <description>Tx Buffer Element Size Configuration</description>
+               <addressOffset>0xC8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TBDS</name>
+                     <description>Tx Buffer Data Field Size</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>TBDSSelect</name>
+                        <enumeratedValue>
+                           <name>DATA8</name>
+                           <description>8 byte data field</description>
+                           <value>0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA12</name>
+                           <description>12 byte data field</description>
+                           <value>1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA16</name>
+                           <description>16 byte data field</description>
+                           <value>2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA20</name>
+                           <description>20 byte data field</description>
+                           <value>3</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA24</name>
+                           <description>24 byte data field</description>
+                           <value>4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA32</name>
+                           <description>32 byte data field</description>
+                           <value>5</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA48</name>
+                           <description>48 byte data field</description>
+                           <value>6</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>DATA64</name>
+                           <description>64 byte data field</description>
+                           <value>7</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXBRP</name>
+               <description>Tx Buffer Request Pending</description>
+               <addressOffset>0xCC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TRP0</name>
+                     <description>Transmission Request Pending 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP1</name>
+                     <description>Transmission Request Pending 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP2</name>
+                     <description>Transmission Request Pending 2</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP3</name>
+                     <description>Transmission Request Pending 3</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP4</name>
+                     <description>Transmission Request Pending 4</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP5</name>
+                     <description>Transmission Request Pending 5</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP6</name>
+                     <description>Transmission Request Pending 6</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP7</name>
+                     <description>Transmission Request Pending 7</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP8</name>
+                     <description>Transmission Request Pending 8</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP9</name>
+                     <description>Transmission Request Pending 9</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP10</name>
+                     <description>Transmission Request Pending 10</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP11</name>
+                     <description>Transmission Request Pending 11</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP12</name>
+                     <description>Transmission Request Pending 12</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP13</name>
+                     <description>Transmission Request Pending 13</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP14</name>
+                     <description>Transmission Request Pending 14</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP15</name>
+                     <description>Transmission Request Pending 15</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP16</name>
+                     <description>Transmission Request Pending 16</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP17</name>
+                     <description>Transmission Request Pending 17</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP18</name>
+                     <description>Transmission Request Pending 18</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP19</name>
+                     <description>Transmission Request Pending 19</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP20</name>
+                     <description>Transmission Request Pending 20</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP21</name>
+                     <description>Transmission Request Pending 21</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP22</name>
+                     <description>Transmission Request Pending 22</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP23</name>
+                     <description>Transmission Request Pending 23</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP24</name>
+                     <description>Transmission Request Pending 24</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP25</name>
+                     <description>Transmission Request Pending 25</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP26</name>
+                     <description>Transmission Request Pending 26</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP27</name>
+                     <description>Transmission Request Pending 27</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP28</name>
+                     <description>Transmission Request Pending 28</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP29</name>
+                     <description>Transmission Request Pending 29</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP30</name>
+                     <description>Transmission Request Pending 30</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TRP31</name>
+                     <description>Transmission Request Pending 31</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXBAR</name>
+               <description>Tx Buffer Add Request</description>
+               <addressOffset>0xD0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>AR0</name>
+                     <description>Add Request 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR1</name>
+                     <description>Add Request 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR2</name>
+                     <description>Add Request 2</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR3</name>
+                     <description>Add Request 3</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR4</name>
+                     <description>Add Request 4</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR5</name>
+                     <description>Add Request 5</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR6</name>
+                     <description>Add Request 6</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR7</name>
+                     <description>Add Request 7</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR8</name>
+                     <description>Add Request 8</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR9</name>
+                     <description>Add Request 9</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR10</name>
+                     <description>Add Request 10</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR11</name>
+                     <description>Add Request 11</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR12</name>
+                     <description>Add Request 12</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR13</name>
+                     <description>Add Request 13</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR14</name>
+                     <description>Add Request 14</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR15</name>
+                     <description>Add Request 15</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR16</name>
+                     <description>Add Request 16</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR17</name>
+                     <description>Add Request 17</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR18</name>
+                     <description>Add Request 18</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR19</name>
+                     <description>Add Request 19</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR20</name>
+                     <description>Add Request 20</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR21</name>
+                     <description>Add Request 21</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR22</name>
+                     <description>Add Request 22</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR23</name>
+                     <description>Add Request 23</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR24</name>
+                     <description>Add Request 24</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR25</name>
+                     <description>Add Request 25</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR26</name>
+                     <description>Add Request 26</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR27</name>
+                     <description>Add Request 27</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR28</name>
+                     <description>Add Request 28</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR29</name>
+                     <description>Add Request 29</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR30</name>
+                     <description>Add Request 30</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>AR31</name>
+                     <description>Add Request 31</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXBCR</name>
+               <description>Tx Buffer Cancellation Request</description>
+               <addressOffset>0xD4</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>CR0</name>
+                     <description>Cancellation Request 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR1</name>
+                     <description>Cancellation Request 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR2</name>
+                     <description>Cancellation Request 2</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR3</name>
+                     <description>Cancellation Request 3</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR4</name>
+                     <description>Cancellation Request 4</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR5</name>
+                     <description>Cancellation Request 5</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR6</name>
+                     <description>Cancellation Request 6</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR7</name>
+                     <description>Cancellation Request 7</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR8</name>
+                     <description>Cancellation Request 8</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR9</name>
+                     <description>Cancellation Request 9</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR10</name>
+                     <description>Cancellation Request 10</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR11</name>
+                     <description>Cancellation Request 11</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR12</name>
+                     <description>Cancellation Request 12</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR13</name>
+                     <description>Cancellation Request 13</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR14</name>
+                     <description>Cancellation Request 14</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR15</name>
+                     <description>Cancellation Request 15</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR16</name>
+                     <description>Cancellation Request 16</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR17</name>
+                     <description>Cancellation Request 17</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR18</name>
+                     <description>Cancellation Request 18</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR19</name>
+                     <description>Cancellation Request 19</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR20</name>
+                     <description>Cancellation Request 20</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR21</name>
+                     <description>Cancellation Request 21</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR22</name>
+                     <description>Cancellation Request 22</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR23</name>
+                     <description>Cancellation Request 23</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR24</name>
+                     <description>Cancellation Request 24</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR25</name>
+                     <description>Cancellation Request 25</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR26</name>
+                     <description>Cancellation Request 26</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR27</name>
+                     <description>Cancellation Request 27</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR28</name>
+                     <description>Cancellation Request 28</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR29</name>
+                     <description>Cancellation Request 29</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR30</name>
+                     <description>Cancellation Request 30</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CR31</name>
+                     <description>Cancellation Request 31</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXBTO</name>
+               <description>Tx Buffer Transmission Occurred</description>
+               <addressOffset>0xD8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TO0</name>
+                     <description>Transmission Occurred 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO1</name>
+                     <description>Transmission Occurred 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO2</name>
+                     <description>Transmission Occurred 2</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO3</name>
+                     <description>Transmission Occurred 3</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO4</name>
+                     <description>Transmission Occurred 4</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO5</name>
+                     <description>Transmission Occurred 5</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO6</name>
+                     <description>Transmission Occurred 6</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO7</name>
+                     <description>Transmission Occurred 7</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO8</name>
+                     <description>Transmission Occurred 8</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO9</name>
+                     <description>Transmission Occurred 9</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO10</name>
+                     <description>Transmission Occurred 10</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO11</name>
+                     <description>Transmission Occurred 11</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO12</name>
+                     <description>Transmission Occurred 12</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO13</name>
+                     <description>Transmission Occurred 13</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO14</name>
+                     <description>Transmission Occurred 14</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO15</name>
+                     <description>Transmission Occurred 15</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO16</name>
+                     <description>Transmission Occurred 16</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO17</name>
+                     <description>Transmission Occurred 17</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO18</name>
+                     <description>Transmission Occurred 18</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO19</name>
+                     <description>Transmission Occurred 19</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO20</name>
+                     <description>Transmission Occurred 20</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO21</name>
+                     <description>Transmission Occurred 21</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO22</name>
+                     <description>Transmission Occurred 22</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO23</name>
+                     <description>Transmission Occurred 23</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO24</name>
+                     <description>Transmission Occurred 24</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO25</name>
+                     <description>Transmission Occurred 25</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO26</name>
+                     <description>Transmission Occurred 26</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO27</name>
+                     <description>Transmission Occurred 27</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO28</name>
+                     <description>Transmission Occurred 28</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO29</name>
+                     <description>Transmission Occurred 29</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO30</name>
+                     <description>Transmission Occurred 30</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TO31</name>
+                     <description>Transmission Occurred 31</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXBCF</name>
+               <description>Tx Buffer Cancellation Finished</description>
+               <addressOffset>0xDC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>CF0</name>
+                     <description>Tx Buffer Cancellation Finished 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF1</name>
+                     <description>Tx Buffer Cancellation Finished 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF2</name>
+                     <description>Tx Buffer Cancellation Finished 2</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF3</name>
+                     <description>Tx Buffer Cancellation Finished 3</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF4</name>
+                     <description>Tx Buffer Cancellation Finished 4</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF5</name>
+                     <description>Tx Buffer Cancellation Finished 5</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF6</name>
+                     <description>Tx Buffer Cancellation Finished 6</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF7</name>
+                     <description>Tx Buffer Cancellation Finished 7</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF8</name>
+                     <description>Tx Buffer Cancellation Finished 8</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF9</name>
+                     <description>Tx Buffer Cancellation Finished 9</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF10</name>
+                     <description>Tx Buffer Cancellation Finished 10</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF11</name>
+                     <description>Tx Buffer Cancellation Finished 11</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF12</name>
+                     <description>Tx Buffer Cancellation Finished 12</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF13</name>
+                     <description>Tx Buffer Cancellation Finished 13</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF14</name>
+                     <description>Tx Buffer Cancellation Finished 14</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF15</name>
+                     <description>Tx Buffer Cancellation Finished 15</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF16</name>
+                     <description>Tx Buffer Cancellation Finished 16</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF17</name>
+                     <description>Tx Buffer Cancellation Finished 17</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF18</name>
+                     <description>Tx Buffer Cancellation Finished 18</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF19</name>
+                     <description>Tx Buffer Cancellation Finished 19</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF20</name>
+                     <description>Tx Buffer Cancellation Finished 20</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF21</name>
+                     <description>Tx Buffer Cancellation Finished 21</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF22</name>
+                     <description>Tx Buffer Cancellation Finished 22</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF23</name>
+                     <description>Tx Buffer Cancellation Finished 23</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF24</name>
+                     <description>Tx Buffer Cancellation Finished 24</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF25</name>
+                     <description>Tx Buffer Cancellation Finished 25</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF26</name>
+                     <description>Tx Buffer Cancellation Finished 26</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF27</name>
+                     <description>Tx Buffer Cancellation Finished 27</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF28</name>
+                     <description>Tx Buffer Cancellation Finished 28</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF29</name>
+                     <description>Tx Buffer Cancellation Finished 29</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF30</name>
+                     <description>Tx Buffer Cancellation Finished 30</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CF31</name>
+                     <description>Tx Buffer Cancellation Finished 31</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXBTIE</name>
+               <description>Tx Buffer Transmission Interrupt Enable</description>
+               <addressOffset>0xE0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TIE0</name>
+                     <description>Transmission Interrupt Enable 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE1</name>
+                     <description>Transmission Interrupt Enable 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE2</name>
+                     <description>Transmission Interrupt Enable 2</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE3</name>
+                     <description>Transmission Interrupt Enable 3</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE4</name>
+                     <description>Transmission Interrupt Enable 4</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE5</name>
+                     <description>Transmission Interrupt Enable 5</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE6</name>
+                     <description>Transmission Interrupt Enable 6</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE7</name>
+                     <description>Transmission Interrupt Enable 7</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE8</name>
+                     <description>Transmission Interrupt Enable 8</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE9</name>
+                     <description>Transmission Interrupt Enable 9</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE10</name>
+                     <description>Transmission Interrupt Enable 10</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE11</name>
+                     <description>Transmission Interrupt Enable 11</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE12</name>
+                     <description>Transmission Interrupt Enable 12</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE13</name>
+                     <description>Transmission Interrupt Enable 13</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE14</name>
+                     <description>Transmission Interrupt Enable 14</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE15</name>
+                     <description>Transmission Interrupt Enable 15</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE16</name>
+                     <description>Transmission Interrupt Enable 16</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE17</name>
+                     <description>Transmission Interrupt Enable 17</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE18</name>
+                     <description>Transmission Interrupt Enable 18</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE19</name>
+                     <description>Transmission Interrupt Enable 19</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE20</name>
+                     <description>Transmission Interrupt Enable 20</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE21</name>
+                     <description>Transmission Interrupt Enable 21</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE22</name>
+                     <description>Transmission Interrupt Enable 22</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE23</name>
+                     <description>Transmission Interrupt Enable 23</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE24</name>
+                     <description>Transmission Interrupt Enable 24</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE25</name>
+                     <description>Transmission Interrupt Enable 25</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE26</name>
+                     <description>Transmission Interrupt Enable 26</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE27</name>
+                     <description>Transmission Interrupt Enable 27</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE28</name>
+                     <description>Transmission Interrupt Enable 28</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE29</name>
+                     <description>Transmission Interrupt Enable 29</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE30</name>
+                     <description>Transmission Interrupt Enable 30</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TIE31</name>
+                     <description>Transmission Interrupt Enable 31</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXBCIE</name>
+               <description>Tx Buffer Cancellation Finished Interrupt Enable</description>
+               <addressOffset>0xE4</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>CFIE0</name>
+                     <description>Cancellation Finished Interrupt Enable 0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE1</name>
+                     <description>Cancellation Finished Interrupt Enable 1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE2</name>
+                     <description>Cancellation Finished Interrupt Enable 2</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE3</name>
+                     <description>Cancellation Finished Interrupt Enable 3</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE4</name>
+                     <description>Cancellation Finished Interrupt Enable 4</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE5</name>
+                     <description>Cancellation Finished Interrupt Enable 5</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE6</name>
+                     <description>Cancellation Finished Interrupt Enable 6</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE7</name>
+                     <description>Cancellation Finished Interrupt Enable 7</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE8</name>
+                     <description>Cancellation Finished Interrupt Enable 8</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE9</name>
+                     <description>Cancellation Finished Interrupt Enable 9</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE10</name>
+                     <description>Cancellation Finished Interrupt Enable 10</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE11</name>
+                     <description>Cancellation Finished Interrupt Enable 11</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE12</name>
+                     <description>Cancellation Finished Interrupt Enable 12</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE13</name>
+                     <description>Cancellation Finished Interrupt Enable 13</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE14</name>
+                     <description>Cancellation Finished Interrupt Enable 14</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE15</name>
+                     <description>Cancellation Finished Interrupt Enable 15</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE16</name>
+                     <description>Cancellation Finished Interrupt Enable 16</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE17</name>
+                     <description>Cancellation Finished Interrupt Enable 17</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE18</name>
+                     <description>Cancellation Finished Interrupt Enable 18</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE19</name>
+                     <description>Cancellation Finished Interrupt Enable 19</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE20</name>
+                     <description>Cancellation Finished Interrupt Enable 20</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE21</name>
+                     <description>Cancellation Finished Interrupt Enable 21</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE22</name>
+                     <description>Cancellation Finished Interrupt Enable 22</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE23</name>
+                     <description>Cancellation Finished Interrupt Enable 23</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE24</name>
+                     <description>Cancellation Finished Interrupt Enable 24</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE25</name>
+                     <description>Cancellation Finished Interrupt Enable 25</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE26</name>
+                     <description>Cancellation Finished Interrupt Enable 26</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE27</name>
+                     <description>Cancellation Finished Interrupt Enable 27</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE28</name>
+                     <description>Cancellation Finished Interrupt Enable 28</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE29</name>
+                     <description>Cancellation Finished Interrupt Enable 29</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE30</name>
+                     <description>Cancellation Finished Interrupt Enable 30</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CFIE31</name>
+                     <description>Cancellation Finished Interrupt Enable 31</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXEFC</name>
+               <description>Tx Event FIFO Configuration</description>
+               <addressOffset>0xF0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>EFSA</name>
+                     <description>Event FIFO Start Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>EFS</name>
+                     <description>Event FIFO Size</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>EFWM</name>
+                     <description>Event FIFO Watermark</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXEFS</name>
+               <description>Tx Event FIFO Status</description>
+               <addressOffset>0xF4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>EFFL</name>
+                     <description>Event FIFO Fill Level</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>6</bitWidth>
+                  </field>
+                  <field>
+                     <name>EFGI</name>
+                     <description>Event FIFO Get Index</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+                  <field>
+                     <name>EFPI</name>
+                     <description>Event FIFO Put Index</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+                  <field>
+                     <name>EFF</name>
+                     <description>Event FIFO Full</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TEFL</name>
+                     <description>Tx Event FIFO Element Lost</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TXEFA</name>
+               <description>Tx Event FIFO Acknowledge</description>
+               <addressOffset>0xF8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>EFAI</name>
+                     <description>Event FIFO Acknowledge Index</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+               </fields>
+            </register>
+         </registers>
+      </peripheral>
+      <peripheral derivedFrom="CAN0">
+         <name>CAN1</name>
+         <baseAddress>0x42000400</baseAddress>
+         <interrupt>
+            <name>CAN1</name>
+            <value>79</value>
+         </interrupt>
       </peripheral>
       <peripheral>
          <name>CCL</name>
@@ -5937,7 +9797,7 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x18</addressOffset>
                <size>32</size>
                <access>read-only</access>
-               <resetValue>0x60060200</resetValue>
+               <resetValue>0x61810302</resetValue>
                <fields>
                   <field>
                      <name>DEVSEL</name>
@@ -10290,9 +14150,15 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SDHC1_</name>
-                     <description>SDHC1 AHB Clock Mask</description>
-                     <bitOffset>16</bitOffset>
+                     <name>CAN0_</name>
+                     <description>CAN0 AHB Clock Mask</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CAN1_</name>
+                     <description>CAN1 AHB Clock Mask</description>
+                     <bitOffset>18</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -10608,33 +14474,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6 APB Clock Enable</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7 APB Clock Enable</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4 APB Clock Enable</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6 APB Clock Enable</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7 APB Clock Enable</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -13409,12 +17251,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SDHC1_</name>
-                     <description>SDHC1</description>
-                     <bitOffset>13</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>QSPI_</name>
                      <description>QSPI</description>
                      <bitOffset>14</bitOffset>
@@ -13628,6 +17464,18 @@ Copyright (c) 2017 Microchip Technology Inc.
                <resetValue>0x00000000</resetValue>
                <fields>
                   <field>
+                     <name>CAN0_</name>
+                     <description>CAN0</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CAN1_</name>
+                     <description>CAN1</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
                      <name>TCC2_</name>
                      <description>TCC2</description>
                      <bitOffset>3</bitOffset>
@@ -13721,33 +17569,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -13991,6 +17815,18 @@ Copyright (c) 2017 Microchip Technology Inc.
                <resetValue>0x00000000</resetValue>
                <fields>
                   <field>
+                     <name>CAN0_</name>
+                     <description>CAN0 APB Protect Enable</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CAN1_</name>
+                     <description>CAN1 APB Protect Enable</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
                      <name>TCC2_</name>
                      <description>TCC2 APB Protect Enable</description>
                      <bitOffset>3</bitOffset>
@@ -14085,33 +17921,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6 APB Protect Enable</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7 APB Protect Enable</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4 APB Protect Enable</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6 APB Protect Enable</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7 APB Protect Enable</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -15605,12 +19417,12 @@ Copyright (c) 2017 Microchip Technology Inc.
          <baseAddress>0x41008000</baseAddress>
          <addressBlock>
             <offset>0</offset>
-            <size>0x200</size>
+            <size>0x100</size>
             <usage>registers</usage>
          </addressBlock>
          <registers>
             <cluster>
-               <dim>4</dim>
+               <dim>2</dim>
                <dimIncrement>0x80</dimIncrement>
                <name>GROUP[%s]</name>
                <description/>
@@ -25888,14 +29700,6 @@ Copyright (c) 2017 Microchip Technology Inc.
             </register>
          </registers>
       </peripheral>
-      <peripheral derivedFrom="SDHC0">
-         <name>SDHC1</name>
-         <baseAddress>0x46000000</baseAddress>
-         <interrupt>
-            <name>SDHC1</name>
-            <value>136</value>
-         </interrupt>
-      </peripheral>
       <peripheral>
          <name>SERCOM0</name>
          <version>U22015.0.0</version>
@@ -30155,46 +33959,6 @@ Copyright (c) 2017 Microchip Technology Inc.
             <value>69</value>
          </interrupt>
       </peripheral>
-      <peripheral derivedFrom="SERCOM0">
-         <name>SERCOM6</name>
-         <baseAddress>0x43000800</baseAddress>
-         <interrupt>
-            <name>SERCOM6_0</name>
-            <value>70</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_1</name>
-            <value>71</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_2</name>
-            <value>72</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_OTHER</name>
-            <value>73</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="SERCOM0">
-         <name>SERCOM7</name>
-         <baseAddress>0x43000C00</baseAddress>
-         <interrupt>
-            <name>SERCOM7_0</name>
-            <value>74</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_1</name>
-            <value>75</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_2</name>
-            <value>76</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_OTHER</name>
-            <value>77</value>
-         </interrupt>
-      </peripheral>
       <peripheral>
          <name>SUPC</name>
          <version>U24071.1.0</version>
@@ -33081,22 +36845,6 @@ Copyright (c) 2017 Microchip Technology Inc.
          <interrupt>
             <name>TC5</name>
             <value>112</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="TC0">
-         <name>TC6</name>
-         <baseAddress>0x43001400</baseAddress>
-         <interrupt>
-            <name>TC6</name>
-            <value>113</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="TC0">
-         <name>TC7</name>
-         <baseAddress>0x43001800</baseAddress>
-         <interrupt>
-            <name>TC7</name>
-            <value>114</value>
          </interrupt>
       </peripheral>
       <peripheral>

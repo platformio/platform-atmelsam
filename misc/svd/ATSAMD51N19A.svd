@@ -21,10 +21,10 @@ Copyright (c) 2017 Microchip Technology Inc.
         xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
    <vendor>Microchip Technology</vendor>
    <vendorID>MCHP</vendorID>
-   <name>ATSAMD51P20A</name>
+   <name>ATSAMD51N19A</name>
    <series>SAMD51</series>
    <version>0</version>
-   <description>Microchip ATSAMD51P20A Microcontroller</description>
+   <description>Microchip ATSAMD51N19A Microcontroller</description>
    <cpu>
       <name>CM4</name>
       <revision>r0p1</revision>
@@ -5937,7 +5937,7 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x18</addressOffset>
                <size>32</size>
                <access>read-only</access>
-               <resetValue>0x60060200</resetValue>
+               <resetValue>0x60060203</resetValue>
                <fields>
                   <field>
                      <name>DEVSEL</name>
@@ -15605,12 +15605,12 @@ Copyright (c) 2017 Microchip Technology Inc.
          <baseAddress>0x41008000</baseAddress>
          <addressBlock>
             <offset>0</offset>
-            <size>0x200</size>
+            <size>0x180</size>
             <usage>registers</usage>
          </addressBlock>
          <registers>
             <cluster>
-               <dim>4</dim>
+               <dim>3</dim>
                <dimIncrement>0x80</dimIncrement>
                <name>GROUP[%s]</name>
                <description/>

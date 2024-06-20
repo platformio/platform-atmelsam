@@ -21,10 +21,10 @@ Copyright (c) 2017 Microchip Technology Inc.
         xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
    <vendor>Microchip Technology</vendor>
    <vendorID>MCHP</vendorID>
-   <name>ATSAMD51P20A</name>
-   <series>SAMD51</series>
+   <name>ATSAME53J20A</name>
+   <series>SAME53</series>
    <version>0</version>
-   <description>Microchip ATSAMD51P20A Microcontroller</description>
+   <description>Microchip ATSAME53J20A Microcontroller</description>
    <cpu>
       <name>CM4</name>
       <revision>r0p1</revision>
@@ -5937,7 +5937,7 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x18</addressOffset>
                <size>32</size>
                <access>read-only</access>
-               <resetValue>0x60060200</resetValue>
+               <resetValue>0x61830204</resetValue>
                <fields>
                   <field>
                      <name>DEVSEL</name>
@@ -8500,6 +8500,2746 @@ Copyright (c) 2017 Microchip Technology Inc.
          </registers>
       </peripheral>
       <peripheral>
+         <name>GMAC</name>
+         <version>U20051.0.0</version>
+         <description>Ethernet MAC</description>
+         <groupName>GMAC</groupName>
+         <prependToName>GMAC_</prependToName>
+         <baseAddress>0x42000800</baseAddress>
+         <addressBlock>
+            <offset>0</offset>
+            <size>0x280</size>
+            <usage>registers</usage>
+         </addressBlock>
+         <interrupt>
+            <name>GMAC</name>
+            <value>84</value>
+         </interrupt>
+         <registers>
+            <register>
+               <name>NCR</name>
+               <description>Network Control Register</description>
+               <addressOffset>0x0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>LBL</name>
+                     <description>Loop Back Local</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXEN</name>
+                     <description>Receive Enable</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXEN</name>
+                     <description>Transmit Enable</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>MPE</name>
+                     <description>Management Port Enable</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CLRSTAT</name>
+                     <description>Clear Statistics Registers</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>INCSTAT</name>
+                     <description>Increment Statistics Registers</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WESTAT</name>
+                     <description>Write Enable for Statistics Registers</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>BP</name>
+                     <description>Back pressure</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TSTART</name>
+                     <description>Start Transmission</description>
+                     <bitOffset>9</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>THALT</name>
+                     <description>Transmit Halt</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXPF</name>
+                     <description>Transmit Pause Frame</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXZQPF</name>
+                     <description>Transmit Zero Quantum Pause Frame</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SRTSM</name>
+                     <description>Store Receive Time Stamp to Memory</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ENPBPR</name>
+                     <description>Enable PFC Priority-based Pause Reception</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXPBPF</name>
+                     <description>Transmit PFC Priority-based Pause Frame</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>FNP</name>
+                     <description>Flush Next Packet</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>LPI</name>
+                     <description>Low Power Idle Enable</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>NCFGR</name>
+               <description>Network Configuration Register</description>
+               <addressOffset>0x4</addressOffset>
+               <size>32</size>
+               <resetValue>0x00080000</resetValue>
+               <fields>
+                  <field>
+                     <name>SPD</name>
+                     <description>Speed</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>FD</name>
+                     <description>Full Duplex</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DNVLAN</name>
+                     <description>Discard Non-VLAN FRAMES</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>JFRAME</name>
+                     <description>Jumbo Frame Size</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CAF</name>
+                     <description>Copy All Frames</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>NBC</name>
+                     <description>No Broadcast</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>MTIHEN</name>
+                     <description>Multicast Hash Enable</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>UNIHEN</name>
+                     <description>Unicast Hash Enable</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>MAXFS</name>
+                     <description>1536 Maximum Frame Size</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RTY</name>
+                     <description>Retry Test</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PEN</name>
+                     <description>Pause Enable</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXBUFO</name>
+                     <description>Receive Buffer Offset</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>2</bitWidth>
+                  </field>
+                  <field>
+                     <name>LFERD</name>
+                     <description>Length Field Error Frame Discard</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RFCS</name>
+                     <description>Remove FCS</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>CLK</name>
+                     <description>MDC CLock Division</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>3</bitWidth>
+                     <enumeratedValues>
+                        <name>CLKSelect</name>
+                        <enumeratedValue>
+                           <name>MCK8</name>
+                           <description>MCK divided by 8</description>
+                           <value>0x0</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK16</name>
+                           <description>MCK divided by 16</description>
+                           <value>0x1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK32</name>
+                           <description>MCK divided by 32</description>
+                           <value>0x2</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK48</name>
+                           <description>MCK divided by 48</description>
+                           <value>0x3</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK64</name>
+                           <description>MCK divided by 64</description>
+                           <value>0x4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>MCK96</name>
+                           <description>MCK divided by 96</description>
+                           <value>0x5</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>DBW</name>
+                     <description>Data Bus Width</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>2</bitWidth>
+                  </field>
+                  <field>
+                     <name>DCPF</name>
+                     <description>Disable Copy of Pause Frames</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXCOEN</name>
+                     <description>Receive Checksum Offload Enable</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EFRHD</name>
+                     <description>Enable Frames Received in Half Duplex</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>IRXFCS</name>
+                     <description>Ignore RX FCS</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>IPGSEN</name>
+                     <description>IP Stretch Enable</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXBP</name>
+                     <description>Receive Bad Preamble</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>IRXER</name>
+                     <description>Ignore IPG GRXER</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>NSR</name>
+               <description>Network Status Register</description>
+               <addressOffset>0x8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000004</resetValue>
+               <fields>
+                  <field>
+                     <name>MDIO</name>
+                     <description>MDIO Input Status</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>IDLE</name>
+                     <description>PHY Management Logic Idle</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>UR</name>
+               <description>User Register</description>
+               <addressOffset>0xC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>MII</name>
+                     <description>MII Mode</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>DCFGR</name>
+               <description>DMA Configuration Register</description>
+               <addressOffset>0x10</addressOffset>
+               <size>32</size>
+               <resetValue>0x00020704</resetValue>
+               <fields>
+                  <field>
+                     <name>FBLDO</name>
+                     <description>Fixed Burst Length for DMA Data Operations:</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>5</bitWidth>
+                     <enumeratedValues>
+                        <name>FBLDOSelect</name>
+                        <enumeratedValue>
+                           <name>SINGLE</name>
+                           <description>00001: Always use SINGLE AHB bursts</description>
+                           <value>0x1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>INCR4</name>
+                           <description>001xx: Attempt to use INCR4 AHB bursts (Default)</description>
+                           <value>0x4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>INCR8</name>
+                           <description>01xxx: Attempt to use INCR8 AHB bursts</description>
+                           <value>0x8</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>INCR16</name>
+                           <description>1xxxx: Attempt to use INCR16 AHB bursts</description>
+                           <value>0x16</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>ESMA</name>
+                     <description>Endian Swap Mode Enable for Management Descriptor Accesses</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ESPA</name>
+                     <description>Endian Swap Mode Enable for Packet Data Accesses</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXBMS</name>
+                     <description>Receiver Packet Buffer Memory Size Select</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>2</bitWidth>
+                     <enumeratedValues>
+                        <name>RXBMSSelect</name>
+                        <enumeratedValue>
+                           <name>EIGHTH</name>
+                           <description>RECEIVE_BUFFER_SIZE/8 Kbyte Memory Size</description>
+                           <value>0x1</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>QUARTER</name>
+                           <description>RECEIVE_BUFFER_SIZE/4 Kbytes Memory Size</description>
+                           <value>0x4</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>HALF</name>
+                           <description>RECEIVE_BUFFER_SIZE/2 Kbytes Memory Size</description>
+                           <value>0x8</value>
+                        </enumeratedValue>
+                        <enumeratedValue>
+                           <name>FULL</name>
+                           <description>RECEIVE_BUFFER_SIZE Kbytes Memory Size</description>
+                           <value>0x16</value>
+                        </enumeratedValue>
+                     </enumeratedValues>
+                  </field>
+                  <field>
+                     <name>TXPBMS</name>
+                     <description>Transmitter Packet Buffer Memory Size Select</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXCOEN</name>
+                     <description>Transmitter Checksum Generation Offload Enable</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRBS</name>
+                     <description>DMA Receive Buffer Size</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+                  <field>
+                     <name>DDRP</name>
+                     <description>DMA Discard Receive Packets</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TSR</name>
+               <description>Transmit Status Register</description>
+               <addressOffset>0x14</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>UBR</name>
+                     <description>Used Bit Read</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>COL</name>
+                     <description>Collision Occurred</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RLE</name>
+                     <description>Retry Limit Exceeded</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXGO</name>
+                     <description>Transmit Go</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFC</name>
+                     <description>Transmit Frame Corruption Due to AHB Error</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXCOMP</name>
+                     <description>Transmit Complete</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>UND</name>
+                     <description>Transmit Underrun</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HRESP</name>
+                     <description>HRESP Not OK</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RBQB</name>
+               <description>Receive Buffer Queue Base Address</description>
+               <addressOffset>0x18</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ADDR</name>
+                     <description>Receive Buffer Queue Base Address</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBQB</name>
+               <description>Transmit Buffer Queue Base Address</description>
+               <addressOffset>0x1C</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ADDR</name>
+                     <description>Transmit Buffer Queue Base Address</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RSR</name>
+               <description>Receive Status Register</description>
+               <addressOffset>0x20</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>BNA</name>
+                     <description>Buffer Not Available</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>REC</name>
+                     <description>Frame Received</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXOVR</name>
+                     <description>Receive Overrun</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HNO</name>
+                     <description>HRESP Not OK</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>ISR</name>
+               <description>Interrupt Status Register</description>
+               <addressOffset>0x24</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>MFS</name>
+                     <description>Management Frame Sent</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RCOMP</name>
+                     <description>Receive Complete</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXUBR</name>
+                     <description>RX Used Bit Read</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXUBR</name>
+                     <description>TX Used Bit Read</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TUR</name>
+                     <description>Transmit Underrun</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RLEX</name>
+                     <description>Retry Limit Exceeded</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFC</name>
+                     <description>Transmit Frame Corruption Due to AHB Error</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCOMP</name>
+                     <description>Transmit Complete</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ROVR</name>
+                     <description>Receive Overrun</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HRESP</name>
+                     <description>HRESP Not OK</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PFNZ</name>
+                     <description>Pause Frame with Non-zero Pause Quantum Received</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PTZ</name>
+                     <description>Pause Time Zero</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PFTR</name>
+                     <description>Pause Frame Transmitted</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRQFR</name>
+                     <description>PTP Delay Request Frame Received</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SFR</name>
+                     <description>PTP Sync Frame Received</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRQFT</name>
+                     <description>PTP Delay Request Frame Transmitted</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SFT</name>
+                     <description>PTP Sync Frame Transmitted</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRQFR</name>
+                     <description>PDelay Request Frame Received</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRSFR</name>
+                     <description>PDelay Response Frame Received</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRQFT</name>
+                     <description>PDelay Request Frame Transmitted</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRSFT</name>
+                     <description>PDelay Response Frame Transmitted</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SRI</name>
+                     <description>TSU Seconds Register Increment</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXLPISBC</name>
+                     <description>Enable RX LPI Indication</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WOL</name>
+                     <description>Wake On LAN</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TSUCMP</name>
+                     <description>Tsu timer comparison</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>IER</name>
+               <description>Interrupt Enable Register</description>
+               <addressOffset>0x28</addressOffset>
+               <size>32</size>
+               <access>write-only</access>
+               <fields>
+                  <field>
+                     <name>MFS</name>
+                     <description>Management Frame Sent</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RCOMP</name>
+                     <description>Receive Complete</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXUBR</name>
+                     <description>RX Used Bit Read</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXUBR</name>
+                     <description>TX Used Bit Read</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TUR</name>
+                     <description>Transmit Underrun</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RLEX</name>
+                     <description>Retry Limit Exceeded or Late Collision</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFC</name>
+                     <description>Transmit Frame Corruption Due to AHB Error</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCOMP</name>
+                     <description>Transmit Complete</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ROVR</name>
+                     <description>Receive Overrun</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HRESP</name>
+                     <description>HRESP Not OK</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PFNZ</name>
+                     <description>Pause Frame with Non-zero Pause Quantum Received</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PTZ</name>
+                     <description>Pause Time Zero</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PFTR</name>
+                     <description>Pause Frame Transmitted</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EXINT</name>
+                     <description>External Interrupt</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRQFR</name>
+                     <description>PTP Delay Request Frame Received</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SFR</name>
+                     <description>PTP Sync Frame Received</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRQFT</name>
+                     <description>PTP Delay Request Frame Transmitted</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SFT</name>
+                     <description>PTP Sync Frame Transmitted</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRQFR</name>
+                     <description>PDelay Request Frame Received</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRSFR</name>
+                     <description>PDelay Response Frame Received</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRQFT</name>
+                     <description>PDelay Request Frame Transmitted</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRSFT</name>
+                     <description>PDelay Response Frame Transmitted</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SRI</name>
+                     <description>TSU Seconds Register Increment</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXLPISBC</name>
+                     <description>Enable RX LPI Indication</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WOL</name>
+                     <description>Wake On LAN</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TSUCMP</name>
+                     <description>Tsu timer comparison</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>IDR</name>
+               <description>Interrupt Disable Register</description>
+               <addressOffset>0x2C</addressOffset>
+               <size>32</size>
+               <access>write-only</access>
+               <fields>
+                  <field>
+                     <name>MFS</name>
+                     <description>Management Frame Sent</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RCOMP</name>
+                     <description>Receive Complete</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXUBR</name>
+                     <description>RX Used Bit Read</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXUBR</name>
+                     <description>TX Used Bit Read</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TUR</name>
+                     <description>Transmit Underrun</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RLEX</name>
+                     <description>Retry Limit Exceeded or Late Collision</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFC</name>
+                     <description>Transmit Frame Corruption Due to AHB Error</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCOMP</name>
+                     <description>Transmit Complete</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ROVR</name>
+                     <description>Receive Overrun</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HRESP</name>
+                     <description>HRESP Not OK</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PFNZ</name>
+                     <description>Pause Frame with Non-zero Pause Quantum Received</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PTZ</name>
+                     <description>Pause Time Zero</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PFTR</name>
+                     <description>Pause Frame Transmitted</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EXINT</name>
+                     <description>External Interrupt</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRQFR</name>
+                     <description>PTP Delay Request Frame Received</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SFR</name>
+                     <description>PTP Sync Frame Received</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRQFT</name>
+                     <description>PTP Delay Request Frame Transmitted</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SFT</name>
+                     <description>PTP Sync Frame Transmitted</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRQFR</name>
+                     <description>PDelay Request Frame Received</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRSFR</name>
+                     <description>PDelay Response Frame Received</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRQFT</name>
+                     <description>PDelay Request Frame Transmitted</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRSFT</name>
+                     <description>PDelay Response Frame Transmitted</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SRI</name>
+                     <description>TSU Seconds Register Increment</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXLPISBC</name>
+                     <description>Enable RX LPI Indication</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WOL</name>
+                     <description>Wake On LAN</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TSUCMP</name>
+                     <description>Tsu timer comparison</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>IMR</name>
+               <description>Interrupt Mask Register</description>
+               <addressOffset>0x30</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x3FFFFFFF</resetValue>
+               <fields>
+                  <field>
+                     <name>MFS</name>
+                     <description>Management Frame Sent</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RCOMP</name>
+                     <description>Receive Complete</description>
+                     <bitOffset>1</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXUBR</name>
+                     <description>RX Used Bit Read</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TXUBR</name>
+                     <description>TX Used Bit Read</description>
+                     <bitOffset>3</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TUR</name>
+                     <description>Transmit Underrun</description>
+                     <bitOffset>4</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RLEX</name>
+                     <description>Retry Limit Exceeded</description>
+                     <bitOffset>5</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TFC</name>
+                     <description>Transmit Frame Corruption Due to AHB Error</description>
+                     <bitOffset>6</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TCOMP</name>
+                     <description>Transmit Complete</description>
+                     <bitOffset>7</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ROVR</name>
+                     <description>Receive Overrun</description>
+                     <bitOffset>10</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>HRESP</name>
+                     <description>HRESP Not OK</description>
+                     <bitOffset>11</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PFNZ</name>
+                     <description>Pause Frame with Non-zero Pause Quantum Received</description>
+                     <bitOffset>12</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PTZ</name>
+                     <description>Pause Time Zero</description>
+                     <bitOffset>13</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PFTR</name>
+                     <description>Pause Frame Transmitted</description>
+                     <bitOffset>14</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>EXINT</name>
+                     <description>External Interrupt</description>
+                     <bitOffset>15</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRQFR</name>
+                     <description>PTP Delay Request Frame Received</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SFR</name>
+                     <description>PTP Sync Frame Received</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>DRQFT</name>
+                     <description>PTP Delay Request Frame Transmitted</description>
+                     <bitOffset>20</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SFT</name>
+                     <description>PTP Sync Frame Transmitted</description>
+                     <bitOffset>21</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRQFR</name>
+                     <description>PDelay Request Frame Received</description>
+                     <bitOffset>22</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRSFR</name>
+                     <description>PDelay Response Frame Received</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRQFT</name>
+                     <description>PDelay Request Frame Transmitted</description>
+                     <bitOffset>24</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>PDRSFT</name>
+                     <description>PDelay Response Frame Transmitted</description>
+                     <bitOffset>25</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SRI</name>
+                     <description>TSU Seconds Register Increment</description>
+                     <bitOffset>26</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>RXLPISBC</name>
+                     <description>Enable RX LPI Indication</description>
+                     <bitOffset>27</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WOL</name>
+                     <description>Wake On Lan</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>TSUCMP</name>
+                     <description>Tsu timer comparison</description>
+                     <bitOffset>29</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>MAN</name>
+               <description>PHY Maintenance Register</description>
+               <addressOffset>0x34</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>DATA</name>
+                     <description>PHY Data</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>WTN</name>
+                     <description>Write Ten</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>2</bitWidth>
+                  </field>
+                  <field>
+                     <name>REGA</name>
+                     <description>Register Address</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+                  <field>
+                     <name>PHYA</name>
+                     <description>PHY Address</description>
+                     <bitOffset>23</bitOffset>
+                     <bitWidth>5</bitWidth>
+                  </field>
+                  <field>
+                     <name>OP</name>
+                     <description>Operation</description>
+                     <bitOffset>28</bitOffset>
+                     <bitWidth>2</bitWidth>
+                  </field>
+                  <field>
+                     <name>CLTTO</name>
+                     <description>Clause 22 Operation</description>
+                     <bitOffset>30</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>WZO</name>
+                     <description>Write ZERO</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RPQ</name>
+               <description>Received Pause Quantum Register</description>
+               <addressOffset>0x38</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RPQ</name>
+                     <description>Received Pause Quantum</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TPQ</name>
+               <description>Transmit Pause Quantum Register</description>
+               <addressOffset>0x3C</addressOffset>
+               <size>32</size>
+               <resetValue>0x0000FFFF</resetValue>
+               <fields>
+                  <field>
+                     <name>TPQ</name>
+                     <description>Transmit Pause Quantum</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TPSF</name>
+               <description>TX partial store and forward Register</description>
+               <addressOffset>0x40</addressOffset>
+               <size>32</size>
+               <resetValue>0x000003FF</resetValue>
+               <fields>
+                  <field>
+                     <name>TPB1ADR</name>
+                     <description>TX packet buffer address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+                  <field>
+                     <name>ENTXP</name>
+                     <description>Enable TX partial store and forward operation</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RPSF</name>
+               <description>RX partial store and forward Register</description>
+               <addressOffset>0x44</addressOffset>
+               <size>32</size>
+               <resetValue>0x000003FF</resetValue>
+               <fields>
+                  <field>
+                     <name>RPB1ADR</name>
+                     <description>RX packet buffer address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+                  <field>
+                     <name>ENRXP</name>
+                     <description>Enable RX partial store and forward operation</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RJFML</name>
+               <description>RX Jumbo Frame Max Length Register</description>
+               <addressOffset>0x48</addressOffset>
+               <size>32</size>
+               <resetValue>0x00003FFF</resetValue>
+               <fields>
+                  <field>
+                     <name>FML</name>
+                     <description>Frame Max Length</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>14</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>HRB</name>
+               <description>Hash Register Bottom [31:0]</description>
+               <addressOffset>0x80</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ADDR</name>
+                     <description>Hash Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>HRT</name>
+               <description>Hash Register Top [63:32]</description>
+               <addressOffset>0x84</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ADDR</name>
+                     <description>Hash Address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <cluster>
+               <dim>4</dim>
+               <dimIncrement>0x8</dimIncrement>
+               <name>SA[%s]</name>
+               <description/>
+               <addressOffset>0x088</addressOffset>
+               <register>
+                  <name>SAB</name>
+                  <description>Specific Address Bottom [31:0] Register</description>
+                  <addressOffset>0x0</addressOffset>
+                  <size>32</size>
+                  <resetValue>0x00000000</resetValue>
+                  <fields>
+                     <field>
+                        <name>ADDR</name>
+                        <description>Specific Address 1</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>32</bitWidth>
+                     </field>
+                  </fields>
+               </register>
+               <register>
+                  <name>SAT</name>
+                  <description>Specific Address Top [47:32] Register</description>
+                  <addressOffset>0x4</addressOffset>
+                  <size>32</size>
+                  <resetValue>0x00000000</resetValue>
+                  <fields>
+                     <field>
+                        <name>ADDR</name>
+                        <description>Specific Address 1</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>16</bitWidth>
+                     </field>
+                  </fields>
+               </register>
+            </cluster>
+            <register>
+               <dim>4</dim>
+               <dimIncrement>4</dimIncrement>
+               <name>TIDM[%s]</name>
+               <description>Type ID Match n Register</description>
+               <addressOffset>0xA8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TID</name>
+                     <description>Type ID Match n</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>ENID</name>
+                     <description>Enable Copying of TID n Matched Frames</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>WOL</name>
+               <description>Wake on LAN</description>
+               <addressOffset>0xB8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>IP</name>
+                     <description>IP address</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>MAG</name>
+                     <description>Event enable</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>ARP</name>
+                     <description>LAN ARP req</description>
+                     <bitOffset>17</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>SA1</name>
+                     <description>WOL specific address reg 1</description>
+                     <bitOffset>18</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
+                     <name>MTI</name>
+                     <description>WOL LAN multicast</description>
+                     <bitOffset>19</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>IPGS</name>
+               <description>IPG Stretch Register</description>
+               <addressOffset>0xBC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>FL</name>
+                     <description>Frame Length</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>SVLAN</name>
+               <description>Stacked VLAN Register</description>
+               <addressOffset>0xC0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>VLAN_TYPE</name>
+                     <description>User Defined VLAN_TYPE Field</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+                  <field>
+                     <name>ESVLAN</name>
+                     <description>Enable Stacked VLAN Processing Mode</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TPFCP</name>
+               <description>Transmit PFC Pause Register</description>
+               <addressOffset>0xC4</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>PEV</name>
+                     <description>Priority Enable Vector</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+                  <field>
+                     <name>PQ</name>
+                     <description>Pause Quantum</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>SAMB1</name>
+               <description>Specific Address 1 Mask Bottom [31:0] Register</description>
+               <addressOffset>0xC8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ADDR</name>
+                     <description>Specific Address 1 Mask</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>SAMT1</name>
+               <description>Specific Address 1 Mask Top [47:32] Register</description>
+               <addressOffset>0xCC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ADDR</name>
+                     <description>Specific Address 1 Mask</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>NSC</name>
+               <description>Tsu timer comparison nanoseconds Register</description>
+               <addressOffset>0xDC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NANOSEC</name>
+                     <description>1588 Timer Nanosecond comparison value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>21</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>SCL</name>
+               <description>Tsu timer second comparison Register</description>
+               <addressOffset>0xE0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>SEC</name>
+                     <description>1588 Timer Second comparison value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>SCH</name>
+               <description>Tsu timer second comparison Register</description>
+               <addressOffset>0xE4</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>SEC</name>
+                     <description>1588 Timer Second comparison value</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>EFTSH</name>
+               <description>PTP Event Frame Transmitted Seconds High Register</description>
+               <addressOffset>0xE8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>EFRSH</name>
+               <description>PTP Event Frame Received Seconds High Register</description>
+               <addressOffset>0xEC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PEFTSH</name>
+               <description>PTP Peer Event Frame Transmitted Seconds High Register</description>
+               <addressOffset>0xF0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PEFRSH</name>
+               <description>PTP Peer Event Frame Received Seconds High Register</description>
+               <addressOffset>0xF4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>OTLO</name>
+               <description>Octets Transmitted [31:0] Register</description>
+               <addressOffset>0x100</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TXO</name>
+                     <description>Transmitted Octets</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>OTHI</name>
+               <description>Octets Transmitted [47:32] Register</description>
+               <addressOffset>0x104</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TXO</name>
+                     <description>Transmitted Octets</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>FT</name>
+               <description>Frames Transmitted Register</description>
+               <addressOffset>0x108</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>FTX</name>
+                     <description>Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>BCFT</name>
+               <description>Broadcast Frames Transmitted Register</description>
+               <addressOffset>0x10C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>BFTX</name>
+                     <description>Broadcast Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>MFT</name>
+               <description>Multicast Frames Transmitted Register</description>
+               <addressOffset>0x110</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>MFTX</name>
+                     <description>Multicast Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PFT</name>
+               <description>Pause Frames Transmitted Register</description>
+               <addressOffset>0x114</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>PFTX</name>
+                     <description>Pause Frames Transmitted Register</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>BFT64</name>
+               <description>64 Byte Frames Transmitted Register</description>
+               <addressOffset>0x118</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFTX</name>
+                     <description>64 Byte Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFT127</name>
+               <description>65 to 127 Byte Frames Transmitted Register</description>
+               <addressOffset>0x11C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFTX</name>
+                     <description>65 to 127 Byte Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFT255</name>
+               <description>128 to 255 Byte Frames Transmitted Register</description>
+               <addressOffset>0x120</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFTX</name>
+                     <description>128 to 255 Byte Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFT511</name>
+               <description>256 to 511 Byte Frames Transmitted Register</description>
+               <addressOffset>0x124</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFTX</name>
+                     <description>256 to 511 Byte Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFT1023</name>
+               <description>512 to 1023 Byte Frames Transmitted Register</description>
+               <addressOffset>0x128</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFTX</name>
+                     <description>512 to 1023 Byte Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFT1518</name>
+               <description>1024 to 1518 Byte Frames Transmitted Register</description>
+               <addressOffset>0x12C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFTX</name>
+                     <description>1024 to 1518 Byte Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>GTBFT1518</name>
+               <description>Greater Than 1518 Byte Frames Transmitted Register</description>
+               <addressOffset>0x130</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFTX</name>
+                     <description>Greater than 1518 Byte Frames Transmitted without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TUR</name>
+               <description>Transmit Underruns Register</description>
+               <addressOffset>0x134</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TXUNR</name>
+                     <description>Transmit Underruns</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>SCF</name>
+               <description>Single Collision Frames Register</description>
+               <addressOffset>0x138</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>SCOL</name>
+                     <description>Single Collision</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>18</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>MCF</name>
+               <description>Multiple Collision Frames Register</description>
+               <addressOffset>0x13C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>MCOL</name>
+                     <description>Multiple Collision</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>18</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>EC</name>
+               <description>Excessive Collisions Register</description>
+               <addressOffset>0x140</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>XCOL</name>
+                     <description>Excessive Collisions</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>LC</name>
+               <description>Late Collisions Register</description>
+               <addressOffset>0x144</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>LCOL</name>
+                     <description>Late Collisions</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>DTF</name>
+               <description>Deferred Transmission Frames Register</description>
+               <addressOffset>0x148</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>DEFT</name>
+                     <description>Deferred Transmission</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>18</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>CSE</name>
+               <description>Carrier Sense Errors Register</description>
+               <addressOffset>0x14C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>CSR</name>
+                     <description>Carrier Sense Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>ORLO</name>
+               <description>Octets Received [31:0] Received</description>
+               <addressOffset>0x150</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RXO</name>
+                     <description>Received Octets</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>ORHI</name>
+               <description>Octets Received [47:32] Received</description>
+               <addressOffset>0x154</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RXO</name>
+                     <description>Received Octets</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>FR</name>
+               <description>Frames Received Register</description>
+               <addressOffset>0x158</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>FRX</name>
+                     <description>Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>BCFR</name>
+               <description>Broadcast Frames Received Register</description>
+               <addressOffset>0x15C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>BFRX</name>
+                     <description>Broadcast Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>MFR</name>
+               <description>Multicast Frames Received Register</description>
+               <addressOffset>0x160</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>MFRX</name>
+                     <description>Multicast Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PFR</name>
+               <description>Pause Frames Received Register</description>
+               <addressOffset>0x164</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>PFRX</name>
+                     <description>Pause Frames Received Register</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>BFR64</name>
+               <description>64 Byte Frames Received Register</description>
+               <addressOffset>0x168</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFRX</name>
+                     <description>64 Byte Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFR127</name>
+               <description>65 to 127 Byte Frames Received Register</description>
+               <addressOffset>0x16C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFRX</name>
+                     <description>65 to 127 Byte Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFR255</name>
+               <description>128 to 255 Byte Frames Received Register</description>
+               <addressOffset>0x170</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFRX</name>
+                     <description>128 to 255 Byte Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFR511</name>
+               <description>256 to 511Byte Frames Received Register</description>
+               <addressOffset>0x174</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFRX</name>
+                     <description>256 to 511 Byte Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFR1023</name>
+               <description>512 to 1023 Byte Frames Received Register</description>
+               <addressOffset>0x178</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFRX</name>
+                     <description>512 to 1023 Byte Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TBFR1518</name>
+               <description>1024 to 1518 Byte Frames Received Register</description>
+               <addressOffset>0x17C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFRX</name>
+                     <description>1024 to 1518 Byte Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TMXBFR</name>
+               <description>1519 to Maximum Byte Frames Received Register</description>
+               <addressOffset>0x180</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>NFRX</name>
+                     <description>1519 to Maximum Byte Frames Received without Error</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>UFR</name>
+               <description>Undersize Frames Received Register</description>
+               <addressOffset>0x184</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>UFRX</name>
+                     <description>Undersize Frames Received</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>OFR</name>
+               <description>Oversize Frames Received Register</description>
+               <addressOffset>0x188</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>OFRX</name>
+                     <description>Oversized Frames Received</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>JR</name>
+               <description>Jabbers Received Register</description>
+               <addressOffset>0x18C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>JRX</name>
+                     <description>Jabbers Received</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>FCSE</name>
+               <description>Frame Check Sequence Errors Register</description>
+               <addressOffset>0x190</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>FCKR</name>
+                     <description>Frame Check Sequence Errors</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>LFFE</name>
+               <description>Length Field Frame Errors Register</description>
+               <addressOffset>0x194</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>LFER</name>
+                     <description>Length Field Frame Errors</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RSE</name>
+               <description>Receive Symbol Errors Register</description>
+               <addressOffset>0x198</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RXSE</name>
+                     <description>Receive Symbol Errors</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>AE</name>
+               <description>Alignment Errors Register</description>
+               <addressOffset>0x19C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>AER</name>
+                     <description>Alignment Errors</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RRE</name>
+               <description>Receive Resource Errors Register</description>
+               <addressOffset>0x1A0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RXRER</name>
+                     <description>Receive Resource Errors</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>18</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>ROE</name>
+               <description>Receive Overrun Register</description>
+               <addressOffset>0x1A4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RXOVR</name>
+                     <description>Receive Overruns</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>10</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>IHCE</name>
+               <description>IP Header Checksum Errors Register</description>
+               <addressOffset>0x1A8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>HCKER</name>
+                     <description>IP Header Checksum Errors</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TCE</name>
+               <description>TCP Checksum Errors Register</description>
+               <addressOffset>0x1AC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TCKER</name>
+                     <description>TCP Checksum Errors</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>UCE</name>
+               <description>UDP Checksum Errors Register</description>
+               <addressOffset>0x1B0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>UCKER</name>
+                     <description>UDP Checksum Errors</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TISUBN</name>
+               <description>1588 Timer Increment [15:0] Sub-Nanoseconds Register</description>
+               <addressOffset>0x1BC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>LSBTIR</name>
+                     <description>Lower Significant Bits of Timer Increment</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TSH</name>
+               <description>1588 Timer Seconds High [15:0] Register</description>
+               <addressOffset>0x1C0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TCS</name>
+                     <description>Timer Count in Seconds</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TSSSL</name>
+               <description>1588 Timer Sync Strobe Seconds [31:0] Register</description>
+               <addressOffset>0x1C8</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>VTS</name>
+                     <description>Value of Timer Seconds Register Capture</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TSSN</name>
+               <description>1588 Timer Sync Strobe Nanoseconds Register</description>
+               <addressOffset>0x1CC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>VTN</name>
+                     <description>Value Timer Nanoseconds Register Capture</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TSL</name>
+               <description>1588 Timer Seconds [31:0] Register</description>
+               <addressOffset>0x1D0</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TCS</name>
+                     <description>Timer Count in Seconds</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TN</name>
+               <description>1588 Timer Nanoseconds Register</description>
+               <addressOffset>0x1D4</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TNS</name>
+                     <description>Timer Count in Nanoseconds</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TA</name>
+               <description>1588 Timer Adjust Register</description>
+               <addressOffset>0x1D8</addressOffset>
+               <size>32</size>
+               <access>write-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>ITDT</name>
+                     <description>Increment/Decrement</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+                  <field>
+                     <name>ADJ</name>
+                     <description>Adjust 1588 Timer</description>
+                     <bitOffset>31</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TI</name>
+               <description>1588 Timer Increment Register</description>
+               <addressOffset>0x1DC</addressOffset>
+               <size>32</size>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>CNS</name>
+                     <description>Count Nanoseconds</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+                  <field>
+                     <name>ACNS</name>
+                     <description>Alternative Count Nanoseconds</description>
+                     <bitOffset>8</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+                  <field>
+                     <name>NIT</name>
+                     <description>Number of Increments</description>
+                     <bitOffset>16</bitOffset>
+                     <bitWidth>8</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>EFTSL</name>
+               <description>PTP Event Frame Transmitted Seconds Low Register</description>
+               <addressOffset>0x1E0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>EFTN</name>
+               <description>PTP Event Frame Transmitted Nanoseconds</description>
+               <addressOffset>0x1E4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>EFRSL</name>
+               <description>PTP Event Frame Received Seconds Low Register</description>
+               <addressOffset>0x1E8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>EFRN</name>
+               <description>PTP Event Frame Received Nanoseconds</description>
+               <addressOffset>0x1EC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PEFTSL</name>
+               <description>PTP Peer Event Frame Transmitted Seconds Low Register</description>
+               <addressOffset>0x1F0</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PEFTN</name>
+               <description>PTP Peer Event Frame Transmitted Nanoseconds</description>
+               <addressOffset>0x1F4</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PEFRSL</name>
+               <description>PTP Peer Event Frame Received Seconds Low Register</description>
+               <addressOffset>0x1F8</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>32</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>PEFRN</name>
+               <description>PTP Peer Event Frame Received Nanoseconds</description>
+               <addressOffset>0x1FC</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RUD</name>
+                     <description>Register Update</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>30</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RLPITR</name>
+               <description>Receive LPI transition Register</description>
+               <addressOffset>0x270</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RLPITR</name>
+                     <description>Count number of times transition from rx normal idle to low power idle</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>RLPITI</name>
+               <description>Receive LPI Time Register</description>
+               <addressOffset>0x274</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>RLPITI</name>
+                     <description>Increment once over 16 ahb clock when LPI indication bit 20 is set in rx mode</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>24</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TLPITR</name>
+               <description>Receive LPI transition Register</description>
+               <addressOffset>0x278</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TLPITR</name>
+                     <description>Count number of times enable LPI tx bit 20 goes from low to high</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>16</bitWidth>
+                  </field>
+               </fields>
+            </register>
+            <register>
+               <name>TLPITI</name>
+               <description>Receive LPI Time Register</description>
+               <addressOffset>0x27C</addressOffset>
+               <size>32</size>
+               <access>read-only</access>
+               <resetValue>0x00000000</resetValue>
+               <fields>
+                  <field>
+                     <name>TLPITI</name>
+                     <description>Increment once over 16 ahb clock when LPI indication bit 20 is set in tx mode</description>
+                     <bitOffset>0</bitOffset>
+                     <bitWidth>24</bitWidth>
+                  </field>
+               </fields>
+            </register>
+         </registers>
+      </peripheral>
+      <peripheral>
          <name>HMATRIX</name>
          <version>I76382.1.4</version>
          <description>HSB Matrix</description>
@@ -10284,15 +13024,15 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SDHC0_</name>
-                     <description>SDHC0 AHB Clock Mask</description>
-                     <bitOffset>15</bitOffset>
+                     <name>GMAC_</name>
+                     <description>GMAC AHB Clock Mask</description>
+                     <bitOffset>14</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SDHC1_</name>
-                     <description>SDHC1 AHB Clock Mask</description>
-                     <bitOffset>16</bitOffset>
+                     <name>SDHC0_</name>
+                     <description>SDHC0 AHB Clock Mask</description>
+                     <bitOffset>15</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -10521,6 +13261,12 @@ Copyright (c) 2017 Microchip Technology Inc.
                <resetValue>0x00002000</resetValue>
                <fields>
                   <field>
+                     <name>GMAC_</name>
+                     <description>GMAC APB Clock Enable</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
                      <name>TCC2_</name>
                      <description>TCC2 APB Clock Enable</description>
                      <bitOffset>3</bitOffset>
@@ -10608,33 +13354,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6 APB Clock Enable</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7 APB Clock Enable</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4 APB Clock Enable</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6 APB Clock Enable</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7 APB Clock Enable</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -13409,12 +16131,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SDHC1_</name>
-                     <description>SDHC1</description>
-                     <bitOffset>13</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>QSPI_</name>
                      <description>QSPI</description>
                      <bitOffset>14</bitOffset>
@@ -13628,6 +16344,12 @@ Copyright (c) 2017 Microchip Technology Inc.
                <resetValue>0x00000000</resetValue>
                <fields>
                   <field>
+                     <name>GMAC_</name>
+                     <description>GMAC</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
                      <name>TCC2_</name>
                      <description>TCC2</description>
                      <bitOffset>3</bitOffset>
@@ -13721,33 +16443,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -13991,6 +16689,12 @@ Copyright (c) 2017 Microchip Technology Inc.
                <resetValue>0x00000000</resetValue>
                <fields>
                   <field>
+                     <name>GMAC_</name>
+                     <description>GMAC APB Protect Enable</description>
+                     <bitOffset>2</bitOffset>
+                     <bitWidth>1</bitWidth>
+                  </field>
+                  <field>
                      <name>TCC2_</name>
                      <description>TCC2 APB Protect Enable</description>
                      <bitOffset>3</bitOffset>
@@ -14085,33 +16789,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6 APB Protect Enable</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7 APB Protect Enable</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4 APB Protect Enable</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6 APB Protect Enable</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7 APB Protect Enable</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -15605,12 +18285,12 @@ Copyright (c) 2017 Microchip Technology Inc.
          <baseAddress>0x41008000</baseAddress>
          <addressBlock>
             <offset>0</offset>
-            <size>0x200</size>
+            <size>0x100</size>
             <usage>registers</usage>
          </addressBlock>
          <registers>
             <cluster>
-               <dim>4</dim>
+               <dim>2</dim>
                <dimIncrement>0x80</dimIncrement>
                <name>GROUP[%s]</name>
                <description/>
@@ -25888,14 +28568,6 @@ Copyright (c) 2017 Microchip Technology Inc.
             </register>
          </registers>
       </peripheral>
-      <peripheral derivedFrom="SDHC0">
-         <name>SDHC1</name>
-         <baseAddress>0x46000000</baseAddress>
-         <interrupt>
-            <name>SDHC1</name>
-            <value>136</value>
-         </interrupt>
-      </peripheral>
       <peripheral>
          <name>SERCOM0</name>
          <version>U22015.0.0</version>
@@ -30155,46 +32827,6 @@ Copyright (c) 2017 Microchip Technology Inc.
             <value>69</value>
          </interrupt>
       </peripheral>
-      <peripheral derivedFrom="SERCOM0">
-         <name>SERCOM6</name>
-         <baseAddress>0x43000800</baseAddress>
-         <interrupt>
-            <name>SERCOM6_0</name>
-            <value>70</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_1</name>
-            <value>71</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_2</name>
-            <value>72</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_OTHER</name>
-            <value>73</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="SERCOM0">
-         <name>SERCOM7</name>
-         <baseAddress>0x43000C00</baseAddress>
-         <interrupt>
-            <name>SERCOM7_0</name>
-            <value>74</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_1</name>
-            <value>75</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_2</name>
-            <value>76</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_OTHER</name>
-            <value>77</value>
-         </interrupt>
-      </peripheral>
       <peripheral>
          <name>SUPC</name>
          <version>U24071.1.0</version>
@@ -33081,22 +35713,6 @@ Copyright (c) 2017 Microchip Technology Inc.
          <interrupt>
             <name>TC5</name>
             <value>112</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="TC0">
-         <name>TC6</name>
-         <baseAddress>0x43001400</baseAddress>
-         <interrupt>
-            <name>TC6</name>
-            <value>113</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="TC0">
-         <name>TC7</name>
-         <baseAddress>0x43001800</baseAddress>
-         <interrupt>
-            <name>TC7</name>
-            <value>114</value>
          </interrupt>
       </peripheral>
       <peripheral>
