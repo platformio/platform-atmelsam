@@ -42,7 +42,7 @@
     "arduino",
     "zephyr"
   ],
-  "name": "Seeeduino XIAO",
+  "name": "XIAO SAMD21",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
