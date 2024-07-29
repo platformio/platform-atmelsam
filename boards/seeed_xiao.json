@@ -26,10 +26,10 @@
     ],
     "mcu": "samd21g18a",
     "system": "samd",
-    "usb_product": "Seeeduino XIAO",
+    "usb_product": "Seeed Studio XIAO SAMD21",
     "variant": "XIAO_m0",
     "zephyr": {
-       "variant": "seeeduino_xiao"
+       "variant": "Seeed Studio XIAO SAMD21"
     }
   },
   "debug": {
@@ -42,7 +42,7 @@
     "arduino",
     "zephyr"
   ],
-  "name": "Seeeduino XIAO",
+  "name": "Seeed Studio XIAO SAMD21",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
