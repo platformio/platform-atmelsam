@@ -97,6 +97,12 @@
       "owner": "platformio",
       "version": "~1.0.6"
     },
+    "framework-arduino-samd-telit": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/maxgerhardt/arduino-charlie/archive/refs/tags/1.0.4.zip"
+    },
     "framework-cmsis": {
       "type": "framework",
       "optional": true,
