@@ -34,6 +34,7 @@
     "disable_flushing": true,
     "maximum_ram_size": 98304,
     "maximum_size": 524288,
+    "offset_address": "0x80000",
     "native_usb": false,
     "protocol": "sam-ba",
     "protocols": [
