@@ -27,6 +27,7 @@ import os
 from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
+config = env.GetProjectConfig()
 platform = env.PioPlatform()
 board = env.BoardConfig()
 
@@ -71,9 +72,17 @@ env.Append(
 libs = []
 
 if "build.variant" in board:
-    variants_dir = os.path.join(
-        "$PROJECT_DIR", board.get("build.variants_dir")) if board.get(
-            "build.variants_dir", "") else os.path.join(FRAMEWORK_DIR, "variants")
+    vardirs = [
+        os.path.join("$PROJECT_DIR", board.get("build.variants_dir")),
+        os.path.join(os.getcwd(), board.get("build.variants_dir")),
+        os.path.join(config.get("platformio", "core_dir"), board.get("build.variants_dir")),
+        os.path.join(os.path.join(FRAMEWORK_DIR, "variants")),
+    ]
+
+    for variants_dir in vardirs:
+        if os.path.isdir(variants_dir):
+            break
+
     env.Append(
         CPPPATH=[
             os.path.join(variants_dir, board.get("build.variant"))
