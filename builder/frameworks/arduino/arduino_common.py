@@ -27,7 +27,6 @@ import os
 from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
-config = env.GetProjectConfig()
 platform = env.PioPlatform()
 board = env.BoardConfig()
 build_mcu = env.get("BOARD_MCU", board.get("build.mcu", ""))
@@ -42,6 +41,17 @@ if board.get("build.core", "").lower() != "arduino":
 FRAMEWORK_DIR = platform.get_package_dir(framework_package)
 
 assert os.path.isdir(FRAMEWORK_DIR)
+
+
+def get_variants_dir():
+    if "build.variants_dir" not in board:
+        return os.path.join(FRAMEWORK_DIR, "variants")
+
+    if os.path.isabs(env.subst(board.get("build.variants_dir"))):
+        return board.get("build.variants_dir", "")
+
+    return os.path.join("$PROJECT_DIR", board.get("build.variants_dir"))
+
 
 machine_flags = [
     "-mcpu=%s" % board.get("build.cpu"),
@@ -96,26 +106,18 @@ env.Append(
     LIBS=["m"]
 )
 
-vardirs = [
-    os.path.join("$PROJECT_DIR", board.get("build.variants_dir")),
-    os.path.join(os.getcwd(), board.get("build.variants_dir")),
-    os.path.join(config.get("platformio", "core_dir"), board.get("build.variants_dir")),
-    os.path.join(os.path.join(FRAMEWORK_DIR, "variants")),
-]
-
-for variants_dir in vardirs:
-    if os.path.isdir(variants_dir):
-        break
-
 if not board.get("build.ldscript", ""):
     env.Append(
         LIBPATH=[
-            os.path.join(variants_dir, board.get("build.variant"), "linker_scripts", "gcc")
+            os.path.join(
+                get_variants_dir(),
+                board.get("build.variant"),
+                "linker_scripts",
+                "gcc",
+            )
         ]
     )
-    env.Replace(
-        LDSCRIPT_PATH=board.get("build.arduino.ldscript", "")
-    )
+    env.Replace(LDSCRIPT_PATH=board.get("build.arduino.ldscript", ""))
 
 if "build.usb_product" in board:
     env.Append(

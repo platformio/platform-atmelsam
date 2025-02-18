@@ -24,10 +24,11 @@ http://arduino.cc/en/Reference/HomePage
 
 import os
 
+from arduino_common import get_variants_dir
+
 from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
-config = env.GetProjectConfig()
 platform = env.PioPlatform()
 board = env.BoardConfig()
 
@@ -42,7 +43,7 @@ CMSIS_ATMEL_DIR = platform.get_package_dir("framework-cmsis-atmel")
 
 assert all(os.path.isdir(d) for d in (FRAMEWORK_DIR, CMSIS_DIR, CMSIS_ATMEL_DIR))
 
-env.SConscript("arduino-common.py")
+env.SConscript("arduino_common.py")
 
 BUILD_CORE = "arduino"
 if VENDOR_CORE == "sparkfun" and board.get("build.mcu", "").startswith("samd51"):
@@ -179,16 +180,7 @@ elif VENDOR_CORE == "arduino":
 libs = []
 
 if "build.variant" in board:
-    vardirs = [
-        os.path.join("$PROJECT_DIR", board.get("build.variants_dir")),
-        os.path.join(os.getcwd(), board.get("build.variants_dir")),
-        os.path.join(config.get("platformio", "core_dir"), board.get("build.variants_dir")),
-        os.path.join(os.path.join(FRAMEWORK_DIR, "variants")),
-    ]
-
-    for variants_dir in vardirs:
-        if os.path.isdir(variants_dir):
-            break
+    variants_dir = get_variants_dir()
 
     env.Append(
         CPPPATH=[os.path.join(variants_dir, board.get("build.variant"))]
