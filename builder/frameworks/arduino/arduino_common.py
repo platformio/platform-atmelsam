@@ -42,6 +42,17 @@ FRAMEWORK_DIR = platform.get_package_dir(framework_package)
 
 assert os.path.isdir(FRAMEWORK_DIR)
 
+
+def get_variants_dir():
+    if "build.variants_dir" not in board:
+        return os.path.join(FRAMEWORK_DIR, "variants")
+
+    if os.path.isabs(env.subst(board.get("build.variants_dir"))):
+        return board.get("build.variants_dir", "")
+
+    return os.path.join("$PROJECT_DIR", board.get("build.variants_dir"))
+
+
 machine_flags = [
     "-mcpu=%s" % board.get("build.cpu"),
     "-mthumb",
@@ -95,19 +106,18 @@ env.Append(
     LIBS=["m"]
 )
 
-variants_dir = os.path.join(
-    "$PROJECT_DIR", board.get("build.variants_dir")) if board.get(
-        "build.variants_dir", "") else os.path.join(FRAMEWORK_DIR, "variants")
-
 if not board.get("build.ldscript", ""):
     env.Append(
         LIBPATH=[
-            os.path.join(variants_dir, board.get("build.variant"), "linker_scripts", "gcc")
+            os.path.join(
+                get_variants_dir(),
+                board.get("build.variant"),
+                "linker_scripts",
+                "gcc",
+            )
         ]
     )
-    env.Replace(
-        LDSCRIPT_PATH=board.get("build.arduino.ldscript", "")
-    )
+    env.Replace(LDSCRIPT_PATH=board.get("build.arduino.ldscript", ""))
 
 if "build.usb_product" in board:
     env.Append(
