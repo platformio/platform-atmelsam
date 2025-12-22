@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samd21e16a",
+    "extra_flags": "-D__SAMD21E16A__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21E16A",
+    "openocd_chipname": "at91samd21e16a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD21E16A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMD21E16A (8k RAM, 64k FLASH)",
+  "upload": {
+    "maximum_ram_size": 8192,
+    "maximum_size": 65536,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamd21e16a",
+  "vendor": "Atmel/Microchip"
+}

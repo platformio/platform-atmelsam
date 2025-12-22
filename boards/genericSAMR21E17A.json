@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samr21e17a",
+    "extra_flags": "-D__SAMR21E17A__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMR21E17A",
+    "openocd_chipname": "at91samr21e17a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMR21E17A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMR21E17A (32k RAM, 128k FLASH)",
+  "upload": {
+    "maximum_ram_size": 32768,
+    "maximum_size": 131072,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamr21e17a",
+  "vendor": "Atmel/Microchip"
+}

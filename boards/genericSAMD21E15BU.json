@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samd21e15bu",
+    "extra_flags": "-D__SAMD21E15BU__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21E15BU",
+    "openocd_chipname": "at91samd21e15bu",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD21E15BU.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMD21E15BU (4k RAM, 32k FLASH)",
+  "upload": {
+    "maximum_ram_size": 4096,
+    "maximum_size": 32768,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamd21e15bu",
+  "vendor": "Atmel/Microchip"
+}

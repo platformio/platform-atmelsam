@@ -70,6 +70,10 @@ class AtmelsamPlatform(PlatformBase):
             if build_core in ("adafruit", "seeed"):
                 self.packages["framework-cmsis"]["version"] = "~2.50400.0"
 
+        if "cmsis" in variables.get("pioframework", []):
+            self.packages["framework-cmsis"]["optional"] = False
+            self.packages["framework-cmsis-atmelsam"]["optional"] = False
+
         if (
             board.get("build.core", "") in ("adafruit", "seeed", "sparkfun")
             and "tool-bossac" in self.packages

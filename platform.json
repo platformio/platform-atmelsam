@@ -29,6 +29,10 @@
     "zephyr": {
       "package": "framework-zephyr",
       "script": "builder/frameworks/zephyr.py"
+    },
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py"
     }
   },
   "packages": {
@@ -114,6 +118,12 @@
       "optionalVersions": [
         "~1.1.0"
       ]
+    },
+    "framework-cmsis-atmelsam": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.0.0"
     },
     "framework-zephyr": {
       "type": "framework",

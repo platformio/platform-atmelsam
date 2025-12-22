@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "48000000L",
+    "mcu": "same54p20a",
+    "extra_flags": "-D__SAME54P20A__"
+  },
+  "debug": {
+    "jlink_device": "ATSAME54P20A",
+    "openocd_chipname": "at91same54p20a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAME54P20A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAME54P20A (256k RAM, 1024k FLASH)",
+  "upload": {
+    "maximum_ram_size": 262144,
+    "maximum_size": 1048576,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsame54p20a",
+  "vendor": "Atmel/Microchip"
+}

@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m7",
+    "f_cpu": "12000000L",
+    "mcu": "samv71j21b",
+    "extra_flags": "-D__SAMV71J21B__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMV71J21B",
+    "openocd_chipname": "at91samv71j21b",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMV71J21B.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMV71J21B (384k RAM, 2048k FLASH)",
+  "upload": {
+    "maximum_ram_size": 393216,
+    "maximum_size": 2097152,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamv71j21b",
+  "vendor": "Atmel/Microchip"
+}

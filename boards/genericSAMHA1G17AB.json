@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samha1g17ab",
+    "extra_flags": "-D__SAMHA1G17AB__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMHA1G17AB",
+    "openocd_chipname": "at91samha1g17ab",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMHA1G17AB.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMHA1G17AB (16k RAM, 128k FLASH)",
+  "upload": {
+    "maximum_ram_size": 16384,
+    "maximum_size": 131072,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamha1g17ab",
+  "vendor": "Atmel/Microchip"
+}

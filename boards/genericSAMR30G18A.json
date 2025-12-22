@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "4000000L",
+    "mcu": "samr30g18a",
+    "extra_flags": "-D__SAMR30G18A__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMR30G18A",
+    "openocd_chipname": "at91samr30g18a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMR30G18A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMR30G18A (32k RAM, 256k FLASH)",
+  "upload": {
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamr30g18a",
+  "vendor": "Atmel/Microchip"
+}

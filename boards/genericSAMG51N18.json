@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "8000000L",
+    "mcu": "samg51n18",
+    "extra_flags": "-D__SAMG51N18__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMG51N18",
+    "openocd_chipname": "at91samg51n18",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMG51N18.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMG51N18 (64k RAM, 256k FLASH)",
+  "upload": {
+    "maximum_ram_size": 65536,
+    "maximum_size": 262144,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamg51n18",
+  "vendor": "Atmel/Microchip"
+}

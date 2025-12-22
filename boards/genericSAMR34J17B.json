@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "4000000L",
+    "mcu": "samr34j17b",
+    "extra_flags": "-D__SAMR34J17B__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMR34J17B",
+    "openocd_chipname": "at91samr34j17b",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMR34J17B.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMR34J17B (16k RAM, 128k FLASH)",
+  "upload": {
+    "maximum_ram_size": 16384,
+    "maximum_size": 131072,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamr34j17b",
+  "vendor": "Atmel/Microchip"
+}

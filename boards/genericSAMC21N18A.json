@@ -1,0 +1,37 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "4000000L",
+    "mcu": "samc21n18a",
+    "extra_flags": "-D__SAMC21N18A__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMC21N18A",
+    "openocd_chipname": "at91samc21n18a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMC21N18A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMC21N18A (32k RAM, 256k FLASH)",
+  "upload": {
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamc21n18a",
+  "vendor": "Atmel/Microchip"
+}
