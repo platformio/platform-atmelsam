@@ -3,7 +3,7 @@
     "cpu": "cortex-m23",
     "f_cpu": "4000000L",
     "mcu": "saml11e15a",
-    "extra_flags": "-D__SAML11E15A__"
+    "extra_flags": "-D__SAML11E15A__ -D__SAML11__"
   },
   "debug": {
     "jlink_device": "ATSAML11E15A",

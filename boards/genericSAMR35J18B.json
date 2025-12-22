@@ -3,7 +3,7 @@
     "cpu": "cortex-m0plus",
     "f_cpu": "4000000L",
     "mcu": "samr35j18b",
-    "extra_flags": "-D__SAMR35J18B__"
+    "extra_flags": "-D__SAMR35J18B__ -D__SAMR35__"
   },
   "debug": {
     "jlink_device": "ATSAMR35J18B",

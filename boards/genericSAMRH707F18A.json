@@ -3,7 +3,7 @@
     "cpu": "cortex-m7",
     "f_cpu": "115000L",
     "mcu": "samrh707f18a",
-    "extra_flags": "-D__SAMRH707F18A__"
+    "extra_flags": "-D__SAMRH707F18A__ -D__SAMRH707__"
   },
   "debug": {
     "jlink_device": "ATSAMRH707F18A",

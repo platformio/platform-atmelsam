@@ -3,7 +3,7 @@
     "cpu": "cortex-m0plus",
     "f_cpu": "4000000L",
     "mcu": "saml21e15b",
-    "extra_flags": "-D__SAML21E15B__"
+    "extra_flags": "-D__SAML21E15B__ -D__SAML21__"
   },
   "debug": {
     "jlink_device": "ATSAML21E15B",

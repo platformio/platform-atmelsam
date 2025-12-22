@@ -3,7 +3,7 @@
     "cpu": "cortex-m0plus",
     "f_cpu": "1000000L",
     "mcu": "samd11d14as",
-    "extra_flags": "-D__SAMD11D14AS__"
+    "extra_flags": "-D__SAMD11D14AS__ -D__SAMD11__"
   },
   "debug": {
     "jlink_device": "ATSAMD11D14AS",

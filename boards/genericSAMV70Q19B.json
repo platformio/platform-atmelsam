@@ -3,7 +3,7 @@
     "cpu": "cortex-m7",
     "f_cpu": "4000000L",
     "mcu": "samv70q19b",
-    "extra_flags": "-D__SAMV70Q19B__"
+    "extra_flags": "-D__SAMV70Q19B__ -D__SAMV70__"
   },
   "debug": {
     "jlink_device": "ATSAMV70Q19B",

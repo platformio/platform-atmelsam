@@ -3,7 +3,7 @@
     "cpu": "cortex-m0plus",
     "f_cpu": "1000000L",
     "mcu": "saml22g16a",
-    "extra_flags": "-D__SAML22G16A__"
+    "extra_flags": "-D__SAML22G16A__ -D__SAML22__"
   },
   "debug": {
     "jlink_device": "ATSAML22G16A",

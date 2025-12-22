@@ -3,7 +3,7 @@
     "cpu": "cortex-m7",
     "f_cpu": "4000000L",
     "mcu": "sams70n20b",
-    "extra_flags": "-D__SAMS70N20B__"
+    "extra_flags": "-D__SAMS70N20B__ -D__SAMS70__"
   },
   "debug": {
     "jlink_device": "ATSAMS70N20B",

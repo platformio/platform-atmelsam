@@ -3,7 +3,7 @@
     "cpu": "cortex-m4",
     "f_cpu": "48000000L",
     "mcu": "same53n19a",
-    "extra_flags": "-D__SAME53N19A__"
+    "extra_flags": "-D__SAME53N19A__ -D__SAME53__"
   },
   "debug": {
     "jlink_device": "ATSAME53N19A",

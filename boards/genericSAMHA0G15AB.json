@@ -3,7 +3,7 @@
     "cpu": "cortex-m0plus",
     "f_cpu": "1000000L",
     "mcu": "samha0g15ab",
-    "extra_flags": "-D__SAMHA0G15AB__"
+    "extra_flags": "-D__SAMHA0G15AB__ -D__SAMHA0__"
   },
   "debug": {
     "jlink_device": "ATSAMHA0G15AB",
