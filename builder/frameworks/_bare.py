@@ -41,7 +41,8 @@ env.Append(
         "-Wall",
         "-mthumb",
         "-nostdlib",
-        "--param", "max-inline-insns-single=500"
+        "--param", "max-inline-insns-single=500",
+        "-Werror-implicit-function-declaration"
     ],
 
     CXXFLAGS=[
