@@ -29,6 +29,7 @@
       "cmsis-dap",
       "blackmagic",
       "jlink",
+      "stlink",
       "atmel-ice"
     ]
   },
