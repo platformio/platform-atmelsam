@@ -105,9 +105,9 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.40500.0",
+      "version": "~2.60300.0",
       "optionalVersions": [
-        "~2.50400.0"
+        "~2.50900.0"
       ]
     },
     "framework-cmsis-atmel": {

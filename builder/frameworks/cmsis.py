@@ -120,7 +120,7 @@ else:
 
 env.Append(
     CPPPATH=[
-        os.path.join(CMSIS_DIR, "CMSIS", "Include"),            # generic CMSIS headers from "framework-cmsis"
+        os.path.join(CMSIS_DIR, "CMSIS", "Core", "Include"),    # generic CMSIS headers from "framework-cmsis"
         CMSIS_ATMEL_ROOT_DIR,                                   # for "samc.h", "samd.h", etc.
         os.path.join(CMSIS_DEVICE_DIR, "include")               # processor-specifics
     ],
