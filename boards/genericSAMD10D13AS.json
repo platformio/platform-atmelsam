@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samd10d13as",
+    "extra_flags": "-D__SAMD10D13AS__ -D__SAMD10__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD10D13AS",
+    "openocd_chipname": "at91samd10d13as",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD10D13AS.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMD10D13AS (4k RAM, 8k FLASH)",
+  "upload": {
+    "maximum_ram_size": 4096,
+    "maximum_size": 8192,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamd10d13as",
+  "vendor": "Atmel/Microchip"
+}

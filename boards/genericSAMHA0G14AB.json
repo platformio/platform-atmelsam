@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samha0g14ab",
+    "extra_flags": "-D__SAMHA0G14AB__ -D__SAMHA0__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMHA0G14AB",
+    "openocd_chipname": "at91samha0g14ab",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMHA0G14AB.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMHA0G14AB (4k RAM, 16k FLASH)",
+  "upload": {
+    "maximum_ram_size": 4096,
+    "maximum_size": 16384,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamha0g14ab",
+  "vendor": "Atmel/Microchip"
+}

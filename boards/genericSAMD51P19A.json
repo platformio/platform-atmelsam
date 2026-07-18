@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "48000000L",
+    "mcu": "samd51p19a",
+    "extra_flags": "-D__SAMD51P19A__ -D__SAMD51__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD51P19A",
+    "openocd_chipname": "at91samd51p19a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD51P19A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMD51P19A (192k RAM, 512k FLASH)",
+  "upload": {
+    "maximum_ram_size": 196608,
+    "maximum_size": 524288,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamd51p19a",
+  "vendor": "Atmel/Microchip"
+}

@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samd20j14",
+    "extra_flags": "-D__SAMD20J14__ -D__SAMD20__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD20J14",
+    "openocd_chipname": "at91samd20j14",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD20J14.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMD20J14 (2k RAM, 16k FLASH)",
+  "upload": {
+    "maximum_ram_size": 2048,
+    "maximum_size": 16384,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamd20j14",
+  "vendor": "Atmel/Microchip"
+}

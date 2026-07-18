@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samd21g17d",
+    "extra_flags": "-D__SAMD21G17D__ -D__SAMD21__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD21G17D",
+    "openocd_chipname": "at91samd21g17d",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD21G17D.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMD21G17D (16k RAM, 128k FLASH)",
+  "upload": {
+    "maximum_ram_size": 16384,
+    "maximum_size": 131072,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamd21g17d",
+  "vendor": "Atmel/Microchip"
+}

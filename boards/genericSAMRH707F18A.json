@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m7",
+    "f_cpu": "115000L",
+    "mcu": "samrh707f18a",
+    "extra_flags": "-D__SAMRH707F18A__ -D__SAMRH707__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMRH707F18A",
+    "openocd_chipname": "at91samrh707f18a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMRH707F18A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMRH707F18A (128k RAM, 128k FLASH)",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 131072,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamrh707f18a",
+  "vendor": "Atmel/Microchip"
+}

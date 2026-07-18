@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "8000000L",
+    "mcu": "samg54j19",
+    "extra_flags": "-D__SAMG54J19__ -D__SAMG54__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMG54J19",
+    "openocd_chipname": "at91samg54j19",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMG54J19.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMG54J19 (96k RAM, 512k FLASH)",
+  "upload": {
+    "maximum_ram_size": 98304,
+    "maximum_size": 524288,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamg54j19",
+  "vendor": "Atmel/Microchip"
+}

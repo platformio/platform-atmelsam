@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samha1e15ab",
+    "extra_flags": "-D__SAMHA1E15AB__ -D__SAMHA1__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMHA1E15AB",
+    "openocd_chipname": "at91samha1e15ab",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMHA1E15AB.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMHA1E15AB (4k RAM, 32k FLASH)",
+  "upload": {
+    "maximum_ram_size": 4096,
+    "maximum_size": 32768,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamha1e15ab",
+  "vendor": "Atmel/Microchip"
+}

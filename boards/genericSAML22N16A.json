@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "saml22n16a",
+    "extra_flags": "-D__SAML22N16A__ -D__SAML22__"
+  },
+  "debug": {
+    "jlink_device": "ATSAML22N16A",
+    "openocd_chipname": "at91saml22n16a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAML22N16A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAML22N16A (8k RAM, 64k FLASH)",
+  "upload": {
+    "maximum_ram_size": 8192,
+    "maximum_size": 65536,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsaml22n16a",
+  "vendor": "Atmel/Microchip"
+}

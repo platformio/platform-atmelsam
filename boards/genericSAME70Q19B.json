@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m7",
+    "f_cpu": "4000000L",
+    "mcu": "same70q19b",
+    "extra_flags": "-D__SAME70Q19B__ -D__SAME70__"
+  },
+  "debug": {
+    "jlink_device": "ATSAME70Q19B",
+    "openocd_chipname": "at91same70q19b",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAME70Q19B.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAME70Q19B (256k RAM, 512k FLASH)",
+  "upload": {
+    "maximum_ram_size": 262144,
+    "maximum_size": 524288,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsame70q19b",
+  "vendor": "Atmel/Microchip"
+}

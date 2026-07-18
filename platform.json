@@ -29,17 +29,18 @@
     "zephyr": {
       "package": "framework-zephyr",
       "script": "builder/frameworks/zephyr.py"
+    },
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py"
     }
   },
   "packages": {
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
       "owner": "platformio",
-      "version": "~1.70201.0",
+      "version": "~1.120301.0",
       "optionalVersions": [
-        ">=1.40803.0,<1.40805.0",
-        ">=1.60301.0,<1.80000.0",
-        "~1.80201.0",
         "~1.90301.0"
       ]
     },
@@ -101,9 +102,9 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~1.40500.0",
+      "version": "~2.60300.0",
       "optionalVersions": [
-        "~2.50400.0"
+        "~2.50900.0"
       ]
     },
     "framework-cmsis-atmel": {
@@ -114,6 +115,12 @@
       "optionalVersions": [
         "~1.1.0"
       ]
+    },
+    "framework-cmsis-atmelsam": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.0.0"
     },
     "framework-zephyr": {
       "type": "framework",

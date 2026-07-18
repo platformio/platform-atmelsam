@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "4000000L",
+    "mcu": "samc21j17au",
+    "extra_flags": "-D__SAMC21J17AU__ -D__SAMC21__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMC21J17AU",
+    "openocd_chipname": "at91samc21j17au",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMC21J17AU.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMC21J17AU (16k RAM, 128k FLASH)",
+  "upload": {
+    "maximum_ram_size": 16384,
+    "maximum_size": 131072,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamc21j17au",
+  "vendor": "Atmel/Microchip"
+}

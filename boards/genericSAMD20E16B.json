@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "1000000L",
+    "mcu": "samd20e16b",
+    "extra_flags": "-D__SAMD20E16B__ -D__SAMD20__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD20E16B",
+    "openocd_chipname": "at91samd20e16b",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD20E16B.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMD20E16B (8k RAM, 64k FLASH)",
+  "upload": {
+    "maximum_ram_size": 8192,
+    "maximum_size": 65536,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamd20e16b",
+  "vendor": "Atmel/Microchip"
+}

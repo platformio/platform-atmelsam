@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m7",
+    "f_cpu": "115000L",
+    "mcu": "samrh71f20c",
+    "extra_flags": "-D__SAMRH71F20C__ -D__SAMRH71__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMRH71F20C",
+    "openocd_chipname": "at91samrh71f20c",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMRH71F20C.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMRH71F20C (768k RAM, 128k FLASH)",
+  "upload": {
+    "maximum_ram_size": 786432,
+    "maximum_size": 131072,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamrh71f20c",
+  "vendor": "Atmel/Microchip"
+}

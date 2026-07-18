@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "4000000L",
+    "mcu": "saml21e15b",
+    "extra_flags": "-D__SAML21E15B__ -D__SAML21__"
+  },
+  "debug": {
+    "jlink_device": "ATSAML21E15B",
+    "openocd_chipname": "at91saml21e15b",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAML21E15B.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAML21E15B (4k RAM, 32k FLASH)",
+  "upload": {
+    "maximum_ram_size": 4096,
+    "maximum_size": 32768,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsaml21e15b",
+  "vendor": "Atmel/Microchip"
+}

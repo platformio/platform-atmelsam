@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "48000000L",
+    "mcu": "samd51j20a",
+    "extra_flags": "-D__SAMD51J20A__ -D__SAMD51__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMD51J20A",
+    "openocd_chipname": "at91samd51j20a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMD51J20A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMD51J20A (256k RAM, 1024k FLASH)",
+  "upload": {
+    "maximum_ram_size": 262144,
+    "maximum_size": 1048576,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsamd51j20a",
+  "vendor": "Atmel/Microchip"
+}

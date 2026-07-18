@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m7",
+    "f_cpu": "4000000L",
+    "mcu": "sams70j19b",
+    "extra_flags": "-D__SAMS70J19B__ -D__SAMS70__"
+  },
+  "debug": {
+    "jlink_device": "ATSAMS70J19B",
+    "openocd_chipname": "at91sams70j19b",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAMS70J19B.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAMS70J19B (256k RAM, 512k FLASH)",
+  "upload": {
+    "maximum_ram_size": 262144,
+    "maximum_size": 524288,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsams70j19b",
+  "vendor": "Atmel/Microchip"
+}

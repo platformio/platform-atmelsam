@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "48000000L",
+    "mcu": "same53j18a",
+    "extra_flags": "-D__SAME53J18A__ -D__SAME53__"
+  },
+  "debug": {
+    "jlink_device": "ATSAME53J18A",
+    "openocd_chipname": "at91same53j18a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAME53J18A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAME53J18A (128k RAM, 256k FLASH)",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 262144,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsame53j18a",
+  "vendor": "Atmel/Microchip"
+}

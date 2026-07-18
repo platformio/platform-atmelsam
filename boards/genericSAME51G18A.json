@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "48000000L",
+    "mcu": "same51g18a",
+    "extra_flags": "-D__SAME51G18A__ -D__SAME51__"
+  },
+  "debug": {
+    "jlink_device": "ATSAME51G18A",
+    "openocd_chipname": "at91same51g18a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAME51G18A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAME51G18A (128k RAM, 256k FLASH)",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 262144,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsame51g18a",
+  "vendor": "Atmel/Microchip"
+}

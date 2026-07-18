@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m23",
+    "f_cpu": "4000000L",
+    "mcu": "saml11d16a",
+    "extra_flags": "-D__SAML11D16A__ -D__SAML11__"
+  },
+  "debug": {
+    "jlink_device": "ATSAML11D16A",
+    "openocd_chipname": "at91saml11d16a",
+    "openocd_target": "at91samdXX",
+    "svd_path": "ATSAML11D16A.svd"
+  },
+  "frameworks": {
+    "cmsis": {
+      "package": "framework-cmsis-atmelsam",
+      "script": "builder/frameworks/cmsis.py",
+      "description": "CMSIS bare metal",
+      "homepage": "",
+      "title": "Atmel/Microchip CMSIS framework for SAM MCUs"
+    }
+  },
+  "name": "SAML11D16A (16k RAM, 64k FLASH)",
+  "upload": {
+    "maximum_ram_size": 16384,
+    "maximum_size": 65536,
+    "protocol": "cmsis-dap",
+    "protocols": [
+      "cmsis-dap",
+      "blackmagic",
+      "jlink",
+      "stlink",
+      "atmel-ice"
+    ]
+  },
+  "url": "https://www.microchip.com/en-us/product/atsaml11d16a",
+  "vendor": "Atmel/Microchip"
+}
