@@ -133,7 +133,7 @@ if ("samd" not in mcu) and ("samc" not in mcu):
     env.Append(
         LINKFLAGS=[
             "--specs=nano.specs",
-            "--specs=nosys.specs"
+#            "--specs=nosys.specs"  #Sid L. 2026-07-18: after upgrading GCC version, commenting this solved new linker warnings.
         ]
     )
 

@@ -87,7 +87,7 @@ if "BOARD" in env:
 if ("samd" in build_mcu) or ("samc" in build_mcu):
     env.Append(
         LINKFLAGS=[
-            "--specs=nosys.specs",
+#            "--specs=nosys.specs", #Sid L. 2026-07-18: after upgrading GCC version, commenting this solved new linker warnings.
             "--specs=nano.specs"
         ]
     )
