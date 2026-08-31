@@ -20,7 +20,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-atmelsam.git"
   },
-  "version": "8.3.0",
+  "version": "9.0.0",
   "frameworks": {
     "arduino": {
       "package": "framework-arduino-sam",
@@ -39,8 +39,8 @@
       "optionalVersions": [
         ">=1.40803.0,<1.40805.0",
         ">=1.60301.0,<1.80000.0",
-        "~1.80201.0",
-        "~1.90301.0"
+        "~1.90301.0",
+        "~1.120301.0"
       ]
     },
     "framework-arduino-sam": {
@@ -119,7 +119,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~2.20701.0"
+      "version": "~3.40402.0"
     },
     "tool-avrdude": {
       "type": "uploader",

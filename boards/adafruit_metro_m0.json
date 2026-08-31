@@ -31,7 +31,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Adafruit Metro M0 Expresss",
+  "name": "Adafruit Metro M0 Express",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,

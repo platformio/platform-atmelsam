@@ -39,6 +39,7 @@
     "maximum_ram_size": 98304,
     "maximum_size": 524288,
     "native_usb": true,
+    "offset_address": "0x80000",
     "protocol": "sam-ba",
     "protocols": [
       "sam-ba",

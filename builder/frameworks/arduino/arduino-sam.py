@@ -24,6 +24,8 @@ http://arduino.cc/en/Reference/HomePage
 
 import os
 
+from arduino_common import get_variants_dir
+
 from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
@@ -40,7 +42,7 @@ SYSTEM_DIR = os.path.join(FRAMEWORK_DIR, "system")
 assert os.path.isdir(SYSTEM_DIR)
 assert os.path.isdir(FRAMEWORK_DIR)
 
-env.SConscript("arduino-common.py")
+env.SConscript("arduino_common.py")
 
 env.Append(
     CPPDEFINES=[
@@ -71,9 +73,7 @@ env.Append(
 libs = []
 
 if "build.variant" in board:
-    variants_dir = os.path.join(
-        "$PROJECT_DIR", board.get("build.variants_dir")) if board.get(
-            "build.variants_dir", "") else os.path.join(FRAMEWORK_DIR, "variants")
+    variants_dir = get_variants_dir()
     env.Append(
         CPPPATH=[
             os.path.join(variants_dir, board.get("build.variant"))
