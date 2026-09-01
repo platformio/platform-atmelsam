@@ -1,0 +1,38 @@
+{
+  "name": "EnviroDIY Stonefly",
+  "url": "https://www.envirodiy.org/",
+  "vendor": "EnviroDIY",
+  "platforms": ["atmelsam"],
+  "frameworks": ["arduino"],
+  "build": {
+    "arduino": { "ldscript": "flash_with_bootloader.ld" },
+    "core": "adafruit",
+    "cpu": "cortex-m4",
+    "extra_flags": ["-D__SAMD51N19A__", "-D__SAMD51__", "-D__FPU_PRESENT", "-DARM_MATH_CM4", "-DENVIRODIY_STONEFLY", "-DSD_CHIP_SELECT_MODE=1", "-DENABLE_SERIAL2", "-DENABLE_SERIAL3", "-DENVIRODIY_STONEFLY_M4", "-DENABLE_CACHE"],
+    "f_cpu": "120000000L",
+    "hwids": [["0x03EB", "0x2402"]],
+    "mcu": "samd51n19a",
+    "system": "samd",
+    "usb_product": "EnviroDIY Stonefly",
+    "variant": "stonefly_m4",
+    "variant_pkg": "envirodiy"
+  },
+  "upload": {
+    "disable_flushing": true,
+    "native_usb": true,
+    "protocol": "sam-ba",
+    "protocols": ["sam-ba", "jlink", "atmel-ice"],
+    "require_upload_port": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true,
+    "maximum_ram_size": 196608,
+    "maximum_size": 507904,
+    "offset_address": "0x4000"
+  },
+  "debug": {
+    "jlink_device": "samd51n19a",
+    "openocd_chipname": "SAMD51N19A",
+    "openocd_target": "atsame5x",
+    "svd_path": "SAMD51N19A.svd"
+  }
+}
