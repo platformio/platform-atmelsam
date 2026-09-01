@@ -44,14 +44,23 @@ assert os.path.isdir(FRAMEWORK_DIR)
 
 
 def get_variants_dir():
-    if "build.variants_dir" not in board:
+    if "build.variants_dir" not in board and "build.variant_pkg" not in board:
         return os.path.join(FRAMEWORK_DIR, "variants")
+    if "build.variants_dir" in board:
+            if os.path.isabs(env.subst(board.get("build.variants_dir"))):
+                return board.get("build.variants_dir", "")
 
-    if os.path.isabs(env.subst(board.get("build.variants_dir"))):
-        return board.get("build.variants_dir", "")
+            return os.path.join("$PROJECT_DIR", board.get("build.variants_dir"))
 
-    return os.path.join("$PROJECT_DIR", board.get("build.variants_dir"))
-
+    elif board.get("build.variant_pkg", ""):
+        full_variant_pkg = (
+            "framework-arduino-"
+            + MCU_FAMILY
+            + "-%s" % board.get("build.variant_pkg").lower()
+        )
+        return os.path.join(
+            platform.get_package_dir(full_variant_pkg), "variants"
+        )
 
 machine_flags = [
     "-mcpu=%s" % board.get("build.cpu"),

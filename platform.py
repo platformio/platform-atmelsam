@@ -49,18 +49,31 @@ class AtmelsamPlatform(PlatformBase):
         ).lower()
 
         if "arduino" in variables.get("pioframework", []):
-            framework_package = "framework-arduino-%s" % (
+            framework_mcu = (
                 "sam" if board.get("build.mcu", "").startswith("at91") else "samd"
             )
+            framework_package = "framework-arduino-%s" % (framework_mcu)
 
             if build_core != "arduino":
                 framework_package += "-" + build_core
+
+            variant_package = (
+                "framework-arduino-%s-%s"
+                % (
+                    framework_mcu,
+                    board.get("build.variant_pkg", ""),
+                )
+                if board.get("build.variant_pkg", "")
+                else None
+            )
 
             self.frameworks["arduino"]["package"] = framework_package
             if not board.get("build.mcu", "").startswith("samd"):
                 self.packages["framework-arduino-sam"]["optional"] = True
             if framework_package in self.packages:
                 self.packages[framework_package]["optional"] = False
+            if variant_package and variant_package in self.packages:
+                self.packages[variant_package]["optional"] = False
             self.packages["framework-cmsis"]["optional"] = False
             self.packages["framework-cmsis-atmel"]["optional"] = False
             if build_core in ("tuino0", "reprap"):
