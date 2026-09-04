@@ -69,7 +69,12 @@ class AtmelsamPlatform(PlatformBase):
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90301.0"
             if build_core in ("adafruit", "seeed"):
                 self.packages["framework-cmsis"]["version"] = "~2.50400.0"
-
+            if build_core == "telit":
+                self.packages["toolchain-gccarmnoneeabi"][
+                    "version"] = "~1.70201.0"
+                self.packages["tool-bossac"]["version"] = "~1.10700.0"
+                self.packages["framework-cmsis"]["version"] = "~1.40500.0"
+                self.packages["framework-cmsis-atmel"]["version"] = "~1.2.0"
         if (
             board.get("build.core", "") in ("adafruit", "seeed", "sparkfun")
             and "tool-bossac" in self.packages
