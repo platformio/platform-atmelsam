@@ -21,10 +21,10 @@ Copyright (c) 2017 Microchip Technology Inc.
         xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
    <vendor>Microchip Technology</vendor>
    <vendorID>MCHP</vendorID>
-   <name>ATSAMD51P20A</name>
+   <name>ATSAMD51J18A</name>
    <series>SAMD51</series>
    <version>0</version>
-   <description>Microchip ATSAMD51P20A Microcontroller</description>
+   <description>Microchip ATSAMD51J18A Microcontroller</description>
    <cpu>
       <name>CM4</name>
       <revision>r0p1</revision>
@@ -5937,7 +5937,7 @@ Copyright (c) 2017 Microchip Technology Inc.
                <addressOffset>0x18</addressOffset>
                <size>32</size>
                <access>read-only</access>
-               <resetValue>0x60060200</resetValue>
+               <resetValue>0x60060206</resetValue>
                <fields>
                   <field>
                      <name>DEVSEL</name>
@@ -10290,12 +10290,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SDHC1_</name>
-                     <description>SDHC1 AHB Clock Mask</description>
-                     <bitOffset>16</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>ICM_</name>
                      <description>ICM AHB Clock Mask</description>
                      <bitOffset>19</bitOffset>
@@ -10608,33 +10602,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6 APB Clock Enable</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7 APB Clock Enable</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4 APB Clock Enable</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6 APB Clock Enable</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7 APB Clock Enable</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -13409,12 +13379,6 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SDHC1_</name>
-                     <description>SDHC1</description>
-                     <bitOffset>13</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>QSPI_</name>
                      <description>QSPI</description>
                      <bitOffset>14</bitOffset>
@@ -13721,33 +13685,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -14085,33 +14025,9 @@ Copyright (c) 2017 Microchip Technology Inc.
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
-                     <name>SERCOM6_</name>
-                     <description>SERCOM6 APB Protect Enable</description>
-                     <bitOffset>2</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>SERCOM7_</name>
-                     <description>SERCOM7 APB Protect Enable</description>
-                     <bitOffset>3</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
                      <name>TCC4_</name>
                      <description>TCC4 APB Protect Enable</description>
                      <bitOffset>4</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC6_</name>
-                     <description>TC6 APB Protect Enable</description>
-                     <bitOffset>5</bitOffset>
-                     <bitWidth>1</bitWidth>
-                  </field>
-                  <field>
-                     <name>TC7_</name>
-                     <description>TC7 APB Protect Enable</description>
-                     <bitOffset>6</bitOffset>
                      <bitWidth>1</bitWidth>
                   </field>
                   <field>
@@ -15605,12 +15521,12 @@ Copyright (c) 2017 Microchip Technology Inc.
          <baseAddress>0x41008000</baseAddress>
          <addressBlock>
             <offset>0</offset>
-            <size>0x200</size>
+            <size>0x100</size>
             <usage>registers</usage>
          </addressBlock>
          <registers>
             <cluster>
-               <dim>4</dim>
+               <dim>2</dim>
                <dimIncrement>0x80</dimIncrement>
                <name>GROUP[%s]</name>
                <description/>
@@ -25888,14 +25804,6 @@ Copyright (c) 2017 Microchip Technology Inc.
             </register>
          </registers>
       </peripheral>
-      <peripheral derivedFrom="SDHC0">
-         <name>SDHC1</name>
-         <baseAddress>0x46000000</baseAddress>
-         <interrupt>
-            <name>SDHC1</name>
-            <value>136</value>
-         </interrupt>
-      </peripheral>
       <peripheral>
          <name>SERCOM0</name>
          <version>U22015.0.0</version>
@@ -30155,46 +30063,6 @@ Copyright (c) 2017 Microchip Technology Inc.
             <value>69</value>
          </interrupt>
       </peripheral>
-      <peripheral derivedFrom="SERCOM0">
-         <name>SERCOM6</name>
-         <baseAddress>0x43000800</baseAddress>
-         <interrupt>
-            <name>SERCOM6_0</name>
-            <value>70</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_1</name>
-            <value>71</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_2</name>
-            <value>72</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM6_OTHER</name>
-            <value>73</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="SERCOM0">
-         <name>SERCOM7</name>
-         <baseAddress>0x43000C00</baseAddress>
-         <interrupt>
-            <name>SERCOM7_0</name>
-            <value>74</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_1</name>
-            <value>75</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_2</name>
-            <value>76</value>
-         </interrupt>
-         <interrupt>
-            <name>SERCOM7_OTHER</name>
-            <value>77</value>
-         </interrupt>
-      </peripheral>
       <peripheral>
          <name>SUPC</name>
          <version>U24071.1.0</version>
@@ -33081,22 +32949,6 @@ Copyright (c) 2017 Microchip Technology Inc.
          <interrupt>
             <name>TC5</name>
             <value>112</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="TC0">
-         <name>TC6</name>
-         <baseAddress>0x43001400</baseAddress>
-         <interrupt>
-            <name>TC6</name>
-            <value>113</value>
-         </interrupt>
-      </peripheral>
-      <peripheral derivedFrom="TC0">
-         <name>TC7</name>
-         <baseAddress>0x43001800</baseAddress>
-         <interrupt>
-            <name>TC7</name>
-            <value>114</value>
          </interrupt>
       </peripheral>
       <peripheral>
