@@ -44,12 +44,21 @@ assert os.path.isdir(FRAMEWORK_DIR)
 
 
 def get_variants_dir():
+    # variants_dir is not specified in board.json file
+    # Use <framework>/variants as a default path
     if "build.variants_dir" not in board:
         return os.path.join(FRAMEWORK_DIR, "variants")
 
+    # Check if specified variants_dir exist as a package subdirectory to support custom packages installations
+    package_variants = os.path.join(platform.get_dir(), board.get("build.variants_dir"))
+    if os.path.isabs(package_variants):
+        return package_variants
+
+    # Check if the specified variants_dir exist as an absolute path on it's own
     if os.path.isabs(env.subst(board.get("build.variants_dir"))):
         return board.get("build.variants_dir", "")
 
+    # Last resort, use specified variants_dir as subdirectory in current project path
     return os.path.join("$PROJECT_DIR", board.get("build.variants_dir"))
 
 
