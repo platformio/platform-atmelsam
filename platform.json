@@ -55,6 +55,11 @@
       "owner": "platformio",
       "version": "~1.8.14"
     },
+    "framework-arduino-samd-5gnbiot": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/maxgerhardt/framework-arduino-samd-5gnbiot.git"
+    },
     "framework-arduino-samd-adafruit": {
       "type": "framework",
       "optional": true,
