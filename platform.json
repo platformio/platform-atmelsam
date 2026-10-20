@@ -97,6 +97,12 @@
       "owner": "platformio",
       "version": "~1.0.6"
     },
+    "framework-arduino-samd-envirodiy": {
+      "type": "framework",
+      "optional": true,
+      "owner": "envirodiy",
+      "version": "https://github.com/EnviroDIY/EnviroDIYSAMDBoards"
+    },
     "framework-cmsis": {
       "type": "framework",
       "optional": true,
