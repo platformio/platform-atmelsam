@@ -222,7 +222,11 @@ elif upload_protocol == "sam-ba":
         env.Append(
             UPLOADERFLAGS=[
             "-U", "--offset", board.get("upload.offset_address")])
-
+    elif board.get("build.core") == "industruino":
+        # special flags for the latest bossac tool
+        env.Append(
+            UPLOADERFLAGS=[
+            "-U", "--offset", board.get("upload.offset_address")])
     else:
         env.Append(UPLOADERFLAGS=[
             "--erase",

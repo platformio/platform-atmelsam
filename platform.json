@@ -61,6 +61,12 @@
       "owner": "platformio",
       "version": "~1.10716.0"
     },
+    "framework-arduino-samd-industruino": {
+      "type": "framework",
+      "optional": true,
+      "owner": "industruino",
+      "version": "https://github.com/kumajaya/IndustruinoSAMx"
+    },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,
@@ -112,7 +118,8 @@
       "owner": "platformio",
       "version": "~1.2.2",
       "optionalVersions": [
-        "~1.1.0"
+        "~1.1.0",
+        "https://github.com/kumajaya/ArduinoModule-CMSIS-Atmel"
       ]
     },
     "framework-zephyr": {
