@@ -61,6 +61,12 @@
       "owner": "platformio",
       "version": "~1.10716.0"
     },
+    "framework-arduino-samd-clearcore": {
+      "type": "framework",
+      "optional": true,
+      "owner": "patrickwasp",
+      "version": "https://github.com/patrickwasp/ClearCore-Arduino-wrapper"
+    },
     "framework-arduino-samd-seeed": {
       "type": "framework",
       "optional": true,
