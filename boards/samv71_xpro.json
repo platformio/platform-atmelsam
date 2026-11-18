@@ -1,0 +1,33 @@
+{
+    "build": {
+      "extra_flags": ["-mthumb",  "-mcpu=cortex-m7", "-mfloat-abi=softfp", "-mfpu=fpv5-sp-d16", "-DBOARD=SAMV71_XPLAINED_ULTRA", "-DARM_MATH_CM7=true", "-D__SAMV71Q21B__",  "-Wl,--entry=Reset_Handler"],
+      "cpu": "cortex-m7",
+      "f_cpu": "300000000L",
+      "mcu": "samv71q21b",
+      "ldscript": "flash.ld" 
+    },
+    "debug": {
+      "jlink_device": "ATSAMV71Q21B",
+      "onboard_tools": [
+        "cmsis-dap"
+      ],
+      "openocd_chipname": "samv71",
+      "openocd_target": "atsamv",
+      "svd_path": "ATSAMV71Q21B.svd"
+    },
+    "frameworks": [],
+    "name": "Atmel SAMV71-XPRO",
+    "upload": {
+      "maximum_ram_size": 384000,
+      "maximum_size": 2048000,
+      "offset_address": "0x00400000",
+      "protocol": "cmsis-dap",
+      "protocols": [
+        "cmsis-dap",
+        "jlink",
+        "atmel-ice"
+      ]
+    },
+    "url": "https://www.microchip.com/en-us/development-tool/atsamv71-xult",
+    "vendor": "Atmel"
+}
